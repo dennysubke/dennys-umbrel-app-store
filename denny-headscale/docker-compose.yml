@@ -1,21 +1,69 @@
 version: '3.7'
-
 services:
+
+  app_proxy:
+    depends_on:
+      - traefik
+    environment:
+      APP_HOST: denny-headscale_traefik_1
+      APP_PORT: 80
+      PROXY_AUTH_ADD: 'false'
+
   headscale:
-    image: headscale/headscale:v0.24@sha256:2a2dcc9fef8f6e520a096743b668e3fd5df06ae422298c808c4e934a78764860
-    container_name: headscale
+    # https://github.com/juanfont/headscale/pkgs/container/headscale/versions
+    image: >-
+      ghcr.io/juanfont/headscale:v0.26@sha256:7e6439473c299cde05ff9215fe4e2ae9d83361504876fac0eb8e10f55128838d
     volumes:
-      - ${APP_DATA_DIR}/config:/etc/headscale
-      - ${APP_DATA_DIR}/data:/var/lib/headscale
-    ports:
-      - "27896:8080"
+      - '${APP_DATA_DIR}/config:/etc/headscale'
+      - '${APP_DATA_DIR}/lib:/var/lib/headscale'
+      - '${APP_DATA_DIR}/run:/var/run/headscale'
     command: serve
     restart: on-failure
+    labels:
+      - traefik.enable=true
+      - >-
+        traefik.http.routers.headscale-rtr.rule=Host(`${UMBREL_HOST}`) &&
+        PathPrefix(`/`)
+      - traefik.http.services.headscale-svc.loadbalancer.server.port=8080
 
-  headscale-ui:
-    image: ghcr.io/gurucomputing/headscale-ui:2025.01.20@sha256:dda8534d5bde03b35b5bd11def3409938ec265d08c431c43294632573a2f3ae3
-    container_name: headscale-ui
-    ports:
-      - "8543:8443"  
-      - "8383:8080" 
+  headscale_ui:
+    depends_on:
+      - headscale
+    # https://github.com/gurucomputing/headscale-ui/pkgs/container/headscale-ui/versions
+    image: >-
+      ghcr.io/gurucomputing/headscale-ui:2025.05.22@sha256:d5c7d1522e08c04fde00108100602500cc7ed0b52d4adc3a0ef7cea4ffad3e55
     restart: on-failure
+    labels:
+      - traefik.enable=true
+      - >-
+        traefik.http.routers.headscale-ui-rtr.rule=Host(`${UMBREL_HOST}`) &&
+        PathPrefix(`/web`)
+      - traefik.http.services.headscale-ui-svc.loadbalancer.server.port=8080
+
+  headscale_admin:
+    depends_on:
+      - headscale
+    # https://hub.docker.com/r/goodieshq/headscale-admin/tags
+    image: >-
+      goodieshq/headscale-admin:0.25.6@sha256:d57c1d0e160f5a8aa3082e819050a43c0cd81b572e71da9b1e0cd499d18b48c1
+    restart: on-failure
+    labels:
+      - traefik.enable=true
+      - >-
+        traefik.http.routers.headscale-admin-rtr.rule=Host(`${UMBREL_HOST}`) &&
+        PathPrefix(`/admin`)
+      - traefik.http.services.headscale-admin-svc.loadbalancer.server.port=80
+
+  traefik:
+    # https://hub.docker.com/_/traefik/tags
+    image: >-
+      traefik:v3.4.1@sha256:cd40ab7bc1f047731d5b22595203812343efcb6538014c4e93221cfc3a77217a
+    restart: on-failure
+    command:
+      - '--api.insecure=true'
+      - '--providers.docker'
+      - '--entrypoints.web.address=:80'
+      - '--entrypoints.websecure.address=:443'
+      - '--global.sendAnonymousUsage=false'
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock:ro'

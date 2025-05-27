@@ -4,8 +4,8 @@ name: Headscale
 tagline: An open-source, self-hosted VPN solution built with WireGuard
 icon: https://i.imgur.com/OVtGI7Y.png
 category: In Progress
-version: "0.24.0"
-port: 8383
+version: "0.26.0"
+port: 37070
 description: >-
   Headscale is an open-source, self-hosted VPN solution that empowers users to take full control over their private networks. Designed as a modern alternative to commercial VPN services, Headscale is built on the reliable and high-performance WireGuard protocol, which ensures fast, secure, and efficient connections between devices. Unlike traditional VPN services that rely on third-party infrastructure, Headscale allows you to host your own VPN server, giving you complete autonomy over your network’s privacy, security, and scalability.
 
@@ -20,10 +20,15 @@ description: >-
 
 
   In summary, Headscale offers a powerful and accessible way to set up and manage a self-hosted WireGuard VPN. It puts security and privacy back in the hands of the user, making it the ideal choice for anyone looking for a reliable, flexible, and fully self-hosted VPN solution. Whether you are an individual looking to secure personal connections or an organization in need of a scalable private network, Headscale provides the tools to get the job done with simplicity and efficiency.
+
+
+  ⚠️ Make sure to go through setup steps after installing Supabase:
+  https://github.com/dennysubke/dennys-umbrel-app-store/blob/master/denny-headscale/README.md
+
 developer: Juan Font
 website: https://headscale.net/
-submitter: dennysubke
-submission: https://github.com/getumbrel/umbrel-apps/pull/
+submitter: dennysubke & starfreck
+submission: https://github.com/getumbrel/umbrel-apps/pull/9
 repo: https://github.com/juanfont/headscale
 support: https://github.com/juanfont/headscale/issues
 gallery:
