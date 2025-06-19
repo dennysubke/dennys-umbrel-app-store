@@ -4,7 +4,7 @@ name: Docmost
 tagline: An collaborative wiki and documentation software
 icon: https://i.imgur.com/qKOMBHh.png
 category: files & productivity
-version: "0.20.4"
+version: "0.21"
 port: 8941
 description: >-
   Docmost is an open source collaborative documentation and knowledge management platform designed to help teams create and maintain structured content together. It serves as a modern alternative to tools like Notion and Confluence with a strong focus on real time collaboration and ease of use.
