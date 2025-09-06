@@ -7,7 +7,7 @@ services:
       APP_PORT: 9001
       PROXY_AUTH_ADD: "false"
   web:
-    image: dennysubke/cobalt:11.4.2@sha256:70277cdaf98ac52be5e22696f452bac4d12ce1ab514aeea5f5bcf6bc67b111ae
+    image: dennysubke/cobalt:11.4.3@sha256:b5913825212d581015e7ee3b0ebb508398b497b033b036f15c949934e0bbd44b
     read_only: true
     restart: on-failure
     user: "1000:1000"
@@ -17,5 +17,3 @@ services:
       API_URL: "http://umbrel-2.local:9013/"
       API_AUTH_REQUIRED: 0
       DURATION_LIMIT: 86400
-
-
