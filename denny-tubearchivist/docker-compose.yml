@@ -45,9 +45,5 @@ services:
       - ES_JAVA_OPTS=-Xms1g -Xmx1g
       - xpack.security.enabled=true
       - discovery.type=single-node
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
     volumes:
       - ${APP_DATA_DIR}/data/es:/usr/share/elasticsearch/data:rw
