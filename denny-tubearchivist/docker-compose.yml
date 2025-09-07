@@ -35,7 +35,7 @@ services:
 
   es:
     image: bbilly1/tubearchivist-es:8.18.2
-    user: "1000:1000"
+    user: "1000:0"
     restart: on-failure
     environment:
       - ELASTIC_PASSWORD=tubearchivistpass
