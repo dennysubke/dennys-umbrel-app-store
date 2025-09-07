@@ -14,8 +14,7 @@ services:
       - REDIS_CON=redis://redis:6379
       - HOST_UID=1000
       - HOST_GID=1000
-      - TA_HOST=denny-tubearchivist_app_1
-      - TA_PORT=8000
+      - TA_HOST=http://denny-tubearchivist_app_1
       - TA_USERNAME=admin
       - TA_PASSWORD=umbrel
       - ELASTIC_PASSWORD=tubearchivistpass
