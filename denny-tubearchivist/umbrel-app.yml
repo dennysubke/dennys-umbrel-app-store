@@ -5,7 +5,7 @@ tagline: A task manager that respects your privacy
 icon: icon.png
 category: test
 version: "0.2.0"
-port: 6686
+port: 8686
 description: >-
   TaskTrove is a modern task management application designed to help people organize their daily work and personal projects with clarity and efficiency. It provides a clean and intuitive interface where tasks can be quickly added, edited, and managed. The application supports natural language input so due dates, reminders, and scheduling details can be written in everyday language and immediately transformed into structured information. Tasks can be grouped into projects and further refined with labels, subtasks, and recurring patterns, making it easy to manage both simple to do lists and more complex workflows.
 
