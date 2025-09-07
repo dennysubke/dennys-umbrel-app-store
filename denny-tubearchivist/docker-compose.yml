@@ -1,0 +1,47 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-tubearchivist_app_1
+      APP_PORT: 8000
+
+  app:
+    image: bbilly1/tubearchivist:latest
+    restart: on-failure
+    environment:
+      - REDIS_CON=redis://redis:6379
+      - HOST_UID=1000
+      - HOST_GID=1000
+      - TA_HOST=http://denny-tubearchivist_app_1
+      - TA_USERNAME=admin
+      - TA_PASSWORD=umbrel
+      - ELASTIC_PASSWORD=tubearchivistpass
+      - TZ=Europe/Berlin
+    volumes:
+      - ${APP_DATA_DIR}/data/media:/youtube:rw
+      - ${APP_DATA_DIR}/data/cache:/cache:rw
+    depends_on:
+      - es
+      - redis
+
+  redis:
+    image: redis:7.2.6
+    restart: on-failure
+    environment:
+      - TZ=Europe/Berlin
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data:rw
+
+  es:
+    image: elastic/elasticsearch:8.14.3
+    user: "1000:1000"
+    restart: on-failure
+    environment:
+      - ELASTIC_PASSWORD=tubearchivistpass
+      - ES_JAVA_OPTS=-Xms1g -Xmx1g
+      - xpack.security.enabled=true
+      - discovery.type=single-node
+      - TZ=Europe/Berlin
+    volumes:
+      - ${APP_DATA_DIR}/data/es:/usr/share/elasticsearch/data:rw
