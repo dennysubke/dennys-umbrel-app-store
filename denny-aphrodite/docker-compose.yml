@@ -1,0 +1,86 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-aphrodite_app_1
+      APP_PORT: 8000
+      
+  app:
+    image: ghcr.io/jackkerouac/aphrodite:latest
+    restart: on-failure
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: aphrodite
+      POSTGRES_USER: aphrodite
+      POSTGRES_PASSWORD: postgrespassword
+      DATABASE_URL: postgresql+asyncpg://aphrodite:postgrespassword@postgres:5432/aphrodite
+      REDIS_URL: redis://redis:6379/0
+      API_HOST: 0.0.0.0
+      API_PORT: 8000
+      ENVIRONMENT: production
+      SECRET_KEY: 2f8c7e4a3b6d9f12c4a5d7e8f9b0c1d2
+      ALLOWED_HOSTS: *
+      CORS_ORIGINS: *
+      LOG_LEVEL: info
+      LOG_FILE_PATH: /app/logs/aphrodite-v2.log
+      DEBUG: false
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/1
+      ENABLE_BACKGROUND_JOBS: true
+      JELLYFIN_URL: ""
+      JELLYFIN_API_KEY: ""
+      JELLYFIN_USER_ID: ""
+    volumes:
+      - ${APP_DATA_DIR}/data/aphrodite:/app/data
+      - ${APP_DATA_DIR}/data/logs:/app/logs
+      - ${APP_DATA_DIR}/data/media:/app/media
+      - ${APP_DATA_DIR}/data/static:/app/api/static/originals
+    depends_on:
+      - postgres
+      - redis
+
+  postgres:
+    image: postgres:15-alpine
+    restart: on-failure
+    environment:
+      POSTGRES_DB: aphrodite
+      POSTGRES_USER: aphrodite
+      POSTGRES_PASSWORD: postgrespassword
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data
+
+  aphrodite-worker:
+    image: ghcr.io/jackkerouac/aphrodite:latest
+    restart: on-failure
+    command: ["python3", "-m", "celery", "-A", "celery_app", "worker", "--loglevel=info", "--pool=solo", "--concurrency=1"]
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_DB: aphrodite
+      POSTGRES_USER: aphrodite
+      POSTGRES_PASSWORD: postgrespassword
+      DATABASE_URL: postgresql+asyncpg://aphrodite:postgrespassword@postgres:5432/aphrodite
+      REDIS_URL: redis://redis:6379/0
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/1
+      ENVIRONMENT: production
+      SECRET_KEY: 2f8c7e4a3b6d9f12c4a5d7e8f9b0c1d2
+      LOG_LEVEL: info
+      LOG_FILE_PATH: /app/logs/aphrodite-v2.log
+      PYTHONPATH: /app
+    volumes:
+      - ${APP_DATA_DIR}/data/aphrodite:/app/data
+      - ${APP_DATA_DIR}/data/logs:/app/logs
+      - ${APP_DATA_DIR}/data/media:/app/media
+      - ${APP_DATA_DIR}/data/static:/app/api/static/originals
+    depends_on:
+      - postgres
+      - redis
+    working_dir: /app/api
