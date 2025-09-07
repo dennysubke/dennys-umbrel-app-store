@@ -1,49 +1,76 @@
-version: "3.7"
-
 services:
-  app_proxy:
+  es:
+    image: elastic/elasticsearch:8.14.3
+    container_name: TubeArchivist-ES
+    hostname: tubearchivist-es
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    security_opt:
+      - no-new-privileges:true
+      - seccomp:unconfined
+    healthcheck:
+      test: curl -s http://tubearchivist-es:9200 >/dev/null || exit 1
     environment:
-      APP_HOST: denny-tubearchivist_app_1
-      APP_PORT: 8770
-
-  app:
-    image: bbilly1/tubearchivist:latest
-    restart: on-failure
-    environment:
-      - ES_URL=http://es:9200
-      - REDIS_CON=redis://redis:6379
-      - HOST_UID=1000
-      - HOST_GID=1000
-      - TA_HOST=http://denny-tubearchivist_app_1
-      - TA_USERNAME=admin
-      - TA_PASSWORD=umbrel
+      - TZ=Europe/Bucharest
       - ELASTIC_PASSWORD=tubearchivistpass
-      - TZ=Europe/Berlin
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      - xpack.security.enabled=true
+      - discovery.type=single-node
+      - path.repo=/usr/share/elasticsearch/data/snapshot
     volumes:
-      - ${APP_DATA_DIR}/data/media:/youtube:rw
-      - ${APP_DATA_DIR}/data/cache:/cache:rw
-    depends_on:
-      - es
-      - redis
+      - /volume1/docker/tubearchivist/es:/usr/share/elasticsearch/data:rw
+    restart: on-failure:5
 
   redis:
     image: redis:7
-    restart: on-failure
+    container_name: TubeArchivist-REDIS
+    hostname: tubearchivist-redis
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli ping || exit 1"]
+    user: 1000:1000
     environment:
-      - TZ=Europe/Berlin
+      - TZ=Europe/Bucharest
     volumes:
-      - ${APP_DATA_DIR}/data/redis:/data:rw
+      - /volume1/docker/tubearchivist/redis:/data:rw
+    restart: on-failure:5
     depends_on:
-      - es
+      es:
+        condition: service_started
 
-  es:
-    image: elastic/elasticsearch:8.14.3
-    user: "1000:1000"
-    restart: on-failure
+  tubearchivist:
+    image: bbilly1/tubearchivist:latest
+    container_name: TubeArchivist
+    hostname: tubearchivist
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/8000' || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    ports:
+      - 8686:8000
     environment:
+      - TZ=Europe/Bucharest
+      - HOST_UID=1000
+      - HOST_GID=1000
+      - ES_URL=http://tubearchivist-es:9200
+      - TA_USERNAME=admin
+      - TA_PASSWORD=umbrel
+      - TA_HOST=http://umbrel-2.local:8686
+      - REDIS_CON=redis://redis:6379
       - ELASTIC_PASSWORD=tubearchivistpass
-      - ES_JAVA_OPTS=-Xms1g -Xmx1g
-      - xpack.security.enabled=true
-      - discovery.type=single-node
     volumes:
-      - ${APP_DATA_DIR}/data/es:/usr/share/elasticsearch/data:rw
+      - /volume1/docker/tubearchivist/media:/youtube:rw
+      - /volume1/docker/tubearchivist/cache:/cache:rw
+    restart: on-failure:5
+    depends_on:
+      es:
+        condition: service_started
+      redis:
+        condition: service_healthy
