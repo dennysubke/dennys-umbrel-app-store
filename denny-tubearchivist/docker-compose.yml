@@ -27,7 +27,7 @@ services:
       - redis
 
   redis:
-    image: redis
+    image: redis:7
     restart: on-failure
     volumes:
       - ${APP_DATA_DIR}/tubearchivist/redis:/data
