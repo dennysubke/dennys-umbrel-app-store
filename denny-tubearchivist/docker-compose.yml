@@ -26,7 +26,7 @@ services:
       
   es:
     image: elastic/elasticsearch:8.14.3
-    user: 0:0
+    user: 1000:1000
     ulimits:
       memlock:
         soft: -1
