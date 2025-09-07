@@ -3,16 +3,22 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: denny-booklore_web_1
+      APP_HOST: web
       APP_PORT: 6060
-      
+    depends_on:
+      web:
+        condition: service_started
+    restart: unless-stopped
+
   web:
-    image: booklore/booklore:v0.38.0@sha256:48d4cacd5961436a02b938dbb4f5b17bc4f9dd5ff3c8803170d268051088b9e4
+    image: booklore/booklore:latest
     restart: on-failure
     environment:
       DATABASE_URL: jdbc:mariadb://db:3306/booklore
       DATABASE_USERNAME: bookloreuser
       DATABASE_PASSWORD: booklorepass
+      BOOKLORE_PORT: "6060"
+      SWAGGER_ENABLED: "false"
     depends_on:
       db:
         condition: service_started
@@ -21,12 +27,17 @@ services:
       - ${APP_DATA_DIR}/data/books:/books
 
   db:
-    image: mariadb:12.0.2@sha256:b30cc65b57a11a2e791ad5c06284e599fe9f1bf3fe9081a88d85bcf36389be4a
-    restart: on-failure
+    image: mariadb:12.0.2
     environment:
       MARIADB_DATABASE: booklore
       MARIADB_USER: bookloreuser
       MARIADB_PASSWORD: booklorepass
       MARIADB_ROOT_PASSWORD: rootpass
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 --silent || mariadb-admin ping -h 127.0.0.1 --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
     volumes:
       - ${APP_DATA_DIR}/data/db:/var/lib/mysql
+    restart: on-failure
