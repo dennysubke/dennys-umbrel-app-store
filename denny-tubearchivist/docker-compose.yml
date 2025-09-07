@@ -4,7 +4,7 @@ services:
   app_proxy:
     environment:
       APP_HOST: denny-tubearchivist_app_1
-      APP_PORT: 8000
+      APP_PORT: 8770
 
   app:
     image: bbilly1/tubearchivist:latest
