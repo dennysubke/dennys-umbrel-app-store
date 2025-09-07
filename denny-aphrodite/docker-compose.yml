@@ -21,8 +21,8 @@ services:
       API_PORT: 8000
       ENVIRONMENT: production
       SECRET_KEY: 2f8c7e4a3b6d9f12c4a5d7e8f9b0c1d2
-      ALLOWED_HOSTS: *
-      CORS_ORIGINS: *
+      ALLOWED_HOSTS: "*"
+      CORS_ORIGINS: "*"
       LOG_LEVEL: info
       LOG_FILE_PATH: /app/logs/aphrodite-v2.log
       DEBUG: false
