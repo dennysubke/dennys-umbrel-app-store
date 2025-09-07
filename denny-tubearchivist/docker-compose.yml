@@ -10,7 +10,6 @@ services:
     image: bbilly1/tubearchivist:latest
     restart: on-failure
     environment:
-      - ES_URL=http://es:9200
       - REDIS_CON=redis://redis:6379
       - HOST_UID=1000
       - HOST_GID=1000
