@@ -8,6 +8,7 @@ services:
 
   app:
     image: bbilly1/tubearchivist:latest
+    user: 1000:1000
     environment:
       - ES_URL=http://tubearchivist-es:9200
       - TA_USERNAME=admin
@@ -25,6 +26,7 @@ services:
       
   es:
     image: elastic/elasticsearch:8.14.3
+    user: 1000:1000
     ulimits:
       memlock:
         soft: -1
@@ -41,6 +43,7 @@ services:
 
   redis:
     image: redis:7
+    user: 1000:1000
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data:rw
     restart: on-failure
