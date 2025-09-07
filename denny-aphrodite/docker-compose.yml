@@ -58,7 +58,7 @@ services:
       - ${APP_DATA_DIR}/data/redis:/data
 
   aphrodite-worker:
-    image: ghcr.io/jackkerouac/aphrodite:latest
+    image: ghcr.io/jackkerouac/aphrodite:v4.1.3
     restart: on-failure
     command: ["python3", "-m", "celery", "-A", "celery_app", "worker", "--loglevel=info", "--pool=solo", "--concurrency=1"]
     environment:
