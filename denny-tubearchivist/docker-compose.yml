@@ -23,16 +23,23 @@ services:
       - ${APP_DATA_DIR}/data/media:/youtube:rw
       - ${APP_DATA_DIR}/data/cache:/cache:rw
     depends_on:
-      - es
-      - redis
+      es:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
 
   redis:
-    image: redis:7
+    image: redis:7.2.6
     restart: on-failure
     environment:
       - TZ=Europe/Berlin
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data:rw
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   es:
     image: elastic/elasticsearch:8.14.3
@@ -43,5 +50,11 @@ services:
       - ES_JAVA_OPTS=-Xms1g -Xmx1g
       - xpack.security.enabled=true
       - discovery.type=single-node
+      - TZ=Europe/Berlin
     volumes:
       - ${APP_DATA_DIR}/data/es:/usr/share/elasticsearch/data:rw
+    healthcheck:
+      test: ["CMD-SHELL", "curl -u elastic:tubearchivistpass -s http://localhost:9200/_cluster/health | grep '\"status\":\"green\"' || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
