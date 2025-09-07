@@ -8,16 +8,7 @@ services:
 
   app:
     image: bbilly1/tubearchivist:latest
-    healthcheck:
-      test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/8000' || exit 1
-      interval: 10s
-      timeout: 5s
-      retries: 3
-      start_period: 90s
     environment:
-      - TZ=Europe/Berlin
-      - HOST_UID=1000
-      - HOST_GID=1000
       - ES_URL=http://tubearchivist-es:9200
       - TA_USERNAME=admin
       - TA_PASSWORD=umbrel
@@ -29,20 +20,16 @@ services:
       - ${APP_DATA_DIR}/data/cache:/cache:rw
     restart: on-failure
     depends_on:
-      es:
-        condition: service_started
-      redis:
-        condition: service_healthy
+      - es
+      - redis
+      
   es:
     image: elastic/elasticsearch:8.14.3
     ulimits:
       memlock:
         soft: -1
         hard: -1
-    healthcheck:
-      test: curl -s http://tubearchivist-es:9200 >/dev/null || exit 1
     environment:
-      - TZ=Europe/Berlin
       - ELASTIC_PASSWORD=tubearchivistpass
       - ES_JAVA_OPTS=-Xms512m -Xmx512m
       - xpack.security.enabled=true
@@ -54,14 +41,8 @@ services:
 
   redis:
     image: redis:7
-    healthcheck:
-      test: ["CMD-SHELL", "redis-cli ping || exit 1"]
-    user: 1000:1000
-    environment:
-      - TZ=Europe/Berlin
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data:rw
     restart: on-failure
     depends_on:
-      es:
-        condition: service_started
+      - es
