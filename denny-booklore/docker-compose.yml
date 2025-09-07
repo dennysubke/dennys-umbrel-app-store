@@ -17,6 +17,7 @@ services:
       DATABASE_URL: jdbc:mariadb://db:3306/booklore
       DATABASE_USERNAME: bookloreuser
       DATABASE_PASSWORD: booklorepass
+      SERVER_PORT: "6060"
       BOOKLORE_PORT: "6060"
       SWAGGER_ENABLED: "false"
     depends_on:
