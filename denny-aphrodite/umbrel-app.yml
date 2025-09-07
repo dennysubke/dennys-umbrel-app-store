@@ -1,30 +1,33 @@
 manifestVersion: 1
 id: denny-aphrodite
 name: Aphrodite
-tagline: A task manager that respects your privacy
+tagline: A dynamic badge generator for media posters
 icon: icon.png
-category: test
-version: "0.2.0"
+category: media
+version: "4.1.3"
 port: 8723
 description: >-
-  TaskTrove is a modern task management application designed to help people organize their daily work and personal projects with clarity and efficiency. It provides a clean and intuitive interface where tasks can be quickly added, edited, and managed. The application supports natural language input so due dates, reminders, and scheduling details can be written in everyday language and immediately transformed into structured information. Tasks can be grouped into projects and further refined with labels, subtasks, and recurring patterns, making it easy to manage both simple to do lists and more complex workflows.
+  👸 Aphrodite is an application designed to enhance the visual presentation of movie and TV show posters by automatically adding informative badges. The main function of the app is to analyze each media file and generate badges that convey essential details about the content. These badges provide information such as video resolution, audio formats, ratings from popular platforms, and notable awards. By overlaying this information directly onto the posters, Aphrodite allows viewers to quickly understand the quality and characteristics of each title without the need to access additional metadata or menus.
 
 
-  TaskTrove offers multiple ways to view and interact with tasks including a traditional list view, a compact view for dense overviews, and a Kanban style board that is especially useful for visual organization and progress tracking. Searching and filtering are central features, allowing users to focus only on what is relevant at a given moment without losing sight of the bigger picture. Upcoming additions such as calendar integration and analytical tools extend its ability to provide insights into productivity and time management.
+  The application focuses on improving both clarity and aesthetics. The badges are designed to be visually appealing while still clearly communicating important information. This approach makes it easier for users to browse through their media collection and make decisions about what to watch based on quality indicators or other key attributes.
 
 
-  The application is built with privacy in mind and avoids unnecessary tracking or telemetry. It encourages a personal and distraction free workflow where the user stays in full control of their information. Its flexibility makes it suitable for different styles of productivity whether that means a simple checklist for everyday errands or a structured system for managing multiple projects at once.
-developer: Mushroom Theory Inc.
-website: https://tasktrove.io/
+  Beyond simply displaying technical details, Aphrodite helps create a more organized and informative media library. It emphasizes accessibility of information at a glance, allowing users to instantly recognize which content meets their preferences for resolution, audio quality, or critically acclaimed status. The result is a media collection that is not only easier to navigate but also more engaging to explore visually.
+
+
+  Overall, Aphrodite transforms standard posters into rich, informative visual summaries, making the browsing experience more intuitive and enjoyable.
+developer: Jack Kerouac
+website: https://github.com/jackkerouac/aphrodite
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
-repo: https://github.com/dohsimpson/TaskTrove
-support: https://github.com/dohsimpson/TaskTrove/issues
+repo: https://github.com/jackkerouac/aphrodite
+support: https://github.com/jackkerouac/aphrodite/issues
 gallery:
   - 1.jpg
 releaseNotes: >-
-  This update adds new natural language shortcuts for today and tomorrow, introduces a comprehensive settings dialog with UI improvements, and enhances drag and drop with shadow effects and collapsed section support. It also fixes a bug affecting kanban board drag and drop between sections.
+  Aphrodite v4.1.3 fixes authentication issues with the TMDB awards system by updating API calls to use Bearer tokens instead of legacy URL parameters. This ensures that users with TMDB Read Access Tokens can properly retrieve award information for media posters.
 dependencies: []
 path: ""
-defaultUsername: "admin"
-defaultPassword: "umbrel"
+defaultUsername: ""
+defaultPassword: ""
