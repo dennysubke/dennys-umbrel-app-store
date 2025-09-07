@@ -7,45 +7,78 @@ services:
       APP_PORT: 8000
 
   app:
-    image: bbilly1/tubearchivist
-    restart: on-failure
-    volumes:
-      - ${APP_DATA_DIR}/tubearchivist/media:/youtube
-      - ${APP_DATA_DIR}/tubearchivist/cache:/cache
+    image: bbilly1/tubearchivist:latest
+    container_name: TubeArchivist
+    hostname: tubearchivist
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/8000' || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    ports:
+      - 8770:8000
     environment:
-      - ES_URL=http://archivist-es:9200
-      - REDIS_CON=redis://archivist-redis:6379
-      - HOST_UID=1000
-      - HOST_GID=1000
-      - TA_HOST=http://tubearchivist.local:8000
-      - TA_USERNAME=tubearchivist
-      - TA_PASSWORD=verysecret
-      - ELASTIC_PASSWORD=verysecret
-      - TZ=Europe/Berlin
-    depends_on:
-      - es
-      - redis
-
-  redis:
-    image: redis:7
-    restart: on-failure
+      - TZ=Europe/Bucharest
+      - HOST_UID=1026
+      - HOST_GID=100
+      - ES_URL=http://tubearchivist-es:9200
+      - TA_USERNAME=admin
+      - TA_PASSWORD=umbrel
+      - TA_HOST=http://${DEVICE_DOMAIN_NAME}:1111
+      - REDIS_CON=redis://redis:6379
+      - ELASTIC_PASSWORD=tubearchivistpass
     volumes:
-      - ${APP_DATA_DIR}/tubearchivist/redis:/data
+      - /volume1/docker/tubearchivist/media:/youtube:rw
+      - /volume1/docker/tubearchivist/cache:/cache:rw
+    restart: on-failure:5
     depends_on:
-      - es
-
+      es:
+        condition: service_started
+      redis:
+        condition: service_healthy
   es:
-    image: bbilly1/tubearchivist-es
-    restart: on-failure
-    environment:
-      - ELASTIC_PASSWORD=verysecret
-      - ES_JAVA_OPTS=-Xms1g -Xmx1g
-      - xpack.security.enabled=true
-      - discovery.type=single-node
-      - path.repo=/usr/share/elasticsearch/data/snapshot
+    image: elastic/elasticsearch:8.14.3
+    container_name: TubeArchivist-ES
+    hostname: tubearchivist-es
     ulimits:
       memlock:
         soft: -1
         hard: -1
+    security_opt:
+      - no-new-privileges:true
+      - seccomp:unconfined
+    healthcheck:
+      test: curl -s http://tubearchivist-es:9200 >/dev/null || exit 1
+    environment:
+      - TZ=Europe/Bucharest
+      - ELASTIC_PASSWORD=tubearchivistpass
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      - xpack.security.enabled=true
+      - discovery.type=single-node
+      - path.repo=/usr/share/elasticsearch/data/snapshot
     volumes:
-      - ${APP_DATA_DIR}/tubearchivist/es:/usr/share/elasticsearch/data
+      - /volume1/docker/tubearchivist/es:/usr/share/elasticsearch/data:rw
+    restart: on-failure:5
+
+  redis:
+    image: redis:7
+    container_name: TubeArchivist-REDIS
+    hostname: tubearchivist-redis
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli ping || exit 1"]
+    user: 1026:100
+    environment:
+      - TZ=Europe/Bucharest
+    volumes:
+      - /volume1/docker/tubearchivist/redis:/data:rw
+    restart: on-failure:5
+    depends_on:
+      es:
+        condition: service_started
+
+
