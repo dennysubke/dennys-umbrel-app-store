@@ -8,42 +8,46 @@ services:
 
   app:
     image: bbilly1/tubearchivist:latest
-    user: 0:0
+    restart: on-failure
     environment:
-      - ES_URL=http://tubearchivist-es:9200
+      - ES_URL=http://es:9200
+      - REDIS_CON=redis://redis:6379
+      - HOST_UID=1000
+      - HOST_GID=1000
+      - TA_HOST=http://${DEVICE_DOMAIN_NAME}:8686
       - TA_USERNAME=admin
       - TA_PASSWORD=umbrel
-      - TA_HOST=http://${DEVICE_DOMAIN_NAME}:8686
-      - REDIS_CON=redis://redis:6379
       - ELASTIC_PASSWORD=tubearchivistpass
+      - TZ=Europe/Berlin
     volumes:
       - ${APP_DATA_DIR}/data/media:/youtube:rw
       - ${APP_DATA_DIR}/data/cache:/cache:rw
-    restart: on-failure
     depends_on:
       - es
       - redis
-      
+
+  redis:
+    image: redis:7
+    restart: on-failure
+    environment:
+      - TZ=Europe/Berlin
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data:rw
+    depends_on:
+      - es
+
   es:
     image: elastic/elasticsearch:8.14.3
+    user: "1000:1000"
+    restart: on-failure
+    environment:
+      - ELASTIC_PASSWORD=tubearchivistpass
+      - ES_JAVA_OPTS=-Xms1g -Xmx1g
+      - xpack.security.enabled=true
+      - discovery.type=single-node
     ulimits:
       memlock:
         soft: -1
         hard: -1
-    environment:
-      - ELASTIC_PASSWORD=tubearchivistpass
-      - ES_JAVA_OPTS=-Xms512m -Xmx512m
-      - xpack.security.enabled=true
-      - discovery.type=single-node
-      - path.repo=/usr/share/elasticsearch/data/snapshot
     volumes:
       - ${APP_DATA_DIR}/data/es:/usr/share/elasticsearch/data:rw
-    restart: on-failure
-
-  redis:
-    image: redis:7
-    volumes:
-      - ${APP_DATA_DIR}/data/redis:/data:rw
-    restart: on-failure
-    depends_on:
-      - es
