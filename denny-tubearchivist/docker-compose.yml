@@ -34,7 +34,7 @@ services:
       - ${APP_DATA_DIR}/data/redis:/data:rw
 
   es:
-    image: elastic/elasticsearch:8.14.3
+    image: bbilly1/tubearchivist-es:8.18.2
     user: "1000:1000"
     restart: on-failure
     environment:
