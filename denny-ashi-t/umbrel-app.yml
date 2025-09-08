@@ -2,8 +2,8 @@ manifestVersion: 1
 id: denny-ashi-t
 name: Ashigaru Terminal
 tagline: A non-custodial client boosting transaction anonymity
-icon: icon.png
-category: test
+icon: https://i.imgur.com/CY6QvjL.png
+category: bitcoin
 version: "1.0.0"
 port: 7682
 description: >-
@@ -27,7 +27,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/TheNymMan/Ashi-T
 support: https://github.com/TheNymMan/Ashi-T/issues
 gallery:
-  - 1.jpg
+  - https://i.imgur.com/3CWbfZL.png
+  - https://i.imgur.com/YOwj38G.png
+  - https://i.imgur.com/0Vk4F7Q.png
+  - https://i.imgur.com/y5JeZF2.png
+  - https://i.imgur.com/HSp160R.png
 releaseNotes: >-
   First release of the Ashigaru Terminal built from Sparrow Wallet v1.8.4. The GUI has been removed in favor of a user-friendly terminal interface familiar to Sparrow Server users. 
   
