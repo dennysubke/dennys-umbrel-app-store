@@ -22,7 +22,7 @@ description: >-
   Overall Ashigaru Terminal acts as a dedicated privacy tool for individuals who want direct access to Whirlpool without added complexity. It balances simplicity of use with strong guarantees of control and anonymity, allowing users to strengthen the confidentiality of their Bitcoin transactions through an efficient and transparent mixing process.
 developer: Ashigaru Open Source Project
 website: https://ashigaru.rs/news/release-terminal-v1-0-0/
-submitter: dennysubke
+submitter: TheNymMan
 submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/TheNymMan/Ashi-T
 support: https://github.com/TheNymMan/Ashi-T/issues
