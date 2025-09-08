@@ -4,7 +4,7 @@ name: BookLore
 tagline: An app for managing and reading books
 icon: https://i.imgur.com/d42NVXk.png
 category: files & productivity
-version: "0.38.0"
+version: "1.2.1"
 port: 6060
 description: >-
   📖 BookLore is a modern web application created to transform the way digital libraries are managed and experienced. It is designed for readers who want to bring order and beauty to their collection of books and comics while also making them instantly accessible. Instead of leaving files scattered across folders, BookLore gathers them into a central library that can be explored and enjoyed directly through the browser. It provides a seamless reading environment where organization, discovery, and enjoyment flow together.
@@ -49,16 +49,13 @@ gallery:
   - https://i.imgur.com/FhBfuOf.png
   - https://i.imgur.com/PGLf2QI.png
 releaseNotes: >-
-  The v0.38.0 release of BookLore introduces the highly requested Kobo book sync and transfer feature, allowing users to seamlessly integrate their Kobo eReaders with their BookLore libraries. Each user now has a dedicated Kobo shelf with two-way sync, so adding or removing books on either platform is instantly reflected.
+  The v1.2.1 update for Booklore fixes critical issues, including database lockouts caused by duplicate files, and improves file permission management in Docker. Users can now set USER_ID and GROUP_ID to ensure proper ownership of files, preventing previous permission problems.
 
 
-  The update also revamps OIDC authentication for smarter initialization and improved error handling. Web-socket connections are now restricted to the initiating user, and library paths are automatically set when only one option is available, simplifying the user experience.
+  A new feature, the “Books Finished per Month” heatmap, has been added to help track reading habits over time. Additional enhancements improve UX, such as expanding menu item clickable areas and preventing race conditions in file operations.
 
 
-  Several bugs were fixed, including issues with the spoiler button alignment, cover lock in the metadata editor, and crashes in the Bookdrop import workflow.
-
-
-  Additionally, the release includes refinements and refactoring to improve stability and performance, such as better handling of Bookdrop results, optimized book processing, and safer exposure of public app settings.
+  Several bug fixes address multi-book review dialogs, sidebar filter state on mobile, and rule evaluation in Magic Shelf. The update also includes maintenance and Docker Compose adjustments for smoother operation.
 dependencies: []
 path: ""
 defaultUsername: ""
