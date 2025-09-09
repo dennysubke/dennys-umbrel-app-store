@@ -20,6 +20,24 @@ description: >-
 
 
   Overall Ashigaru Terminal acts as a dedicated privacy tool for individuals who want direct access to Whirlpool without added complexity. It balances simplicity of use with strong guarantees of control and anonymity, allowing users to strengthen the confidentiality of their Bitcoin transactions through an efficient and transparent mixing process.
+
+
+  ⚙️ To paste content into the web terminal use 'Ctrl+Shift+V' on Windows or Linux, or 'Cmd+Shift+V' on macOS. In LibreWolf or Tor Browser, it may be necessary to disable 'resistFingerprinting' for the web terminal to function properly. Alternatively, you can use a Chromium-based browser such as Brave. To connect to an Electrum server over Tor within Ashigaru Terminal, enter the server’s .onion address, select the correct Electrum port, and enable the proxy with the address 127.0.0.1 and port 9050.  
+
+
+  Please note that updates may not retain existing wallets. Always back up your seed phrase securely, especially before upgrading or migrating.  
+
+
+  Ashigaru Terminal is designed to be used in combination with the Ashigaru Mobile App. The only official website is 'ashigaru.rs'. Any other sites are fraudulent, as are individuals claiming to represent Ashigaru on social media – Ashigaru has no social media presence. Always act responsibly and in compliance with the law. The developers do not assume any responsibility for your actions. Do your own research and make informed decisions.  
+
+
+ ℹ️ For learning resources on the Ashigaru stack, you may find the following helpful:
+
+ 
+ - https://www.youtube.com/watch?v=aykJ4eP-Veo  
+ - https://www.youtube.com/watch?v=ULZoPMCYPfk  
+ - https://ashigaru.rs/docs/ashigaru-terminal-overview/  
+ - https://k3tan.com/ashigaru-whirlpool/  
 developer: Ashigaru Open Source Project
 website: https://ashigaru.rs/news/release-terminal-v1-0-0/
 submitter: TheNymMan
