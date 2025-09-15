@@ -6,6 +6,9 @@ version: "139.0.4"
 tagline: A free and open-source web browser
 icon: https://i.imgur.com/FbUqrpL.png
 description: >-
+  ⚠️ This app was removed from the official Umbrel App Store because it was disabled as there are no more updates that work without HTTPS.
+  
+  
   Get the browser that protects what is important.
 
 
