@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-firefox_server_1
+      APP_PORT: 3000
+
+  server:
+    image: linuxserver/firefox:139.0.4@sha256:01c090309f63bc619a1df80bf14fdc87cb6fd922d956da48a968a60ab5a0df6d
+    restart: on-failure
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config
+    shm_size: "1gb"
