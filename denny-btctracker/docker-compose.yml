@@ -7,7 +7,7 @@ services:
       APP_PORT: 3000
 
   web:
-    image: dennysubke/btc-tracker:v0.6.0@sha256:aa55f48202236bf10a94907daa56ac37c95c367c54f12a2e87ba65bd306bee49
+    image: dennysubke/btc-tracker:v0.5.3@sha256:d9964edbf4259129949c73fbb374b8075de19c16f20d162e39a084d141a50614
     user: 1000:1000
     environment:
       - NODE_ENV=development
@@ -15,5 +15,6 @@ services:
     restart: on-failure
     volumes:
       - ${APP_DATA_DIR}/data:/app/src/data
+
 
 
