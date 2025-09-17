@@ -1,0 +1,39 @@
+manifestVersion: 1
+id: denny-cloudcmd
+name: Cloud Commander
+tagline: A file manager for the web
+icon: https://i.imgur.com/Bh0R7Bt.png
+category: test
+version: "19.0.5"
+port: 8631
+description: >-
+  ☁️ Cloud Commander is a web based file manager that allows users to interact with their files through a browser in a clean and intuitive way. It is designed around a dual panel layout that places two directories side by side, making it easy to move files, compare folder contents, and organize data without unnecessary steps. The interface feels familiar to anyone who has used a traditional desktop file manager but adds the convenience of accessibility through a single application.
+
+
+  At its core, the application supports all common file operations such as creating new directories, copying and moving items between folders, renaming files, and removing content that is no longer needed. It can also handle more advanced tasks like packing files into archives and unpacking compressed formats including zip and tar. These features make it not just a viewer but a full replacement for manual file handling.
+
+
+  Beyond file management, Cloud Commander integrates additional tools that extend its capabilities. It includes a built in text editor with syntax highlighting that allows direct modification of code or configuration files. Multiple editor options are available, giving flexibility in how content is displayed and manipulated. This removes the need to download files to a separate program and streamlines quick edits directly where the data resides.
+
+
+  Another key feature is the built in console. This terminal environment enables execution of commands alongside file operations, combining graphical navigation with command line control. Users can run scripts, manage processes, or interact with the system without switching to another tool. The editor, console, and file manager work together seamlessly, creating a unified environment that blends usability with power.
+
+
+  Overall, Cloud Commander provides a complete solution for working with files, editing content, and running commands in one place. It emphasizes efficiency, flexibility, and simplicity, making file management both approachable and powerful for a wide range of tasks.
+developer: coderaiser
+website: https://cloudcmd.io/
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/coderaiser/cloudcmd
+support: https://github.com/coderaiser/cloudcmd/issues
+gallery:
+  - 1.jpg
+releaseNotes: >-
+  In Version 19.0.5 of Cloud Commander a bug with client listeners was fixed by stopping event propagation. 
+  
+  
+  Additionally the release introduces the new feature Aleman v1.12.4.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
