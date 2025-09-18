@@ -15,6 +15,6 @@ services:
       - PORT=3000
       - DATABASE_URL=file:/app/data/bitcoin-tracker.db
       - NEXTAUTH_SECRET=${APP_SEED}
-      - NEXTAUTH_URL=http://${DEVICE_DOMAIN_NAME}:1111
+      - NEXTAUTH_URL=http://${DEVICE_DOMAIN_NAME}:3947
     volumes:
       - ${APP_DATA_DIR}/data:/app/data
