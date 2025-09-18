@@ -4,7 +4,7 @@ name: BTC Tracker
 tagline: A simple, privacy-focused Bitcoin investment tracker
 icon: https://i.imgur.com/lyPIvkw.png
 category: bitcoin
-version: "0.5.3"
+version: "0.6.0"
 port: 3947
 description: >-
   BTC Tracker is a user-friendly yet powerful application designed for managing and analyzing Bitcoin investments. It was created to offer a privacy-focused and straightforward alternative to existing tracking tools, which are often cluttered with unnecessary features, complicated to set up, or designed for managing large, diversified portfolios. Many of those tools require connections to external services and the sharing of sensitive information such as wallet addresses or transaction histories.
@@ -35,13 +35,31 @@ gallery:
   - https://i.imgur.com/LqKllvs.png
   - https://i.imgur.com/dbhGiAI.png
 releaseNotes: >-
-  The latest release brings Lightning Network support for faster, low-fee Bitcoin donations and major improvements to the currency system, including better logging, caching, and error handling. 
-  
-  
-  The UI/UX has been polished with modal styling, dropdown fixes, and mobile enhancements, while charts now feature Yahoo Finance data, a time slider, and comparison tools. 
-  
-  
-  Additional updates include Bitcoin-themed validation messages, BRL currency support, more reliable testing, and overall performance, logging, and startup fixes.
+  This release includes several new features and improvements:
+    - Complete rewrite with migration to Next.js 15  
+    - Switched from JSON to SQLite + Prisma ORM  
+    - Removed Electron for a web-first approach  
+    - Full TypeScript integration  
+    - React 18 with Server Components  
+    - Styling with Tailwind CSS  
+    - CSV import with automatic format detection (Kraken, Binance, Coinbase, Strike)  
+    - Advanced charts with TradingView Lightweight Charts  
+    - Interactive candlestick, line, and area charts  
+    - Transaction markers with P&L visualization  
+    - Real-time price updates  
+    - Multi-user support with secure authentication  
+    - Admin panel for user and system management  
+    - First user automatically becomes admin  
+    - New analytics dashboard with monthly breakdowns and performance metrics  
+    - Improved profile pages with avatar support and PIN login  
+    - Advanced portfolio analytics with win/loss rates and holding period analysis  
+    - NextAuth.js for secure authentication  
+    - Improved session management  
+    - Secure API routes with middleware protection  
+    - Enhanced multi-currency support  
+    - Better exchange rate caching  
+    - Custom currency management  
+    - Automatic exchange rate updates
 dependencies:
 path: ""
 defaultUsername: ""
