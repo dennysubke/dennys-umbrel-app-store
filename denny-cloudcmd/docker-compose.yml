@@ -10,7 +10,7 @@ services:
     image: ghcr.io/coderaiser/cloudcmd:19.0.5@sha256:a915fd94c678e16303658055f4557af0a6aa3caebf1a4d40ea58074e444c284e
     restart: on-failure
     volumes:
-      - ${APP_DATA_DIR}/data:/root
-      - /:/mnt/fs
+      - /root:/root
+      - /:/srv
     environment:
       - NODE_ENV=production
