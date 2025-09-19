@@ -37,9 +37,7 @@ gallery:
   - https://i.imgur.com/Ulq71y0.png
   - https://i.imgur.com/M7p3CbA.png
 releaseNotes: >-
-  🚨 Breaking Change
-
-  The app now uses SQLite instead of JSON files for data storage. This change is not backward compatible. Please export your transactions from the old version, update the app, register, and then reimport your data.
+  🚨 Breaking Change: The app now uses SQLite instead of JSON files for data storage. This change is not backward compatible. Please export your transactions from the old version, update the app, register, and then reimport your data.
   
   
   This release includes several new features and improvements:    
