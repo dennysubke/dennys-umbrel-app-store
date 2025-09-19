@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-btctracker
 name: BTC Tracker
 tagline: A simple, privacy-focused Bitcoin investment tracker
-icon: https://i.imgur.com/lyPIvkw.png
+icon: https://i.imgur.com/Tck4EWR.png
 category: bitcoin
 version: "0.6.0"
 port: 3947
@@ -30,10 +30,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/wilqq-the/BTC-Tracker
 support: https://github.com/wilqq-the/BTC-Tracker/issues
 gallery:
-  - https://i.imgur.com/GU0E4U2.png
-  - https://i.imgur.com/kictNJi.png
-  - https://i.imgur.com/LqKllvs.png
-  - https://i.imgur.com/dbhGiAI.png
+  - https://i.imgur.com/tA6Qd9W.png
+  - https://i.imgur.com/1NJqn0T.png
+  - https://i.imgur.com/dh3nibZ.png
+  - https://i.imgur.com/AvHFmsz.png
+  - https://i.imgur.com/Ulq71y0.png
+  - https://i.imgur.com/M7p3CbA.png
 releaseNotes: >-
   This release includes several new features and improvements:
     - Complete rewrite with migration to Next.js 15  
