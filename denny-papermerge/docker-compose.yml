@@ -20,9 +20,6 @@ services:
 
   web:
     <<: *common
-    container_name: Papermerge-WEB
-    ports:
-      - 12000:80
     depends_on:
       - redis
       - db
@@ -30,14 +27,12 @@ services:
   worker:
     <<: *common
     command: worker
-    container_name: Papermerge-WORKER
     depends_on:
       - redis
       - db
 
   redis:
-    image: redis:7
-    container_name: Papermerge-REDIS
+    image: redis:8.2.1@sha256:acb90ced0bd769b7c04cb4c32c4494ba7b3e0ee068bdbfff0eeb0d31c2a21078
     security_opt:
       - no-new-privileges:true
     volumes:
@@ -45,7 +40,6 @@ services:
 
   db:
     image: bitnami/postgresql:16.1.0@sha256:087f154f6c6ac96694e8a1858fbab4fb962fb8703277fa1b61e05f2871e1ba68
-    container_name: Papermerge-DB
     environment:
       POSTGRESQL_USER: papermergeuser
       POSTGRESQL_PASSWORD: papermergepass
