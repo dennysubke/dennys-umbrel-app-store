@@ -3,18 +3,14 @@ version: "3.7"
 x-backend: &common
   image: papermerge/papermerge:3.4@sha256:92da72960b56a178c8642df431b9afb42dcb3a82cb482b584c1a7d33e96530e3
   environment:
-    PAPERMERGE__SECURITY__SECRET_KEY: moneyprintergobrrr123
-    PAPERMERGE__AUTH__USERNAME: admin
-    PAPERMERGE__AUTH__PASSWORD: umbrel
-    PAPERMERGE__REDIS__URL: redis://redis:6379/0
-    PAPERMERGE__DB__TYPE: postgres
-    PAPERMERGE__DB__NAME: papermerge
-    PAPERMERGE__DB__USER: papermerge
-    PAPERMERGE__DB__PASSWORD: supersecret
-    PAPERMERGE__DB__HOST: db
+      PAPERMERGE__SECURITY__SECRET_KEY: moneyprintergobrrr123
+      PAPERMERGE__AUTH__USERNAME: admin
+      PAPERMERGE__AUTH__PASSWORD: umbrel
+      PAPERMERGE__REDIS__URL: redis://redis:6379/0
   volumes:
-    - ${APP_DATA_DIR}/data/index_db:/core_app/index_db
-    - ${APP_DATA_DIR}/data/media:/core_app/media
+      - ${APP_DATA_DIR}/data/db:/db
+      - ${APP_DATA_DIR}/data/index_db:/core_app/index_db
+      - ${APP_DATA_DIR}/data/media:/core_app/media
   restart: on-failure
 
 services:
@@ -22,29 +18,17 @@ services:
     <<: *common
     depends_on:
       - redis
-      - db
 
   worker:
     <<: *common
-    command: celery -A papermerge worker -l info
+    command: worker
     depends_on:
       - redis
-      - db
 
   redis:
     image: redis:6@sha256:5884377fe315cd533c9221a2b2cafd620fc1f5a06f2d9503496f255409603901
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
-    restart: on-failure
-
-  db:
-    image: postgres:14@sha256:41b6ac4159d73139b94c6e4136bfe729835f5a229b1539b03e313a8c4ee8d2c5
-    environment:
-      POSTGRES_DB: papermerge
-      POSTGRES_USER: papermerge
-      POSTGRES_PASSWORD: supersecret
-    volumes:
-      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
     restart: on-failure
 
   app_proxy:
