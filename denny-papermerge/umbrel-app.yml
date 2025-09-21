@@ -4,7 +4,7 @@ name: Papermerge
 tagline: An open-source document management system for digital archives
 icon: https://i.imgur.com/abbsu0Z.png
 category: files & productivity
-version: "3.4"
+version: "3.5.3"
 port: 12000
 description: >-
   📑 Papermerge is a powerful open-source document management system (DMS) tailored to the needs of individuals, small teams, or organizations seeking a streamlined way to manage large volumes of scanned documents and PDFs. Unlike traditional file management systems that rely heavily on folder structures, Papermerge leverages Optical Character Recognition (OCR) to extract text from scanned documents, transforming them into fully searchable content. This enables users to find information within images and PDFs quickly, reducing the time spent manually browsing through physical or digital files.
@@ -34,7 +34,10 @@ gallery:
   - https://i.imgur.com/VsNibDV.png
   - https://i.imgur.com/BrbyqyJ.png
 releaseNotes: >-
-  In version 3.4, Papermerge updated the pyproject.toml for compatibility with Poetry 2.0. It introduced alphabetically sorted dropdowns for document types and custom fields, added column sorting and filtering for document types, custom fields, and tags, and fixed several issues, including a bug in "view by document type" and problems with deleting tags and nodes. Additionally, UX improvements were made, such as better notification messages for CRUD operations and a feature for Macintosh users to open documents in another panel using the Alt key.
+  Version 3.5.3 introduces asynchronous REST API and database operations for improved performance, adds NOT NULL constraints for home/inbox folders at the database level, and features a user-friendly RoleForm as a tree of checkboxes. 
+  
+  
+  It also updates the auth-server to version 1.1.5 and includes dependency updates via Dependabot.
 dependencies:
 path: ""
 defaultUsername: "admin"
