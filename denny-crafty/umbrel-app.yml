@@ -4,7 +4,7 @@ name: Crafty Controller
 tagline: An intuitive way to automate and manage your Minecraft server with ease
 icon: https://i.imgur.com/S9pJOPi.png
 category: gaming
-version: "4.5.3"
+version: "4.5.4"
 port: 18443
 description: >-
   ⛏️ Crafty Controller is an open-source, web-based interface designed to manage and control Crafty Bots, which are used for automating and managing Minecraft servers. Crafty itself is a bot framework that allows administrators to automate various tasks on Minecraft servers, from running tests to managing in-game events, controlling server settings, and much more. Crafty Controller provides a centralized platform where administrators can monitor and control these bots from one place.
@@ -39,10 +39,7 @@ gallery:
   - https://i.imgur.com/8cTkoj9.png
   - https://i.imgur.com/DnwgLOR.png
 releaseNotes: >-
-  In version 4.5.3, the Bedrock update was refactored to properly use import_helper download_threaded_bedrock_server. 
-  
-  
-  Additionally, a bug in the garbage collection logic was fixed that mistakenly deleted downloaded files instead of only temporary directories.
+  In version 4.5.4, the Refactor upload chunk was removed to ensure file operations are asynchronous.
 dependencies:
 path: "https://umbrel.local:18443"
 defaultUsername: "admin"
