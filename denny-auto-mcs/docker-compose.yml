@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-auto-mcs_app_1
+      APP_PORT: 8080
+
+  app:
+    image: macarooniman/auto-mcs:latest
+    command: [
+      "auto-mcs-ttyd",
+      "-W",
+      "-t", "disableLeaveAlert=true",
+      "-t", "titleFixed=auto-mcs (docker)",
+      "-t", "fontSize=20",
+      "-t", "theme={\"background\": \"#1A1A1A\"}",
+      "-p", "8080",
+      "-c", "root:auto-mcs",
+      "tmux", "-u", "-2", "new", "-A", "-s", "-c",
+      "./auto-mcs"
+    ]
+    stdin_open: true
+    tty: true
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/data:/root/.auto-mcs
+    ports:
+      - "7001:7001"
+      - "25565:25565"
