@@ -5,6 +5,7 @@ services:
     environment:
       APP_HOST: denny-gotify_app_1
       APP_PORT: 80
+      PROXY_AUTH_WHITELIST: "/message,/stream,/health"
 
   app:
     image: ghcr.io/gotify/server:2.6.3@sha256:dfbee7fc4701b300936a24b01d24620b4d62e405204c71fd749a63abfb9b4ec4
@@ -14,3 +15,4 @@ services:
       GOTIFY_DEFAULTUSER_PASS: umbrel
     volumes:
       - ${APP_DATA_DIR}/data/gotify_data:/app/data
+
