@@ -43,9 +43,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/NeoRazorX/facturascripts
 support: https://facturascripts.com/contacto
 gallery:
-  - https://i.imgur.com/UfgHlLy.png
-  - https://i.imgur.com/UfgHlLy.png
-  - https://i.imgur.com/UfgHlLy.png
+  - https://i.imgur.com/WeGXejv.png
+  - https://i.imgur.com/xUVSQqG.png
+  - https://i.imgur.com/QN1XT7I.png
+  - https://i.imgur.com/hZttO2Q.png
+  - https://i.imgur.com/jHxK5ky.png
+  - https://i.imgur.com/Bm11lgA.png
 releaseNotes: >-
   Version 2025.4 introduces fixes for image and file widgets, improving overall stability and usability.
 dependencies: []
