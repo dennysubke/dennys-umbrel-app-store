@@ -10,9 +10,10 @@ services:
     image: facturascripts/facturascripts:latest
     restart: on-failure
     environment:
-      - DB_HOST=mysql
-      - DB_USER=admin
-      - DB_PASS=umbrel
+      DB_HOST: mysql
+      DB_USER: facturascripts
+      DB_PASS: mypassword
+      DB_NAME: facturascripts
     volumes:
       - ${APP_DATA_DIR}/data/facturascripts:/var/www/html
     depends_on:
@@ -24,11 +25,12 @@ services:
     restart: on-failure
     environment:
       MYSQL_ROOT_PASSWORD: mypassword
+      MYSQL_DATABASE: facturascripts
+      MYSQL_USER: facturascripts
+      MYSQL_PASSWORD: mypassword
     volumes:
       - ${APP_DATA_DIR}/data/mysql:/var/lib/mysql
 
   adminer:
     image: adminer
     restart: on-failure
-    ports:
-      - 8775:8080
