@@ -30,7 +30,7 @@ services:
       APP_ENV: production
       APP_NAME: Coolify
       APP_DEBUG: "false"
-      APP_URL: http://umbrel.local:8015
+      APP_URL: http://umbrel-2.local:8015
       # Gültigen Laravel-Key in .env setzen (z.B. base64:…)
       APP_KEY: base64:changeme
 
