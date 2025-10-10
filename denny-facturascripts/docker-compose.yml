@@ -7,7 +7,7 @@ services:
       APP_PORT: 80
 
   web:
-    image: facturascripts/facturascripts:latest
+    image: facturascripts/facturascripts:2025.4@sha256:3fbd577300192f4b66fccd2b7a829bf71809ea184399d709c016fd4c6d6caef1
     restart: on-failure
     environment:
       DB_HOST: mysql
@@ -20,7 +20,7 @@ services:
       - mysql
 
   mysql:
-    image: mysql:8.0
+    image: mysql:9.4.0@sha256:91447968e66961302339ec4dc4d385f5e1a957d98e63c7d52ecf8b1de0907346
     command: --default-authentication-plugin=mysql_native_password
     restart: on-failure
     environment:
@@ -32,5 +32,5 @@ services:
       - ${APP_DATA_DIR}/data/mysql:/var/lib/mysql
 
   adminer:
-    image: adminer
+    image: adminer:5.4.0@sha256:606d5f153ef9013aab5647000a528fbf56345ebe9bb994387f9bcf9f9cc0603b
     restart: on-failure
