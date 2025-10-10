@@ -39,7 +39,7 @@ gallery:
   - https://i.imgur.com/8cTkoj9.png
   - https://i.imgur.com/DnwgLOR.png
 releaseNotes: >-
-  In version 4.5.4, the Refactor upload chunk was removed to ensure file operations are asynchronous.
+  Version 4.5.4 fixes bugs by refactoring the upload process to ensure asynchronous file operations. It also removes all third-party font requests.
 dependencies:
 path: "https://umbrel.local:18443"
 defaultUsername: "admin"
