@@ -20,7 +20,7 @@ services:
       - mysql
 
   mysql:
-    image: mysql:8.0
+    image: mysql:8.0@sha256:4a8843ef1c30d30937dea3cba5b72665bae17051af7a72b1651f3b7681f76aee
     command: --default-authentication-plugin=mysql_native_password
     restart: on-failure
     environment:
