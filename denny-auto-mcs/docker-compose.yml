@@ -7,12 +7,12 @@ services:
       APP_PORT: 8080
 
   app:
-    image: macarooniman/auto-mcs:latest
+    image: macarooniman/auto-mcs:2.3.4@sha256:d6c47811dbd1c6d5dfd399820e1fafd77ba0dbb71be3693af55c9312a64d2f26
     command: [
       "auto-mcs-ttyd",
       "-W",
       "-t", "disableLeaveAlert=true",
-      "-t", "titleFixed=auto-mcs (docker)",
+      "-t", "titleFixed=auto-mcs",
       "-t", "fontSize=20",
       "-t", "theme={\"background\": \"#1A1A1A\"}",
       "-p", "8080",
