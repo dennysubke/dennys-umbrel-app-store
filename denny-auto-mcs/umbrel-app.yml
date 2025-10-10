@@ -7,7 +7,7 @@ category: gaming
 version: "2.3.4"
 port: 8439
 description: >-
-  Auto-MCS is an advanced management tool designed to simplify the creation and operation of Minecraft servers. It automates nearly every aspect of server setup, from downloading and configuring the required files to managing updates, backups, and plugins. The application allows users to deploy new servers within minutes while handling all the complex tasks such as version control, mod and plugin installation, and configuration management in the background.
+  ⛏️ Auto-MCS is an advanced management tool designed to simplify the creation and operation of Minecraft servers. It automates nearly every aspect of server setup, from downloading and configuring the required files to managing updates, backups, and plugins. The application allows users to deploy new servers within minutes while handling all the complex tasks such as version control, mod and plugin installation, and configuration management in the background.
 
 
   It offers integrated support for various Minecraft editions and mod loaders, making it possible to switch between different server types without manual reconfiguration. Auto-MCS also provides built-in tools for player management, world switching, and access control, ensuring that administrators can easily adjust settings or permissions as needed.
