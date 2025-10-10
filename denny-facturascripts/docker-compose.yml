@@ -30,5 +30,5 @@ services:
   adminer:
     image: adminer
     restart: on-failure
-    depends_on:
-      - mysql
+    ports:
+      - 8775:8080
