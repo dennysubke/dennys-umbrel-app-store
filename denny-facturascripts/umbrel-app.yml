@@ -7,7 +7,7 @@ category: In Progress
 version: "2025.4"
 port: 8774
 description: >-
-  FacturaScripts is an open-source business management software that combines accounting, invoicing, and ERP functions into one flexible platform. It helps companies create and manage invoices, quotes, purchase orders, and delivery notes while keeping track of clients, suppliers, and products in a unified system.
+  🏢 FacturaScripts is an open-source business management software that combines accounting, invoicing, and ERP functions into one flexible platform. It helps companies create and manage invoices, quotes, purchase orders, and delivery notes while keeping track of clients, suppliers, and products in a unified system.
 
 
   The application allows users to record expenses, monitor stock levels, and manage sales and purchases efficiently. It includes comprehensive accounting features such as ledgers, journal entries, and balance sheets, making it suitable for small and medium businesses that need reliable financial control.
