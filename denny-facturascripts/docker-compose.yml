@@ -11,8 +11,8 @@ services:
     restart: on-failure
     environment:
       - DB_HOST=mysql
-      - DB_USER=root
-      - DB_PASS=mypassword
+      - DB_USER=admin
+      - DB_PASS=umbrel
     volumes:
       - ${APP_DATA_DIR}/data/facturascripts:/var/www/html
     depends_on:
