@@ -1,0 +1,34 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-facturascripts_web_1
+      APP_PORT: 80
+
+  web:
+    image: facturascripts/facturascripts:latest
+    restart: on-failure
+    environment:
+      - DB_HOST=mysql
+      - DB_USER=root
+      - DB_PASS=mypassword
+    volumes:
+      - ${APP_DATA_DIR}/data/facturascripts:/var/www/html
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: mypassword
+    volumes:
+      - ${APP_DATA_DIR}/data/mysql:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    restart: on-failure
+    depends_on:
+      - mysql
