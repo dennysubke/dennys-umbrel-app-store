@@ -1,0 +1,46 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-coolify_web_1
+      APP_PORT: 8080
+
+  web:
+    image: coollabsio/coolify:latest
+    restart: on-failure
+    environment:
+      COOLIFY_APP_ID: coolify
+      COOLIFY_SECRET_KEY: 401a49063b516a93ac62a5dfdae969dd9189cae019dd0b1d7d9d7e8fd5db9269
+      APP_KEY: FLESjZzM6M2rd7T023CHSMGNQKegQBRUaZJY7wq4VCI=
+      DATABASE_URL: postgresql://coolify:coolifypass123@db:5432/coolify
+      COOLIFY_DATABASE_URL: postgresql://coolify:coolifypass123@db:5432/coolify
+      DB_CONNECTION: pgsql
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_DATABASE: coolify
+      DB_USERNAME: coolify
+      DB_PASSWORD: coolifypass123
+      COOLIFY_REDIS_URL: redis://redis:6379
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${APP_DATA_DIR}/data:/data
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: postgres:15
+    restart: on-failure
+    environment:
+      POSTGRES_USER: coolify
+      POSTGRES_PASSWORD: coolifypass123
+      POSTGRES_DB: coolify
+    volumes:
+      - ${APP_DATA_DIR}/db:/var/lib/postgresql/data
+
+  redis:
+    image: redis:alpine
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/redis:/data
