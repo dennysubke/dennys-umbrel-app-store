@@ -4,7 +4,7 @@ name: Auto-MCS
 tagline: A cross-platform Minecraft server manager
 icon: https://i.imgur.com/G9YaRia.png
 category: gaming
-version: "2.3.4"
+version: "2.3.3"
 port: 8439
 description: >-
   ⛏️ Auto-MCS is an advanced management tool designed to simplify the creation and operation of Minecraft servers. It automates nearly every aspect of server setup, from downloading and configuring the required files to managing updates, backups, and plugins. The application allows users to deploy new servers within minutes while handling all the complex tasks such as version control, mod and plugin installation, and configuration management in the background.
