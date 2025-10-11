@@ -21,6 +21,8 @@ services:
       DB_DATABASE: coolify
       DB_USERNAME: coolify
       DB_PASSWORD: coolifypass123
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
       COOLIFY_REDIS_URL: redis://redis:6379
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
