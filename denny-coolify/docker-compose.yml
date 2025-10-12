@@ -13,10 +13,14 @@ services:
     extra_hosts:
       - host.docker.internal:host-gateway
     depends_on:
-      - postgres
-      - redis
-      - soketi
-      - docker
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+      soketi:
+        condition: service_started
+      docker:
+        condition: service_started
     volumes:
       - ${APP_DATA_DIR}/data/docker:/data
     environment:
@@ -25,6 +29,12 @@ services:
       DATABASE_URL: postgres://coolify:coolify@postgres:5432/coolify
       REDIS_URL: redis://redis:6379
       DOCKER_HOST: unix:///data/docker.sock
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:3000/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 20
+      start_period: 60s
 
   docker:
     image: docker:28.0.4-dind@sha256:ddb0033088b4fab74881ade341a582e3c6c8021b82377703ba1a6106bd3ded44
@@ -55,6 +65,12 @@ services:
       POSTGRES_DB: coolify
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U coolify -d coolify -h 127.0.0.1 -p 5432"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 10s
 
   redis:
     image: redis:7-alpine
