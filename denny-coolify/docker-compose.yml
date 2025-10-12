@@ -1,13 +1,20 @@
 version: "3.7"
 
+networks:
+  appnet:
+
 services:
   app_proxy:
     environment:
       APP_HOST: denny-coolify_web_1
       APP_PORT: 3000
+    networks:
+      - appnet
 
   web:
     image: coollabsio/coolify:latest
+    container_name: denny-coolify_web_1
+    hostname: denny-coolify_web_1
     restart: always
     working_dir: /var/www/html
     extra_hosts:
@@ -24,18 +31,24 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/docker:/data
     environment:
-      APP_KEY: "base64:hCzKA/dhEu7OmwHefufYq5I1qkOqRVevLJLiYyeyXc4="
       COOLIFY_APP_PORT: 3000
       COOLIFY_HOSTED_ON: http://${DEVICE_DOMAIN_NAME}
       DATABASE_URL: postgres://coolify:coolify@postgres:5432/coolify
       REDIS_URL: redis://redis:6379
       DOCKER_HOST: unix:///data/docker.sock
+      APP_KEY: "base64:hCzKA/dhEu7OmwHefufYq5I1qkOqRVevLJLiYyeyXc4="
     healthcheck:
       test: ["CMD-SHELL", "wget -qO- http://localhost:3000/health || exit 1"]
       interval: 15s
       timeout: 5s
       retries: 20
       start_period: 60s
+    expose:
+      - "3000"          # macht Port im Docker-Netz sichtbar
+    networks:
+      appnet:
+        aliases:
+          - denny-coolify_web_1   # <- wichtiger Alias für DNS-Auflösung
 
   docker:
     image: docker:28.0.4-dind@sha256:ddb0033088b4fab74881ade341a582e3c6c8021b82377703ba1a6106bd3ded44
@@ -72,11 +85,13 @@ services:
       timeout: 5s
       retries: 30
       start_period: 10s
+    networks: [appnet]
 
   redis:
     image: redis:7-alpine
     restart: always
     command: redis-server --save "" --appendonly no --loglevel warning
+    networks: [appnet]
 
   soketi:
     image: quay.io/soketi/soketi:latest
@@ -86,3 +101,4 @@ services:
     environment:
       SOKETI_HOST: 0.0.0.0
       SOKETI_PORT: 6001
+    networks: [appnet]
