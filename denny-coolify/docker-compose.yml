@@ -3,7 +3,7 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: coolify
+      APP_HOST: denny-coolify_1
       APP_PORT: 3000
 
   coolify:
