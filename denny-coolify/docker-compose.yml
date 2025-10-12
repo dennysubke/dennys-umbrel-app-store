@@ -18,7 +18,6 @@ services:
       - soketi
       - docker
     volumes:
-      - ${APP_DATA_DIR}/data/coolify_data:/var/www/html
       - ${APP_DATA_DIR}/data/docker:/data
     environment:
       COOLIFY_APP_PORT: 3000
@@ -60,10 +59,13 @@ services:
   redis:
     image: redis:7-alpine
     restart: always
-    command: redis-server --save 20 1 --loglevel warning
+    command: redis-server --save "" --appendonly no --loglevel warning
 
   soketi:
     image: quay.io/soketi/soketi:latest
     restart: always
     extra_hosts:
       - host.docker.internal:host-gateway
+    environment:
+      SOKETI_HOST: 0.0.0.0
+      SOKETI_PORT: 6001
