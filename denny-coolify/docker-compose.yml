@@ -6,7 +6,7 @@ services:
       APP_HOST: denny-coolify_web_1
       APP_PORT: 8080
 
-   docker:
+  docker:
     image: docker:28.0.4-dind@sha256:ddb0033088b4fab74881ade341a582e3c6c8021b82377703ba1a6106bd3ded44
     privileged: true
     network_mode: host
