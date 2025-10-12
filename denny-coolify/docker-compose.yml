@@ -82,7 +82,7 @@ services:
     image: redis:alpine
     restart: on-failure
     volumes:
-      - ${APP_DATA_DIR}/redis:/data
+      - ${APP_DATA_DIR}/data/redis:/data
     command: ["redis-server", "--save", "60", "1", "--loglevel", "warning"]
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
