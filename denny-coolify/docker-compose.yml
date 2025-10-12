@@ -3,10 +3,10 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: denny-coolify_1
+      APP_HOST: denny-coolify_web_1
       APP_PORT: 3000
 
-  coolify:
+  web:
     image: coollabsio/coolify:latest
     restart: always
     working_dir: /var/www/html
