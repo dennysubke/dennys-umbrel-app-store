@@ -24,6 +24,7 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/docker:/data
     environment:
+      APP_KEY: base64:6H7m7r0b8z0p7m2Wc3y7O1r4Jg8w2N5y3n4p6q8u1t0s5r2v9x0z1a2b3c4d5e6f
       COOLIFY_APP_PORT: 3000
       COOLIFY_HOSTED_ON: http://${DEVICE_DOMAIN_NAME}
       DATABASE_URL: postgres://coolify:coolify@postgres:5432/coolify
