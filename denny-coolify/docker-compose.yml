@@ -3,12 +3,11 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: denny-coolify_coolify_1
+      APP_HOST: coolify
       APP_PORT: 3000
 
   coolify:
     image: coollabsio/coolify:latest
-    container_name: denny-coolify_coolify_1
     restart: always
     working_dir: /var/www/html
     extra_hosts:
@@ -19,18 +18,17 @@ services:
       - soketi
       - docker
     volumes:
-      - ${APP_DATA_DIR}/data:/var/www/html
+      - ${APP_DATA_DIR}/data/coolify_data:/var/www/html
       - ${APP_DATA_DIR}/data/docker:/data
     environment:
       COOLIFY_APP_PORT: 3000
-      COOLIFY_HOSTED_ON: http://umbrel.local
+      COOLIFY_HOSTED_ON: http://${DEVICE_DOMAIN_NAME}
       DATABASE_URL: postgres://coolify:coolify@postgres:5432/coolify
       REDIS_URL: redis://redis:6379
       DOCKER_HOST: unix:///data/docker.sock
 
   docker:
     image: docker:28.0.4-dind@sha256:ddb0033088b4fab74881ade341a582e3c6c8021b82377703ba1a6106bd3ded44
-    container_name: denny-coolify_docker_1
     privileged: true
     network_mode: host
     stop_grace_period: 1m
@@ -51,24 +49,21 @@ services:
 
   postgres:
     image: postgres:15-alpine
-    container_name: denny-coolify_postgres_1
     restart: always
     environment:
       POSTGRES_USER: coolify
       POSTGRES_PASSWORD: coolify
       POSTGRES_DB: coolify
     volumes:
-      - ${APP_DATA_DIR}/postgres:/var/lib/postgresql/data
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
 
   redis:
     image: redis:7-alpine
-    container_name: denny-coolify_redis_1
     restart: always
     command: redis-server --save 20 1 --loglevel warning
 
   soketi:
     image: quay.io/soketi/soketi:latest
-    container_name: denny-coolify_soketi_1
     restart: always
     extra_hosts:
       - host.docker.internal:host-gateway
