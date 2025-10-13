@@ -1,11 +1,13 @@
-version: "3.7"
+version: "3.9"
 
 services:
   app_proxy:
     environment:
-      APP_HOST: denny-coolify_web_1
-      APP_PORT: 8080
+      # Der Web-Container heißt unten "coolify" und lauscht intern auf Port 80
+      APP_HOST: dennyy-coolify_web_1
+      APP_PORT: 80
 
+  # Docker-in-Docker, damit Coolify NICHT den Host-Docker-Sock braucht
   docker:
     image: docker:28.0.4-dind@sha256:ddb0033088b4fab74881ade341a582e3c6c8021b82377703ba1a6106bd3ded44
     privileged: true
@@ -26,51 +28,69 @@ services:
       - ${APP_DATA_DIR}/entrypoint.sh:/entrypoint.sh
       - ${APP_DATA_DIR}/data/docker:/data
 
+  # Coolify Web
   web:
-    image: coollabsio/coolify:4.0.0-beta.434@sha256:39db8373628c340747cf6199f5873322d5d0a9b6617bad0ce5cf6895369a3a83
+    image: ghcr.io/coollabsio/coolify:${LATEST_IMAGE:-latest}
     restart: on-failure
     environment:
-      COOLIFY_APP_ID: coolify
+      # Minimal & notwendig
+      APP_ENV: production
+      APP_DEBUG: "false"
+      SELF_HOSTED: "true"
+
+      # Deine Schlüssel (so lassen):
       COOLIFY_SECRET_KEY: 401a49063b516a93ac62a5dfdae969dd9189cae019dd0b1d7d9d7e8fd5db9269
       APP_KEY: base64:FLESjZzM6M2rd7T023CHSMGNQKegQBRUaZJY7wq4VCI=
-      DATABASE_URL: postgresql://coolify:coolifypass123@db:5432/coolify
-      COOLIFY_DATABASE_URL: postgresql://coolify:coolifypass123@db:5432/coolify
+
+      # DB (Laravel liest diese; URL-Variante nicht nötig)
       DB_CONNECTION: pgsql
       DB_HOST: db
-      DB_PORT: 5432
+      DB_PORT: "5432"
       DB_DATABASE: coolify
       DB_USERNAME: coolify
       DB_PASSWORD: coolifypass123
+
+      # Queue/Redis
+      QUEUE_CONNECTION: redis
       REDIS_HOST: redis
-      REDIS_PORT: 6379
+      REDIS_PORT: "6379"
+      # Einige Coolify-Teile nutzen die URL – daher zusätzlich:
       COOLIFY_REDIS_URL: redis://redis:6379
+
+      # Damit Coolify den DinD-Socket nutzt:
+      DOCKER_HOST: unix:///data/docker.sock
+
+      # SSL wird durch Umbrel-Proxy erledigt
+      SSL_MODE: off
     extra_hosts:
       - host.docker.internal:host-gateway
       - ${APP_DOMAIN}:host-gateway
     volumes:
-      # /var/run/docker.sock:/var/run/docker.sock
-      - ${APP_DATA_DIR}/data/coolify_data:/data
+      # Gemeinsamer /data Mount mit DinD (enthält docker.sock unter /data)
+      - ${APP_DATA_DIR}/data:/data
+      # Persistenz für DB/Apps/Backups etc. (optional schlank; alles in einem Ort)
+      - ${APP_DATA_DIR}/coolify:/var/www/html/storage/app
     depends_on:
       db:
         condition: service_healthy
       redis:
         condition: service_healthy
     healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:8080 >/dev/null 2>&1 || exit 1"]
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:80/api/health >/dev/null 2>&1 || exit 1"]
       interval: 15s
       timeout: 5s
       retries: 12
       start_period: 20s
 
   db:
-    image: postgres:15@sha256:c189d272e4fcdd1ac419adee675d30be3d389c22ee770d593f15819d22a68a0d
+    image: postgres:15
     restart: on-failure
     environment:
       POSTGRES_USER: coolify
       POSTGRES_PASSWORD: coolifypass123
       POSTGRES_DB: coolify
     volumes:
-      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+      - ${APP_DATA_DIR}/db:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB -h 127.0.0.1"]
       interval: 10s
@@ -79,11 +99,11 @@ services:
       start_period: 10s
 
   redis:
-    image: redis:alpine@sha256:59b6e694653476de2c992937ebe1c64182af4728e54bb49e9b7a6c26614d8933
+    image: redis:alpine
     restart: on-failure
-    volumes:
-      - ${APP_DATA_DIR}/data/redis:/data
     command: ["redis-server", "--save", "60", "1", "--loglevel", "warning"]
+    volumes:
+      - ${APP_DATA_DIR}/redis:/data
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 10s
