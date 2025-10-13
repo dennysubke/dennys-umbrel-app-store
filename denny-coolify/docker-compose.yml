@@ -3,10 +3,9 @@ services:
     environment:
       APP_HOST: denny-coolify_web_1
       APP_PORT: 80
-    # ist bereits im Default-Netz – keine Änderung nötig
 
   docker:
-    image: docker:28.0.4-dind
+    image: docker:28.0.4-dind@sha256:ddb0033088b4fab74881ade341a582e3c6c8021b82377703ba1a6106bd3ded44
     privileged: true
     network_mode: host
     stop_grace_period: 1m
@@ -28,36 +27,25 @@ services:
   web:
     image: ghcr.io/coollabsio/coolify:latest
     restart: on-failure
+    user: "0:0"
     environment:
       APP_ENV: production
       APP_DEBUG: "false"
       SELF_HOSTED: "true"
-
-      # DB
+      SSL_MODE: off
+      DOCKER_HOST: unix:///data/docker.sock
       DB_CONNECTION: pgsql
       DB_HOST: db
       DB_PORT: "5432"
       DB_DATABASE: coolify
       DB_USERNAME: coolify
       DB_PASSWORD: coolifypass123
-
-      # Redis / Queue
       QUEUE_CONNECTION: redis
       REDIS_HOST: redis
       REDIS_PORT: "6379"
-      COOLIFY_REDIS_URL: redis://redis:6379
-
-      # DinD Socket
-      DOCKER_HOST: unix:///data/docker.sock
-
-      # SSL übernimmt Umbrel
-      SSL_MODE: off
-    # Vor dem eigentlichen Init fehlende Ordner anlegen + Rechte setzen
     entrypoint: ["/bin/sh","-lc","mkdir -p /var/www/html/storage/app/ssh/keys /var/www/html/storage/app/applications /var/www/html/storage/app/databases /var/www/html/storage/app/services /var/www/html/storage/app/backups /var/www/html/storage/app/webhooks-during-maintenance && chown -R 9999:9999 /var/www/html/storage && exec /init"]
     volumes:
-      # Persistenter Storage von Coolify
       - ${APP_DATA_DIR}/coolify/storage:/var/www/html/storage
-      # Den gleichen Pfad wie im DinD-Container einhängen, damit /data/docker.sock existiert
       - ${APP_DATA_DIR}/data/docker:/data
     depends_on:
       db:
@@ -70,11 +58,8 @@ services:
       timeout: 5s
       retries: 12
       start_period: 20s
-    # WICHTIG: Alias, damit Umbrels app_proxy den Hostnamen findet
-    networks:
-      default:
-        aliases:
-          - denny-coolify_web_1
+    hostname: denny-coolify_web_1
+    container_name: denny-coolify_web_1
 
   db:
     image: postgres:15
