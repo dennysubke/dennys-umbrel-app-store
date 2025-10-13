@@ -27,7 +27,7 @@ services:
       - ${APP_DATA_DIR}/data/docker:/data
 
   web:
-    image: ghcr.io/coollabsio/coolify:${LATEST_IMAGE:-latest}
+    image: coollabsio/coolify:4.0.0-beta.434@sha256:39db8373628c340747cf6199f5873322d5d0a9b6617bad0ce5cf6895369a3a83
     container_name: denny-coolify_web_1
     restart: on-failure
     environment:
