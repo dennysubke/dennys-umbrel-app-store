@@ -10,8 +10,8 @@ services:
     image: ghcr.io/vert-sh/vert:latest
     restart: on-failure
     environment:
-      PUB_HOSTNAME: http://${DEVICE_DOMAIN_NAME}:3884
-      PUB_VERTD_URL: http://${DEVICE_DOMAIN_NAME}:3884
+      PUB_HOSTNAME: http://umbrel-2.local:3884 #http://${DEVICE_DOMAIN_NAME}:3884
+      PUB_VERTD_URL: http://umbrel-2.local:3884 #http://${DEVICE_DOMAIN_NAME}:3884
       PUB_ENV: production
     volumes:
       - ${APP_DATA_DIR}/data:/data
