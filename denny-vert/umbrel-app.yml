@@ -1,29 +1,34 @@
 manifestVersion: 1
 id: denny-vert
-name: Vert
-tagline: A task manager that respects your privacy
-icon: icon.png
-category: test
-version: "0.2.0"
+name: VERT
+tagline: A file conversion utility
+icon: https://i.imgur.com/41TYbW6.png
+category: In Progress
+version: "sha-d89a343"
 port: 3884
 description: >-
-  TaskTrove is a modern task management application designed to help people organize their daily work and personal projects with clarity and efficiency. It provides a clean and intuitive interface where tasks can be quickly added, edited, and managed. The application supports natural language input so due dates, reminders, and scheduling details can be written in everyday language and immediately transformed into structured information. Tasks can be grouped into projects and further refined with labels, subtasks, and recurring patterns, making it easy to manage both simple to do lists and more complex workflows.
+  🔄 VERT is a modern and intelligent file conversion utility built to make transforming files effortless, secure, and efficient. It is designed to support a broad spectrum of file types including images, videos, audio, and documents, allowing users to convert between formats with precision and speed. Every conversion is handled smoothly, ensuring that the original quality and structure of the files are preserved as much as possible.
 
 
-  TaskTrove offers multiple ways to view and interact with tasks including a traditional list view, a compact view for dense overviews, and a Kanban style board that is especially useful for visual organization and progress tracking. Searching and filtering are central features, allowing users to focus only on what is relevant at a given moment without losing sight of the bigger picture. Upcoming additions such as calendar integration and analytical tools extend its ability to provide insights into productivity and time management.
+  What makes VERT stand out is its focus on privacy and performance. Conversions are processed locally, meaning the files stay entirely under the user’s control without being sent to external servers. This not only protects sensitive data but also removes upload size limits and minimizes waiting times.
 
 
-  The application is built with privacy in mind and avoids unnecessary tracking or telemetry. It encourages a personal and distraction free workflow where the user stays in full control of their information. Its flexibility makes it suitable for different styles of productivity whether that means a simple checklist for everyday errands or a structured system for managing multiple projects at once.
-developer: Mushroom Theory Inc.
-website: https://tasktrove.io/
+  VERT combines a clean, intuitive interface with advanced conversion logic, giving users both simplicity and flexibility. Whether it’s converting a single file or processing multiple files in sequence, it provides a seamless experience that adapts to different needs. The result is a reliable and privacy-respecting tool that turns file conversion into a fast, straightforward, and enjoyable process.
+developer: VERT
+website: https://vert.sh/
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
-repo: https://github.com/dohsimpson/TaskTrove
-support: https://github.com/dohsimpson/TaskTrove/issues
+repo: https://github.com/VERT-sh/VERT
+support: https://github.com/VERT-sh/VERT/issues
 gallery:
-  - 1.jpg
+  - https://i.imgur.com/Cb9NNi7.png
+  - https://i.imgur.com/Cb9NNi7.png
+  - https://i.imgur.com/Cb9NNi7.png
 releaseNotes: >-
-  This update adds new natural language shortcuts for today and tomorrow, introduces a comprehensive settings dialog with UI improvements, and enhances drag and drop with shadow effects and collapsed section support. It also fixes a bug affecting kanban board drag and drop between sections.
+  This update introduces new Japanese and Turkish translations, along with improvements to existing Spanish text. It also refines documentation and SEO descriptions for better clarity and search performance. 
+  
+  
+  Additionally, videos are now kept for debugging, and several small fixes and merges improve overall stability and consistency.
 dependencies: []
 path: ""
 defaultUsername: ""
