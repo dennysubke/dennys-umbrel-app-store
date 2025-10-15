@@ -6,8 +6,10 @@ services:
 
   web:
     image: devlikeapro/waha:latest
-    restart: on-failure
-    user: "0:0"
+    restart: always
+    user: "1000:1000"
+    environment:
+      WAHA_API_KEY: "sha512:7fb00ac30378f6d4f8deed2b928b185d95d2e84c5ab4a1498fefa10aa1ded056a1546440a4c409dcada3e0dc51b73d9ff3badbff8e7e38e2980ad965e258ced5"
     volumes:
       - ${APP_DATA_DIR}/data/sessions:/app/.sessions
       - ${APP_DATA_DIR}/data/media:/app/.media
