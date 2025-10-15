@@ -1,0 +1,37 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-waha_web_1
+      APP_PORT: 3000
+
+  web:
+    image: devlikeapro/waha-plus
+    restart: always
+    user: "1000:1000"
+    environment:
+      WAHA_BASE_URL: "http://umbrel-2.local:8527"
+      WAHA_API_KEY: "sha512:97d170e1550eee4afc0af065b78cda302a97674c0f1fe6a858a0f6c9903c0a48c404d5103e0f5e9dfb9f16e0c397d61d0609f0f8d5b1afe3c1a0ad8e6d5f9d4a"
+      WAHA_DASHBOARD_ENABLED: "True"
+      WAHA_DASHBOARD_USERNAME: "admin"
+      WAHA_DASHBOARD_PASSWORD: "admin"
+      WHATSAPP_SWAGGER_ENABLED: "True"
+      WHATSAPP_SWAGGER_USERNAME: "admin"
+      WHATSAPP_SWAGGER_PASSWORD: "admin"
+      WHATSAPP_DEFAULT_ENGINE: "WEBJS"
+      WAHA_LOG_FORMAT: "JSON"
+      WAHA_LOG_LEVEL: "info"
+      WAHA_PRINT_QR: "False"
+      WAHA_MEDIA_STORAGE: "LOCAL"
+      WHATSAPP_FILES_LIFETIME: "0"
+      WHATSAPP_FILES_FOLDER: "/app/.media"
+      TZ: "Europe/Berlin"
+    volumes:
+      - ${APP_DATA_DIR}/data/sessions:/app/.sessions
+      - ${APP_DATA_DIR}/data/media:/app/.media
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "10"
