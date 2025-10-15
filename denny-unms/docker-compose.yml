@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-unms_web_1
+      APP_PORT: 80
+
+  web:
+    image: nico640/docker-unms:2.4.220@sha256:c4be7486265d5e3729c19e7b2d1cbc7cde50ecee3d76e930afde04229acf35a4
+    restart: on-failure
+    environment:
+      TZ: Europe/Berlin
+    volumes:
+      - ${APP_DATA_DIR}/data:/config
+    ports:
+      - 2055:2055/udp
