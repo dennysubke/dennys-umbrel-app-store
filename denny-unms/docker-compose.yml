@@ -14,11 +14,8 @@ services:
       TZ: Europe/Berlin
       PUID: "1000"
       PGID: "1000"
-      HTTP_PORT: "80"
-      HTTPS_PORT: "8443"
-      PUBLIC_HTTPS_PORT: "80"
-      PUBLIC_WS_PORT: "80"
     volumes:
       - ${APP_DATA_DIR}/data:/config
     ports:
       - 2055:2055/udp
+      - 8773:443 #https
