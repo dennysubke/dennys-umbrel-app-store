@@ -3,7 +3,7 @@ id: denny-vert
 name: VERT
 tagline: A file conversion utility
 icon: https://i.imgur.com/41TYbW6.png
-category: In Progress
+category: files & productivity
 version: "sha-d89a343"
 port: 3884
 description: >-
