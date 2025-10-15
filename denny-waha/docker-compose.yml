@@ -6,8 +6,8 @@ services:
 
   web:
     image: devlikeapro/waha:latest
-    restart: always
-    user: "1000:1000"
+    restart: on-failure
+    user: "0:0"
     volumes:
       - ${APP_DATA_DIR}/data/sessions:/app/.sessions
       - ${APP_DATA_DIR}/data/media:/app/.media
