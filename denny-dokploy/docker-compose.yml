@@ -10,7 +10,7 @@ services:
     image: dokploy/dokploy:latest
     environment:
       DATABASE_URL: postgresql://dokploy:supersecurepass@postgres:5432/dokploy
-      REDIS_HOST: redis:6379
+      REDIS_HOST: redis
       RELEASE_TAG: latest
     depends_on:
       - postgres
@@ -20,7 +20,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - ${APP_DATA_DIR}/data/etc:/etc/dokploy
       - ${APP_DATA_DIR}/data/docker:/root/.docker
-    restart: unless-stopped
+    restart: on-failure
 
   postgres:
     image: postgres:16
@@ -30,14 +30,14 @@ services:
       POSTGRES_DB: dokploy
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
-    restart: unless-stopped
+    restart: on-failure
 
   redis:
     image: redis:7
     command: ["redis-server", "--appendonly", "yes"]
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
-    restart: unless-stopped
+    restart: on-failure
 
   traefik:
     image: traefik:v3.5
@@ -50,4 +50,4 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ${APP_DATA_DIR}/data/traefik/dynamic:/etc/dokploy/traefik/dynamic
-    restart: unless-stopped
+    restart: on-failure
