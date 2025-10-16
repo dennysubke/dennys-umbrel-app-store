@@ -72,6 +72,6 @@ services:
     depends_on:
       - docker
     volumes:
-      - ${APP_DATA_DIR}/data/docker/docker.sock:/var/run/docker.sock:ro
+      - ${APP_DATA_DIR}/data/docker.sock:/var/run/docker.sock:ro
       - ${APP_DATA_DIR}/data/traefik/dynamic:/etc/dokploy/traefik/dynamic
     restart: on-failure
