@@ -5,7 +5,6 @@ services:
     environment:
       APP_HOST: denny-dokploy_web_1
       APP_PORT: 3000
-    restart: on-failure
 
   docker:
     image: docker:28.0.4-dind@sha256:ddb0033088b4fab74881ade341a582e3c6c8021b82377703ba1a6106bd3ded44
@@ -15,19 +14,17 @@ services:
     restart: on-failure
     environment:
       DOCKER_ENSURE_BRIDGE: "dind0:10.32.0.1/16"
-      DOCKER_HOST: "unix:///var/run/docker.sock"
     entrypoint: /entrypoint.sh
     command: >
       dockerd
         --bridge dind0
         --data-root /data/data
         --exec-root /data/exec
-        --host unix:///var/run/docker.sock
+        --host unix:///data/docker.sock
         --pidfile /data/docker.pid
     volumes:
       - ${APP_DATA_DIR}/entrypoint.sh:/entrypoint.sh
       - ${APP_DATA_DIR}/data/docker:/data
-      - docker_runtime:/var/run
     healthcheck:
       test: ["CMD", "sh", "-c", "docker info >/dev/null 2>&1"]
       interval: 5s
@@ -51,7 +48,7 @@ services:
         condition: service_started
     volumes:
       - ${APP_DATA_DIR}/data/etc:/etc/dokploy
-      - docker_runtime:/dind
+      - ${APP_DATA_DIR}/data/docker:/dind
       - ${APP_DATA_DIR}/data/docker-config:/root/.docker
     restart: on-failure
 
@@ -84,9 +81,6 @@ services:
       docker:
         condition: service_healthy
     volumes:
-      - docker_runtime:/var/run
+      - ${APP_DATA_DIR}/data/docker/docker.sock:/var/run/docker.sock:ro
       - ${APP_DATA_DIR}/data/traefik/dynamic:/etc/dokploy/traefik/dynamic
     restart: on-failure
-
-volumes:
-  docker_runtime:
