@@ -14,8 +14,6 @@ services:
     restart: on-failure
     environment:
       DOCKER_HOST: "unix:///data/docker.sock"
-    # Startet dockerd im Hintergrund, wartet auf den Socket,
-    # führt ein idempotentes "docker swarm init" aus und wartet dann im Vordergrund auf dockerd.
     command: >
       sh -lc '
         set -eu
@@ -30,16 +28,16 @@ services:
           sleep 1
         done
         DOCKER_HOST=unix:///data/docker.sock docker swarm init --advertise-addr 127.0.0.1 >/dev/null 2>&1 || true
-        wait $DPID
+        wait $$DPID
       '
     volumes:
       - docker_runtime:/data
     healthcheck:
-      test: ["CMD", "sh", "-c", "DOCKER_HOST=unix:///data/docker.sock docker info >/dev/null 2>&1"]
+      test: ["CMD", "sh", "-lc", "DOCKER_HOST=unix:///data/docker.sock docker info >/dev/null 2>&1"]
       interval: 5s
       timeout: 4s
       retries: 30
-      start_period: 10s
+      start_period: 15s
 
   web:
     image: dokploy/dokploy:latest
