@@ -13,18 +13,26 @@ services:
     stop_grace_period: 1m
     restart: on-failure
     environment:
-      DOCKER_ENSURE_BRIDGE: "dind0:10.32.0.1/16"
       DOCKER_HOST: "unix:///data/docker.sock"
-    entrypoint: /entrypoint.sh
+    # Startet dockerd im Hintergrund, wartet auf den Socket,
+    # führt ein idempotentes "docker swarm init" aus und wartet dann im Vordergrund auf dockerd.
     command: >
-      dockerd
-        --bridge dind0
-        --data-root /data/data
-        --exec-root /data/exec
-        --host unix:///data/docker.sock
-        --pidfile /data/docker.pid
+      sh -lc '
+        set -eu
+        dockerd
+          --data-root /data/data
+          --exec-root /data/exec
+          --host unix:///data/docker.sock
+          --pidfile /data/docker.pid &
+        DPID=$!
+        for i in $(seq 1 60); do
+          DOCKER_HOST=unix:///data/docker.sock docker info >/dev/null 2>&1 && break
+          sleep 1
+        done
+        DOCKER_HOST=unix:///data/docker.sock docker swarm init --advertise-addr 127.0.0.1 >/dev/null 2>&1 || true
+        wait $DPID
+      '
     volumes:
-      - ${APP_DATA_DIR}/entrypoint.sh:/entrypoint.sh
       - docker_runtime:/data
     healthcheck:
       test: ["CMD", "sh", "-c", "DOCKER_HOST=unix:///data/docker.sock docker info >/dev/null 2>&1"]
