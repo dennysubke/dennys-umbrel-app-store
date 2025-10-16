@@ -40,7 +40,8 @@ services:
       - docker
     volumes:
       - ${APP_DATA_DIR}/data/etc:/etc/dokploy
-      - ${APP_DATA_DIR}/data/docker:/dind
+      # geändert: bisher war nur /dind gemountet → jetzt explizit Socket-Pfad (/dind/docker.sock)
+      - ${APP_DATA_DIR}/data/docker/docker.sock:/dind/docker.sock  # geändert
       - ${APP_DATA_DIR}/data/docker-config:/root/.docker
     restart: on-failure
 
@@ -72,6 +73,7 @@ services:
     depends_on:
       - docker
     volumes:
-      - ${APP_DATA_DIR}/data/docker.sock:/var/run/docker.sock:ro
+      # geändert: Pfad auf den richtigen Socket im DinD-Volume angepasst
+      - ${APP_DATA_DIR}/data/docker/docker.sock:/var/run/docker.sock:ro  # geändert
       - ${APP_DATA_DIR}/data/traefik/dynamic:/etc/dokploy/traefik/dynamic
     restart: on-failure
