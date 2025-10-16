@@ -14,6 +14,7 @@ services:
     restart: on-failure
     environment:
       DOCKER_ENSURE_BRIDGE: "dind0:10.32.0.1/16"
+      DOCKER_HOST: "unix:///data/docker.sock"
     entrypoint: /entrypoint.sh
     command: >
       dockerd
@@ -24,9 +25,9 @@ services:
         --pidfile /data/docker.pid
     volumes:
       - ${APP_DATA_DIR}/entrypoint.sh:/entrypoint.sh
-      - ${APP_DATA_DIR}/data/docker:/data
+      - docker_runtime:/data
     healthcheck:
-      test: ["CMD", "sh", "-c", "docker info >/dev/null 2>&1"]
+      test: ["CMD", "sh", "-c", "DOCKER_HOST=unix:///data/docker.sock docker info >/dev/null 2>&1"]
       interval: 5s
       timeout: 4s
       retries: 30
@@ -48,7 +49,7 @@ services:
         condition: service_started
     volumes:
       - ${APP_DATA_DIR}/data/etc:/etc/dokploy
-      - ${APP_DATA_DIR}/data/docker:/dind
+      - docker_runtime:/dind
       - ${APP_DATA_DIR}/data/docker-config:/root/.docker
     restart: on-failure
 
@@ -81,6 +82,9 @@ services:
       docker:
         condition: service_healthy
     volumes:
-      - ${APP_DATA_DIR}/data/docker/docker.sock:/var/run/docker.sock:ro
+      - docker_runtime:/var/run:ro
       - ${APP_DATA_DIR}/data/traefik/dynamic:/etc/dokploy/traefik/dynamic
     restart: on-failure
+
+volumes:
+  docker_runtime:
