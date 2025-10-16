@@ -27,7 +27,7 @@ services:
       - ${APP_DATA_DIR}/data/docker:/data
 
   web:
-    image: dokploy/dokploy:latest
+    image: dokploy/dokploy:v0.25.5@sha256:a3edbde94576e57939581ae197fffc1d53d05c50970d2504213942421fd47b8b
     environment:
       DATABASE_URL: postgresql://dokploy:supersecurepass@postgres:5432/dokploy
       REDIS_HOST: redis
@@ -45,7 +45,7 @@ services:
     restart: on-failure
 
   postgres:
-    image: postgres:16
+    image: postgres:16.10@sha256:fb9aa6d07b0fe53e94e8470977f316d1cdb39b8cdb33c45279ff0bbe32067c25
     environment:
       POSTGRES_USER: dokploy
       POSTGRES_PASSWORD: supersecurepass
@@ -55,14 +55,14 @@ services:
     restart: on-failure
 
   redis:
-    image: redis:7
+    image: redis:7.4.6@sha256:d7432711a2a5c99c2e9dd0e006061cd274d7cb7a9e77f07ffe2ea99e21244677
     command: ["redis-server", "--appendonly", "yes"]
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
     restart: on-failure
 
   traefik:
-    image: traefik:v3.5
+    image: traefik:3.5.3@sha256:d6be8725d21b45bdd84b93ea01438256e0e3c94aa8fa51834fe87f37cd5d4af8
     command:
       - --log.level=INFO
       - --providers.docker=true
