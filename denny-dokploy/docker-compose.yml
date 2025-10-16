@@ -5,6 +5,7 @@ services:
     environment:
       APP_HOST: denny-dokploy_web_1
       APP_PORT: 3000
+    restart: on-failure
 
   docker:
     image: docker:28.0.4-dind@sha256:ddb0033088b4fab74881ade341a582e3c6c8021b82377703ba1a6106bd3ded44
@@ -14,17 +15,25 @@ services:
     restart: on-failure
     environment:
       DOCKER_ENSURE_BRIDGE: "dind0:10.32.0.1/16"
+      DOCKER_HOST: "unix:///var/run/docker.sock"
     entrypoint: /entrypoint.sh
     command: >
       dockerd
         --bridge dind0
         --data-root /data/data
         --exec-root /data/exec
-        --host unix:///data/docker.sock
+        --host unix:///var/run/docker.sock
         --pidfile /data/docker.pid
     volumes:
       - ${APP_DATA_DIR}/entrypoint.sh:/entrypoint.sh
       - ${APP_DATA_DIR}/data/docker:/data
+      - docker_runtime:/var/run
+    healthcheck:
+      test: ["CMD", "sh", "-c", "docker info >/dev/null 2>&1"]
+      interval: 5s
+      timeout: 4s
+      retries: 30
+      start_period: 10s
 
   web:
     image: dokploy/dokploy:latest
@@ -34,13 +43,15 @@ services:
       RELEASE_TAG: latest
       DOCKER_HOST: unix:///dind/docker.sock
     depends_on:
-      - postgres
-      - redis
-      - traefik
-      - docker
+      docker:
+        condition: service_healthy
+      postgres:
+        condition: service_started
+      redis:
+        condition: service_started
     volumes:
       - ${APP_DATA_DIR}/data/etc:/etc/dokploy
-      - ${APP_DATA_DIR}/data/docker:/dind
+      - docker_runtime:/dind
       - ${APP_DATA_DIR}/data/docker-config:/root/.docker
     restart: on-failure
 
@@ -70,8 +81,12 @@ services:
       - --providers.file.directory=/etc/dokploy/traefik/dynamic
       - --providers.file.watch=true
     depends_on:
-      - docker
+      docker:
+        condition: service_healthy
     volumes:
-      - ${APP_DATA_DIR}/data/docker/docker.sock:/var/run/docker.sock:ro
+      - docker_runtime:/var/run
       - ${APP_DATA_DIR}/data/traefik/dynamic:/etc/dokploy/traefik/dynamic
     restart: on-failure
+
+volumes:
+  docker_runtime:
