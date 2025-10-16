@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.7"
 
 services:
   app_proxy:
@@ -6,20 +6,43 @@ services:
       APP_HOST: denny-dokploy_web_1
       APP_PORT: 3000
 
+  docker:
+    image: docker:28.0.4-dind@sha256:ddb0033088b4fab74881ade341a582e3c6c8021b82377703ba1a6106bd3ded44
+    privileged: true
+    network_mode: host
+    stop_grace_period: 1m
+    restart: on-failure
+    environment:
+      DOCKER_ENSURE_BRIDGE: "dind0:10.32.0.1/16"
+    entrypoint: /entrypoint.sh
+    command: >
+      dockerd
+        --bridge dind0
+        --data-root /data/data
+        --exec-root /data/exec
+        --host unix:///data/docker.sock
+        --pidfile /data/docker.pid
+    volumes:
+      - ${APP_DATA_DIR}/entrypoint.sh:/entrypoint.sh
+      - ${APP_DATA_DIR}/data/docker:/data
+
   web:
     image: dokploy/dokploy:latest
     environment:
       DATABASE_URL: postgresql://dokploy:supersecurepass@postgres:5432/dokploy
       REDIS_HOST: redis
       RELEASE_TAG: latest
+      DOCKER_HOST: unix:///dind/docker.sock
     depends_on:
       - postgres
       - redis
       - traefik
+      - docker
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      # - /var/run/docker.sock:/var/run/docker.sock:ro
       - ${APP_DATA_DIR}/data/etc:/etc/dokploy
-      - ${APP_DATA_DIR}/data/docker:/root/.docker
+      - ${APP_DATA_DIR}/data/docker:/dind
+      - ${APP_DATA_DIR}/data/docker-config:/root/.docker
     restart: on-failure
 
   postgres:
@@ -48,6 +71,6 @@ services:
       - --providers.file.directory=/etc/dokploy/traefik/dynamic
       - --providers.file.watch=true
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
+      # - /var/run/docker.sock:/var/run/docker.sock:ro
       - ${APP_DATA_DIR}/data/traefik/dynamic:/etc/dokploy/traefik/dynamic
     restart: on-failure
