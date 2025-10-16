@@ -1,0 +1,53 @@
+version: "3.9"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-dokploy_web_1
+      APP_PORT: 3000
+
+  web:
+    image: dokploy/dokploy:latest
+    environment:
+      DATABASE_URL: postgresql://dokploy:supersecurepass@postgres:5432/dokploy
+      REDIS_HOST: redis:6379
+      RELEASE_TAG: latest
+    depends_on:
+      - postgres
+      - redis
+      - traefik
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${APP_DATA_DIR}/data/etc:/etc/dokploy
+      - ${APP_DATA_DIR}/data/docker:/root/.docker
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: dokploy
+      POSTGRES_PASSWORD: supersecurepass
+      POSTGRES_DB: dokploy
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  redis:
+    image: redis:7
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data
+    restart: unless-stopped
+
+  traefik:
+    image: traefik:v3.5
+    command:
+      - --log.level=INFO
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --providers.file.directory=/etc/dokploy/traefik/dynamic
+      - --providers.file.watch=true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ${APP_DATA_DIR}/data/traefik/dynamic:/etc/dokploy/traefik/dynamic
+    restart: unless-stopped
