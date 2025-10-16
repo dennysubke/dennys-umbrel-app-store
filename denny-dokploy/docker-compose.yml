@@ -36,6 +36,7 @@ services:
     depends_on:
       - postgres
       - redis
+      - traefik
       - docker
     volumes:
       - ${APP_DATA_DIR}/data/etc:/etc/dokploy
@@ -58,4 +59,20 @@ services:
     command: ["redis-server", "--appendonly", "yes"]
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
+    restart: on-failure
+
+  traefik:
+    image: traefik:v3.5
+    command:
+      - --log.level=INFO
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --providers.file.directory=/etc/dokploy/traefik/dynamic
+      - --providers.file.watch=true
+    depends_on:
+      - docker
+    volumes:
+#     ⬇️ geändert: richtiger Pfad zur DinD-Socket-DATEI (vorher: ${APP_DATA_DIR}/data/docker.sock)
+      - ${APP_DATA_DIR}/data/docker/docker.sock:/var/run/docker.sock:ro
+      - ${APP_DATA_DIR}/data/traefik/dynamic:/etc/dokploy/traefik/dynamic
     restart: on-failure
