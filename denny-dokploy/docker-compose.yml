@@ -39,7 +39,6 @@ services:
       - traefik
       - docker
     volumes:
-      # - /var/run/docker.sock:/var/run/docker.sock:ro
       - ${APP_DATA_DIR}/data/etc:/etc/dokploy
       - ${APP_DATA_DIR}/data/docker:/dind
       - ${APP_DATA_DIR}/data/docker-config:/root/.docker
@@ -70,7 +69,9 @@ services:
       - --providers.docker.exposedbydefault=false
       - --providers.file.directory=/etc/dokploy/traefik/dynamic
       - --providers.file.watch=true
+    depends_on:
+      - docker
     volumes:
-      # - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ${APP_DATA_DIR}/data/docker/docker.sock:/var/run/docker.sock:ro
       - ${APP_DATA_DIR}/data/traefik/dynamic:/etc/dokploy/traefik/dynamic
     restart: on-failure
