@@ -1,29 +1,40 @@
 manifestVersion: 1
 id: denny-dokploy
 name: Dokploy
-tagline: A task manager that respects your privacy
-icon: icon.png
-category: test
-version: "0.2.0"
+tagline: A seamless platform for effortless deployments
+icon: https://i.imgur.com/OPdh1hA.png
+category: In Progress
+version: "0.25.5"
 port: 8529
 description: >-
-  TaskTrove is a modern task management application designed to help people organize their daily work and personal projects with clarity and efficiency. It provides a clean and intuitive interface where tasks can be quickly added, edited, and managed. The application supports natural language input so due dates, reminders, and scheduling details can be written in everyday language and immediately transformed into structured information. Tasks can be grouped into projects and further refined with labels, subtasks, and recurring patterns, making it easy to manage both simple to do lists and more complex workflows.
+  🐳 Dokploy is an advanced deployment and management platform designed to make the entire lifecycle of web applications simple, reliable, and efficient. It brings together all essential tools for deploying and managing applications in one intuitive interface, allowing developers to focus on building rather than configuring. With Dokploy, the process of launching, updating, and maintaining applications becomes a seamless experience that requires minimal manual intervention.
 
 
-  TaskTrove offers multiple ways to view and interact with tasks including a traditional list view, a compact view for dense overviews, and a Kanban style board that is especially useful for visual organization and progress tracking. Searching and filtering are central features, allowing users to focus only on what is relevant at a given moment without losing sight of the bigger picture. Upcoming additions such as calendar integration and analytical tools extend its ability to provide insights into productivity and time management.
+  At its core, Dokploy automates the deployment of applications, services, and databases. It handles the setup of environment variables, network routing, and security certificates automatically, ensuring that each application runs smoothly and securely. Developers can connect their Git repositories and enable continuous deployment pipelines, so every code change can be built, tested, and released without leaving the interface. This automation not only speeds up workflows but also reduces human error and ensures consistency across environments.
 
 
-  The application is built with privacy in mind and avoids unnecessary tracking or telemetry. It encourages a personal and distraction free workflow where the user stays in full control of their information. Its flexibility makes it suitable for different styles of productivity whether that means a simple checklist for everyday errands or a structured system for managing multiple projects at once.
-developer: Mushroom Theory Inc.
-website: https://tasktrove.io/
+  Dokploy also provides detailed insight into each application’s status. Through its real time monitoring and logging features, users can track performance, identify issues, and analyze behavior instantly. Integrated backup and restore functions safeguard important data, while automatic SSL management ensures that all applications are served securely. This combination of reliability and transparency makes it easier to maintain high uptime and stable performance.
+
+
+  Beyond its technical capabilities, Dokploy aims to streamline collaboration and project organization. It allows multiple applications to be managed side by side, each with its own configuration and environment. This structure helps teams stay organized and makes it possible to handle complex infrastructures with confidence.
+
+
+  Overall, Dokploy turns what used to be a complicated process into an accessible and enjoyable experience. It provides the power and flexibility of modern DevOps tools while keeping the interface simple and approachable. By combining automation, observability, and intelligent resource management, Dokploy empowers developers and teams to deploy with confidence and focus entirely on creating great software.
+developer: Dokploy
+website: https://dokploy.com/
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
-repo: https://github.com/dohsimpson/TaskTrove
-support: https://github.com/dohsimpson/TaskTrove/issues
+repo: https://github.com/Dokploy/dokploy
+support: https://github.com/Dokploy/dokploy/issues
 gallery:
-  - 1.jpg
+  - https://i.imgur.com/0ye3ba0.png
+  - https://i.imgur.com/0ye3ba0.png
+  - https://i.imgur.com/0ye3ba0.png
 releaseNotes: >-
-  This update adds new natural language shortcuts for today and tomorrow, introduces a comprehensive settings dialog with UI improvements, and enhances drag and drop with shadow effects and collapsed section support. It also fixes a bug affecting kanban board drag and drop between sections.
+  This update introduces new permission controls for creating and deleting environments, adds support for uploading custom profile pictures, and improves Docker terminal handling for Compose applications. 
+  
+  
+  It also updates dependencies, enhances brand styling with Gotify and Ntfy icons, and fixes several minor bugs and configuration issues.
 dependencies: []
 path: ""
 defaultUsername: ""
