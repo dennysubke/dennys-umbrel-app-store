@@ -6,7 +6,7 @@ services:
 
   web:
     image: devlikeapro/waha:latest-2025.10.3@sha256:1c627eb01be7a3e50493fb8d49b1dfb2524be4462fa79a2dd50577f37e28db31
-    restart: always
+    restart: on-failure
     user: "0:0"
     environment:
       WAHA_API_KEY: "sha512:7fb00ac30378f6d4f8deed2b928b185d95d2e84c5ab4a1498fefa10aa1ded056a1546440a4c409dcada3e0dc51b73d9ff3badbff8e7e38e2980ad965e258ced5"
