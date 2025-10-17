@@ -8,11 +8,11 @@ services:
 
   web:
     image: anirdev/slink:latest
-    restart: on-failure:5
+    restart: on-failure
     environment:
       TZ: Europe/Berlin
       ORIGIN: http://${DEVICE_DOMAIN_NAME}:8811
-      USER_APPROVAL_REQUIRED: true
+      USER_APPROVAL_REQUIRED: false
       USER_PASSWORD_MIN_LENGTH: 8
       USER_PASSWORD_REQUIREMENTS: 15
       IMAGE_MAX_SIZE: 15M
