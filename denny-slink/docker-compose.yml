@@ -13,7 +13,7 @@ services:
       TZ: Europe/Berlin
       ORIGIN: http://umbrel-2.local:8811
       REQUIRE_SSL: "false"
-      USER_APPROVAL_REQUIRED: "true"
+      USER_APPROVAL_REQUIRED: "false"
       USER_PASSWORD_MIN_LENGTH: 8
       USER_PASSWORD_REQUIREMENTS: 15
       IMAGE_MAX_SIZE: 15M
