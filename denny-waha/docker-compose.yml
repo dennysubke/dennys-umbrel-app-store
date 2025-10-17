@@ -5,7 +5,7 @@ services:
       APP_PORT: 3000
 
   web:
-    image: devlikeapro/waha:latest
+    image: devlikeapro/waha:latest-2025.10.3@sha256:1c627eb01be7a3e50493fb8d49b1dfb2524be4462fa79a2dd50577f37e28db31
     restart: always
     user: "0:0"
     environment:
