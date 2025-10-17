@@ -3,7 +3,7 @@ id: denny-bentopdf
 name: BentoPDF
 tagline: A Privacy First PDF Toolkit
 icon: https://i.imgur.com/uDMmLxC.png
-category: In Progress
+category: files & productivity
 version: "1.0.0"
 port: 8730
 description: >-
