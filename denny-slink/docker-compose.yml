@@ -11,7 +11,7 @@ services:
     restart: on-failure:5
     environment:
       TZ: Europe/Berlin
-      ORIGIN: http://0.0.0.0:8811
+      ORIGIN: http://umbrel-2.local:8811
       REQUIRE_SSL: "false"
       USER_APPROVAL_REQUIRED: "true"
       USER_PASSWORD_MIN_LENGTH: 8
