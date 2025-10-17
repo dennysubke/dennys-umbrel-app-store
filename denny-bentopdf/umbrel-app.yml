@@ -24,9 +24,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/alam00000/bentopdf
 support: https://github.com/alam00000/bentopdf/issues
 gallery:
-  - https://i.imgur.com/QlPJsuL.png
-  - https://i.imgur.com/QlPJsuL.png
-  - https://i.imgur.com/QlPJsuL.png
+  - https://i.imgur.com/KMsIkB6.png
+  - https://i.imgur.com/37XcmZN.png
+  - https://i.imgur.com/8lkqKxy.png
+  - https://i.imgur.com/nEH8ckL.png
 releaseNotes: >-
   There is currently no versioning implemented, which is why changelogs are not available.
 dependencies: []
