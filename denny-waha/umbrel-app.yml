@@ -17,6 +17,9 @@ description: >-
 
 
   The platform is often used to build advanced messaging automation systems, CRM integrations, and notification tools that rely on WhatsApp as a primary communication channel. By offering a developer-friendly API and consistent message handling, WAHA bridges the gap between modern automation requirements and WhatsApp’s closed ecosystem, making WhatsApp-based automation more accessible and customizable than ever.
+
+
+  ⚙️ Right-click the app and select “Troubleshoot” to see the login data. Use “umbrel” as the API key.
 developer: devlikeapro
 website: https://waha.devlike.pro/
 submitter: dennysubke
