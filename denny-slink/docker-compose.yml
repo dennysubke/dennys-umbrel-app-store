@@ -1,4 +1,5 @@
 version: "3.7"
+
 services:
   app_proxy:
     environment:
@@ -7,12 +8,14 @@ services:
 
   web:
     image: anirdev/slink:latest
-    restart: on-failure
+    restart: on-failure:5
     environment:
       TZ: Europe/Berlin
-      ORIGIN: http://${DEVICE_DOMAIN_NAME}:8811
-      USER_APPROVAL_REQUIRED: false
-      REQUIRE_SSL: false
+      ORIGIN: http://umbrel-2.local:8811
+      REQUIRE_SSL: false                # <— entscheidend bei HTTP!
+      USER_APPROVAL_REQUIRED: true
+      USER_PASSWORD_MIN_LENGTH: 8
+      USER_PASSWORD_REQUIREMENTS: 15
       IMAGE_MAX_SIZE: 15M
       IMAGE_STRIP_EXIF_METADATA: true
       IMAGE_COMPRESSION_QUALITY: 80
