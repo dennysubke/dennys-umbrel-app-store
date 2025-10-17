@@ -5,7 +5,7 @@ tagline: A lightweight platform to deploy apps easily
 icon: https://i.imgur.com/9Yp6WJV.png
 category: In Progress
 version: "4.0.0-beta.434"
-port: 8777
+port: 8527
 description: >-
   🧊 Coolify is a modern platform designed to simplify the deployment and management of web applications. It provides an intuitive interface that allows developers to launch and maintain projects with minimal configuration. By automating complex DevOps processes, it eliminates the need for manual server setup, making application delivery faster and more reliable.
 
