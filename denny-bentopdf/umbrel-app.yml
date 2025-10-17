@@ -1,29 +1,34 @@
 manifestVersion: 1
 id: denny-bentopdf
 name: BentoPDF
-tagline: A task manager that respects your privacy
-icon: icon.png
-category: test
+tagline: A Privacy First PDF Toolkit
+icon: https://i.imgur.com/uDMmLxC.png
+category: In Progress
 version: "1.0.0"
 port: 8730
 description: >-
-  TaskTrove is a modern task management application designed to help people organize their daily work and personal projects with clarity and efficiency. It provides a clean and intuitive interface where tasks can be quickly added, edited, and managed. The application supports natural language input so due dates, reminders, and scheduling details can be written in everyday language and immediately transformed into structured information. Tasks can be grouped into projects and further refined with labels, subtasks, and recurring patterns, making it easy to manage both simple to do lists and more complex workflows.
+  📄 BentoPDF is an advanced privacy-oriented application designed to give users complete control over their PDF documents directly within the browser. It eliminates the need for external uploads or online conversion services, ensuring that every action takes place locally and confidentially. This focus on privacy makes BentoPDF a secure alternative to traditional cloud-based PDF tools.
 
 
-  TaskTrove offers multiple ways to view and interact with tasks including a traditional list view, a compact view for dense overviews, and a Kanban style board that is especially useful for visual organization and progress tracking. Searching and filtering are central features, allowing users to focus only on what is relevant at a given moment without losing sight of the bigger picture. Upcoming additions such as calendar integration and analytical tools extend its ability to provide insights into productivity and time management.
+  At its core, BentoPDF provides an extensive set of features for working with digital documents. Users can merge multiple PDFs into a single file, split them into separate sections, or reorganize individual pages in just a few clicks. The application allows rotating, duplicating, or removing pages with ease, offering full flexibility when editing complex files. Visual adjustments such as background color changes, watermarks, headers, and footers can also be applied to enhance the appearance of professional documents.
 
 
-  The application is built with privacy in mind and avoids unnecessary tracking or telemetry. It encourages a personal and distraction free workflow where the user stays in full control of their information. Its flexibility makes it suitable for different styles of productivity whether that means a simple checklist for everyday errands or a structured system for managing multiple projects at once.
-developer: Mushroom Theory Inc.
-website: https://tasktrove.io/
+  BentoPDF includes a robust conversion engine that supports transforming images into PDFs and exporting individual pages back into common image formats. It also enables file compression to optimize storage space without compromising quality. For document security, users can apply passwords, encrypt sensitive information, or remove existing restrictions to regain editing access. These tools make it suitable for both personal use and professional document preparation.
+
+
+  Another highlight is the integrated OCR functionality, which scans and recognizes text from image-based PDFs, turning them into fully searchable documents. Metadata editing options let users refine document properties and improve organization. With all these capabilities combined, BentoPDF offers a comprehensive, user-friendly environment for creating, editing, and managing PDFs efficiently — all while maintaining the highest level of privacy and control.
+developer: BentoPDF
+website: https://bentopdf.com/
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
-repo: https://github.com/dohsimpson/TaskTrove
-support: https://github.com/dohsimpson/TaskTrove/issues
+repo: https://github.com/alam00000/bentopdf
+support: https://github.com/alam00000/bentopdf/issues
 gallery:
-  - 1.jpg
+  - https://i.imgur.com/QlPJsuL.png
+  - https://i.imgur.com/QlPJsuL.png
+  - https://i.imgur.com/QlPJsuL.png
 releaseNotes: >-
-  This update adds new natural language shortcuts for today and tomorrow, introduces a comprehensive settings dialog with UI improvements, and enhances drag and drop with shadow effects and collapsed section support. It also fixes a bug affecting kanban board drag and drop between sections.
+  There is currently no versioning implemented, which is why changelogs are not available.
 dependencies: []
 path: ""
 defaultUsername: ""
