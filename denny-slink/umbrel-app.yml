@@ -3,7 +3,7 @@ id: denny-slink
 name: Slink
 tagline: A powerful image sharing platform
 icon: https://i.imgur.com/08saTfi.png
-category: In Progress
+category: files & productivity
 version: "1.7.3"
 port: 8811
 description: >-
