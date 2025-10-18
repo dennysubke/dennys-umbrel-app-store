@@ -3,7 +3,7 @@ id: denny-networkingtoolbox
 name: Networking Toolbox
 tagline: An offline-first toolbox for networking
 icon: https://i.imgur.com/K5F3lLu.png
-category: test
+category: In Progress
 version: "1.3.0"
 port: 3686
 description: >-
