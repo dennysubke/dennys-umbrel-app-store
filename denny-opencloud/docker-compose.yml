@@ -24,8 +24,9 @@ services:
       OC_SYSTEM_USER_ID: "b2f5ff47-8a8a-4a0d-9b1a-2c3d4e5f6071"
       OC_SYSTEM_USER_IDP: "internal"
       OC_SYSTEM_USER_API_KEY: "s0mE-Sup3r-Long-Mach1ne-Key_KeepItSecret"
-
       OC_MACHINE_AUTH_API_KEY: "z3Nq6Pp1Xs8Rw4Cv7Lm2Jt9Qe5Hb0Ka4Ud7Yi2Po9Rt6Wq1Lm3As8Df5Gh9Jk2Lq"
+
+      STORAGE_USERS_MOUNT_ID: "7639e57c-4433-4a12-8201-722fd0009154"
     volumes:
       - ${APP_DATA_DIR}/config:/etc/opencloud
       - ${APP_DATA_DIR}/data:/var/lib/opencloud
