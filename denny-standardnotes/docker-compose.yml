@@ -7,14 +7,14 @@ services:
       APP_PORT: 80
 
   web:
-    image: standardnotes/web:latest
-    restart: on-failure:5
+    image: standardnotes/web:1a206d1279d3ca2b905e217839d68d4825b54190@sha256:a99dc5db239d69bd3bfbe60e4ab0f6605e501c48e87fd76da526c6d1a4d006e1
+    restart: on-failure
     environment:
       DEFAULT_SYNC_SERVER: http://api:3000
 
   api:
-    image: standardnotes/server:latest
-    restart: on-failure:5
+    image: standardnotes/server:0d82819cba9694bc9fb5a3fa53e2dbeda05d1242@sha256:a99dc5db239d69bd3bfbe60e4ab0f6605e501c48e87fd76da526c6d1a4d006e1
+    restart: on-failure
     depends_on:
       - db
       - cache
@@ -45,8 +45,8 @@ services:
       - ${APP_DATA_DIR}/data/uploads:/opt/server/packages/files/dist/uploads
 
   db:
-    image: mysql:8.4
-    restart: on-failure:5
+    image: mysql:8.4.6@sha256:869218921e61d6c3c89820955d63cca42971f0e3e6c1e2792247bbd944ebc6e9
+    restart: on-failure
     environment:
       MYSQL_DATABASE: standard_notes_db
       MYSQL_USER: std_notes_user
@@ -56,8 +56,8 @@ services:
       - ${APP_DATA_DIR}/data/mysql:/var/lib/mysql
 
   cache:
-    image: redis:6.0-alpine
-    restart: on-failure:5
+    image: redis:6.0-alpine@sha256:2b35fc7d2908e25aa6aa197f97882c8a67829d3b106ad5ea5c8028f816f26aa8
+    restart: on-failure
     command: ["redis-server", "--save", "60", "1", "--appendonly", "yes"]
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
