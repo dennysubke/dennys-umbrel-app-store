@@ -1,0 +1,85 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-standardnotes_web_1
+      APP_PORT: 3000
+
+  web:
+    image: standardnotes/server:latest
+    restart: on-failure:5
+    depends_on:
+      - db
+      - cache
+      - localstack
+    environment:
+      # --- Database ---
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USERNAME: std_notes_user
+      DB_PASSWORD: std_notes_pass
+      DB_DATABASE: standard_notes_db
+      DB_DEBUG_LEVEL: warn
+
+      # --- Redis cache ---
+      REDIS_HOST: cache
+      REDIS_PORT: 6379
+
+      # --- Localstack / S3 Mock ---
+      FILE_UPLOADS_BACKEND: s3
+      S3_ACCESS_KEY_ID: localstack
+      S3_SECRET_ACCESS_KEY: localstack
+      S3_BUCKET: standardnotes
+      S3_ENDPOINT: http://localstack:4566
+      S3_FORCE_PATH_STYLE: "true"
+
+      # --- General runtime ---
+      NODE_ENV: production
+      LOG_LEVEL: warn
+      SERVER_PORT: 3000
+      AUTH_SERVER_URL: http://localhost:3000
+      AUTH_JWT_SECRET: supersecretjwt
+      ENCRYPTION_SERVER_KEY: supersecretkey
+      FILE_UPLOADS_MAX_SIZE: 10485760
+      USER_UPLOADS_DIRECTORY: /opt/server/packages/files/dist/uploads
+
+      # --- Feature toggles ---
+      DISABLE_USER_REGISTRATION: "false"
+      REQUIRE_EMAIL_CONFIRMATION: "false"
+      USER_PASSWORD_MIN_LENGTH: 8
+
+      # --- Misc ---
+      TZ: Europe/Berlin
+
+    volumes:
+      - ${APP_DATA_DIR}/data/logs:/var/lib/server/logs
+      - ${APP_DATA_DIR}/data/uploads:/opt/server/packages/files/dist/uploads
+
+  localstack:
+    image: localstack/localstack:3.0
+    restart: on-failure:5
+    environment:
+      SERVICES: sns,sqs,s3
+      HOSTNAME_EXTERNAL: localstack
+      LS_LOG: warn
+    volumes:
+      - ${APP_DATA_DIR}/localstack_bootstrap.sh:/etc/localstack/init/ready.d/localstack_bootstrap.sh
+
+  db:
+    image: mysql:8
+    restart: on-failure:5
+    environment:
+      MYSQL_DATABASE: standard_notes_db
+      MYSQL_USER: std_notes_user
+      MYSQL_ROOT_PASSWORD: std_notes_pass
+      MYSQL_PASSWORD: std_notes_pass
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ${APP_DATA_DIR}/data/mysql:/var/lib/mysql
+
+  cache:
+    image: redis:6.0-alpine
+    restart: on-failure:5
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data
