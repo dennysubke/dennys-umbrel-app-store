@@ -3,7 +3,7 @@ id: denny-networkingtoolbox
 name: Networking Toolbox
 tagline: An offline-first toolbox for networking
 icon: https://i.imgur.com/K5F3lLu.png
-category: In Progress
+category: networking
 version: "1.3.0"
 port: 3686
 description: >-
@@ -24,9 +24,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/Lissy93/networking-toolbox
 support: https://github.com/Lissy93/networking-toolbox/issues
 gallery:
-  - https://i.imgur.com/8SDL5r0.png
-  - https://i.imgur.com/8SDL5r0.png
-  - https://i.imgur.com/8SDL5r0.png
+  - https://i.imgur.com/y2S2uOk.png
+  - https://i.imgur.com/Vxaomaq.png
+  - https://i.imgur.com/3nght3b.png
+  - https://i.imgur.com/aOEc6OC.png
+  - https://i.imgur.com/X5AlfCi.png
+  - https://i.imgur.com/0uDKE4u.png
 releaseNotes: >-
   This update introduces version 1.3.0 of Networking Toolbox, focusing on improving reliability, usability, and customization. The release includes enhanced IP validation, expanded testing, and a higher minimum coverage threshold to ensure consistent quality across all tools. Many internal components were refactored to simplify maintenance and reduce code duplication.
 
