@@ -1,0 +1,56 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-standardnotes_web_1
+      APP_PORT: 3000
+
+  web:
+    image: standardnotes/server:latest
+    restart: on-failure:5
+    depends_on:
+      - db
+      - cache
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USERNAME: std_notes_user
+      DB_PASSWORD: std_notes_pass
+      DB_DATABASE: standard_notes_db
+      DB_DEBUG_LEVEL: warn
+      REDIS_HOST: cache
+      REDIS_PORT: 6379
+      FILE_UPLOADS_BACKEND: local
+      USER_UPLOADS_DIRECTORY: /opt/server/packages/files/dist/uploads
+      NODE_ENV: production
+      LOG_LEVEL: warn
+      SERVER_PORT: 3000
+      TZ: Europe/Berlin
+      VALET_TOKEN_SECRET: 6e7f8b40cda2e88b16fd0a73a38f3f56c6c45fdc8e9a6e60b41290d90ce03b27
+      AUTH_JWT_SECRET: 3fbd249ae52fbd74a94d6f1241c4ad612e94fa07df337c9696a05f9cb74d290a
+      ENCRYPTION_SERVER_KEY: 2f28b94612e29c58e93e991b1ac1e8a1b65f1fdd2ab5e3f4e8d2d9580a00e54d
+      DISABLE_USER_REGISTRATION: "false"
+      REQUIRE_EMAIL_CONFIRMATION: "false"
+      USER_PASSWORD_MIN_LENGTH: 8
+    volumes:
+      - ${APP_DATA_DIR}/data/logs:/var/lib/server/logs
+      - ${APP_DATA_DIR}/data/uploads:/opt/server/packages/files/dist/uploads
+
+  db:
+    image: mysql:8.4
+    restart: on-failure:5
+    environment:
+      MYSQL_DATABASE: standard_notes_db
+      MYSQL_USER: std_notes_user
+      MYSQL_ROOT_PASSWORD: std_notes_pass
+      MYSQL_PASSWORD: std_notes_pass
+    volumes:
+      - ${APP_DATA_DIR}/data/mysql:/var/lib/mysql
+
+  cache:
+    image: redis:6.0-alpine
+    restart: on-failure:5
+    command: ["redis-server", "--save", "60", "1", "--appendonly", "yes"]
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data
