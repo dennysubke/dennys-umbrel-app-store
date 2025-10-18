@@ -5,7 +5,7 @@ tagline: A secure note-taking app with end-to-end encryption
 icon: https://i.imgur.com/0O4YEHi.png
 category: In Progress
 version: "3.200.4"
-port: 3959
+port: 3977
 description: >-
   📝 Standard Notes is a privacy focused note taking application designed to provide complete security and longevity for personal data. It allows users to write, organize, and store their notes in an encrypted environment where only they can access the information. Every note, tag, and attachment is encrypted locally before it ever leaves the device, ensuring that no external service or server can read or analyze the content.
 
