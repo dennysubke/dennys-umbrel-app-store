@@ -10,12 +10,14 @@ services:
     image: opencloudeu/opencloud:2
     user: "1000:1000"
     environment:
+      TZ: "Europe/Berlin"
       PROXY_HTTP_ADDR: "0.0.0.0:9200"
       OC_INSECURE: "true"
       OC_URL: "https://${DEVICE_DOMAIN_NAME}"
       INITIAL_ADMIN_PASSWORD: "umbrel"
       OC_CONFIG_DIR: "/etc/opencloud"
       OC_DATA_DIR: "/var/lib/opencloud"
+      OC_JWT_SECRET: "y6vVb3w9qJkqV2mB0t1m6QbA1rN8fG4sD0pX2cH7uK9zT3eP5rL8uW2yQ6mC9aH4"
     volumes:
       - ${APP_DATA_DIR}/config:/etc/opencloud
       - ${APP_DATA_DIR}/data:/var/lib/opencloud
