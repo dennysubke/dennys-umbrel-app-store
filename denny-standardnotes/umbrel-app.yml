@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-standardnotes
 name: Standard Notes
 tagline: An offline-first toolbox for networking
-icon: https://i.imgur.com/K5F3lLu.png
+icon: https://i.imgur.com/0O4YEHi.png
 category: test
 version: "1.3.0"
 port: 3959
@@ -24,9 +24,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/Lissy93/networking-toolbox
 support: https://github.com/Lissy93/networking-toolbox/issues
 gallery:
-  - https://i.imgur.com/8SDL5r0.png
-  - https://i.imgur.com/8SDL5r0.png
-  - https://i.imgur.com/8SDL5r0.png
+  - https://i.imgur.com/S53u3ps.png
+  - https://i.imgur.com/S53u3ps.png
+  - https://i.imgur.com/S53u3ps.png
 releaseNotes: >-
   This update introduces version 1.3.0 of Networking Toolbox, focusing on improving reliability, usability, and customization. The release includes enhanced IP validation, expanded testing, and a higher minimum coverage threshold to ensure consistent quality across all tools. Many internal components were refactored to simplify maintenance and reduce code duplication.
 
