@@ -28,6 +28,28 @@ services:
 
       STORAGE_USERS_MOUNT_ID: "7639e57c-4433-4a12-8201-722fd0009154"
       GATEWAY_STORAGE_USERS_MOUNT_ID: "7639e57c-4433-4a12-8201-722fd0009154"
+
+      OC_SERVICE_ACCOUNT_ID: "5c5b02a7-3c1b-4f0a-9c1e-2a7d8b9f1e22"
+      OC_SERVICE_ACCOUNT_SECRET: "Tn7hV1qP4xR2sM8aL5cW0yB3kE6fZ9jD2uH4pQ7rS1vX8mN0"
+
+      SEARCH_SERVICE_ACCOUNT_ID: "5c5b02a7-3c1b-4f0a-9c1e-2a7d8b9f1e22"
+      SEARCH_SERVICE_ACCOUNT_SECRET: "Tn7hV1qP4xR2sM8aL5cW0yB3kE6fZ9jD2uH4pQ7rS1vX8mN0"
+      USERLOG_SERVICE_ACCOUNT_ID: "5c5b02a7-3c1b-4f0a-9c1e-2a7d8b9f1e22"
+      USERLOG_SERVICE_ACCOUNT_SECRET: "Tn7hV1qP4xR2sM8aL5cW0yB3kE6fZ9jD2uH4pQ7rS1vX8mN0"
+      CLIENTLOG_SERVICE_ACCOUNT_ID: "5c5b02a7-3c1b-4f0a-9c1e-2a7d8b9f1e22"
+      CLIENTLOG_SERVICE_ACCOUNT_SECRET: "Tn7hV1qP4xR2sM8aL5cW0yB3kE6fZ9jD2uH4pQ7rS1vX8mN0"
+
+      OC_LDAP_BIND_DN: "uid=reva,ou=sysusers,o=libregraph-idm"
+      OC_LDAP_BIND_PASSWORD: "reva-bind-password"
+      OC_LDAP_USER_BASE_DN: "ou=users,o=libregraph-idm"
+      OC_LDAP_GROUP_BASE_DN: "ou=groups,o=libregraph-idm"
+
+      IDP_LDAP_BIND_DN: "uid=idp,ou=sysusers,o=libregraph-idm"
+      IDP_LDAP_BIND_PASSWORD: "idp-bind-password"
+      AUTH_BASIC_LDAP_BIND_DN: "uid=reva,ou=sysusers,o=libregraph-idm"
+      AUTH_BASIC_LDAP_BIND_PASSWORD: "reva-bind-password"
+      GROUPS_LDAP_BIND_DN: "uid=reva,ou=sysusers,o=libregraph-idm"
+      GROUPS_LDAP_BIND_PASSWORD: "reva-bind-password"
     volumes:
       - ${APP_DATA_DIR}/config:/etc/opencloud
       - ${APP_DATA_DIR}/data:/var/lib/opencloud
