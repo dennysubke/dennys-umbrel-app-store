@@ -3,7 +3,7 @@ id: denny-waha
 name: WAHA
 tagline: A one-click WhatsApp API
 icon: https://i.imgur.com/0nNB3rd.png
-category: In Progress
+category: networking
 version: "2025.10.3"
 port: 8992
 description: >-
@@ -27,9 +27,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/devlikeapro/waha
 support: https://github.com/devlikeapro/waha/issues
 gallery:
-  - https://i.imgur.com/YNRude0.png
-  - https://i.imgur.com/YNRude0.png
-  - https://i.imgur.com/YNRude0.png
+  - https://i.imgur.com/SOBBXHm.png
+  - https://i.imgur.com/5X4UAp5.png
+  - https://i.imgur.com/7qxsodh.png
+  - https://i.imgur.com/gaBBLFB.png
 releaseNotes: >-
   This update introduces mandatory security credentials, including API and dashboard passwords, and blocks weak defaults like “123” or “admin.” It also fixes issues with image sending through proxies, database locking errors, and improves ChatWoot group message handling.
 dependencies: []
