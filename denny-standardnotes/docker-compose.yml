@@ -10,9 +10,12 @@ services:
     image: standardnotes/server:latest
     restart: on-failure:5
     depends_on:
-      - db
-      - cache
-      - localstack
+      db:
+        condition: service_healthy
+      cache:
+        condition: service_started
+      localstack:
+        condition: service_started
     environment:
       # --- Database ---
       DB_HOST: db
@@ -26,7 +29,7 @@ services:
       REDIS_HOST: cache
       REDIS_PORT: 6379
 
-      # --- Localstack / S3 Mock ---
+      # --- File uploads via Localstack S3 (HTTP) ---
       FILE_UPLOADS_BACKEND: s3
       S3_ACCESS_KEY_ID: localstack
       S3_SECRET_ACCESS_KEY: localstack
@@ -38,19 +41,19 @@ services:
       NODE_ENV: production
       LOG_LEVEL: warn
       SERVER_PORT: 3000
-      AUTH_SERVER_URL: http://localhost:3000
-      AUTH_JWT_SECRET: supersecretjwt
-      ENCRYPTION_SERVER_KEY: supersecretkey
       FILE_UPLOADS_MAX_SIZE: 10485760
       USER_UPLOADS_DIRECTORY: /opt/server/packages/files/dist/uploads
+      TZ: Europe/Berlin
+
+      # --- Security / Secrets ---
+      VALET_TOKEN_SECRET: 6e7f8b40cda2e88b16fd0a73a38f3f56c6c45fdc8e9a6e60b41290d90ce03b27
+      AUTH_JWT_SECRET: 3fbd249ae52fbd74a94d6f1241c4ad612e94fa07df337c9696a05f9cb74d290a
+      ENCRYPTION_SERVER_KEY: 2f28b94612e29c58e93e991b1ac1e8a1b65f1fdd2ab5e3f4e8d2d9580a00e54d
 
       # --- Feature toggles ---
       DISABLE_USER_REGISTRATION: "false"
       REQUIRE_EMAIL_CONFIRMATION: "false"
       USER_PASSWORD_MIN_LENGTH: 8
-
-      # --- Misc ---
-      TZ: Europe/Berlin
 
     volumes:
       - ${APP_DATA_DIR}/data/logs:/var/lib/server/logs
@@ -61,25 +64,31 @@ services:
     restart: on-failure:5
     environment:
       SERVICES: sns,sqs,s3
-      HOSTNAME_EXTERNAL: localstack
+      LOCALSTACK_SSL: "false"
       LS_LOG: warn
     volumes:
       - ${APP_DATA_DIR}/localstack_bootstrap.sh:/etc/localstack/init/ready.d/localstack_bootstrap.sh
 
   db:
-    image: mysql:8
+    image: mysql:8.4
     restart: on-failure:5
     environment:
       MYSQL_DATABASE: standard_notes_db
       MYSQL_USER: std_notes_user
       MYSQL_ROOT_PASSWORD: std_notes_pass
       MYSQL_PASSWORD: std_notes_pass
-    command: --default-authentication-plugin=mysql_native_password
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -p$${MYSQL_ROOT_PASSWORD} -h localhost --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
     volumes:
       - ${APP_DATA_DIR}/data/mysql:/var/lib/mysql
 
   cache:
     image: redis:6.0-alpine
     restart: on-failure:5
+    command: ["redis-server", "--save", "60", "1", "--appendonly", "yes"]
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
