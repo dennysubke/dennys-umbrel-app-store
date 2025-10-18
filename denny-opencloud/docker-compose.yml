@@ -1,0 +1,28 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-opencloud_web_1
+      APP_PORT: 9200
+
+  web:
+    image: opencloudeu/opencloud:2
+    user: "1000:1000"
+    environment:
+      PROXY_HTTP_ADDR: "0.0.0.0:9200"
+      OC_INSECURE: "true"
+      OC_URL: "https://${DEVICE_DOMAIN_NAME}"
+      INITIAL_ADMIN_PASSWORD: "umbrel"
+      OC_CONFIG_DIR: "/etc/opencloud"
+      OC_DATA_DIR: "/var/lib/opencloud"
+    volumes:
+      - ${APP_DATA_DIR}/config:/etc/opencloud
+      - ${APP_DATA_DIR}/data:/var/lib/opencloud
+    restart: on-failure:5
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z 127.0.0.1 9200 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
