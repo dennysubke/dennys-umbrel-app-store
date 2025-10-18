@@ -6,13 +6,13 @@ services:
       APP_HOST: denny-standardnotes_web_1
       APP_PORT: 80
 
-  web: # Standard Notes Web-Client (UI)
+  web:
     image: standardnotes/web:latest
     restart: on-failure:5
     environment:
       DEFAULT_SYNC_SERVER: http://api:3000
 
-  api: # Standard Notes Server (Backend)
+  api:
     image: standardnotes/server:latest
     restart: on-failure:5
     depends_on:
