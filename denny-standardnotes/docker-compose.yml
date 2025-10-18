@@ -13,7 +13,7 @@ services:
       DEFAULT_SYNC_SERVER: http://api:3000
 
   api:
-    image: standardnotes/server:0d82819cba9694bc9fb5a3fa53e2dbeda05d1242@sha256:a99dc5db239d69bd3bfbe60e4ab0f6605e501c48e87fd76da526c6d1a4d006e1
+    image: standardnotes/server:0d82819cba9694bc9fb5a3fa53e2dbeda05d1242@sha256:6c1532b31dabf5b3e644fb2a458d3795f28138ac1ac5c4505a9fa1cea10524bb
     restart: on-failure
     depends_on:
       - db
