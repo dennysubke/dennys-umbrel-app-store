@@ -16,14 +16,18 @@ services:
       INITIAL_ADMIN_PASSWORD: "umbrel"
       OC_CONFIG_DIR: "/etc/opencloud"
       OC_DATA_DIR: "/var/lib/opencloud"
+
       OC_JWT_SECRET: "y6vVb3w9qJkqV2mB0t1m6QbA1rN8fG4sD0pX2cH7uK9zT3eP5rL8uW2yQ6mC9aH4"
       OC_TRANSFER_SECRET: "p9Qk2Nf4wT7xVc3Jm8Rz1Ld6bG0hYs5Ue2Aq7Kp3Mn6Wv9Xc1Tr4Jg8Lz2Qh5Nw7"
+
       OC_SYSTEM_USER_ID: "b2f5ff47-8a8a-4a0d-9b1a-2c3d4e5f6071"
       OC_SYSTEM_USER_IDP: "internal"
       OC_SYSTEM_USER_API_KEY: "s0mE-Sup3r-Long-Mach1ne-Key_KeepItSecret"
       OC_MACHINE_AUTH_API_KEY: "z3Nq6Pp1Xs8Rw4Cv7Lm2Jt9Qe5Hb0Ka4Ud7Yi2Po9Rt6Wq1Lm3As8Df5Gh9Jk2Lq"
+
       STORAGE_USERS_MOUNT_ID: "7639e57c-4433-4a12-8201-722fd0009154"
       GATEWAY_STORAGE_USERS_MOUNT_ID: "7639e57c-4433-4a12-8201-722fd0009154"
+
       OC_LDAP_BIND_DN: "uid=reva,ou=sysusers,o=libregraph-idm"
       OC_LDAP_BIND_PASSWORD: "reva-bind-password"
       OC_LDAP_USER_BASE_DN: "ou=users,o=libregraph-idm"
@@ -34,12 +38,15 @@ services:
       AUTH_BASIC_LDAP_BIND_PASSWORD: "reva-bind-password"
       GROUPS_LDAP_BIND_DN: "uid=reva,ou=sysusers,o=libregraph-idm"
       GROUPS_LDAP_BIND_PASSWORD: "reva-bind-password"
+
       IDM_SVC_PASSWORD: "idm-service-password"
       IDM_REVASVC_PASSWORD: "reva-service-password"
       IDM_IDPSVC_PASSWORD: "idp-service-password"
+
       GRAPH_APPLICATION_ID: "com.opencloud.app"
       GRAPH_APPLICATION_DISPLAYNAME: "OpenCloud"
       GRAPH_JWT_SECRET: "K2f7Pp9xQ3r8Sg1Lm6Vb4Nc0Hd2Jt5Ye7Rw1Zk8Mq4"
+
       OC_SERVICE_ACCOUNT_ID: "5c5b02a7-3c1b-4f0a-9c1e-2a7d8b9f1e22"
       OC_SERVICE_ACCOUNT_SECRET: "Tn7hV1qP4xR2sM8aL5cW0yB3kE6fZ9jD2uH4pQ7rS1vX8mN0"
       SEARCH_SERVICE_ACCOUNT_ID: "5c5b02a7-3c1b-4f0a-9c1e-2a7d8b9f1e22"
@@ -48,11 +55,16 @@ services:
       USERLOG_SERVICE_ACCOUNT_SECRET: "Tn7hV1qP4xR2sM8aL5cW0yB3kE6fZ9jD2uH4pQ7rS1vX8mN0"
       CLIENTLOG_SERVICE_ACCOUNT_ID: "5c5b02a7-3c1b-4f0a-9c1e-2a7d8b9f1e22"
       CLIENTLOG_SERVICE_ACCOUNT_SECRET: "Tn7hV1qP4xR2sM8aL5cW0yB3kE6fZ9jD2uH4pQ7rS1vX8mN0"
-      OCIS_ENABLE_OCM: "false"
-      OCIS_EXCLUDE_SERVICES: "ocm,ocmshareprovider,ocminvitemanager,sciencemesh,search"
+
+      OCM_PROVIDER_DOMAIN: "${DEVICE_DOMAIN_NAME}"
+      OCM_WEBDAV_ENDPOINT: "https://${DEVICE_DOMAIN_NAME}/dav"
+
+      SEARCH_ENABLED: "false"
+
     volumes:
       - ${APP_DATA_DIR}/config:/etc/opencloud
       - ${APP_DATA_DIR}/data:/var/lib/opencloud
+
     healthcheck:
       test: ["CMD-SHELL", "nc -z 127.0.0.1 9201 || exit 1"]
       interval: 10s
