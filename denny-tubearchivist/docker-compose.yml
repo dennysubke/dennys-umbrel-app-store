@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   app_proxy:
     environment:
@@ -7,68 +9,43 @@ services:
   web:
     image: bbilly1/tubearchivist:latest
     container_name: denny-tubearchivist_web_1
+    restart: on-failure
     depends_on:
-      - archivist-redis
       - archivist-es
+      - archivist-redis
     environment:
-      TA_HOST: https://${DEVICE_DOMAIN_NAME}
+      TZ: Europe/Berlin
       TA_USERNAME: admin
       TA_PASSWORD: umbrel
-      REDIS_CON: redis://archivist-redis:6379
-      ES_URL: http://archivist-es:9200
       ELASTIC_PASSWORD: umbrel
-      TZ: Europe/Berlin
+      ELASTIC_USER: elastic
+      REDIS_HOST: archivist-redis
+      REDIS_PORT: 6379
+      ELASTIC_HOST: archivist-es
+      ELASTIC_PORT: 9200
+      TA_HOST: ${DEVICE_DOMAIN_NAME}
+      TA_PORT: 8000
+      TA_UWSGI_PORT: 8001
     volumes:
-      - ${APP_DATA_DIR}/data/cache:/cache
-      - ${APP_DATA_DIR}/data/youtube:/youtube
-    restart: on-failure:5
-
-  archivist-redis:
-    image: redis:7.2-alpine
-    container_name: denny-tubearchivist_archivist-redis_1
-    command: ["redis-server", "--save", "", "--appendonly", "no", "--loglevel", "warning"]
-    volumes:
-      - ${APP_DATA_DIR}/data/redis:/data
-    restart: on-failure:5
-
-  # Init-Job: sorgt dafür, dass ES-Datenverzeichnis nutzbar ist
-  archivist-es-init:
-    image: busybox:1.36
-    container_name: denny-tubearchivist_archivist-es-init_1
-    user: "0:0"
-    volumes:
-      - ${APP_DATA_DIR}/data/es:/usr/share/elasticsearch/data
-    command: ["sh", "-c", "chown -R 1000:1000 /usr/share/elasticsearch/data || true"]
-    restart: "no"
+      - ${APP_DATA_DIR}/data:/data
 
   archivist-es:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.15.3
     container_name: denny-tubearchivist_archivist-es_1
-    depends_on:
-      - archivist-es-init
+    restart: on-failure
     environment:
-      discovery.type: single-node
-      xpack.security.enabled: "true"
-      xpack.ml.enabled: "false"
-      ELASTIC_PASSWORD: umbrel
-      ES_JAVA_OPTS: "-Xms512m -Xmx512m"
-      # Optional: Snapshots aktivieren, falls benötigt
-      # path.repo: /usr/share/elasticsearch/data/snapshots
-    # WICHTIG: kein sysctls-Block mehr (verursacht den runc-Fehler)
-    # kein privileged nötig
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-      nofile:
-        soft: 65536
-        hard: 65536
+      - discovery.type=single-node
+      - xpack.security.enabled=true
+      - xpack.security.http.ssl.enabled=false
+      - ELASTIC_PASSWORD=umbrel
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
     volumes:
-      - ${APP_DATA_DIR}/data/es:/usr/share/elasticsearch/data
-    healthcheck:
-      test: ["CMD-SHELL", "curl -s -u elastic:umbrel http://localhost:9200/_cluster/health | grep -E '\"status\":\"(yellow|green)\"' >/dev/null || (echo 'Host vm.max_map_count zu niedrig? Elasticsearch wartet...' && exit 1)"]
-      interval: 20s
-      timeout: 5s
-      retries: 30
-      start_period: 60s
-    restart: on-failure:5
+      - ${APP_DATA_DIR}/es:/usr/share/elasticsearch/data
+
+  archivist-redis:
+    image: redis:7.4.0
+    container_name: denny-tubearchivist_archivist-redis_1
+    restart: on-failure
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    volumes:
+      - ${APP_DATA_DIR}/redis:/data
