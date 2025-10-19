@@ -16,15 +16,10 @@ services:
       TZ: Europe/Berlin
       TA_USERNAME: admin
       TA_PASSWORD: umbrel
-      ELASTIC_PASSWORD: umbrel
-      ELASTIC_USER: elastic
-      REDIS_HOST: archivist-redis
-      REDIS_PORT: 6379
-      ELASTIC_HOST: archivist-es
-      ELASTIC_PORT: 9200
-      TA_HOST: ${DEVICE_DOMAIN_NAME}
+      ES_URL: http://elastic:umbrel@archivist-es:9200
+      REDIS_URL: redis://archivist-redis:6379/0
+      TA_HOST: umbrel-2.local
       TA_PORT: 6686
-      TA_UWSGI_PORT: 8001
     volumes:
       - ${APP_DATA_DIR}/data:/data
 
