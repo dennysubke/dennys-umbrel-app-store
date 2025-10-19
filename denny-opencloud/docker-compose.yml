@@ -48,14 +48,7 @@ services:
       USERLOG_SERVICE_ACCOUNT_SECRET: "Tn7hV1qP4xR2sM8aL5cW0yB3kE6fZ9jD2uH4pQ7rS1vX8mN0"
       CLIENTLOG_SERVICE_ACCOUNT_ID: "5c5b02a7-3c1b-4f0a-9c1e-2a7d8b9f1e22"
       CLIENTLOG_SERVICE_ACCOUNT_SECRET: "Tn7hV1qP4xR2sM8aL5cW0yB3kE6fZ9jD2uH4pQ7rS1vX8mN0"
-      OCM_ENABLED: "false"
-      OCM_INVITEMANAGER_ENABLED: "false"
-      OCM_SHAREPROVIDER_ENABLED: "false"
-      SCIENCEMESH_ENABLED: "false"
-      OCM_DRIVER_ENABLED: "false"
-      OCM_PROVIDER_DOMAIN: "local.invalid"
-      OCM_WEBDAV_ENDPOINT: "http://127.0.0.1/does-not-exist"
-      SEARCH_ENABLED: "false"
+      OCIS_EXCLUDE_SERVICES: "ocm,ocmshareprovider,ocminvitemanager,sciencemesh,search"
     volumes:
       - ${APP_DATA_DIR}/config:/etc/opencloud
       - ${APP_DATA_DIR}/data:/var/lib/opencloud
