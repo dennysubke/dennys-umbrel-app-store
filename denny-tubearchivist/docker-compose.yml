@@ -1,5 +1,3 @@
-version: "3.7"
-
 services:
   app_proxy:
     environment:
@@ -7,18 +5,16 @@ services:
       APP_PORT: 8000
 
   web:
-    image: bbilly1/tubearchivist:0.5.7
+    image: bbilly1/tubearchivist:latest
+    container_name: denny-tubearchivist_web_1
     depends_on:
       - archivist-redis
       - archivist-es
     environment:
-      # Erreichbar z.B. unter https://umbrel.local oder deiner Domain
+      TZ: Europe/Berlin
       TA_HOST: https://${DEVICE_DOMAIN_NAME}
       TA_USERNAME: admin
       TA_PASSWORD: umbrel
-      TZ: Europe/Berlin
-
-      # Verbindungen zu Redis & Elasticsearch
       REDIS_CON: redis://archivist-redis:6379
       ES_URL: http://archivist-es:9200
       ELASTIC_PASSWORD: umbrel
@@ -30,24 +26,18 @@ services:
   archivist-redis:
     image: redis:7.2-alpine
     command: ["redis-server", "--save", "60", "1", "--loglevel", "warning"]
-    expose:
-      - "6379"
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
     restart: on-failure:5
 
+  # Auf ARM64 (Raspberry Pi/Umbrel) das offizielle Elasticsearch 8 nutzen
   archivist-es:
-    # Für ARM64 (Raspberry Pi / Umbrel) den offiziellen ES 8.x verwenden
     image: docker.elastic.co/elasticsearch/elasticsearch:8.15.3
     environment:
       - discovery.type=single-node
-      - ELASTIC_PASSWORD=umbrel
       - xpack.security.enabled=true
+      - ELASTIC_PASSWORD=umbrel
       - ES_JAVA_OPTS=-Xms512m -Xmx512m
-      # Optional: falls du Snapshots nutzen willst, einen Pfad im Container setzen:
-      # - path.repo=/usr/share/elasticsearch/data/snapshots
-    expose:
-      - "9200"
     ulimits:
       memlock:
         soft: -1
