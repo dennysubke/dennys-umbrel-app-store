@@ -16,16 +16,21 @@ services:
       TZ: Europe/Berlin
       TA_USERNAME: admin
       TA_PASSWORD: umbrel
-      ES_URL: http://elastic:umbrel@archivist-es:9200
-      REDIS_URL: redis://archivist-redis:6379/0
       TA_HOST: umbrel-2.local
       TA_PORT: 6686
+      ELASTIC_USER: elastic
+      ELASTIC_PASSWORD: umbrel
+      ELASTIC_HOST: archivist-es
+      ELASTIC_PORT: 9200
+      REDIS_HOST: archivist-redis
+      REDIS_PORT: 6379
     volumes:
       - ${APP_DATA_DIR}/data:/data
 
   archivist-es:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.15.3
     restart: on-failure
+    user: "0:0"
     environment:
       - discovery.type=single-node
       - xpack.security.enabled=true
