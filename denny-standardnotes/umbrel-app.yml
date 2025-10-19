@@ -24,9 +24,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/standardnotes
 support: https://github.com/standardnotes/server/issues
 gallery:
-  - https://i.imgur.com/Ga4GQqj.png
-  - https://i.imgur.com/Ga4GQqj.png
-  - https://i.imgur.com/Ga4GQqj.png
+  - https://i.imgur.com/VCuWVRh.png
+  - https://i.imgur.com/pVD6dJk.png
+  - https://i.imgur.com/R9X6mJj.png
+  - https://i.imgur.com/7x1rmPm.png
+  - https://i.imgur.com/QUkbYrX.png
 releaseNotes: >-
   This update fixes an issue where text pasted from Google Docs was always displayed in bold. The app now preserves the correct formatting when importing content.
 dependencies: []
