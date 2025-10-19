@@ -11,13 +11,28 @@ services:
       - archivist-redis
       - archivist-es
     environment:
-      TZ: Europe/Berlin
-      TA_HOST: https://${DEVICE_DOMAIN_NAME}
+      # === Pflicht laut Doku ===
+      TA_HOST: https://${DEVICE_DOMAIN_NAME}            # mehrere Hosts erlaubt, mit Leerzeichen trennen
       TA_USERNAME: admin
       TA_PASSWORD: umbrel
       REDIS_CON: redis://archivist-redis:6379
       ES_URL: http://archivist-es:9200
       ELASTIC_PASSWORD: umbrel
+
+      # === Optional laut Doku ===
+      TZ: Europe/Berlin                                # Scheduler-Zeitzone
+      # HOST_UID: "1000"                               # Falls du Besitzrechte auf Downloads anpassen willst
+      # HOST_GID: "1000"
+      # TA_PORT: "8000"                                # öffentlicher Port des Nginx im Container (Default 8000)
+      # TA_BACKEND_PORT: "8001"                        # interner Backend-Port (nur bei Port-Kollision)
+      # TA_ENABLE_AUTH_PROXY: "1"                      # Forward-Auth aktivieren (siehe Doku)
+      # TA_LDAP: "1"                                   # LDAP-Auth aktivieren (siehe Doku)
+      # TA_AUTO_UPDATE_YTDLP: "release"                # oder "nightly": Auto-Update von yt-dlp (mit Bedacht nutzen)
+      # DISABLE_STATIC_AUTH: "1"                       # statische Assets ohne Login (read-only)
+      # DJANGO_DEBUG: "1"                               # nur temporär für Debugging
+      # ES_DISABLE_VERIFY_SSL: "1"                     # bei selbstsignierten ES-Zertifikaten
+      # ELASTIC_USER: elastic                          # Standard ist "elastic", nur ändern wenn abweichend
+      # ES_SNAPSHOT_DIR: /usr/share/elasticsearch/data/snapshots  # Pfad im ES-Container
     volumes:
       - ${APP_DATA_DIR}/data/cache:/cache
       - ${APP_DATA_DIR}/data/youtube:/youtube
@@ -25,19 +40,40 @@ services:
 
   archivist-redis:
     image: redis:7.2-alpine
-    command: ["redis-server", "--save", "60", "1", "--loglevel", "warning"]
+    container_name: denny-tubearchivist_archivist-redis_1
+    # schlanke Settings; du kannst AOF/BGSAVE aktivieren, wenn gewünscht
+    command: ["redis-server", "--save", "", "--appendonly", "no", "--loglevel", "warning"]
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
     restart: on-failure:5
 
-  # Auf ARM64 (Raspberry Pi/Umbrel) das offizielle Elasticsearch 8 nutzen
+  # Init-Job: stellt sicher, dass ES-Data dem User 1000 gehört
+  archivist-es-init:
+    image: busybox:1.36
+    container_name: denny-tubearchivist_archivist-es-init_1
+    user: "0:0"
+    volumes:
+      - ${APP_DATA_DIR}/data/es:/usr/share/elasticsearch/data
+    command: ["sh", "-c", "chown -R 1000:1000 /usr/share/elasticsearch/data || true"]
+    restart: "no"
+
   archivist-es:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.15.3
+    container_name: denny-tubearchivist_archivist-es_1
+    depends_on:
+      - archivist-es-init
     environment:
-      - discovery.type=single-node
-      - xpack.security.enabled=true
-      - ELASTIC_PASSWORD=umbrel
-      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      discovery.type: single-node
+      xpack.security.enabled: "true"
+      xpack.ml.enabled: "false"
+      ELASTIC_PASSWORD: umbrel
+      ES_JAVA_OPTS: "-Xms512m -Xmx512m"  # bei 8GB RAM kannst du 1g/1g setzen
+      # falls du Snapshots nutzen willst, passe auch ES_SNAPSHOT_DIR oben im TA-Container an
+      # path.repo: /usr/share/elasticsearch/data/snapshots
+    privileged: true
+    sysctls:
+      vm.max_map_count: "262144"
+      vm.overcommit_memory: "1"
     ulimits:
       memlock:
         soft: -1
@@ -47,4 +83,10 @@ services:
         hard: 65536
     volumes:
       - ${APP_DATA_DIR}/data/es:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s -u elastic:umbrel http://localhost:9200/_cluster/health | grep -E '\"status\":\"(yellow|green)\"' >/dev/null"]
+      interval: 20s
+      timeout: 5s
+      retries: 15
+      start_period: 40s
     restart: on-failure:5
