@@ -1,0 +1,41 @@
+manifestVersion: 1
+id: denny-opencloud
+name: OpenCloud
+tagline: An offline-first toolbox for networking
+icon: https://i.imgur.com/K5F3lLu.png
+category: test
+version: "1.3.0"
+port: 9201
+description: >-
+  🌐 Networking Toolbox is a comprehensive suite of web-based utilities built to make network analysis, configuration, and troubleshooting more accessible. It brings together a wide range of technical functions that help professionals and enthusiasts understand and manage digital communication systems more efficiently. By combining analytical precision with an intuitive interface, it allows users to explore, calculate, and visualize complex network relationships in real time.
+
+
+  At its core, Networking Toolbox focuses on the essential building blocks of the internet and private networks. It provides tools for IP address management, subnet and CIDR calculations, and DNS diagnostics, helping users perform operations that would normally require multiple specialized applications. It supports both IPv4 and IPv6 standards, enabling users to test and validate configurations, identify errors, and understand how data flows between devices and services.
+
+
+  The application also offers capabilities for working with network security and performance. Users can inspect SSL and TLS certificates, verify domain configurations, analyze ports, and decode network headers to ensure that systems operate safely and efficiently. Each function is designed to deliver clear, accurate results without unnecessary complexity, allowing deeper technical insight into network infrastructure.
+
+
+  Networking Toolbox is ideal for anyone who needs to explore how networks function on a detailed level. Whether used for learning, debugging, or system optimization, it provides the necessary foundation for mastering the principles of networking and ensuring that every layer of communication remains transparent, reliable, and secure.
+developer: Alicia Sykes
+website: https://www.networkingtoolbox.net/
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/Lissy93/networking-toolbox
+support: https://github.com/Lissy93/networking-toolbox/issues
+gallery:
+  - https://i.imgur.com/8SDL5r0.png
+  - https://i.imgur.com/8SDL5r0.png
+  - https://i.imgur.com/8SDL5r0.png
+releaseNotes: >-
+  This update introduces version 1.3.0 of Networking Toolbox, focusing on improving reliability, usability, and customization. The release includes enhanced IP validation, expanded testing, and a higher minimum coverage threshold to ensure consistent quality across all tools. Many internal components were refactored to simplify maintenance and reduce code duplication.
+
+
+  A major addition in this version is user customization, including theme options, color settings, and custom CSS. Error handling and logging have been completely reworked, providing structured, environment-aware feedback and centralized error tracking.
+
+
+  The diagnostic tools for DNS, HTTP, TLS, Email, and Network categories were redesigned to use shared components and composables, resulting in a more unified and intuitive interface. These changes significantly improve performance, maintainability, and overall user experience, making Networking Toolbox 1.3.0 its most polished release yet.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
