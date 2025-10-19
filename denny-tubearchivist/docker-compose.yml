@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3.7"
 
 services:
   app_proxy:
@@ -19,6 +19,8 @@ services:
       TA_HOST: umbrel-2.local
       TA_PORT: 6686
       ES_URL: http://elastic:umbrel@archivist-es:9200
+      ELASTIC_USER: elastic
+      ELASTIC_PASSWORD: umbrel
       REDIS_HOST: archivist-redis
       REDIS_PORT: 6379
     volumes:
