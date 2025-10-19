@@ -8,7 +8,6 @@ services:
 
   web:
     image: bbilly1/tubearchivist:latest
-    container_name: denny-tubearchivist_web_1
     restart: on-failure
     depends_on:
       - archivist-es
@@ -24,14 +23,13 @@ services:
       ELASTIC_HOST: archivist-es
       ELASTIC_PORT: 9200
       TA_HOST: ${DEVICE_DOMAIN_NAME}
-      TA_PORT: 8000
+      TA_PORT: 6686
       TA_UWSGI_PORT: 8001
     volumes:
       - ${APP_DATA_DIR}/data:/data
 
   archivist-es:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.15.3
-    container_name: denny-tubearchivist_archivist-es_1
     restart: on-failure
     environment:
       - discovery.type=single-node
@@ -44,7 +42,6 @@ services:
 
   archivist-redis:
     image: redis:7.4.0
-    container_name: denny-tubearchivist_archivist-redis_1
     restart: on-failure
     command: ["redis-server", "--save", "", "--appendonly", "no"]
     volumes:
