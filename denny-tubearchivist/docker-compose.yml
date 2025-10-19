@@ -21,15 +21,13 @@ services:
       ES_URL: http://elastic:umbrel@archivist-es:9200
       ELASTIC_USER: elastic
       ELASTIC_PASSWORD: umbrel
-      REDIS_HOST: archivist-redis
-      REDIS_PORT: 6379
+      REDIS_CON: redis://archivist-redis:6379/0
     volumes:
       - ${APP_DATA_DIR}/data:/data
 
   archivist-es:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.15.3
     restart: on-failure
-    user: "0:0"
     environment:
       - discovery.type=single-node
       - xpack.security.enabled=true
