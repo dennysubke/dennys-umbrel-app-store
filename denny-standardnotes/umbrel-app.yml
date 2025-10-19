@@ -3,7 +3,7 @@ id: denny-standardnotes
 name: Standard Notes
 tagline: A secure note-taking app with end-to-end encryption
 icon: https://i.imgur.com/0O4YEHi.png
-category: In Progress
+category: files & productivity
 version: "3.200.4"
 port: 3977
 description: >-
