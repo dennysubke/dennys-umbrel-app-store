@@ -7,7 +7,7 @@ services:
       APP_PORT: 5690
       
   app:
-    image: ghcr.io/wizarrrr/wizarr:2025.8.4@sha256:1026717e3fc35d67c80394c34330fe69b9e28cdb50ead0a23cdde5b44c598c3d
+    image: ghcr.io/wizarrrr/wizarr:v2025.10.4@sha256:15cfcd68d06f89a5fda198f2c0658f3c56ceb20d35cb78717a5fa54fb614dc12
     restart: on-failure
     volumes:
       - ${APP_DATA_DIR}/data:/data
