@@ -7,7 +7,7 @@ services:
       APP_PORT: 8081
 
   app:
-    image: ghcr.io/arabcoders/ytptube:master-20250308-7a2dc8a@sha256:2048941d8a4eafeb8606aa7b341084a13644f36bcde88ab0956e98be19d240aa
+    image: ghcr.io/arabcoders/ytptube:v1.0.1@sha256:0052762b4f1f0e2679a6a48c3112506271f1a923de4348ac0ddad9bf228df347
     restart: on-failure
     user: "0:0"
     environment:
@@ -17,3 +17,4 @@ services:
       - ${APP_DATA_DIR}/data/config:/config:rw
       - ${APP_DATA_DIR}/data/downloads:/downloads:rw
       - ${APP_DATA_DIR}/data/downloads:/tmp:rw
+
