@@ -7,6 +7,8 @@ services:
       APP_PORT: 8000
 
   es:
+    # Für ARM64 könntest du alternativ die offizielle ES-Version pinnen:
+    # image: docker.elastic.co/elasticsearch/elasticsearch:8.14.3
     image: bbilly1/tubearchivist-es:latest
     container_name: denny-tubearchivist_es_1
     hostname: tubearchivist-es
@@ -15,24 +17,27 @@ services:
       memlock:
         soft: -1
         hard: -1
+    # Ergänzt sysctl – stelle sicher, dass vm.max_map_count=262144 auch am Host gesetzt ist
+    sysctls:
+      - vm.max_map_count=262144
     security_opt:
       - no-new-privileges:true
       - seccomp:unconfined
-    healthcheck:
-      test: curl -s http://tubearchivist-es:9200 >/dev/null || exit 1
-      interval: 30s
-      timeout: 10s
-      retries: 5
-      start_period: 40s
     environment:
       - TZ=Europe/Berlin
       - ELASTIC_PASSWORD=tubearchivistpass
-      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      - ES_JAVA_OPTS=-Xms1g -Xmx1g
       - xpack.security.enabled=true
       - discovery.type=single-node
       - path.repo=/usr/share/elasticsearch/data/snapshot
     volumes:
       - ${APP_DATA_DIR}/data/es:/usr/share/elasticsearch/data:rw
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s -u elastic:$$ELASTIC_PASSWORD http://127.0.0.1:9200 >/dev/null || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: 60s
     restart: on-failure:5
 
   redis:
@@ -41,16 +46,16 @@ services:
     hostname: tubearchivist-redis
     security_opt:
       - no-new-privileges:true
+    environment:
+      - TZ=Europe/Berlin
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data:rw
     healthcheck:
       test: ["CMD-SHELL", "redis-cli ping || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 5
       start_period: 20s
-    environment:
-      - TZ=Europe/Berlin
-    volumes:
-      - ${APP_DATA_DIR}/data/redis:/data:rw
     restart: on-failure:5
     depends_on:
       es:
@@ -62,19 +67,14 @@ services:
     hostname: tubearchivist
     security_opt:
       - no-new-privileges:true
-    healthcheck:
-      test: ["CMD-SHELL", "timeout 10s bash -c ':> /dev/tcp/127.0.0.1/8000' || exit 1"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
-      start_period: 90s
-    # Keine Ports: Zugriff erfolgt über Umbrels app_proxy
+    # Zugriff erfolgt über Umbrels app_proxy – keine Ports hier
     environment:
       - TZ=Europe/Berlin
       - HOST_UID=1000
       - HOST_GID=1000
       - ES_URL=http://es:9200
-      - REDIS_CON=redis://redis:6379
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
       - TA_HOST=https://${DEVICE_DOMAIN_NAME}
       - TA_USERNAME=marius
       - TA_PASSWORD=mariushosting
@@ -82,6 +82,12 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/media:/youtube:rw
       - ${APP_DATA_DIR}/data/cache:/cache:rw
+    healthcheck:
+      test: ["CMD-SHELL", "timeout 10s bash -c ':> /dev/tcp/127.0.0.1/8000' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
     restart: on-failure:5
     depends_on:
       es:
