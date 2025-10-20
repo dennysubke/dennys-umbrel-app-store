@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-gameyfin_web_1
+      APP_PORT: 8080
+
+  web:
+    image: ghcr.io/gameyfin/gameyfin:2
+    restart: on-failure:5
+    environment:
+      APP_KEY: w/POFyFJaCMtAybm8U8Cq1mMetGnlhiviq9MWOZpKI4=
+      PUID: 1000
+      PGID: 1000
+      #APP_URL: https://${DEVICE_DOMAIN_NAME}
+    volumes:
+      - ${APP_DATA_DIR}/db:/opt/gameyfin/db:rw
+      - ${APP_DATA_DIR}/data:/opt/gameyfin/data:rw
+      - ${APP_DATA_DIR}/logs:/opt/gameyfin/logs:rw
+      - ${APP_DATA_DIR}/games:/games:rw
