@@ -7,7 +7,7 @@ category: test
 version: "2.1.2"
 port: 8909
 description: >-
-  Gameyfin is an open source platform designed to organize and manage personal video game collections. It scans local directories to automatically detect games and compiles them into a unified digital library. Each entry is enriched with metadata such as titles, descriptions, genres, and cover art, creating a visually appealing catalog that helps users rediscover and browse their games effortlessly.
+  🎮 Gameyfin is an open source platform designed to organize and manage personal video game collections. It scans local directories to automatically detect games and compiles them into a unified digital library. Each entry is enriched with metadata such as titles, descriptions, genres, and cover art, creating a visually appealing catalog that helps users rediscover and browse their games effortlessly.
 
 
   The system is built to be lightweight and efficient, ensuring that even large collections can be indexed and displayed quickly. It retrieves information from online databases to provide accurate details and consistent artwork, reducing the need for manual input. Users can explore their entire game library through a simple web interface that supports searching, sorting, and viewing individual game pages with detailed information.
