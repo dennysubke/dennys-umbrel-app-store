@@ -14,6 +14,9 @@ description: >-
 
 
   Gameyfin focuses on giving players control over their digital libraries, offering a structured way to access and manage owned games. It does not distribute or emulate games but instead provides a private and organized environment for keeping track of them. By combining automation, clean presentation, and customization, it transforms a folder of scattered files into a cohesive and accessible personal archive of interactive entertainment.
+
+
+  ⚙️ Place simple text files directly inside ${APP_DATA_DIR}/data/games, each named after a game you’d like to appear in your library, such as “Super Mario 64.txt” or “Portal 2.txt”. When you add this path as a library in Gameyfin and run a rescan, the app will automatically detect these files as game entries, allowing you to explore and test your library without needing any actual game files.
 developer: Gameyfin
 website: https://gameyfin.org/
 submitter: dennysubke
