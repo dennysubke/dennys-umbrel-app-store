@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-terraria_web_1
+      APP_PORT: 7777
+
+  web:
+    image: ghcr.io/hexlo/terraria-server-docker:1.4.4.9@sha256:1370ab74dbeb531cdd5d3b61bf85b7d9c09f42f9e52330b381b489cbd9704083
+    container_name: denny-terraria_web_1
+    hostname: terraria-server
+    mem_limit: 4g
+    cpu_shares: 768
+    security_opt:
+      - no-new-privileges:true
+    restart: on-failure:5
+    volumes:
+      - ${APP_DATA_DIR}/data/worlds:/root/.local/share/Terraria/Worlds:rw
+    environment:
+      world: /root/.local/share/Terraria/Worlds/MyWorld.wld
+      autocreate: 2        # 1=small, 2=medium, 3=large
+      difficulty: 0        # 0=normal, 1=expert, 2=master, 3=journey
+      secure: 1            # 1=no cheats, 0=cheats allowed
+      language: en/US      # en/US or de/DE
+      maxplayers: 8
+      worldname: MyWorld
+      password: umbrel
+      motd: Welcome to your Umbrel Terraria Server!
