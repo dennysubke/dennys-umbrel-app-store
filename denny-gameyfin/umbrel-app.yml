@@ -3,7 +3,7 @@ id: denny-gameyfin
 name: Gameyfin
 tagline: A beautiful home for all your games
 icon: https://i.imgur.com/aykRANk.png
-category: In Progress
+category: gaming
 version: "2.1.2"
 port: 8909
 description: >-
@@ -21,9 +21,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/gameyfin/gameyfin
 support: https://github.com/gameyfin/gameyfin/issues
 gallery:
-  - https://i.imgur.com/nZnIVAg.png
-  - https://i.imgur.com/nZnIVAg.png
-  - https://i.imgur.com/nZnIVAg.png
+  - https://imgur.com/fiuEjf2.png
+  - https://imgur.com/vaRob2h.png
+  - https://imgur.com/bBBL9w1.png
+  - https://imgur.com/NownuLY.png
+  - https://imgur.com/p0ZbYKu.png
 releaseNotes: >-
   Version 2.1.2 is a bugfix release that prepares the database for future updates. It removes leftover indexes, cleans up unused and corrupted images, and improves image handling. This will be the last minor release on Docker Hub, so users should switch to the new image at ghcr.io/gameyfin/gameyfin and back up their data before updating.
 dependencies: []
