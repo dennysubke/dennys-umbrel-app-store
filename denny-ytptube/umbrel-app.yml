@@ -4,7 +4,7 @@ name: YTPTube
 tagline: A WebGUI for yt-dlp with concurrent downloads support
 icon: https://i.imgur.com/y2oUk23.png
 category: media
-version: "2025.03.08"
+version: "1.0.1"
 port: 8562
 description: >-
   📥 YTPTube is a web-based interface for yt-dlp, designed to streamline the process of downloading videos from various online platforms. Originally a fork of MeTube, YTPTube has evolved significantly, introducing a wide range of additional features to enhance the user experience. The project aims to provide a more flexible and powerful solution for managing video downloads while maintaining an intuitive and user-friendly interface.
@@ -39,10 +39,7 @@ gallery:
   - https://i.imgur.com/5ldxSa4.png
   - https://i.imgur.com/Q49sWfK.png
 releaseNotes: >-
-  The latest update introduces the ability to embed content while it is still being downloaded and allows specifying a preset when adding entries via the API. Additionally, yt-dlp console access has been disabled by default for security reasons, though it can be re-enabled via a new configuration variable. 
-  
-  
-  Other changes include improved error handling, priority adjustments for URL options over presets, and general code cleanup.
+  Version 1.0.1 introduces several design improvements, updated external packages, and a quick contributing guide. It also adds support for loading different UIs and creating channel metadata with thumbnails.
 dependencies:
 path: ""
 defaultUsername: "admin"
