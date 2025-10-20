@@ -7,7 +7,7 @@ services:
       APP_PORT: 8080
 
   app:
-    image: ghcr.io/awwwsm/haus:v0.0.4@sha256:883cf93a2493616e09d75283e792ad84997a6d8d3c2323434dc9d00e9ec3b698
+    image: ghcr.io/remvze/haus:v0.0.2@sha256:d301d70a84ce8e83c09b950c5c2f76cf74e013e32953247fe7252e8ef9841125
     restart: on-failure
     mem_limit: 8g
     cpu_shares: 2048
