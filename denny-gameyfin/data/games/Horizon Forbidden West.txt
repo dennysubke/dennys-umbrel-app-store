@@ -1,0 +1,4 @@
+This is a dummy file to let Gameyfin index your library.
+Title: Horizon Forbidden West
+Created: 2025-10-20T15:44:40
+Note: This file is not a real game. It's only for testing your Gameyfin scan.
