@@ -4,7 +4,7 @@ name: Haus
 tagline: A calm space for focus and productivity
 icon: https://i.imgur.com/9oHV6iK.png
 category: files & productivity
-version: "0.0.4"
+version: "0.0.2"
 port: 8392
 description: >-
   🏠 Haus is a minimalistic online workstation that brings together essential tools for focus and productivity within a single, calm, and visually pleasing environment. It is designed to reduce distractions and create a sense of mental clarity, allowing you to concentrate fully on the task at hand.
@@ -30,7 +30,7 @@ gallery:
   - https://i.imgur.com/7nzGriA.png
   - https://i.imgur.com/wS8rIzy.png
 releaseNotes: >-
-  Version 0.0.4 adds a sample deployment for Kubernetes support and includes various bug fixes to improve stability.
+  Version 0.0.2 adds a sample deployment for Kubernetes support and includes various bug fixes to improve stability.
 dependencies: []
 path: ""
 defaultUsername: ""
