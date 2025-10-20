@@ -1,0 +1,90 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-tubearchivist_web_1
+      APP_PORT: 8000
+
+  es:
+    image: bbilly1/tubearchivist-es:latest
+    container_name: denny-tubearchivist_es_1
+    hostname: tubearchivist-es
+    user: "1000:1000"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    security_opt:
+      - no-new-privileges:true
+      - seccomp:unconfined
+    healthcheck:
+      test: curl -s http://tubearchivist-es:9200 >/dev/null || exit 1
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+    environment:
+      - TZ=Europe/Berlin
+      - ELASTIC_PASSWORD=tubearchivistpass
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      - xpack.security.enabled=true
+      - discovery.type=single-node
+      - path.repo=/usr/share/elasticsearch/data/snapshot
+    volumes:
+      - ${APP_DATA_DIR}/data/es:/usr/share/elasticsearch/data:rw
+    restart: on-failure:5
+
+  redis:
+    image: redis:7
+    container_name: denny-tubearchivist_redis_1
+    hostname: tubearchivist-redis
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli ping || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
+    environment:
+      - TZ=Europe/Berlin
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data:rw
+    restart: on-failure:5
+    depends_on:
+      es:
+        condition: service_started
+
+  tubearchivist:
+    image: bbilly1/tubearchivist:latest
+    container_name: denny-tubearchivist_web_1
+    hostname: tubearchivist
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD-SHELL", "timeout 10s bash -c ':> /dev/tcp/127.0.0.1/8000' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    # Keine Ports: Zugriff erfolgt über Umbrels app_proxy
+    environment:
+      - TZ=Europe/Berlin
+      - HOST_UID=1000
+      - HOST_GID=1000
+      - ES_URL=http://es:9200
+      - REDIS_CON=redis://redis:6379
+      - TA_HOST=https://${DEVICE_DOMAIN_NAME}
+      - TA_USERNAME=marius
+      - TA_PASSWORD=mariushosting
+      - ELASTIC_PASSWORD=tubearchivistpass
+    volumes:
+      - ${APP_DATA_DIR}/data/media:/youtube:rw
+      - ${APP_DATA_DIR}/data/cache:/cache:rw
+    restart: on-failure:5
+    depends_on:
+      es:
+        condition: service_started
+      redis:
+        condition: service_healthy
