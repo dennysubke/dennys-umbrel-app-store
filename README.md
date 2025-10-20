@@ -33,9 +33,11 @@ This repository contains my custom Umbrel App Store. Unlike the official store, 
 | 9   | [Ashigaru Terminal](https://github.com/TheNymMan/Ashi-T) | A non-custodial client boosting transaction anonymity                | 7682   |
 | 10  | [Atheos](https://github.com/Atheos/Atheos)           | A web-based IDE framework with a small footprint and minimal requirements| 8728   |
 | 11  | [Atomify](https://github.com/bluegoosemedia/atmoify) | A customizable ambient atmosphere creator                                | 3821   |
+| 11  | [Auto-MCS](https://github.com/macarooni-man/auto-mcs)| A cross-platform Minecraft server manager                                | 8439   |
 | 12  | [Baby Buddy](https://github.com/babybuddy/babybuddy) | An all-in-one baby tracker                                               | 8673   |
 | 13  | [Baikal](https://github.com/sabre-io/Baikal)         | A lightweight CalDAV+CardDAV server                                      | 8547   |
 | 14  | [Beaver Habit Tracker](https://github.com/daya0576/beaverhabits) | A self-hosted habit tracking app without "Goals"             | 8732   |
+| 14  | [BentoPDF](https://github.com/alam00000/bentopdf)    | A Privacy First PDF Toolkit                                              | 8730   |
 | 15  | [BIP47 Message Verifier](https://github.com/dennysubke/bip47-verifier-docker)| An easy way to verify BIP47 signatures           | 8047   |
 | 16  | [BitPlay](https://github.com/aculix/bitplay)         | A seamless way to stream torrents directly in your browser               | 3347   |
 | 17  | [Bitaxe Webflasher](https://github.com/bitaxeorg/bitaxe-web-flasher) | An easy tool for flashing Bitaxe devices                 | 3640   |
@@ -83,6 +85,7 @@ This repository contains my custom Umbrel App Store. Unlike the official store, 
 | 59  | [Evershop](https://github.com/evershopcommerce/evershop) | An All-in-One Open Source E-commerce Solution                         | 3385   |
 | 60  | [Excalidraw](https://github.com/excalidraw/excalidraw) | An open-source virtual hand-drawn style whiteboard                      | 4422   |
 | 61  | [ExpenseOwl](https://github.com/Tanq16/ExpenseOwl)   | A beautifully simple expense tracker                                      | 5007   |
+| 61  | [FacturaScripts](https://github.com/FacturaScripts/docker-facturascripts) | A complete solution for your business                | 8774   |
 | 62  | [Ferdium](https://github.com/ferdium/ferdium-server) | An all-in-one messaging hub                                               | 3333   |
 | 63  | [FileBrowser Quantum](https://github.com/gtsteffaniak/filebrowser) | A better filebrowser than Filebrowser                       | 8633   |
 | 64  | [FileFlows](https://github.com/revenz/FileFlows)     | A file processing app that performs actions on files using a tree flow structure | 19200  |
@@ -94,6 +97,7 @@ This repository contains my custom Umbrel App Store. Unlike the official store, 
 | 70  | [Font Generator](https://github.com/seadfeng/font-generator)  | A creative text styling app                                      | 3876   |
 | 71  | [FreeTube](https://github.com/FreeTubeApp/FreeTube)  | An Open Source YouTube app for privacy                                    | 3422   |
 | 72  | [Fusion](https://github.com/0x2E/fusion)             | A lightweight RSS reader                                                  | 8899   |
+| 72  | [Gameyfin](https://github.com/gameyfin/gameyfin)     | A beautiful home for all your games                                       | 8909   |
 | 73  | [Gatus](https://github.com/TwiN/gatus)               | An uptime guardian for critical endpoints                                 | 8443   |
 | 74  | [Ghost](https://github.com/TryGhost/Ghost)           | A platform for creators to publish, grow, and monetize their content      | 3368   |
 | 75  | [Gimp](https://github.com/GNOME/gimp)                | An open-source powerhouse for image editing                               | 3388   |
@@ -161,6 +165,7 @@ This repository contains my custom Umbrel App Store. Unlike the official store, 
 | 137 | [NeonLink](https://github.com/AlexSciFier/neonlink)  | A simple self-hosted bookmark service                                     | 8332   |
 | 138 | [Nerd*axe Webflasher](https://github.com/shufps/nerdqaxe-web-flasher)   | An easy tool for flashing Nerd*axe devices             | 3639   |
 | 139 | [Netdata](https://github.com/netdata/netdata)        | A high-performance tool for monitoring systems in real time               | 19999  |
+| 140 | [Networking Toolbox](https://github.com/Lissy93/networking-toolbox) | An offline-first toolbox for networking                    | 3686   |
 | 140 | [Nexterm](https://github.com/gnmyt/Nexterm)          | An efficient way to manage remote terminals with ease                     | 6989   |
 | 141 | [NocoDB](https://github.com/nocodb/nocodb)           | A seamless no-code platform for database management                       | 8096   |
 | 142 | [Noflux](https://github.com/fiatjaf/noflux)          | A simple decentralized feed reader powered by Nostr                       | 8064   |
@@ -222,6 +227,7 @@ This repository contains my custom Umbrel App Store. Unlike the official store, 
 | 198 | [SillyTavern](https://github.com/SillyTavern/SillyTavern) | An immersive LLM chat with image generation and TTS support          | 8321   |
 | 199 | [SiYuan](https://github.com/siyuan-note/siyuan)      | A privacy-first personal knowledge management system                      | 6806   |
 | 200 | [Slash](https://github.com/yourselfhosted/slash)     | A link shortener that simplifies the managing and sharing of links        | 5231   |
+| 200 | [Slink](https://github.com/andrii-kryvoviaz/slink)   | A powerful image sharing platform                                         | 8811   |
 | 201 | [slskd](https://github.com/slskd/slskd)              | A modern client-server application for the Soulseek file sharing network  | 5030   |
 | 202 | [SolidInvoice](https://github.com/SolidInvoice/SolidInvoice) | A sophisticated open-source invoicing application                 | 5484   |
 | 203 | [Spacedrive](https://github.com/spacedriveapp/spacedrive) | A file manager from the future                                       | 8199   |
@@ -230,6 +236,7 @@ This repository contains my custom Umbrel App Store. Unlike the official store, 
 | 206 | [Spooty](https://github.com/Raiper34/spooty)         | A self-hosted Spotify downloader                                          | 3381   |
 | 207 | [Spotube](https://github.com/KRTirtho/spotube)       | An open-source Spotify client for every platform                          | 30123  |
 | 208 | [Stalwart](https://github.com/stalwartlabs/stalwart) | An all-in-one Mail & Collaboration server                                 | 18080  |
+| 209 | [Standard Notes](https://github.com/standardnotes)   | A secure note-taking app with end-to-end encryption                       | 3977   |
 | 209 | [Statping NG](https://github.com/statping-ng/statping-ng)| A web and app status monitoring tool                                  | 8722   |
 | 210 | [Statusnook](https://github.com/goksan/statusnook)    | An effortless solution for setting up a status page and monitoring endpoints in minutes | 8444  |
 | 211 | [Stremio](https://github.com/tsaridas/stremio-docker) | An all-in-one streaming hub for all your entertainment needs             | 10470  |
@@ -256,8 +263,10 @@ This repository contains my custom Umbrel App Store. Unlike the official store, 
 | 232 | [Twenty](https://github.com/twentyhq/twenty)        | An adaptable CRM solution for seamless team collaboration and growth       | 2020   |
 | 233 | [Ungoogled Chromium](https://github.com/ungoogled-software/ungoogled-chromium) | An optimized, privacy-focused browser experience| 3330   |
 | 234 | [UniFi Network Server](https://github.com/linuxserver/docker-unifi-network-application) | An intuitive solution for seamless network management | 8893   |
+| 235 | [VERT](https://github.com/VERT-sh/VERT)              | A file conversion utility                                                 | 3884   |
 | 235 | [Vito](https://github.com/GlobusGroup/vito)          | A secure, self-hosted secret sharing application                          | 9998   |
 | 236 | [VoceChat](https://github.com/Privoce/vocechat-server-rust)   | A secure chat solution for privacy-focused communication         | 3197   |
+| 237 | [WAHA](https://github.com/devlikeapro/waha)          | A one-click WhatsApp API                                                  | 8992   |
 | 237 | [Wallos](https://github.com/ellite/Wallos)           | An empowering app to manage finances and track subscriptions and expenses | 8283   |
 | 238 | [Online Whiteboard](https://github.com/lovasoa/whitebophir) | An online collaborative whiteboard that's simple, free, and easy to use | 5111   |
 | 239 | [Wagmi](https://github.com/mentholmike/wagmios)      | A self-hosted container management system with AI-powered automation      | 5174   |
