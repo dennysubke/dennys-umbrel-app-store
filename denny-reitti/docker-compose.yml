@@ -17,7 +17,7 @@ services:
       - ${APP_DATA_DIR}/data/app_data:/app/data
 
   postgis:
-    image: postgis/postgis:17-3.5-alpine@sha256:819d9730850d2b85dcd0929128671212b5e142938126c78936751a8e63b2c1d4
+    image: ghcr.io/baosystems/postgis:18-3.6 #postgis/postgis:17-3.5-alpine@sha256:819d9730850d2b85dcd0929128671212b5e142938126c78936751a8e63b2c1d4
     restart: on-failure
     environment:
       POSTGRES_USER: reitti
