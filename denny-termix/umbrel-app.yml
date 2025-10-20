@@ -2,9 +2,9 @@ manifestVersion: 1
 id: denny-termix
 name: Termix
 tagline: A server management platform with SSH terminal
-icon: https://i.imgur.com/JbXeJrb.png
+icon: https://i.imgur.com/4zzRL8g.png
 category: networking
-version: "1.3.0"
+version: "1.7.3"
 port: 6444
 description: >-
   💻 Termix is designed to simplify server administration by bringing powerful management tools into a single, unified interface. At its core, it provides direct access to SSH terminals inside the browser, eliminating the need for external clients. Sessions can be opened in tabs or arranged in split screens, allowing administrators to multitask and manage different systems simultaneously with ease. The terminal experience is responsive and reliable, ensuring that routine tasks such as configuration, updates, and troubleshooting can be performed quickly.
@@ -36,7 +36,10 @@ gallery:
   - https://i.imgur.com/kFRVg2m.png
   - https://i.imgur.com/VRAQ5Ad.png
 releaseNotes: >-
-  This release introduces a redesigned and unified frontend, combining everything into a single server browser panel for easier management. It adds full file manager functionality with create, upload, rename, and delete operations, as well as real-time server statistics via SSH. The admin page was simplified, SSH tools improved with key recording, and a registration bug was fixed.
+  Version 1.7.3 introduces a new terminal font, CaskaydiaCove Mono, and adds a German language option. 
+  
+  
+  The update also ensures sidebar states persist across sessions. Additionally, it fixes issues with the Termix alert system and password reset credentials.
 dependencies: []
 path: ""
 defaultUsername: ""
