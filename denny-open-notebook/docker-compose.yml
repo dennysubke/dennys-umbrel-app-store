@@ -18,7 +18,7 @@ services:
       - SURREAL_DATABASE=production
       - RUST_LOG=warn
       - SURREAL_LOG=warn
-      - API_URL=http://localhost:5055
+      - API_URL=http://umbrel-2.local:5055
     volumes:
       - ${APP_DATA_DIR}/data/notebook:/app/data
       - ${APP_DATA_DIR}/data/surreal:/mydata
