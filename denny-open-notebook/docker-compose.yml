@@ -3,8 +3,8 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST=denny-open_notebook_app_1
-      APP_PORT=8502
+      APP_HOST: denny-open-notebook_app_1
+      APP_PORT: 8502
 
   app:
     image: lfnovo/open_notebook:v1-latest-single
@@ -16,6 +16,9 @@ services:
       - SURREAL_PASSWORD=root
       - SURREAL_NAMESPACE=open_notebook
       - SURREAL_DATABASE=production
+      - RUST_LOG=warn
+      - SURREAL_LOG=warn
+      - API_URL=http://localhost:5055
     volumes:
       - ${APP_DATA_DIR}/data/notebook:/app/data
       - ${APP_DATA_DIR}/data/surreal:/mydata
