@@ -18,7 +18,7 @@ services:
     image: lfnovo/open_notebook:v1-latest-single
     restart: on-failure
     env_file:
-      - .env
+      - path: ${APP_DATA_DIR}/.env
     environment:
       - SURREAL_URL=ws://localhost:8000/rpc
       - SURREAL_USER=root
