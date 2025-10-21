@@ -4,15 +4,15 @@ services:
   app_proxy:
     environment:
       APP_HOST: denny-open-notebook_web_1
-      APP_PORT: 8502
+      APP_PORT: "8502"
 
   web:
     image: nginx:alpine
     restart: on-failure
-    volumes:
-      - ${APP_DATA_DIR}/data/nginx.conf:/etc/nginx/conf.d/default.conf:ro
     depends_on:
       - app
+    volumes:
+      - ${APP_DATA_DIR}/data/nginx.conf:/etc/nginx/conf.d/default.conf:ro
 
   app:
     image: lfnovo/open_notebook:v1-latest-single
@@ -24,7 +24,9 @@ services:
       - SURREAL_PASSWORD=root
       - SURREAL_NAMESPACE=open_notebook
       - SURREAL_DATABASE=production
+      # Browser soll die gleiche Origin benutzen:
       - API_URL=/api
+      # weniger Logspam
       - RUST_LOG=warn
     volumes:
       - ${APP_DATA_DIR}/data/notebook:/app/data
