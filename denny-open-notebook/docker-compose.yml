@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST=denny-open_notebook_app_1
+      APP_PORT=8502
+
+  app:
+    image: lfnovo/open_notebook:v1-latest-single
+    restart: on-failure
+    environment:
+      - OPENAI_API_KEY=your_key_here
+      - SURREAL_URL=ws://localhost:8000/rpc
+      - SURREAL_USER=root
+      - SURREAL_PASSWORD=root
+      - SURREAL_NAMESPACE=open_notebook
+      - SURREAL_DATABASE=production
+    volumes:
+      - ${APP_DATA_DIR}/data/notebook:/app/data
+      - ${APP_DATA_DIR}/data/surreal:/mydata
