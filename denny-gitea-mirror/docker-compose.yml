@@ -7,7 +7,7 @@ services:
       APP_PORT: 4321
 
   web:
-    image: ghcr.io/raylabshq/gitea-mirror:v3.8.7
+    image: ghcr.io/raylabshq/gitea-mirror:v3.8.7@sha256:c1eb36491de5d84936ebf051f90d6709627060971119b6d2b977f44701784368
     restart: on-failure
     user: "0:0"
     volumes:
