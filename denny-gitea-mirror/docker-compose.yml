@@ -9,7 +9,7 @@ services:
   web:
     image: ghcr.io/raylabshq/gitea-mirror:v3.8.7
     restart: on-failure
-    user: "1000:1000"
+    user: "0:0"
     environment:
       PORT: "4321"
       PUID: "1000"
