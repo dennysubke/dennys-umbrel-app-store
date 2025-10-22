@@ -1,29 +1,34 @@
 manifestVersion: 1
 id: denny-gitea-mirror
 name: Gitea Mirror
-tagline: A task manager that respects your privacy
-icon: icon.png
+tagline: An automated mirror between GitHub and Gitea
+icon: https://i.imgur.com/M3YkKEb.png
 category: test
-version: "1.0.0"
+version: "3.8.7"
 port: 4321
 description: >-
-  TaskTrove is a modern task management application designed to help people organize their daily work and personal projects with clarity and efficiency. It provides a clean and intuitive interface where tasks can be quickly added, edited, and managed. The application supports natural language input so due dates, reminders, and scheduling details can be written in everyday language and immediately transformed into structured information. Tasks can be grouped into projects and further refined with labels, subtasks, and recurring patterns, making it easy to manage both simple to do lists and more complex workflows.
+  🪞 Gitea Mirror is an automation tool that continuously synchronizes repositories from GitHub to Gitea. It replicates commits, branches, and tags from their source repositories, ensuring both platforms always stay in sync. Once configured, the process runs automatically without the need for manual updates, making it ideal for maintaining consistent backups or mirrors of active development projects.
 
 
-  TaskTrove offers multiple ways to view and interact with tasks including a traditional list view, a compact view for dense overviews, and a Kanban style board that is especially useful for visual organization and progress tracking. Searching and filtering are central features, allowing users to focus only on what is relevant at a given moment without losing sight of the bigger picture. Upcoming additions such as calendar integration and analytical tools extend its ability to provide insights into productivity and time management.
+  The application is designed to handle large-scale synchronization. It can mirror not just individual repositories but also entire GitHub organizations or user accounts, automatically including all repositories within them. During this process, Gitea Mirror preserves the original repository structure and hierarchy, maintaining familiar organization names and project layouts. It also provides options for customized organization if users want to adapt the structure to their own conventions.
 
 
-  The application is built with privacy in mind and avoids unnecessary tracking or telemetry. It encourages a personal and distraction free workflow where the user stays in full control of their information. Its flexibility makes it suitable for different styles of productivity whether that means a simple checklist for everyday errands or a structured system for managing multiple projects at once.
-developer: Mushroom Theory Inc.
-website: https://tasktrove.io/
+  To enhance reliability and transparency, Gitea Mirror includes detailed monitoring and logging features. Users can view real-time synchronization progress, review activity logs, and quickly identify any errors or conflicts that occur during updates. This allows for efficient troubleshooting and ensures that mirrored repositories remain accurate and complete.
+
+
+  In essence, Gitea Mirror simplifies the management of mirrored codebases between GitHub and Gitea. It helps developers and teams maintain redundancy, prevent data loss, and guarantee that their Gitea environment always reflects the latest state of their GitHub projects.
+developer: RayLabs
+website: https://giteamirror.com/
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
-repo: https://github.com/dohsimpson/TaskTrove
-support: https://github.com/dohsimpson/TaskTrove/issues
+repo: https://github.com/RayLabsHQ/gitea-mirror
+support: https://github.com/RayLabsHQ/gitea-mirror/issues
 gallery:
-  - 1.jpg
+  - https://i.imgur.com/IXQgNoL.png
+  - https://i.imgur.com/IXQgNoL.png
+  - https://i.imgur.com/IXQgNoL.png
 releaseNotes: >-
-  This update adds new natural language shortcuts for today and tomorrow, introduces a comprehensive settings dialog with UI improvements, and enhances drag and drop with shadow effects and collapsed section support. It also fixes a bug affecting kanban board drag and drop between sections.
+  This version improves SSO stability.
 dependencies: []
 path: ""
 defaultUsername: ""
