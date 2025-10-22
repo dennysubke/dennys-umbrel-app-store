@@ -10,19 +10,14 @@ services:
     image: ghcr.io/raylabshq/gitea-mirror:v3.8.7
     restart: on-failure
     user: "0:0"
-    environment:
-      PORT: "4321"
-      PUID: "1000"
-      PGID: "1000"
-      BETTER_AUTH_SECRET: "1f3a8b27c9d84e77a2fcb845c1de5a90"
-      ENCRYPTION_SECRET: "c4b18f278e324a2c9f7e1b943b6df120"
-      BETTER_AUTH_URL: "https://${DEVICE_DOMAIN_NAME}"
-      TRUSTED_ORIGINS: "https://${DEVICE_DOMAIN_NAME},http://${DEVICE_DOMAIN_NAME}"
-      SCHEDULE_ENABLED: "true"
-      SCHEDULE_INTERVAL: "3600"
-      GITEA_MIRROR_INTERVAL: "8h"
-      AUTO_IMPORT_REPOS: "true"
-      CLEANUP_DELETE_IF_NOT_IN_GITHUB: "true"
-      CLEANUP_ORPHANED_REPO_ACTION: "archive"
     volumes:
       - ${APP_DATA_DIR}/data:/app/data
+    environment:
+      - BETTER_AUTH_SECRET=1f3a8b27c9d84e77a2fcb845c1de5a90
+      - BETTER_AUTH_URL=http://${DEVICE_DOMAIN_NAME}
+      - BETTER_AUTH_TRUSTED_ORIGINS=http://umbrel.local,http://umbrel-2.local
+      - NODE_ENV=production
+      - DATABASE_URL=file:data/gitea-mirror.db
+      - HOST=0.0.0.0
+      - PORT=4321
+      - PUBLIC_BETTER_AUTH_URL=http://${DEVICE_DOMAIN_NAME}
