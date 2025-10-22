@@ -3,7 +3,7 @@ id: denny-gitea-mirror
 name: Gitea Mirror
 tagline: An automated mirror between GitHub and Gitea
 icon: https://i.imgur.com/M3YkKEb.png
-category: test
+category: In Progress
 version: "3.8.7"
 port: 4321
 description: >-
