@@ -15,7 +15,7 @@ services:
     environment:
       - BETTER_AUTH_SECRET=1f3a8b27c9d84e77a2fcb845c1de5a90
       - BETTER_AUTH_URL=http://${DEVICE_DOMAIN_NAME}
-      - BETTER_AUTH_TRUSTED_ORIGINS=http://umbrel.local:4321,http://umbrel-2.local:4321
+      - BETTER_AUTH_TRUSTED_ORIGINS=http://${DEVICE_DOMAIN_NAME}:4321
       - NODE_ENV=production
       - DATABASE_URL=file:data/gitea-mirror.db
       - HOST=0.0.0.0
