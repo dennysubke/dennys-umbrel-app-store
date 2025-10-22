@@ -17,8 +17,6 @@ services:
   app:
     image: ghcr.io/lfnovo/open-notebook:1.0.11-single@sha256:0b159179c9ca6f83cc97ebd527a862e062c7dc95526db73a53e61d9517f5ae15
     restart: on-failure
-    env_file:
-      - path: ${APP_DATA_DIR}/.env
     environment:
       - SURREAL_URL=ws://localhost:8000/rpc
       - SURREAL_USER=root
