@@ -31,7 +31,8 @@ gallery:
   - https://i.imgur.com/6IzA37g.png
   - https://i.imgur.com/7bef6eS.png
 releaseNotes: >-
-  This release includes several improvements and new features:
+  Key highlights in this release include:
+    - ⚡ Significant improvements in page initialization and chat performance
     - ⚡️ Command Palette, Multiplayer Undo/Redo, and Flowcharts  
     - 🖋️ Improved text wrapping and editable element stats  
     - 🔤 Expanded font picker with CJK support  
