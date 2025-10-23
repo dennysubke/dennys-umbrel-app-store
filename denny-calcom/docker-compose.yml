@@ -5,7 +5,6 @@ services:
     environment:
       APP_HOST: denny-calcom_web_1
       APP_PORT: 3000
-      PROXY_PORT: 6942
 
   web:
     image: calcom/cal.com:v5.6.19
