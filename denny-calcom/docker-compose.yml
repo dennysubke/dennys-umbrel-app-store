@@ -5,6 +5,7 @@ services:
     environment:
       APP_HOST: denny-calcom_web_1
       APP_PORT: 3000
+      PROXY_PORT: 6942
 
   web:
     image: calcom/cal.com:v5.6.19
@@ -17,7 +18,7 @@ services:
       NEXTAUTH_SECRET: b7df6a12a00f8e9e70b6c2c9fa9cf6dd8b11f932c6c5e1aa9b3b8db87e9c4e51
       CALENDSO_ENCRYPTION_KEY: 1a4e3cbfbd22df4a93c5eaa78a4211f97d7e0a7bb63f9a64d3c61b57f1b36a2c
       NEXTAUTH_URL: http://localhost:3000/api/auth
-      NEXT_PUBLIC_WEBAPP_URL: http://${DEVICE_DOMAIN_NAME}:3000
+      NEXT_PUBLIC_WEBAPP_URL: http://${DEVICE_DOMAIN_NAME}:6942
       REDIS_URL: redis://redis:6379
       CALCOM_TELEMETRY_DISABLED: "1"
       TZ: Europe/Berlin
