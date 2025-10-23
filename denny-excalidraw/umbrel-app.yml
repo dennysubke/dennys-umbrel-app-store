@@ -31,7 +31,16 @@ gallery:
   - https://i.imgur.com/6IzA37g.png
   - https://i.imgur.com/7bef6eS.png
 releaseNotes: >-
-  This is a fork of Excalidraw and is not the official version. Please note that there are no changelogs available, and updates may differ from the main project.
+  This release includes several improvements and new features:
+    - ⚡️ Command Palette, Multiplayer Undo/Redo, and Flowcharts  
+    - 🖋️ Improved text wrapping and editable element stats  
+    - 🔤 Expanded font picker with CJK support  
+    - 🖼️ Image cropping, scene search, and element linking  
+    - 📦 Switched from UMD to ES Modules (ESM)  
+    - 🌐 Fonts via CDN and locales as ES modules  
+    - 🔄 New `captureUpdate` API for undo/redo  
+    - 🧩 Updated import structure for modern bundlers  
+    - 🎨 Refined text rendering and stats layout
 dependencies: []
 path: ""
 defaultUsername: ""
