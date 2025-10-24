@@ -1,29 +1,43 @@
 manifestVersion: 1
 id: denny-copyparty
 name: copyparty
-tagline: A task manager that respects your privacy
-icon: icon.png
-category: test
-version: "1.0.0"
+tagline: A versatile all-in-one file server for everything
+icon: https://i.imgur.com/LK7AAwO.png
+category: In Progress
+version: "1.19.17"
 port: 3923
 description: >-
-  TaskTrove is a modern task management application designed to help people organize their daily work and personal projects with clarity and efficiency. It provides a clean and intuitive interface where tasks can be quickly added, edited, and managed. The application supports natural language input so due dates, reminders, and scheduling details can be written in everyday language and immediately transformed into structured information. Tasks can be grouped into projects and further refined with labels, subtasks, and recurring patterns, making it easy to manage both simple to do lists and more complex workflows.
+  copyparty is a lightweight yet incredibly powerful file sharing platform designed to give you complete control over your data. It transforms any environment into a personal and fully featured file hub where you can upload, download, edit, and organize files directly through an intuitive web interface. Everything happens in the browser without the need for additional software, making it fast, convenient, and accessible from virtually anywhere.
 
 
-  TaskTrove offers multiple ways to view and interact with tasks including a traditional list view, a compact view for dense overviews, and a Kanban style board that is especially useful for visual organization and progress tracking. Searching and filtering are central features, allowing users to focus only on what is relevant at a given moment without losing sight of the bigger picture. Upcoming additions such as calendar integration and analytical tools extend its ability to provide insights into productivity and time management.
+  At its core, copyparty is built around simplicity and flexibility. It supports multiple standard protocols such as HTTP, WebDAV, and FTP, allowing seamless integration with a wide range of clients and devices. You can drag and drop files into the browser, create folders, manage permissions, and instantly share links with others. Whether you want to host a temporary upload area, organize long term archives, or maintain a personal workspace, copyparty adapts to your needs without complexity.
 
 
-  The application is built with privacy in mind and avoids unnecessary tracking or telemetry. It encourages a personal and distraction free workflow where the user stays in full control of their information. Its flexibility makes it suitable for different styles of productivity whether that means a simple checklist for everyday errands or a structured system for managing multiple projects at once.
-developer: Mushroom Theory Inc.
-website: https://tasktrove.io/
+  Beyond basic file management, copyparty includes advanced tools that make it much more than a typical file server. It comes with an integrated media player for streaming music and videos directly from your library, along with text and Markdown editors for in browser document editing. You can tag files, perform instant searches across large directories, and even restore previous versions of files when needed.
+
+
+  Security and customization are also at the heart of copyparty’s design. It offers granular user access controls, password protection, and finely tuned configuration options to match your workflow. The interface can be completely restyled with custom CSS themes, making it easy to create a personalized look and feel.
+
+
+  In essence, copyparty is not just a file server but a flexible and elegant file management ecosystem. It can serve as a private cloud, a collaborative workspace, or a full featured digital archive, combining performance, simplicity, and freedom in one compact application.
+developer: 9001
+website: https://github.com/9001/copyparty
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
-repo: https://github.com/dohsimpson/TaskTrove
-support: https://github.com/dohsimpson/TaskTrove/issues
+repo: https://github.com/9001/copyparty
+support: https://github.com/9001/copyparty/issues
 gallery:
-  - 1.jpg
+  - https://i.imgur.com/fq5KWdn.png
+  - https://i.imgur.com/fq5KWdn.png
+  - https://i.imgur.com/fq5KWdn.png
 releaseNotes: >-
-  This update adds new natural language shortcuts for today and tomorrow, introduces a comprehensive settings dialog with UI improvements, and enhances drag and drop with shadow effects and collapsed section support. It also fixes a bug affecting kanban board drag and drop between sections.
+  This version introduces a broad range of improvements that make the platform more flexible, powerful, and user-friendly. You can now view CBZ manga and comics directly in the browser, magnify images and videos to fill the screen, and enjoy embedded album art in the audio player. Access control has been enhanced with options to subtract users and groups from permissions, new volume flags to prevent duplicate uploads, and settings to hide certain interface elements. Text files can also be viewed directly using a simple link suffix, while reflink-based deduplication is now supported across more Python versions for safer and faster file handling.
+
+
+  This update also includes several bug fixes that improve stability and reliability. FTP uploads can now resume after interruptions, and the “race-the-beam” feature functions correctly in all shared directories.
+
+
+  Additionally, internal refinements make configuration and maintenance easier. A new example hook has been added, invalid configuration values are now blocked, and translation files are separated for better organization. Overall, this version is more polished, secure, and enjoyable to use.
 dependencies: []
 path: ""
 defaultUsername: "admin"
