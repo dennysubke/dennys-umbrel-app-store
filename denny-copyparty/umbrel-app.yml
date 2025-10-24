@@ -26,5 +26,5 @@ releaseNotes: >-
   This update adds new natural language shortcuts for today and tomorrow, introduces a comprehensive settings dialog with UI improvements, and enhances drag and drop with shadow effects and collapsed section support. It also fixes a bug affecting kanban board drag and drop between sections.
 dependencies: []
 path: ""
-defaultUsername: ""
-defaultPassword: ""
+defaultUsername: "admin"
+defaultPassword: "umbrel"
