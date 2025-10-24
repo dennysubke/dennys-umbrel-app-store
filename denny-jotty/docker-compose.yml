@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-jotty_web_1
+      APP_PORT: 3000
+
+  web:
+    image: ghcr.io/fccview/jotty:1.8.1@sha256:e7f886b916f1eeb1b848bc0b444e73c6ffd9f4e1c5a36f6f115ad6926dedc129
+    restart: on-failure
+    user: "1000:1000"
+    volumes:
+      - ${APP_DATA_DIR}/data/app_data:/app/data:rw
+      - ${APP_DATA_DIR}/data/config:/app/config:ro
+      - ${APP_DATA_DIR}/data/cache:/app/.next/cache:rw
+    environment:
+      NODE_ENV: production
+      # Optional:
+      # HTTPS: true
+      # APP_URL: http://${DEVICE_DOMAIN_NAME}:1122
+      # SERVE_PUBLIC_IMAGES: yes
+      # SERVE_PUBLIC_FILES: yes
+      # SSO_MODE: oidc
+      # OIDC_ISSUER: <YOUR_SSO_ISSUER>
+      # OIDC_CLIENT_ID: <YOUR_SSO_CLIENT_ID>
+      # OIDC_CLIENT_SECRET: your_client_secret
+      # SSO_FALLBACK_LOCAL: yes
+      # OIDC_ADMIN_GROUPS: admins
