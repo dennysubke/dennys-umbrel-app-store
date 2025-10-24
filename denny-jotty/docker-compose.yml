@@ -16,14 +16,5 @@ services:
       - ${APP_DATA_DIR}/data/cache:/app/.next/cache:rw
     environment:
       NODE_ENV: production
-      # Optional:
-      # HTTPS: true
-      # APP_URL: http://${DEVICE_DOMAIN_NAME}:1122
-      # SERVE_PUBLIC_IMAGES: yes
-      # SERVE_PUBLIC_FILES: yes
-      # SSO_MODE: oidc
-      # OIDC_ISSUER: <YOUR_SSO_ISSUER>
-      # OIDC_CLIENT_ID: <YOUR_SSO_CLIENT_ID>
-      # OIDC_CLIENT_SECRET: your_client_secret
-      # SSO_FALLBACK_LOCAL: yes
-      # OIDC_ADMIN_GROUPS: admins
+      SERVE_PUBLIC_IMAGES: yes
+      SERVE_PUBLIC_FILES: yes
