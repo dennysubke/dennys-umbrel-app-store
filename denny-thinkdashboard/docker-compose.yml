@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-thinkdashboard_web_1
+      APP_PORT: 8080
+
+  web:
+    image: ghcr.io/matiasdesuu/thinkdashboard:0.5.5-v2@sha256:c335ea079dba32b6d491dbe61edf323fe0c1d340c6c9a249914f4875cb381411
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/data:/app/data
+    environment:
+      PORT: 8080
