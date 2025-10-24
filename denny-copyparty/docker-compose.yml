@@ -8,7 +8,7 @@ services:
 
   web:
     image: copyparty/ac:latest
-    user: "1000:1000"
+    user: "0:0"
     volumes:
       - ${APP_DATA_DIR}/config/config.conf:/cfg/config.conf:ro
       - ${APP_DATA_DIR}/data/cp_data:/cfg/hists
