@@ -2,28 +2,42 @@ manifestVersion: 1
 id: denny-thinkdashboard
 name: ThinkDashboard
 tagline: A simple self-hosted bookmark dashboard
-icon: icon.png
-category: test
+icon: https://i.imgur.com/OI5kTWr.png
+category: In Progress
 version: "0.5.5"
 port: 8788
 description: >-
-  TaskTrove is a modern task management application designed to help people organize their daily work and personal projects with clarity and efficiency. It provides a clean and intuitive interface where tasks can be quickly added, edited, and managed. The application supports natural language input so due dates, reminders, and scheduling details can be written in everyday language and immediately transformed into structured information. Tasks can be grouped into projects and further refined with labels, subtasks, and recurring patterns, making it easy to manage both simple to do lists and more complex workflows.
+  🔢 ThinkDashboard is an open source web application created to help users organize and access their favorite websites from a single elegant dashboard. It provides a clean and minimal interface that removes distractions and focuses entirely on usability and speed. The main goal of ThinkDashboard is to offer a simple yet powerful space where users can keep all their important links in one central place.
 
 
-  TaskTrove offers multiple ways to view and interact with tasks including a traditional list view, a compact view for dense overviews, and a Kanban style board that is especially useful for visual organization and progress tracking. Searching and filtering are central features, allowing users to focus only on what is relevant at a given moment without losing sight of the bigger picture. Upcoming additions such as calendar integration and analytical tools extend its ability to provide insights into productivity and time management.
+  At its core, ThinkDashboard functions as a personal homepage for bookmarks. Users can create and arrange links into custom categories, making it easy to switch between collections such as work tools, news sources, or entertainment pages. Each link can be opened instantly using keyboard shortcuts, allowing for a seamless and efficient browsing experience without leaving the main dashboard view.
 
 
-  The application is built with privacy in mind and avoids unnecessary tracking or telemetry. It encourages a personal and distraction free workflow where the user stays in full control of their information. Its flexibility makes it suitable for different styles of productivity whether that means a simple checklist for everyday errands or a structured system for managing multiple projects at once.
-developer: Mushroom Theory Inc.
-website: https://tasktrove.io/
+  Customization is one of the key aspects of ThinkDashboard. It includes a flexible theme system that allows users to adjust colors, fonts, and layouts to match their personal style. The design is fully responsive and automatically adapts to different screen sizes, providing a smooth experience on computers, tablets, and mobile devices. This makes ThinkDashboard both practical and visually appealing for everyday use.
+
+
+  All data is stored locally in simple JSON files, including bookmarks, theme configurations, and user preferences. By keeping everything on the local system, ThinkDashboard ensures complete privacy and independence from cloud services or external databases. Users have full ownership of their information and can easily back it up or move it between systems.
+
+
+  In essence, ThinkDashboard delivers an elegant and lightweight solution for building a personal homepage that is fast, intuitive, and entirely customizable. It transforms daily web navigation into a clear and organized process for anyone who values simplicity, design, and control.
+developer: MatiasDesu
+website: https://github.com/MatiasDesuu/ThinkDashboard
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
-repo: https://github.com/dohsimpson/TaskTrove
-support: https://github.com/dohsimpson/TaskTrove/issues
+repo: https://github.com/MatiasDesuu/ThinkDashboard
+support: https://github.com/MatiasDesuu/ThinkDashboard/issues
 gallery:
-  - 1.jpg
+  - https://i.imgur.com/xWghTcQ.png
+  - https://i.imgur.com/xWghTcQ.png
+  - https://i.imgur.com/xWghTcQ.png
 releaseNotes: >-
-  This update adds new natural language shortcuts for today and tomorrow, introduces a comprehensive settings dialog with UI improvements, and enhances drag and drop with shadow effects and collapsed section support. It also fixes a bug affecting kanban board drag and drop between sections.
+  This update adds a full backup feature that allows users to export and import their entire data directory directly from the interface. Backups can now be created and restored through the configuration page, making it much easier to manage and safeguard personal data.
+
+
+  It also introduces hash-based navigation for faster access to specific sections within the settings and brings a few small visual refinements to the interface.
+
+
+  Future plans include adding SSO authentication, multi-user support, and the ability to import data from other bookmark management tools.
 dependencies: []
 path: ""
 defaultUsername: ""
