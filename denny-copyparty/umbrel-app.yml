@@ -7,7 +7,7 @@ category: In Progress
 version: "1.19.17"
 port: 3923
 description: >-
-  copyparty is a lightweight yet incredibly powerful file sharing platform designed to give you complete control over your data. It transforms any environment into a personal and fully featured file hub where you can upload, download, edit, and organize files directly through an intuitive web interface. Everything happens in the browser without the need for additional software, making it fast, convenient, and accessible from virtually anywhere.
+  📼 copyparty is a lightweight yet incredibly powerful file sharing platform designed to give you complete control over your data. It transforms any environment into a personal and fully featured file hub where you can upload, download, edit, and organize files directly through an intuitive web interface. Everything happens in the browser without the need for additional software, making it fast, convenient, and accessible from virtually anywhere.
 
 
   At its core, copyparty is built around simplicity and flexibility. It supports multiple standard protocols such as HTTP, WebDAV, and FTP, allowing seamless integration with a wide range of clients and devices. You can drag and drop files into the browser, create folders, manage permissions, and instantly share links with others. Whether you want to host a temporary upload area, organize long term archives, or maintain a personal workspace, copyparty adapts to your needs without complexity.
