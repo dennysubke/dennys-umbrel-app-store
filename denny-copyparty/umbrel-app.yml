@@ -3,7 +3,7 @@ id: denny-copyparty
 name: copyparty
 tagline: A versatile all-in-one file server for everything
 icon: https://i.imgur.com/6VaBfLw.png
-category: In Progress
+category: files & productivity
 version: "1.19.17"
 port: 3923
 description: >-
@@ -27,9 +27,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/9001/copyparty
 support: https://github.com/9001/copyparty/issues
 gallery:
-  - https://i.imgur.com/fq5KWdn.png
-  - https://i.imgur.com/fq5KWdn.png
-  - https://i.imgur.com/fq5KWdn.png
+  - https://i.imgur.com/EvBAkzG.png
+  - https://i.imgur.com/25CUitI.png
+  - https://i.imgur.com/hQMwkH2.png
+  - https://i.imgur.com/0CVHgaP.png
+  - https://i.imgur.com/uzPvK6s.png
 releaseNotes: >-
   This version introduces a broad range of improvements that make the platform more flexible, powerful, and user-friendly. You can now view CBZ manga and comics directly in the browser, magnify images and videos to fill the screen, and enjoy embedded album art in the audio player. Access control has been enhanced with options to subtract users and groups from permissions, new volume flags to prevent duplicate uploads, and settings to hide certain interface elements. Text files can also be viewed directly using a simple link suffix, while reflink-based deduplication is now supported across more Python versions for safer and faster file handling.
 
