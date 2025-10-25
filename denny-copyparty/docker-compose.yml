@@ -7,8 +7,7 @@ services:
       APP_PORT: 3923
 
   web:
-    image: copyparty/ac:latest
-    # user: "0:0"
+    image: ghcr.io/9001/copyparty-ac:1.19.17@sha256:4fed30b24b217378314e10ebfbc67ad6c02be89734e8735c0b65f0dd8e524e0b
     volumes:
       - ${APP_DATA_DIR}/config/config.conf:/cfg/config.conf:ro
       - ${APP_DATA_DIR}/data/cp_data:/cfg/hists
