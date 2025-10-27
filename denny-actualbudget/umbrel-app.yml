@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-actualbudget
 name: Actual Budget
 tagline: A super fast privacy-focused app for managing your finances
-icon: https://i.imgur.com/19fnndW.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-actualbudget/logo.png
 category: finance
 version: "24.10.1"
 port: 5006
@@ -60,10 +60,10 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store
 repo: https://github.com/actualbudget/actual-server
 support: https://github.com/actualbudget/actual-server/issues
 gallery:
-  - https://i.imgur.com/V1go5VU.png
-  - https://i.imgur.com/wFj2hWw.png
-  - https://i.imgur.com/3EzrHQy.png
-  - https://i.imgur.com/KJvykqI.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-actualbudget/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-actualbudget/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-actualbudget/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-actualbudget/4.jpg
 releaseNotes: >-
   The latest update for Actual Budget (version 24.10.0) includes enhancements like aligning the mobile budget table's column names and bug fixes that improve performance and user experience. Notable fixes address issues with syncing preferences, empty blocks in reports, and auto-selection of budget files on mobile.
 dependencies:
