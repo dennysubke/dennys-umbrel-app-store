@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-tasktrove
 name: TaskTrove
 tagline: A task manager that respects your privacy
-icon: https://i.imgur.com/RHMcIu9.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tasktrove/logo.png
 category: files & productivity
 version: "0.3.0"
 port: 3493
@@ -21,11 +21,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/dohsimpson/TaskTrove
 support: https://github.com/dohsimpson/TaskTrove/issues
 gallery:
-  - https://i.imgur.com/EPY1t1o.png
-  - https://i.imgur.com/cFhJD25.png
-  - https://i.imgur.com/TyTfQ8k.png
-  - https://i.imgur.com/MPaQ0Z7.png
-  - https://i.imgur.com/RoCI0xq.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tasktrove/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tasktrove/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tasktrove/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tasktrove/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tasktrove/5.jpg
 releaseNotes: >-
   TaskTrove v0.3.0 introduces support for nested projects and an adaptive recurring mode that adjusts based on task completion dates.
 

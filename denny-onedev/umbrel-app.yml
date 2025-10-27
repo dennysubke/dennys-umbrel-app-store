@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-onedev
 name: Onedev
 tagline: A powerful Git server with CI/CD, kanban, and packages
-icon: https://i.imgur.com/GJCoqhO.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-onedev/logo.png
 category: developer tools
 version: "11.3.2"
 port: 6610
@@ -40,11 +40,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/theonedev/onedev
 support: https://code.onedev.io/onedev/server/~issues?query=%22State%22+is+%22Open%22
 gallery:
-  - https://i.imgur.com/h0uGMcr.png
-  - https://i.imgur.com/0QY1giQ.png
-  - https://i.imgur.com/MFh16fP.png
-  - https://i.imgur.com/SPNKYGe.png
-  - https://i.imgur.com/TZ1JPvb.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-onedev/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-onedev/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-onedev/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-onedev/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-onedev/5.jpg
 releaseNotes: >-
   The changelog includes the addition of functionality to reset a user's two-factor authentication (2FA) and improvements to the user experience during the 2FA reset process.
 dependencies:

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-torbrowser
 name: Tor Browser
 tagline: An invisible shield for your browsing experience
-icon: https://i.imgur.com/AWM7YM0.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torbrowser/logo.png
 category: networking
 version: "14.0.6"
 port: 5832
@@ -21,9 +21,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/torproject/tor
 support: https://support.torproject.org/
 gallery:
-  - https://i.imgur.com/s1dU4T2.png
-  - https://i.imgur.com/Fv4Rb4H.png
-  - https://i.imgur.com/D1vY27w.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torbrowser/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torbrowser/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torbrowser/3.jpg
 releaseNotes: >-
   The latest version of Tor Browser includes an update to Firefox, bringing bug fixes, stability improvements, and important security updates. It also backports Android-specific security updates from a newer Firefox version and updates the NoScript extension to enhance security and performance.
 dependencies:

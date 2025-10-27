@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-vert
 name: VERT
 tagline: A file conversion utility
-icon: https://i.imgur.com/41TYbW6.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-vert/logo.png
 category: files & productivity
 version: "sha-d89a343"
 port: 3884
@@ -21,9 +21,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/VERT-sh/VERT
 support: https://github.com/VERT-sh/VERT/issues
 gallery:
-  - https://i.imgur.com/IegoAOh.png
-  - https://i.imgur.com/CdiWWP1.png
-  - https://i.imgur.com/XbGoUES.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-vert/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-vert/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-vert/3.jpg
 releaseNotes: >-
   This update introduces new Japanese and Turkish translations, along with improvements to existing Spanish text. It also refines documentation and SEO descriptions for better clarity and search performance. 
   

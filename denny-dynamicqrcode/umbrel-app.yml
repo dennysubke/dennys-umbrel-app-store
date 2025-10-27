@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-dynamicqrcode
 name: Dynamic QR Code
 tagline: An intuitive dashboard for seamless QR code creation
-icon: https://i.imgur.com/5Jc1RPZ.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dynamicqrcode/logo.png
 category: files & productivity
 version: "2.2.7"
 port: 8216
@@ -33,9 +33,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/giandonatoinverso/PHP-Dynamic-Qr-code
 support: https://github.com/giandonatoinverso/PHP-Dynamic-Qr-code/issues
 gallery:
-  - https://i.imgur.com/gTWcRuv.png
-  - https://i.imgur.com/gdV9M61.png
-  - https://i.imgur.com/bY7795D.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dynamicqrcode/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dynamicqrcode/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dynamicqrcode/3.jpg
 releaseNotes: >-
   The changelog covers several versions of the project. In version 2.2, released on October 16, 2023, the process for building Docker images was refactored, and support for Docker Compose was added. In the previous version 2.1, also released on October 16, 2023, database tables were refactored, a script for upgrading to versions 2.0 and above was introduced, and multi-user support for dynamic and static QR codes was implemented.
 

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-neonlink
 name: NeonLink
 tagline: A simple self-hosted bookmark service
-icon: https://i.imgur.com/0gvKBr1.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-neonlink/logo.png
 category: files & productivity
 version: "1.4.19"
 port: 8332
@@ -24,11 +24,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/AlexSciFier/neonlink
 support: https://github.com/AlexSciFier/neonlink/issues
 gallery:
-  - https://i.imgur.com/8aGiOle.png
-  - https://i.imgur.com/1R93UTH.png
-  - https://i.imgur.com/A1kMazG.png
-  - https://i.imgur.com/vy5Knv9.png
-  - https://i.imgur.com/dA7BLUs.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-neonlink/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-neonlink/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-neonlink/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-neonlink/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-neonlink/5.jpg
 releaseNotes: >-
   In version 1.4.19, several dependencies were updated to their latest versions, including cross-spawn, tar-fs, and rollup, improving stability and compatibility. The server framework Fastify was also upgraded to version 5.4.0, ensuring better performance and security. Overall, this release focuses on maintenance and keeping the project up to date.
 dependencies: []

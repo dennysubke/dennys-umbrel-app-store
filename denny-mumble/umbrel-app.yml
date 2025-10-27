@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-mumble
 name: Mumble Server
 tagline: A low-latency, high-quality voice chat
-icon: https://i.imgur.com/n50s7gd.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mumble/logo.png
 category: social
 version: "1.5.634"
 port: 8879
@@ -21,11 +21,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/mumble-voip/mumble-docker
 support: https://github.com/mumble-voip/mumble-docker/issues
 gallery:
-  - https://i.imgur.com/GleP06Z.png
-  - https://i.imgur.com/0Tqbj9z.png
-  - https://i.imgur.com/w9f6v3h.png
-  - https://i.imgur.com/566sTu0.png
-  - https://i.imgur.com/W9fZdVv.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mumble/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mumble/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mumble/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mumble/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mumble/5.jpg
 releaseNotes: >-
   Mumble 1.5.634 brings numerous changes after almost two years, including bug fixes and some long-awaited improvements, with a focus on enhancing the positional audio system. Notable updates include increased maximum distance thresholds, reintroduced volume settings, and new psychoacoustic effects, alongside a new in-client "Positional Audio Viewer" for developers to better debug and fine-tune audio plugins.
 dependencies:

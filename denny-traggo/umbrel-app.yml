@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-traggo
 name: Traggo
 tagline: An open-source time tracking tool designed for self-hosting
-icon: https://i.imgur.com/EKUBqtz.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-traggo/logo.png
 category: files & productivity
 version: "0.5.0"
 port: 3083
@@ -27,9 +27,9 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store/
 repo: https://github.com/traggo/server
 support: https://github.com/traggo/server/issues
 gallery:
-  - https://i.imgur.com/Dxopus5.png
-  - https://i.imgur.com/YYuw8TJ.png
-  - https://i.imgur.com/j1l87gj.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-traggo/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-traggo/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-traggo/3.jpg
 releaseNotes: >-
   Several improvements were made to the project, including enhancing the mobile design by moving the show/hide notes button into the triple-dot menu. 
   A percentage display was added to the pie chart, along with a new work week (5-day week) calendar view. 

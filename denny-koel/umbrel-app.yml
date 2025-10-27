@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-koel
 name: Koel
 tagline: A personal music streaming server that works
-icon: https://i.imgur.com/vT6CNce.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-koel/logo.png
 category: In Progress
 version: "7.5.2"
 port: 8333
@@ -21,9 +21,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/koel/koel
 support: https://github.com/koel/koel/issues
 gallery:
-  - https://i.imgur.com/rZBNhAT.png
-  - https://i.imgur.com/rZBNhAT.png
-  - https://i.imgur.com/rZBNhAT.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-koel/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-koel/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-koel/3.jpg
 releaseNotes: >-
   Koel v7.5.2 includes several bug fixes and improvements. This version fixes the issue where track numbers were removed when editing multiple songs, and improves the koel:doctor command to better check database connections and storage types. It also updates dependencies, refactors some code, and resolves issues with playlists in Koel Plus.
 dependencies:

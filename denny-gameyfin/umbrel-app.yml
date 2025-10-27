@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-gameyfin
 name: Gameyfin
 tagline: A beautiful home for all your games
-icon: https://i.imgur.com/aykRANk.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gameyfin/logo.png
 category: gaming
 version: "2.1.2"
 port: 8909
@@ -24,11 +24,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/gameyfin/gameyfin
 support: https://github.com/gameyfin/gameyfin/issues
 gallery:
-  - https://imgur.com/fiuEjf2.png
-  - https://imgur.com/vaRob2h.png
-  - https://imgur.com/bBBL9w1.png
-  - https://imgur.com/NownuLY.png
-  - https://imgur.com/p0ZbYKu.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gameyfin/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gameyfin/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gameyfin/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gameyfin/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gameyfin/5.jpg
 releaseNotes: >-
   Version 2.1.2 is a bugfix release that prepares the database for future updates. It removes leftover indexes, cleans up unused and corrupted images, and improves image handling. This will be the last minor release on Docker Hub, so users should switch to the new image at ghcr.io/gameyfin/gameyfin and back up their data before updating.
 dependencies: []

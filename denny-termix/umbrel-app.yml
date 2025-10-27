@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-termix
 name: Termix
 tagline: A server management platform with SSH terminal
-icon: https://i.imgur.com/4zzRL8g.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-termix/logo.png
 category: networking
 version: "1.7.3"
 port: 6444
@@ -30,11 +30,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/LukeGus/Termix
 support: https://github.com/LukeGus/Termix/issues
 gallery:
-  - https://i.imgur.com/uqikjHM.png
-  - https://i.imgur.com/IJDSsLF.png
-  - https://i.imgur.com/q9jpIYl.png
-  - https://i.imgur.com/kFRVg2m.png
-  - https://i.imgur.com/VRAQ5Ad.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-termix/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-termix/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-termix/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-termix/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-termix/5.jpg
 releaseNotes: >-
   Version 1.7.3 introduces a new terminal font, CaskaydiaCove Mono, and adds a German language option. 
   

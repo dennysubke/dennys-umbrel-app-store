@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-ladder
 name: Ladder
 tagline: An adaptable proxy solution for secure, rule-based web filtering
-icon: https://i.imgur.com/paW7xGf.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ladder/logo.png
 category: networking
 version: "0.0.21"
 port: 8050
@@ -48,9 +48,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/everywall/ladder
 support: https://github.com/everywall/ladder/issues
 gallery:
-  - https://i.imgur.com/fdnTc2N.png
-  - https://i.imgur.com/LWfiH3E.png
-  - https://i.imgur.com/O7aMUYV.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ladder/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ladder/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ladder/3.jpg
 releaseNotes: >-
   In version 0.0.21, the form type has been changed to "URL," and an HTTP timeout feature has been added to improve handling of slow or unresponsive connections.
 dependencies:

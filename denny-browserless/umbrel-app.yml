@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-browserless
 name: Browserless
 tagline: A powerful browser automation service
-icon: https://i.imgur.com/x0fJbj6.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-browserless/logo.png
 category: developer tools
 version: "2.33.0"
 port: 3353
@@ -27,10 +27,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/browserless/browserless
 support: https://github.com/browserless/browserless/issues
 gallery:
-  - https://i.imgur.com/ReTjtP7.png
-  - https://i.imgur.com/LmAX0cn.png
-  - https://i.imgur.com/LZlMwbv.png
-  - https://i.imgur.com/M3nkYA5.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-browserless/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-browserless/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-browserless/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-browserless/4.jpg
 releaseNotes: >-
   Version 2.33.0 includes dependency updates and fixes an issue with pages created by Playwright’s context object hanging. It upgrades puppeteer-core to 24.12.1, updates playwright-core to 1.54.1, drops support for Playwright 1.49, and adds support for the latest versions of Chromium, Chrome, Firefox, WebKit, and Edge.
 dependencies:

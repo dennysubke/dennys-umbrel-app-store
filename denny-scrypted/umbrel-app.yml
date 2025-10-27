@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-scrypted
 name: Scrypted
 tagline: A high performance home video integration platform
-icon: https://i.imgur.com/lvqh9u4.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-scrypted/logo.png
 category: Home & Automation
 version: "0.122.0"
 port: 11080
@@ -30,10 +30,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/koush/scrypted
 support: https://github.com/koush/scrypted/issues
 gallery:
-  - https://i.imgur.com/DDgeY8X.png
-  - https://i.imgur.com/f54rGNR.png
-  - https://i.imgur.com/E6o6YpT.png
-  - https://i.imgur.com/T5vMVVb.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-scrypted/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-scrypted/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-scrypted/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-scrypted/4.jpg
 releaseNotes: >-
   This update introduces support for notification channels in the SDK's NotifierOptions. Key changes include enhancements to Docker integration for better volume handling and improved error handling during container restoration, along with options to disable auto-enabling of devices. Various optimizations and bug fixes have also been implemented to enhance overall usability and stability.
 dependencies:

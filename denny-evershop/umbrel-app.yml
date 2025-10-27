@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-evershop
 name: Evershop
 tagline: An All-in-One Open Source E-commerce Solution
-icon: https://i.imgur.com/npovLko.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-evershop/logo.png
 category: files & productivity
 version: "1.2.2"
 port: 3385
@@ -24,12 +24,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/evershopcommerce/evershop
 support: https://github.com/evershopcommerce/evershop/issues
 gallery:
-  - https://i.imgur.com/N3IDeX8.png
-  - https://i.imgur.com/UI5mgPx.png
-  - https://i.imgur.com/x9SUCL0.png
-  - https://i.imgur.com/FrYwyoI.png
-  - https://i.imgur.com/1wmYFRN.png
-  - https://i.imgur.com/cBYTgki.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-evershop/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-evershop/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-evershop/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-evershop/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-evershop/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-evershop/6.jpg
 releaseNotes: >-
   Version 1.2.2 of EverShop introduces improvements to order status management and allows order cancellations directly from the admin panel. It adds scheduled jobs, customizable admin page footer and logo options, and enhances payment integrations with Stripe and PayPal, including refund and capture support. The update also improves cart and address book functions, fixes multiple bugs, and addresses security vulnerabilities for better stability.
 dependencies:

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-dawarich
 name: Dawarich
 tagline: A Location History Tracker
-icon: https://i.imgur.com/8l8Id43.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dawarich/logo.png
 category: files & productivity
 version: "0.30.8"
 port: 8955
@@ -24,11 +24,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/Freika/dawarich
 support: https://github.com/Freika/dawarich/issues
 gallery:
-  - https://i.imgur.com/UEW62o0.png
-  - https://i.imgur.com/bY4f8aI.png
-  - https://i.imgur.com/6ZtOGIF.png
-  - https://i.imgur.com/q6aUHH0.png
-  - https://i.imgur.com/SkLYm4d.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dawarich/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dawarich/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dawarich/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dawarich/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dawarich/5.jpg
 releaseNotes: >-
   Version 0.30.8 fixes issues with the fog of war feature so it now works correctly when zooming or moving the map, resolves a problem with incorrect visit suggestions, and restores proper functionality of the scratch map. These improvements enhance map interaction and ensure location data is displayed as intended.
 dependencies: []

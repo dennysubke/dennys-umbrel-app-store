@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-habittrove
 name: HabitTrove
 tagline: A gamified habit tracking application
-icon: https://i.imgur.com/fX2fqFz.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-habittrove/logo.png
 category: files & productivity
 version: "0.2.5"
 port: 3094
@@ -21,10 +21,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/dohsimpson/HabitTrove
 support: https://github.com/dohsimpson/HabitTrove/issues
 gallery:
-  - https://i.imgur.com/CICUCpw.png
-  - https://i.imgur.com/KmbZ1gB.png
-  - https://i.imgur.com/i2IwGX1.png
-  - https://i.imgur.com/s0RV5Nn.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-habittrove/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-habittrove/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-habittrove/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-habittrove/4.jpg
 releaseNotes: >-
   In version 0.2.5, the Next.js version was updated to address the security vulnerability CVE-2025-29927.
 dependencies:

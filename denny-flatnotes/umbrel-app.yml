@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-flatnotes
 name: Flatnotes
 tagline: A self-hosted note-taking app with flat Markdown file storage
-icon: https://i.imgur.com/osrYPpO.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-flatnotes/logo.png
 category: files & productivity
 version: "5.3.0"
 port: 8061
@@ -37,9 +37,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/dullage/flatnotes
 support: https://github.com/dullage/flatnotes/issues
 gallery:
-  - https://i.imgur.com/IeA4bXe.png
-  - https://i.imgur.com/m6sEtOW.png
-  - https://i.imgur.com/P3aTlnp.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-flatnotes/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-flatnotes/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-flatnotes/3.jpg
 releaseNotes: >-
   The new "Quick Access Notes" feature allows customization of the notes displayed on the home page, replacing the previous "RECENTLY MODIFIED" section. Users can now configure the search term, order, limit, and title of the notes shown, making it easier to pin or hide specific notes. Additionally, a button is available to view all "Quick Access Notes" if there are more than can be displayed. 
   

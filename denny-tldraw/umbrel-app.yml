@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-tldraw
 name: tldraw
 tagline: An intuitive whiteboard for ideas
-icon: https://i.imgur.com/whMjRSE.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tldraw/logo.png
 category: files & productivity
 version: "2.0.0"
 port: 8505
@@ -27,9 +27,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/tldraw/tldraw
 support: https://github.com/tldraw/tldraw/issues
 gallery:
-  - https://i.imgur.com/HauQ58C.png
-  - https://i.imgur.com/K8ZtjND.png
-  - https://i.imgur.com/IY0vvRZ.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tldraw/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tldraw/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tldraw/3.jpg
 releaseNotes: >-
   This tldraw release has loads of performance improvements, plus completely redesigned sticky notes.
 

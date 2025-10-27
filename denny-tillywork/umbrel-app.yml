@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-tillywork
 name: Tillywork
 tagline: A work management solution for startups
-icon: https://i.imgur.com/ueUHKSr.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tillywork/logo.png
 category: files & productivity
 version: "0.1.2"
 port: 8556
@@ -27,11 +27,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/tillywork/tillywork
 support: https://github.com/tillywork/tillywork/issues
 gallery:
-  - https://i.imgur.com/8qHWNOt.png
-  - https://i.imgur.com/JJm8H2y.png
-  - https://i.imgur.com/mzkJ9EN.png
-  - https://i.imgur.com/MhEen9n.png
-  - https://i.imgur.com/FGNo2fz.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tillywork/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tillywork/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tillywork/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tillywork/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tillywork/5.jpg
 releaseNotes: >-
   The v0.1.2 introduces the new Gantt view feature and general bug fixes.
 dependencies:

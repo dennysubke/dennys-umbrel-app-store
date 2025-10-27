@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-palmr
 name: Palmr
 tagline: A private alternative to WeTransfer
-icon: https://i.imgur.com/dpOBOQJ.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-palmr/logo.png
 category: files & productivity
 version: "3.0.0-beta.11"
 port: 5487
@@ -21,10 +21,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/kyantech/Palmr
 support: https://github.com/kyantech/Palmr/issues
 gallery:
-  - https://i.imgur.com/J5xM2k0.png
-  - https://i.imgur.com/1gHHvro.png
-  - https://i.imgur.com/csHgBwp.png
-  - https://i.imgur.com/3nRaQnn.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-palmr/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-palmr/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-palmr/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-palmr/4.jpg
 releaseNotes: >-
   The latest v3.0.0-beta.11 release of Palmr focuses on a complete overhaul of the translation system by removing automatic translations and enforcing manual human reviews. It also introduces a new SMTP connection test feature for administrators, along with multi-language updates and bulk file actions in reverse shares for better user experience. 
   

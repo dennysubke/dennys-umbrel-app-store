@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-ittools
 name: IT-Tools
 tagline: An array of handy online tools for developers
-icon: https://i.imgur.com/mzXqNcH.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ittools/logo.png
 category: developer tools
 version: "2024.10.22"
 port: 8786
@@ -24,12 +24,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/CorentinTh/it-tools
 support: https://github.com/CorentinTh/it-tools/issues
 gallery:
-  - https://imgur.com/RDu1Hr2.png
-  - https://imgur.com/FqF4s9F.png
-  - https://imgur.com/HKsmasV.png
-  - https://imgur.com/vq4xVs3.png
-  - https://imgur.com/AnnfiMG.png
-  - https://imgur.com/mxo2TNR.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ittools/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ittools/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ittools/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ittools/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ittools/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ittools/6.jpg
 releaseNotes: >-
   The v2024.10.22 release of IT-tools introduces several new features, including a Regex Tester, Markdown to HTML converter, email normalizer, and tools for converting JSON to XML and vice versa. It also includes bug fixes such as improvements to favorites storage, debounced search input for the emoji picker, and UI adjustments for various tools.
 dependencies:

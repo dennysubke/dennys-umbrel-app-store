@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-ihatemoney
 name: IHateMoney
 tagline: A simple shared budget manager web application 
-icon: https://i.imgur.com/ocwWxBf.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ihatemoney/logo.png
 category: finance
 version: "6.1.5"
 port: 8976
@@ -37,10 +37,10 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store
 repo: https://github.com/spiral-project/ihatemoney
 support: https://github.com/spiral-project/ihatemoney/issues
 gallery:
-  - https://i.imgur.com/EMR5ECC.png
-  - https://i.imgur.com/SId2s8S.png
-  - https://i.imgur.com/TfiJkXD.png
-  - https://i.imgur.com/jHSXMi4.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ihatemoney/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ihatemoney/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ihatemoney/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ihatemoney/4.jpg
 releaseNotes: >-
   The update to Flask and Werkzeug 2.3 has been reverted due to a regression, and some performance improvements have been implemented.
 path: ""

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-pastefy
 name: Pastefy
 tagline: An easy paste for seamless sharing
-icon: https://i.imgur.com/VaYHV5g.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pastefy/logo.png
 category: developer tools
 version: "6.7.5"
 port: 9900
@@ -21,11 +21,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/interaapps/pastefy
 support: https://github.com/interaapps/pastefy/issues
 gallery:
-  - https://i.imgur.com/rNPpwOC.png
-  - https://i.imgur.com/uneh5jR.png
-  - https://i.imgur.com/nOrv7fH.png
-  - https://i.imgur.com/13TEYpa.png
-  - https://i.imgur.com/HRFVY4G.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pastefy/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pastefy/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pastefy/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pastefy/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pastefy/5.jpg
 releaseNotes: >-
   This version merges the 'jws-upgrade' branch into the main branch.
 dependencies:

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-readeck
 name: Readeck
 tagline: A simple app to save the web's precious content
-icon: https://i.imgur.com/Eygg3GG.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-readeck/logo.png
 category: files & productivity
 version: "0.19.0"
 port: 8858
@@ -27,11 +27,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/readeck/readeck
 support: https://codeberg.org/readeck/readeck/issues
 gallery:
-  - https://i.imgur.com/S66hUxj.png
-  - https://i.imgur.com/PLoFV2L.png
-  - https://i.imgur.com/1EiKyK1.png
-  - https://i.imgur.com/onJuH0v.png
-  - https://i.imgur.com/CIRzD23.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-readeck/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-readeck/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-readeck/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-readeck/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-readeck/5.jpg
 releaseNotes: >-
   Readeck 0.19.0 introduces email sharing of bookmarks with optional EPUB attachments, a new mosaic view for the bookmark list, and improved browser extension onboarding. The update enhances CSRF protection, fixes issues with SVG images and Wallabag imports, and replaces application passwords with API token support for HTTP Basic Authentication. EPUB exports now include author information.
 dependencies:

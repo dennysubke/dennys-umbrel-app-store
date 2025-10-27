@@ -4,7 +4,7 @@ name: RustDesk Client
 category: networking
 version: "1.3.7"
 tagline: A full-featured remote control for self-hosting with minimal configuration
-icon: https://i.imgur.com/MziM945.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rustdesk/logo.png
 description: >
   RustDesk is an open-source remote access and desktop solution that offers a compelling alternative to commercial applications like TeamViewer. One of RustDesk's standout features is the ability to fully self-host the software, giving users complete control over their data without relying on external servers. This is particularly advantageous for businesses and individuals who prioritize privacy and security.
 
@@ -17,9 +17,9 @@ repo: https://github.com/rustdesk/rustdesk
 support: https://github.com/rustdesk/rustdesk/issues
 port: 3044
 gallery:
-  - https://i.imgur.com/TFBSnQn.png
-  - https://i.imgur.com/hOFjONh.png
-  - https://i.imgur.com/xipa1cl.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rustdesk/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rustdesk/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rustdesk/3.jpg
 path: ""
 defaultPassword: ""
 releaseNotes: >

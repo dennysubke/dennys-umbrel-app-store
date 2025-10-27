@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-puter
 name: Puter
 tagline: An advanced, open-source internet operating system
-icon: https://i.imgur.com/Md8LFlB.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-puter/logo.png
 category: files & productivity
 version: "2.4.2"
 port: 4100
@@ -32,9 +32,9 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store
 repo: https://github.com/HeyPuter/puter
 support: https://github.com/HeyPuter/puter/issues
 gallery:
-  - https://i.imgur.com/BXToylS.png
-  - https://i.imgur.com/OEpUo8x.png
-  - https://i.imgur.com/KanxwUh.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-puter/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-puter/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-puter/3.jpg
 releaseNotes: >-
   New features such as JSON support and custom templates,
   numerous translation updates and corrections, documentation improvements,

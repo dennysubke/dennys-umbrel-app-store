@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-altus
 name: Altus
 tagline: A WhatsApp client with themes and multiple account support
-icon: https://i.imgur.com/wfT4QX3.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-altus/logo.png
 category: files & productivity
 version: "5.4.0"
 port: 3344
@@ -21,9 +21,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/amanharwara/altus
 support: https://github.com/amanharwara/altus/issues
 gallery:
-  - https://i.imgur.com/rn7Zivn.png
-  - https://i.imgur.com/bDy2X8i.png
-  - https://i.imgur.com/ERsYpg3.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-altus/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-altus/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-altus/3.jpg
 releaseNotes: >-
   The per-tab microphone and camera permission option is enabled by default, allowing users to manage permissions on a tab-by-tab basis for enhanced privacy and security. In addition, various other improvements have been implemented, such as performance optimizations, bug fixes, and a more streamlined user interface for better overall experience.
 dependencies:

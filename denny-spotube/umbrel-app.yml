@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-spotube
 name: Spotube
 tagline: An Open Source Spotify Client for every platform
-icon: https://i.imgur.com/paB7GST.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spotube/logo.png
 category: media
 version: "3.8.3"
 port: 30123
@@ -46,10 +46,10 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store
 repo: https://github.com/KRTirtho/spotube
 support: https://github.com/KRTirtho/spotube/issues
 gallery:
-  - https://i.imgur.com/kXdhv9Q.png
-  - https://i.imgur.com/vfSphpH.png
-  - https://i.imgur.com/6xC07Gs.png
-  - https://i.imgur.com/W02gnTE.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spotube/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spotube/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spotube/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spotube/4.jpg
 releaseNotes: >-
   The recent update includes a bug fix where the youtube_explode_dart package was updated to version 2.2.3 to resolve a playback issue. 
   

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-blackcandy
 name: Black Candy
 tagline: A self hosted music streaming server
-icon: https://i.imgur.com/8LMQFbf.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-blackcandy/logo.png
 category: media
 version: "3.0.0"
 port: 1980
@@ -38,11 +38,11 @@ submission: https://github.com/blackcandy-org/black_candy
 repo: https://github.com/blackcandy-org/blackcandy
 support: https://github.com/blackcandy-org/blackcandy/issues
 gallery:
-  - https://i.imgur.com/VnWl98P.png
-  - https://i.imgur.com/692jaiZ.png
-  - https://i.imgur.com/cve8HTw.png
-  - https://i.imgur.com/LUfXsI2.png
-  - https://i.imgur.com/GmwvisN.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-blackcandy/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-blackcandy/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-blackcandy/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-blackcandy/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-blackcandy/5.jpg
 releaseNotes: >-
   Black Candy v3 introduces official mobile apps for Android and iOS, features a revamped user interface, and optimized performance. It also improves music library management and expands multilingual support.
 dependencies: []

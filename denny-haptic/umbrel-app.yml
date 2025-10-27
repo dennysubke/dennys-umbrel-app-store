@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-haptic
 name: Haptic
 tagline: A privacy first markdown app
-icon: https://i.imgur.com/OhAZiMp.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-haptic/logo.png
 category: files & productivity
 version: "0.1.4"
 port: 3842
@@ -21,10 +21,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/chroxify/haptic
 support: https://github.com/chroxify/haptic/issues
 gallery:
-  - https://i.imgur.com/2cRVZrq.png
-  - https://i.imgur.com/E730FKM.png
-  - https://i.imgur.com/RNZeHNz.png
-  - https://i.imgur.com/tlQaYI4.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-haptic/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-haptic/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-haptic/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-haptic/4.jpg
 releaseNotes: >-
   Version 0.1.4 introduces a starting screen and a pre-built Docker image, with 24 commits added to the main branch since the previous release.
 dependencies:

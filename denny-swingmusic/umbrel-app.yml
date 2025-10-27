@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-swingmusic
 name: Swing Music
 tagline: A beautiful, self-hosted music player for your local audio files
-icon: https://i.imgur.com/B9R2I6L.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-swingmusic/logo.png
 category: media
 version: "1.4.8"
 port: 1970
@@ -49,11 +49,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/swingmx/swingmusic
 support: https://github.com/swingmx/swingmusic/issues
 gallery:
-  - https://i.imgur.com/RlQXxFP.png
-  - https://i.imgur.com/LeHkYzK.png
-  - https://i.imgur.com/hh1dX0R.png
-  - https://i.imgur.com/tM9ojJq.png
-  - https://i.imgur.com/9fXRfQC.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-swingmusic/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-swingmusic/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-swingmusic/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-swingmusic/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-swingmusic/5.jpg
 releaseNotes: >-
   A new optional layout without a sidebar was added, along with a top bar search and centered content in the default layout. The app now uses a stronger WSGI server, supports ARM64, and has a proper timezone fix. Recent items display how long ago they were played/added, with no cutoff.
 

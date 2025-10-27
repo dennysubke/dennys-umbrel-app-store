@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-nullboard
 name: Nullboard
 tagline: A minimalist take on a kanban board and task list manager
-icon: https://imgur.com/ZdSkQV4.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nullboard/logo.png
 category: files & productivity
 version: "2023.11.05"
 port: 1001
@@ -37,9 +37,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/apankrat/nullboard
 support: https://github.com/apankrat/nullboard/issues
 gallery:
-  - https://i.imgur.com/8cZnYOo.png
-  - https://i.imgur.com/oGPIZNo.png
-  - https://i.imgur.com/9qUDKwg.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nullboard/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nullboard/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nullboard/3.jpg
 releaseNotes: >-
   The latest update improves mobile device scaling and includes minor code cleanup. Additionally, it simplifies the process for integrating external backup authentication tokens.
 dependencies:

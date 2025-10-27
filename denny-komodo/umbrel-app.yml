@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-komodo
 name: Komodo
 tagline: A tool to build and deploy software
-icon: https://i.imgur.com/yLJrOZS.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-komodo/logo.png
 category: developer tools
 version: "1.18.4"
 port: 9120
@@ -21,11 +21,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/moghtech/komodo
 support: https://github.com/moghtech/komodo/issues
 gallery:
-  - https://imgur.com/fOFHyNc.png
-  - https://imgur.com/ii5E1Xm.png
-  - https://imgur.com/Tf9NaS7.png
-  - https://imgur.com/CjjgInk.png
-  - https://imgur.com/YbEYbUC.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-komodo/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-komodo/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-komodo/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-komodo/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-komodo/5.jpg
 releaseNotes: >-
   Komodo version 1.18.4 introduces support for resource templates that serve as starting points when creating new resources, enhancing workflow flexibility. It also adds container port display and linking features for easier navigation, along with improvements to environment variable handling, server statistics, and internal code refactoring to increase stability and consistency. Both Core and Periphery agents should be updated to ensure full compatibility.
 dependencies:

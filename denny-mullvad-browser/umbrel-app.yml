@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-mullvad-browser
 name: Mullvad Browser
 tagline: A privacy-focused browser designed to minimize tracking and fingerprinting
-icon: https://i.imgur.com/OUKKvQM.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mullvad-browser/logo.png
 category: networking
 version: "14.0.5"
 port: 5880
@@ -24,9 +24,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/linuxserver/docker-mullvad-browser
 support: https://github.com/linuxserver/docker-mullvad-browser/issues
 gallery:
-  - https://imgur.com/BS2UAax.png
-  - https://imgur.com/gk0v270.png
-  - https://imgur.com/dtpw26f.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mullvad-browser/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mullvad-browser/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mullvad-browser/3.jpg
 releaseNotes: >-
   The release 14.0.5 of Mullvad Browser includes a rebase to noble.
 dependencies:

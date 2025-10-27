@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-grafana
 name: Grafana
 tagline: An advanced platform for logging, metrics, and application monitoring
-icon: https://i.imgur.com/Nd4aTOo.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-grafana/logo.png
 category: networking
 version: "11.3.0"
 port: 3384
@@ -60,10 +60,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/grafana/grafana
 support: https://github.com/grafana/grafana/issues
 gallery:
-  - https://i.imgur.com/hzgJqDF.png
-  - https://i.imgur.com/Rkbrx1F.png
-  - https://i.imgur.com/hfjiUYB.png
-  - https://i.imgur.com/r0cPWuA.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-grafana/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-grafana/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-grafana/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-grafana/4.jpg
 releaseNotes: >-
   The latest update includes significant enhancements in alerting, such as improved permissions management, streamlined linking to silence forms, and better handling of query visibility in simplified mode. Additionally, updates to authentication and migration support for Library Elements are notable. Bug fixes address issues with TimeRangeInput, permissions on external rule groups, and dashboard usability across different environments.
 dependencies:

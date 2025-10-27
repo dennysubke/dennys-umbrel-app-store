@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-olivetin
 name: OliveTin
 tagline: A command center that fits in your browser
-icon: https://i.imgur.com/5EnsMji.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-olivetin/logo.png
 category: networking
 version: "2025.6.22"
 port: 8951
@@ -18,11 +18,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/OliveTin/OliveTin
 support: https://github.com/OliveTin/OliveTin/issues
 gallery:
-  - https://i.imgur.com/B834vej.png
-  - https://i.imgur.com/L375QoC.png
-  - https://i.imgur.com/hyYsWsc.png
-  - https://i.imgur.com/eZo9XYf.png
-  - https://i.imgur.com/hzzr0UC.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-olivetin/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-olivetin/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-olivetin/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-olivetin/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-olivetin/5.jpg
 releaseNotes: >-
   Version 2025.6.22 introduces a new feature that enables triggered actions to reuse arguments from previous actions. It also includes minor fixes for dashboards without entities and removes leftover code from an old pull request, with no breaking changes since the last release.
 dependencies:

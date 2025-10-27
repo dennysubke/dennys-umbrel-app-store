@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-enclosed
 name: Enclosed
 tagline: A minimalistic web application designed for sending private and secure notes
-icon: https://i.imgur.com/Pe2Wbzm.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-enclosed/logo.png
 category: files & productivity
 version: "1.6.9"
 port: 8525
@@ -23,9 +23,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/CorentinTh/enclosed
 support: https://github.com/CorentinTh/enclosed/issues
 gallery:
-  - https://i.imgur.com/CrbZrMu.png
-  - https://i.imgur.com/S23Y4Gv.png
-  - https://i.imgur.com/BEGMc91.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-enclosed/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-enclosed/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-enclosed/3.jpg
 releaseNotes: >-
   The recent changes include restructuring configuration variables into a table format and increasing the mobile breakpoint for the navbar. Additionally, Crowdin integration for i18n was added, and dependencies for jsdom and esbuild were updated. A stale action workflow was introduced in GitHub. Furthermore, layout issues were fixed, such as adjusting the "new note" button on mobile and preserving line breaks in the note viewer.
 dependencies:

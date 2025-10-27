@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-webcheck
 name: WebCheck
 tagline: An all-in-one Open Source Intelligence tool for analyzing any website
-icon: https://i.imgur.com/GhoYf27.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-webcheck/logo.png
 category: networking
 version: "1.0.0"
 port: 3093
@@ -37,11 +37,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/Lissy93/web-check
 support: https://github.com/Lissy93/web-check/issues
 gallery:
-  - https://imgur.com/1QWFJhW.png
-  - https://imgur.com/g9q7xuV.png
-  - https://imgur.com/3KVJib8.png
-  - https://imgur.com/cs0lZzo.png
-  - https://imgur.com/FGIpxV4.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-webcheck/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-webcheck/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-webcheck/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-webcheck/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-webcheck/5.jpg
 releaseNotes: >-
   This is the stable version of WebCheck, developed as a React application. The backend consists of a series of lambda functions and can be deployed to Vercel, Netlify, or any Docker-compatible service. For self-hosting, the Docker container includes a Node server to expose all endpoints locally and to serve the frontend.
   

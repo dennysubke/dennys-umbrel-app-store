@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-groupoffice
 name: Group Office
 tagline: An enterprise CRM and groupware tool
-icon: https://i.imgur.com/OwTDaVe.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-groupoffice/logo.png
 category: files & productivity
 version: "25.0.33"
 port: 9090
@@ -24,11 +24,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/Intermesh/groupoffice
 support: https://github.com/Intermesh/groupoffice/issues
 gallery:
-  - https://i.imgur.com/vzGL2MK.png
-  - https://i.imgur.com/s6wOkP5.png
-  - https://i.imgur.com/YGQt4Cs.png
-  - https://i.imgur.com/SeLaFJC.png
-  - https://i.imgur.com/x3UCdUn.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-groupoffice/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-groupoffice/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-groupoffice/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-groupoffice/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-groupoffice/5.jpg
 releaseNotes: >-
   Version 25.0.33 introduces enhanced validation for expression handling, significantly improving the reliability and accuracy of cron job executions within core system modules. This update helps prevent execution errors and ensures smoother scheduling workflows, contributing to overall system stability and performance.
 dependencies:

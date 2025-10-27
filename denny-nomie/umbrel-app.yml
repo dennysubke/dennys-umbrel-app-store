@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-nomie
 name: Nomie
 tagline: A privacy-first journaling app for tracking life on your terms
-icon: https://i.imgur.com/jRYvLB4.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nomie/logo.png
 category: social
 version: "6.3.0"
 port: 8737
@@ -18,11 +18,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/open-nomie/nomie6-oss
 support: https://github.com/open-nomie/nomie6-oss/issues
 gallery:
-  - https://i.imgur.com/x3fNklL.png
-  - https://i.imgur.com/k4H5ecb.png
-  - https://i.imgur.com/gYXf0Ng.png
-  - https://i.imgur.com/X3R7Y89.png
-  - https://i.imgur.com/o7ppKwn.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nomie/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nomie/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nomie/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nomie/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nomie/5.jpg
 releaseNotes: >-
   This update introduces resumable timers, multiple widgets for a single plugin, and improved input retention when switching tabs on desktop. It also fixes issues with the tracking board not loading after onboarding, plugin titles in the database editor, location caching on startup, and a text overwrite bug in the capture field.
 dependencies:

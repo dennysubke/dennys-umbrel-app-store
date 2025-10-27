@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-restreamer
 name: Restreamer
 tagline: An easy to use open source video server
-icon: https://i.imgur.com/xpoaC35.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-restreamer/logo.png
 category: files & productivity
 version: "2.12.0"
 port: 8135
@@ -24,11 +24,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/datarhei/restreamer
 support: https://github.com/datarhei/restreamer/issues
 gallery:
-  - https://i.imgur.com/yYfkCD5.png
-  - https://i.imgur.com/37xXnJs.png
-  - https://i.imgur.com/HV51JK3.png
-  - https://i.imgur.com/yXpFmva.png
-  - https://i.imgur.com/UspOtCD.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-restreamer/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-restreamer/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-restreamer/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-restreamer/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-restreamer/5.jpg
 releaseNotes: >-
   Restreamer 2.12.0 introduces the integration of the wetter.com service and a new option to select which channels are displayed on the player site. Additionally, it includes various bug fixes, such as incorrect filter settings, duplicated filter parameters in the encoder, and address encoding issues, along with an update to public Video.js version 8.
 dependencies:

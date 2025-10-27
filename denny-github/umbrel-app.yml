@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-github
 name: Github Desktop
 tagline: An efficient way to manage your code
-icon: https://i.imgur.com/5GuVdXJ.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-github/logo.png
 category: developer tools
 version: "3.4.8"
 port: 3303
@@ -21,11 +21,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/desktop
 support: https://github.com/desktop/desktop/issues
 gallery:
-  - https://i.imgur.com/93FFsNF.png
-  - https://i.imgur.com/qjTaSn6.png
-  - https://i.imgur.com/bA8Dajd.png
-  - https://i.imgur.com/0ZgtUx8.png
-  - https://i.imgur.com/J5puo4W.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-github/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-github/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-github/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-github/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-github/5.jpg
 releaseNotes: >-
   App no longer crash for first time users going through the welcome flow and attempting to sign in more than once.
 dependencies:

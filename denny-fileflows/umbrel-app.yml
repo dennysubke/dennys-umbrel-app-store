@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-fileflows
 name: FileFlows
 tagline: A file processing app that performs actions on files using a tree flow structure
-icon: https://i.imgur.com/3S67EOB.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fileflows/logo.png
 category: networking
 version: "24.0.9"
 port: 19200
@@ -30,10 +30,10 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store
 repo: https://github.com/revenz/FileFlows
 support: https://fileflows.com/support
 gallery:
-  - https://i.imgur.com/vwlh0ko.png
-  - https://i.imgur.com/jiUc12c.png
-  - https://i.imgur.com/iKVFGPu.png
-  - https://i.imgur.com/FgQvx4G.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fileflows/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fileflows/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fileflows/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fileflows/4.jpg
 releaseNotes: >-
   The latest update introduces new features and improvements, including the removal of the import button in the script editor, support for callbacks in Flow.Execute, and the ability to override script parameters. A new build system enhances stability by running unit tests during builds, and SQLite now creates a new connection for each query. FFmpeg Builder improvements include better handling of AC3 audio channels and the addition of an aspect ratio flow element. Docker captures startup logs, and new database validation has been implemented.
 

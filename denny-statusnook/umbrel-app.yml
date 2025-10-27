@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-statusnook
 name: Statusnook
 tagline: An effortless solution for setting up a status page and monitoring endpoints in minutes
-icon: https://i.imgur.com/eeUWCTk.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-statusnook/logo.png
 category: networking
 version: "0.3.0"
 port: 8444
@@ -19,9 +19,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/goksan/statusnook
 support: https://github.com/goksan/statusnook/issues
 gallery:
-  - https://i.imgur.com/rvmBEXO.png
-  - https://i.imgur.com/9JpctBp.png
-  - https://i.imgur.com/O3S9cv7.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-statusnook/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-statusnook/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-statusnook/3.jpg
 releaseNotes: >-
   The latest update introduces a text-based configuration option (YAML), which can be accessed through the settings page or pushed via GitHub. This allows for easier customization and management of settings.
 dependencies:

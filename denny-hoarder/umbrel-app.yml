@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-hoarder
 name: Hoarder
 tagline: A self-hosted bookmark everything app
-icon: https://i.imgur.com/c9EfF3J.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-hoarder/logo.png
 category: files & productivity
 version: "0.18.0"
 port: 3888
@@ -46,11 +46,11 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store
 repo: https://github.com/hoarder-app/hoarder
 support: https://github.com/hoarder-app/hoarder/issues
 gallery:
-  - https://imgur.com/ziXxWIK.png
-  - https://imgur.com/NIpd865.png
-  - https://imgur.com/Zv6k6uB.png
-  - https://imgur.com/6A8Saq2.png
-  - https://imgur.com/82TTnoJ.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-hoarder/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-hoarder/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-hoarder/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-hoarder/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-hoarder/5.jpg
 releaseNotes: >-
   The latest update introduces several exciting features, including customizable tagging rules that allow users to define their preferences in natural language, and the ability to selectively archive pages without enabling "Full page archives" by default. 
   

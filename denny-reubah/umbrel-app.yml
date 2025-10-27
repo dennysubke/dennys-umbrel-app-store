@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-reubah
 name: Reubah
 tagline: A tool for processing images and converting documents
-icon: https://i.imgur.com/7nDOb9l.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-reubah/logo.png
 category: files & productivity
 version: "0.0.1"
 port: 8739
@@ -21,10 +21,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/dendianugerah/reubah
 support: https://github.com/dendianugerah/reubah/issues
 gallery:
-  - https://i.imgur.com/xBRNusp.png
-  - https://i.imgur.com/C7O0EBQ.png
-  - https://i.imgur.com/w7bWhyL.png
-  - https://i.imgur.com/LPiJFoh.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-reubah/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-reubah/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-reubah/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-reubah/4.jpg
 releaseNotes: >-
   Reubah does not use traditional versioning or changelogs. The project is maintained under a single latest tag, meaning updates are applied continuously without numbered releases or documented changes between versions.
 dependencies:

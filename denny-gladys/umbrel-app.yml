@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-gladys
 name: Gladys Assistant
 tagline: An intelligent, privacy-first solution for seamless smart home automation
-icon: https://i.imgur.com/FvjOcWX.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gladys/logo.png
 category: Home & Automation
 version: "4.48.0"
 port: 9212
@@ -31,11 +31,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/GladysAssistant/Gladys
 support: https://github.com/GladysAssistant/Gladys/issues
 gallery:
-  - https://i.imgur.com/KC6cKsB.png
-  - https://i.imgur.com/9HqddXA.png
-  - https://i.imgur.com/0emo1bd.png
-  - https://i.imgur.com/gvnoUc2.png
-  - https://i.imgur.com/pTy9Qpq.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gladys/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gladys/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gladys/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gladys/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gladys/5.jpg
 releaseNotes: >-
   The new version v4.48.0 of Gladys Assistant brings several improvements, including cleaning the DuckDB schema during restoration and properly closing all connections on database shutdown. New features include AI interaction within scenes and support for TCP transport for RTSP camera streams.
 dependencies:

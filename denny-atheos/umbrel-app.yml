@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-atheos
 name: Atheos
 tagline: A web-based IDE framework with a small footprint and minimal requirements
-icon: https://i.imgur.com/MZnT2VS.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-atheos/logo.png
 category: developer tools
 version: "5.5.0"
 port: 8728
@@ -22,9 +22,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/Atheos/Atheos
 support: https://github.com/Atheos/Atheos/issues
 gallery:
-  - https://i.imgur.com/eqQ4s4S.png
-  - https://i.imgur.com/M5HzLfR.png
-  - https://i.imgur.com/cXyeJY1.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-atheos/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-atheos/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-atheos/3.jpg
 releaseNotes: >-
   This release focuses on a wide range of bug fixes, improving the stability and reliability of the IDE. The codebase has been cleaned up, reducing redundancies and making future development smoother. Several quality-of-life improvements have been introduced, enhancing the overall user experience. These could include better performance, more intuitive interface adjustments, or helpful new features that streamline common workflows. This update emphasizes not just bug resolution but also a more refined, user-friendly interface for developers using Atheos.
 dependencies:

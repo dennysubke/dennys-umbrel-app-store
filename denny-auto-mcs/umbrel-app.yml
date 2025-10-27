@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-auto-mcs
 name: Auto-MCS
 tagline: A cross-platform Minecraft server manager
-icon: https://i.imgur.com/G9YaRia.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-auto-mcs/logo.png
 category: gaming
 version: "2.3.3"
 port: 8439
@@ -30,9 +30,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/macarooni-man/auto-mcs
 support: https://github.com/macarooni-man/auto-mcs/issues
 gallery:
-  - https://i.imgur.com/svfsM06.png
-  - https://i.imgur.com/d68lKG9.png
-  - https://i.imgur.com/swSfZdJ.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-auto-mcs/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-auto-mcs/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-auto-mcs/3.jpg
 releaseNotes: >-
   This version introduces major stability improvements and numerous bug fixes, including a new logging engine, enhanced PlayIt integration, and a switch to Paper’s Hangar for plugin management. 
   

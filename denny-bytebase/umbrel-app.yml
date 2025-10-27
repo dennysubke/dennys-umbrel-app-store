@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-bytebase
 name: Bytebase
 tagline: A GitOps platform for databases
-icon: https://i.imgur.com/zMvAokG.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bytebase/logo.png
 category: developer tools
 version: "3.8.1"
 port: 8999
@@ -27,13 +27,13 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/bytebase/bytebase
 support: https://github.com/bytebase/bytebase/issues
 gallery:
-  - https://imgur.com/1rnSrqR.png
-  - https://imgur.com/yYsQw1B.png
-  - https://imgur.com/vTfSMBy.png
-  - https://imgur.com/jC8ft52.png
-  - https://imgur.com/WFeB88l.png
-  - https://imgur.com/ABSANMX.png
-  - https://imgur.com/rxHKrp6.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bytebase/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bytebase/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bytebase/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bytebase/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bytebase/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bytebase/6.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bytebase/7.jpg
 releaseNotes: >-
   Version 3.8.0 introduces major improvements to schema synchronization and rollback, enhancing compatibility across MySQL, PostgreSQL, TiDB, SQL Server, and Oracle. It also retires the Issue Subscription feature and renames the Review Center to Plans.
 

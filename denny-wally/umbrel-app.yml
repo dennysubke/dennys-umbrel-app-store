@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-wally
 name: Wally
 tagline: A lightweight expense tracker
-icon: https://i.imgur.com/ZeO5TqT.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wally/logo.png
 category: finance
 version: "1.1"
 port: 3811
@@ -21,10 +21,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/polius/Wally
 support: https://github.com/polius/Wally/issues
 gallery:
-  - https://i.imgur.com/smlW83p.png
-  - https://i.imgur.com/L6MYNat.png
-  - https://i.imgur.com/m9jAgiq.png
-  - https://i.imgur.com/zcxTWpu.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wally/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wally/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wally/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wally/4.jpg
 releaseNotes: >-
   This update introduces a new optional HTTPS environment variable that restricts authenticated API access to secure connections only, preventing authentication tokens from being sent over HTTP. Login sessions have also been improved with an expiration time for cookies, allowing sessions to persist even after closing the browser.
 dependencies: []

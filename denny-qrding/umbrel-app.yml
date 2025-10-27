@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-qrding
 name: QRding
 tagline: A simple self-hosted QR code generator
-icon: https://i.imgur.com/hE4GAqa.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-qrding/logo.png
 category: files & productivity
 version: "0.1.2"
 port: 3329
@@ -21,10 +21,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/rishikanthc/qrding
 support: https://github.com/rishikanthc/qrding/issues
 gallery:
-  - https://i.imgur.com/g5OrQeH.png
-  - https://i.imgur.com/mBpVuWm.png
-  - https://i.imgur.com/sEwPlvg.png
-  - https://i.imgur.com/X15IAVJ.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-qrding/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-qrding/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-qrding/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-qrding/4.jpg
 releaseNotes: >-
   Version 0.1.2 of QRding introduces the ability to set the error correction level and adds support for embedding a logo into the QR code. These features improve both the durability and the visual personalization of generated codes.
 dependencies:

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-headscale
 name: Headscale
 tagline: An open-source, self-hosted VPN solution built with WireGuard
-icon: https://i.imgur.com/OVtGI7Y.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-headscale/logo.png
 category: networking
 version: "0.26.1"
 port: 37070
@@ -34,10 +34,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/juanfont/headscale
 support: https://github.com/juanfont/headscale/issues
 gallery:
-  - https://i.imgur.com/p4q1EgC.png
-  - https://i.imgur.com/Y1o4K3b.png
-  - https://i.imgur.com/yfNzG2A.png
-  - https://i.imgur.com/mwdjJsv.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-headscale/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-headscale/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-headscale/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-headscale/4.jpg
 releaseNotes: >-
   Version 0.26.1 includes a security fix that ensures nodes match both node key and machine key when connecting.
 dependencies:

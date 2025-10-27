@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-opengist
 name: Opengist
 tagline: A self-hosted Pastebin powered by Git
-icon: https://i.imgur.com/vTWXKti.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-opengist/logo.png
 category: developer tools
 version: "1.8.1"
 port: 6157
@@ -22,10 +22,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/thomiceli/opengist
 support: https://github.com/thomiceli/opengist/issues
 gallery:
-  - https://i.imgur.com/sAo0qhx.png
-  - https://i.imgur.com/YWwTInB.png
-  - https://i.imgur.com/3WzNzO8.png
-  - https://i.imgur.com/s4F9clu.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-opengist/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-opengist/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-opengist/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-opengist/4.jpg
 releaseNotes: >-
   In the latest Opengist update, the passkey login option is now hidden if the login form is disabled. Additionally, fixes were applied to the Markdown preview display and the behavior of confirm popup messages.
 dependencies:

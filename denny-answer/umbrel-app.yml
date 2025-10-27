@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-answer
 name: Answer
 tagline: A Q&A platform software for teams at any scale
-icon: https://i.imgur.com/v5eG4SV.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-answer/logo.png
 category: social
 version: "1.4.0"
 port: 9082
@@ -59,9 +59,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/answerdev
 support: https://github.com/apache/incubator-answer/issues
 gallery:
-  - https://i.imgur.com/pTrvI3n.png
-  - https://i.imgur.com/p6xVq3X.png
-  - https://i.imgur.com/iyuFvOn.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-answer/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-answer/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-answer/3.jpg
 releaseNotes: >-
   The latest update introduces several new features, including gamified badges for the Q&A platform, personalized question recommendations, a new search provider definition for browsers, support for Render type plugins, and a code highlighting plugin. Additionally, numerous bug fixes have been implemented, addressing issues such as incorrect mobile display reactions, extra characters in HTML source code, visibility of unanswered questions after an answer is deleted, and conflicts with embed plugin types.
 dependencies:

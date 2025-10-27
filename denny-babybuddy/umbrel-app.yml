@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-babybuddy
 name: Baby Buddy
 tagline: An all-in-one baby tracker
-icon: https://i.imgur.com/yiIkWBI.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-babybuddy/logo.png
 category: files & productivity
 version: "2.7.1"
 port: 8673
@@ -27,11 +27,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/linuxserver/docker-babybuddy
 support: https://github.com/linuxserver/docker-babybuddy/issues
 gallery:
-  - https://i.imgur.com/VkR4OnT.png
-  - https://i.imgur.com/te5p6tu.png
-  - https://i.imgur.com/NNSVhO6.png
-  - https://i.imgur.com/b9fxe4q.png
-  - https://i.imgur.com/ScvpH8m.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-babybuddy/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-babybuddy/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-babybuddy/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-babybuddy/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-babybuddy/5.jpg
 releaseNotes: >-
   Version of Baby Buddy is now rebased on Alpine 3.20; existing users should update their Nginx configuration to avoid HTTP/2 deprecation warnings. Upstream changes include improved numeric input on mobile devices, a fix for the non-functional database URL configuration, and a correction for percentile plotting errors related to weight and height.
 dependencies:

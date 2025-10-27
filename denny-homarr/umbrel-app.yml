@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-homarr
 name: Homarr
 tagline: A customizable browser home page to interact with your Umbrel
-icon: https://i.imgur.com/kEw1Lin.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homarr/logo.png
 category: files & productivity
 version: "1.21.0 "
 port: 7575
@@ -27,12 +27,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/ajnart/homarr
 support: https://github.com/ajnart/homarr/issues
 gallery:
-  - https://i.imgur.com/XNqVsHw.png
-  - https://i.imgur.com/LqVHdxZ.png
-  - https://i.imgur.com/eDyoTSx.png
-  - https://i.imgur.com/yQFazpi.png
-  - https://i.imgur.com/24jOHI4.png
-  - https://i.imgur.com/3lPjEaq.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homarr/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homarr/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homarr/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homarr/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homarr/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homarr/6.jpg
 releaseNotes: >-
   This update introduces a new Docker widget and includes numerous dependency upgrades. It also fixes several bugs, such as layout issues, reordering problems in the downloads widget, and a missing esbuild dependency.
 dependencies:

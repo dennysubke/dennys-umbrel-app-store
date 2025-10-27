@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-coolify
 name: Coolify
 tagline: A lightweight platform to deploy apps easily
-icon: https://i.imgur.com/9Yp6WJV.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-coolify/logo.png
 category: In Progress
 version: "4.0.0-beta.434"
 port: 8527
@@ -27,9 +27,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/coollabsio/coolify
 support: https://github.com/coollabsio/coolify/issues
 gallery:
-  - https://i.imgur.com/l3u5xUo.png
-  - https://i.imgur.com/l3u5xUo.png
-  - https://i.imgur.com/l3u5xUo.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-coolify/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-coolify/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-coolify/3.jpg
 releaseNotes: >-
   Version 4.0.0-beta.434 improves the handling of build and runtime environments during deployments and introduces automatic generation of service name environment variables from Docker Compose. 
   

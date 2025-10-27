@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-paisa
 name: Paisa
 tagline: An all-in-one finance tracker designed for simplicity
-icon: https://i.imgur.com/cFLQH3N.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-paisa/logo.png
 category: finance
 version: "0.7.1"
 port: 7500
@@ -22,11 +22,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/ananthakumaran/paisa
 support: https://github.com/ananthakumaran/paisa/issues
 gallery:
-  - https://i.imgur.com/EvKdmCV.png
-  - https://i.imgur.com/oDK25fy.png
-  - https://i.imgur.com/zQBiLPM.png
-  - https://i.imgur.com/hlbWsBb.png
-  - https://i.imgur.com/9BK8kL7.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-paisa/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-paisa/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-paisa/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-paisa/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-paisa/5.jpg
 releaseNotes: >-
   The 0.7.1 update resolves a critical remote code execution vulnerability, enhancing the security of the platform. This fix improves overall system safety, protecting users from potential exploits.
 dependencies:

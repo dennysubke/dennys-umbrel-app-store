@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-searxng
 name: SearXNG
 tagline: A free internet metasearch engine
-icon: https://i.imgur.com/0hLmHXx.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-searxng/logo.png
 category: networking
 version: "2025.7.19"
 port: 8182
@@ -21,11 +21,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/searxng/searxng
 support: https://github.com/searxng/searxng/issues
 gallery:
-  - https://i.imgur.com/nUiae47.png
-  - https://i.imgur.com/NiddhLW.png
-  - https://i.imgur.com/hbDb15I.png
-  - https://i.imgur.com/ilrtZFH.png
-  - https://i.imgur.com/k8loz8T.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-searxng/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-searxng/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-searxng/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-searxng/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-searxng/5.jpg
 releaseNotes: >-
   Version 2025.7.19 updates translations from Weblate and fixes the container by removing the static path mount.
 dependencies:

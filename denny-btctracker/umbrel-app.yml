@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-btctracker
 name: BTC Tracker
 tagline: A simple, privacy-focused Bitcoin investment tracker
-icon: https://i.imgur.com/Tck4EWR.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-btctracker/logo.png
 category: bitcoin
 version: "0.6.0"
 port: 3947
@@ -30,12 +30,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/wilqq-the/BTC-Tracker
 support: https://github.com/wilqq-the/BTC-Tracker/issues
 gallery:
-  - https://i.imgur.com/tA6Qd9W.png
-  - https://i.imgur.com/1NJqn0T.png
-  - https://i.imgur.com/dh3nibZ.png
-  - https://i.imgur.com/AvHFmsz.png
-  - https://i.imgur.com/Ulq71y0.png
-  - https://i.imgur.com/M7p3CbA.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-btctracker/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-btctracker/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-btctracker/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-btctracker/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-btctracker/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-btctracker/6.jpg
 releaseNotes: >-
   🚨 Breaking Change: The app now uses SQLite instead of JSON files for data storage. This change is not backward compatible. Please export your transactions from the old version, update the app, register, and then reimport your data.
   

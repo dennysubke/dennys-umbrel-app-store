@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-planka
 name: Planka
 tagline: A powerful and elegant open source tool for project tracking
-icon: https://i.imgur.com/HOzygeF.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-planka/logo.png
 category: files & productivity
 version: "1.23.0"
 port: 1338
@@ -46,9 +46,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/plankanban/planka
 support: https://github.com/plankanban/planka/issues
 gallery:
-  - https://i.imgur.com/hSouuzn.png
-  - https://i.imgur.com/VEROtIu.png
-  - https://i.imgur.com/ZP8nc4U.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-planka/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-planka/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-planka/3.jpg
 
 releaseNotes: >-
    This release includes a Yemeni Arabic translation, configurable file storage locations, and the ability to configure OIDC claims source. Thank you to our new contributors for their valuable input!

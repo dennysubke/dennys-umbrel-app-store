@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-shopstr
 name: Shopstr
 tagline: A global, permissionless Nostr marketplace for Bitcoin commerce
-icon: https://i.imgur.com/Y9Gewqf.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-shopstr/logo.png
 category: bitcoin
 version: "0.1.0"
 port: 30402
@@ -21,11 +21,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/shopstr-eng/shopstr
 support: https://github.com/shopstr-eng/shopstr/issues
 gallery:
-  - https://i.imgur.com/k9GqYML.png
-  - https://i.imgur.com/lPuiJnr.png
-  - https://i.imgur.com/3Phaszy.png
-  - https://i.imgur.com/kODsLYp.png
-  - https://i.imgur.com/qKTe6Iz.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-shopstr/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-shopstr/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-shopstr/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-shopstr/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-shopstr/5.jpg
 releaseNotes: >-
   This is the initial release of the project, and there are no changelogs available at this time.
 dependencies:

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-bip47-verifier
 name: BIP47 Message Verifier
 tagline: An easy way to verify BIP47 signatures
-icon: https://i.imgur.com/cx0eWsv.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bip47-verifier/logo.png
 category: bitcoin
 version: "1.0.0"
 port: 8047
@@ -24,9 +24,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/dennysubke/bip47-verifier
 support: https://github.com/dennysubke/bip47-verifier/issues
 gallery:
-  - https://i.imgur.com/AZci6F3.png
-  - https://i.imgur.com/4lGsevi.png
-  - https://i.imgur.com/YaI40dU.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bip47-verifier/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bip47-verifier/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bip47-verifier/3.jpg
 releaseNotes: >-
   This project does not follow semantic versioning and does not maintain a changelog. Changes may occur at any time without formal version tags or release notes.
 dependencies:

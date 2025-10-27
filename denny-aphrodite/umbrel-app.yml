@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-aphrodite
 name: Aphrodite
 tagline: A dynamic badge generator for media posters
-icon: https://i.imgur.com/EzYEpnx.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-aphrodite/logo.png
 category: media
 version: "4.1.3"
 port: 8723
@@ -24,11 +24,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/jackkerouac/aphrodite
 support: https://github.com/jackkerouac/aphrodite/issues
 gallery:
-  - https://i.imgur.com/arI6Q8c.png
-  - https://i.imgur.com/8ybILAe.png
-  - https://i.imgur.com/RvzlVTv.png
-  - https://i.imgur.com/TQZf7kz.png
-  - https://i.imgur.com/ZrIHKRP.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-aphrodite/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-aphrodite/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-aphrodite/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-aphrodite/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-aphrodite/5.jpg
 releaseNotes: >-
   Aphrodite v4.1.3 fixes authentication issues with the TMDB awards system by updating API calls to use Bearer tokens instead of legacy URL parameters. This ensures that users with TMDB Read Access Tokens can properly retrieve award information for media posters.
 dependencies: []

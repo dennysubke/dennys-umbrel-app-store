@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-dokploy
 name: Dokploy
 tagline: A seamless platform for effortless deployments
-icon: https://i.imgur.com/OPdh1hA.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dokploy/logo.png
 category: In Progress
 version: "0.25.5"
 port: 8528
@@ -27,9 +27,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/Dokploy/dokploy
 support: https://github.com/Dokploy/dokploy/issues
 gallery:
-  - https://i.imgur.com/0ye3ba0.png
-  - https://i.imgur.com/0ye3ba0.png
-  - https://i.imgur.com/0ye3ba0.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dokploy/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dokploy/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dokploy/3.jpg
 releaseNotes: >-
   This update introduces new permission controls for creating and deleting environments, adds support for uploading custom profile pictures, and improves Docker terminal handling for Compose applications. 
   

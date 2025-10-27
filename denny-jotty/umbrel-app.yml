@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-jotty
 name: Jotty
 tagline: A simple app for notes and checklists
-icon: https://i.imgur.com/XKQ6HNh.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-jotty/logo.png
 category: In Progress
 version: "1.8.1"
 port: 3396
@@ -27,9 +27,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/fccview/jotty
 support: https://github.com/fccview/jotty/issues
 gallery:
-  - https://i.imgur.com/X8Y5APM.png
-  - https://i.imgur.com/X8Y5APM.png
-  - https://i.imgur.com/X8Y5APM.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-jotty/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-jotty/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-jotty/3.jpg
 releaseNotes: >-
   This version focuses on refining the overall experience with several important bug fixes and small but useful improvements. It resolves issues with OIDC group claims, filename handling, mobile text wrapping, and checkbox behavior, while finally preserving line breaks correctly.
 

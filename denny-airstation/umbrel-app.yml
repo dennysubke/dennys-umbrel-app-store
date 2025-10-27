@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-airstation
 name: Airstation
 tagline: An instant radio station
-icon: https://i.imgur.com/fbK8LWI.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-airstation/logo.png
 category: media
 version: "1.0.0"
 port: 7331
@@ -24,9 +24,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/cheatsnake/airstation
 support: https://github.com/cheatsnake/airstation/issues
 gallery:
-  - https://i.imgur.com/uQaZim1.png
-  - https://i.imgur.com/jqenxf5.png
-  - https://i.imgur.com/UasIwdH.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-airstation/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-airstation/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-airstation/3.jpg
 releaseNotes: >-
   The update adds an extra authentication check to improve security and fixes the caching scope issue in the PWA for better performance. Additionally, it refactors the database file path for clarity and removes unnecessary arguments from the multi-architecture CI setup.
 dependencies:

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-chevereto
 name: Chevereto
 tagline: A fast, reliable way to store and share your images
-icon: https://i.imgur.com/nLJLkbd.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-chevereto/logo.png
 category: files & productivity
 version: "4.2.4"
 port: 8048
@@ -33,12 +33,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/chevereto/chevereto
 support: https://github.com/chevereto/chevereto/issues
 gallery:
-  - https://i.imgur.com/ealHbU4.png
-  - https://i.imgur.com/y7aS2zf.png
-  - https://i.imgur.com/Y4eDwe4.png
-  - https://i.imgur.com/8onXIA2.png
-  - https://i.imgur.com/G6sbxXi.png
-  - https://i.imgur.com/aub2rxg.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-chevereto/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-chevereto/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-chevereto/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-chevereto/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-chevereto/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-chevereto/6.jpg
 releaseNotes: >-
   This version of Chevereto 4.2.4 (2024-12-05) introduces the Chevereto Lite Edition, improvements to comment code and ENV handling, as well as bug fixes for CLI runtime and MariaDB 10.4 compatibility.
 dependencies:

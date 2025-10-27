@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-standardnotes
 name: Standard Notes
 tagline: A secure note-taking app with end-to-end encryption
-icon: https://i.imgur.com/0O4YEHi.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-standardnotes/logo.png
 category: files & productivity
 version: "3.200.4"
 port: 3977
@@ -24,11 +24,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/standardnotes
 support: https://github.com/standardnotes/server/issues
 gallery:
-  - https://i.imgur.com/VCuWVRh.png
-  - https://i.imgur.com/pVD6dJk.png
-  - https://i.imgur.com/R9X6mJj.png
-  - https://i.imgur.com/7x1rmPm.png
-  - https://i.imgur.com/QUkbYrX.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-standardnotes/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-standardnotes/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-standardnotes/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-standardnotes/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-standardnotes/5.jpg
 releaseNotes: >-
   This update fixes an issue where text pasted from Google Docs was always displayed in bold. The app now preserves the correct formatting when importing content.
 dependencies: []

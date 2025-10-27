@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-ticky
 name: Ticky
 tagline: A modern Kanban board app
-icon: https://i.imgur.com/dyIQOeh.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ticky/logo.png
 category: files & productivity
 version: "1.5.0"
 port: 4088
@@ -18,9 +18,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/dkorecko/Ticky
 support: https://github.com/dkorecko/Ticky/issues
 gallery:
-  - https://i.imgur.com/o8GKKCj.png
-  - https://i.imgur.com/P3wySYH.png
-  - https://i.imgur.com/j6pWzoc.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ticky/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ticky/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ticky/3.jpg
 releaseNotes: >-
   Version 1.5.0 introduces a responsive design and an early mobile version, making the app functional on various devices. New features include a confetti effect when tasks are completed and an icon indicating descriptions on cards, along with several bug fixes and visual improvements. 
   

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-wakapi
 name: Wakapi
 tagline: A minimalist, self-hosted WakaTime-compatible backend for coding statistics
-icon: https://i.imgur.com/sSTSIWz.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wakapi/logo.png
 category: developer tools
 version: "2.12.2"
 port: 3366
@@ -24,9 +24,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/muety/wakapi
 support: https://github.com/muety/wakapi/issues
 gallery:
-  - https://i.imgur.com/yYToXH3.png
-  - https://i.imgur.com/PVOKHZY.png
-  - https://i.imgur.com/XXss81e.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wakapi/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wakapi/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wakapi/3.jpg
 releaseNotes: >-
   Release 2.12.2 includes several bug fixes and improvements. It also introduces a schema change to the heartbeats table, which may cause extended downtime for large instances with over several hundred thousand records. Users with such instances are advised to manually run the suggested SQL command before upgrading to avoid prolonged downtime.
 dependencies:

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-jenkins
 name: Jenkins
 tagline: An automation server which enables developers to reliably build, test, and deploy their software
-icon: https://i.imgur.com/HhGYbK1.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-jenkins/logo.png
 category: developer tools
 version: "2.480"
 port: 3212
@@ -43,13 +43,13 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store
 repo: https://github.com/jenkinsci/jenkins
 support: https://community.jenkins.io/
 gallery:
-  - https://i.imgur.com/8lUVeTK.png
-  - https://i.imgur.com/TTfZ1DS.png
-  - https://i.imgur.com/6xeU33R.png
-  - https://i.imgur.com/TUduT7O.png
-  - https://i.imgur.com/OtgYtdZ.png
-  - https://i.imgur.com/B73MhZe.png
-  - https://i.imgur.com/NObYzc6.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-jenkins/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-jenkins/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-jenkins/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-jenkins/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-jenkins/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-jenkins/6.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-jenkins/7.jpg
 releaseNotes: >-
   Jenkins version 2.480 includes several enhancements and bug fixes.
 

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-twenty
 name: Twenty
 tagline: An adaptable CRM solution for seamless team collaboration and growth
-icon: https://i.imgur.com/WAop1NI.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-twenty/logo.png
 category: files & productivity
 version: "0.50"
 port: 2020
@@ -27,10 +27,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/twentyhq/twenty
 support: https://github.com/twentyhq/twenty/issues
 gallery:
-  - https://i.imgur.com/MCKiLbK.png
-  - https://i.imgur.com/2dSecar.png
-  - https://i.imgur.com/UKZ6CVW.png
-  - https://i.imgur.com/bpDU2d4.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-twenty/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-twenty/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-twenty/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-twenty/4.jpg
 releaseNotes: >-
   Version 0.50 introduces user and admin permissions, allowing admins to manage workspace settings while users can only edit records. The advanced filter feature enables precise data queries with nested conditions, multiple field filters, and customizable filter groups.
 dependencies:

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-textpod
 name: Textpod
 tagline: An extremely simple note-taking app
-icon: https://i.imgur.com/2JszYWI.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-textpod/logo.png
 category: files & productivity
 version: "0.1.2"
 port: 8099
@@ -21,9 +21,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/freetonik/textpod
 support: https://github.com/freetonik/textpod/issues
 gallery:
-  - https://i.imgur.com/w4BuykB.png
-  - https://i.imgur.com/exsCXul.png
-  - https://i.imgur.com/xr6BgFL.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-textpod/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-textpod/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-textpod/3.jpg
 releaseNotes: >-
   Recent updates to Textpod include the addition of a customizable listen address, allowing users to configure the app’s access point. Additionally, the error messages have been improved to be clearer and more informative, making it easier for users to understand and resolve issues.
 dependencies:

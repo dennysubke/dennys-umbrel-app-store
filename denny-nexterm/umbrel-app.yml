@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-nexterm
 name: Nexterm
 tagline: An efficient way to manage remote terminals with ease
-icon: https://i.imgur.com/t2OvDqy.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nexterm/logo.png
 category: networking
 version: "1.0.2"
 port: 6989
@@ -30,11 +30,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/gnmyt/Nexterm
 support: https://github.com/gnmyt/Nexterm/issues
 gallery:
-  - https://i.imgur.com/TiQF103.png
-  - https://i.imgur.com/mx2lvQs.png
-  - https://i.imgur.com/bazZe55.png
-  - https://i.imgur.com/LD5hnDW.png
-  - https://i.imgur.com/RGX2xSo.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nexterm/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nexterm/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nexterm/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nexterm/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nexterm/5.jpg
 releaseNotes: >-
   The release 1.0.2 introduces several new features, including Google TOTP support, an App Store, clipboard synchronization, multiple user support, and SFTP/file management, along with a bug fix for protocol errors. 
 

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-thunderbird
 name: Thunderbird
 tagline: A secure, flexible, and efficient email client
-icon: https://i.imgur.com/2DjFPcH.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-thunderbird/logo.png
 category: networking
 version: "24.12.1"
 port: 5858
@@ -27,11 +27,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/jlesage/docker-thunderbird
 support: https://github.com/jlesage/docker-thunderbird/issues
 gallery:
-  - https://i.imgur.com/TtSAd4H.png
-  - https://i.imgur.com/vSl4whD.png
-  - https://i.imgur.com/HZn8F0M.png
-  - https://i.imgur.com/OKoUOv2.png
-  - https://i.imgur.com/KJb2wFf.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-thunderbird/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-thunderbird/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-thunderbird/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-thunderbird/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-thunderbird/5.jpg
 releaseNotes: >-
   In this release, Thunderbird has been updated to version 128.5.1-r0, and the base image has been updated to version 4.6.7. This resolves several issues, such as the web audio feature, TLS connection problems for VNC, and CJK font installation, while also incorporating security fixes from the latest distribution images.
 dependencies:

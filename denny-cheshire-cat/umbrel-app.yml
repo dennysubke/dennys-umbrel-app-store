@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-cheshire-cat
 name: Cheshire Cat AI
 tagline: A framework to build custom AIs on top of any language model
-icon: https://i.imgur.com/WOslqQW.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cheshire-cat/logo.png
 category: AI
 version: "1.7.1"
 port: 1865
@@ -46,11 +46,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/cheshire-cat-ai/core
 support: https://github.com/cheshire-cat-ai/core/issues
 gallery:
-  - https://i.imgur.com/IRZrWLx.png
-  - https://i.imgur.com/pzShfKP.png
-  - https://i.imgur.com/GKzr98v.png
-  - https://i.imgur.com/LgU24HV.png
-  - https://i.imgur.com/Hboiq1y.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cheshire-cat/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cheshire-cat/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cheshire-cat/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cheshire-cat/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cheshire-cat/5.jpg
 releaseNotes: >-
   Version 1.7.1 of Cheshire Cat AI introduces a user and permission system, JWT support for authentication, and custom authorization options. It also adds features like White Rabbit and the new StrayCat.classify function for enhanced AI capabilities.
 dependencies:

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-pdfding
 name: PdfDing
 tagline: An accessible tool for flawless PDF editing
-icon: https://i.imgur.com/kWdkjcf.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pdfding/logo.png
 category: files & productivity
 version: "1.1.0"
 port: 8866
@@ -21,11 +21,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/mrmn2/PdfDing
 support: https://github.com/mrmn2/PdfDing/issues
 gallery:
-  - https://i.imgur.com/s7Cut4I.png
-  - https://i.imgur.com/W0yeo8A.png
-  - https://i.imgur.com/AIo5krW.png
-  - https://i.imgur.com/KV8PBvA.png
-  - https://i.imgur.com/ys8JM0R.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pdfding/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pdfding/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pdfding/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pdfding/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pdfding/5.jpg
 releaseNotes: >-
   Version 1.1.0 introduces new list and grid layouts for PDF overviews, revamped settings, and minor UI adjustments to the detail pages. These updates enhance the overall user experience and navigation.
 dependencies:

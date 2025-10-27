@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-bentopdf
 name: BentoPDF
 tagline: A Privacy First PDF Toolkit
-icon: https://i.imgur.com/uDMmLxC.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bentopdf/logo.png
 category: files & productivity
 version: "1.0.0"
 port: 8730
@@ -24,10 +24,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/alam00000/bentopdf
 support: https://github.com/alam00000/bentopdf/issues
 gallery:
-  - https://i.imgur.com/KMsIkB6.png
-  - https://i.imgur.com/37XcmZN.png
-  - https://i.imgur.com/8lkqKxy.png
-  - https://i.imgur.com/nEH8ckL.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bentopdf/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bentopdf/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bentopdf/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bentopdf/4.jpg
 releaseNotes: >-
   There is currently no versioning implemented, which is why changelogs are not available.
 dependencies: []

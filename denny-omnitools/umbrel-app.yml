@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-omnitools
 name: OmniTools
 tagline: An all-in-one collection of powerful web-based tools for everyday tasks
-icon: https://i.imgur.com/PngDdKu.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-omnitools/logo.png
 category: files & productivity
 version: "0.5.0"
 port: 8678
@@ -24,12 +24,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/iib0011/omni-tools
 support: https://github.com/iib0011/omni-tools/issues
 gallery:
-  - https://i.imgur.com/hfdl7jO.png
-  - https://i.imgur.com/AsYywSa.png
-  - https://i.imgur.com/AAnJMOk.png
-  - https://i.imgur.com/g8pvY9l.png
-  - https://i.imgur.com/zoBNw3u.png
-  - https://i.imgur.com/dpBGdFd.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-omnitools/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-omnitools/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-omnitools/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-omnitools/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-omnitools/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-omnitools/6.jpg
 releaseNotes: >-
   Version 0.5.0 introduces a wide range of new tools across various categories: image editing (crop, rotate, filters, watermark), PDF editing and conversion, video-to-GIF, and several audio tools like trimming, merging, and speed adjustment. It also adds handy utilities like a Crontab explainer, text censoring, and XML validation and beautification.
 dependencies:

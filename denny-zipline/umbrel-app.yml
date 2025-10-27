@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-zipline
 name: Zipline
 tagline: An advanced solution for seamless and secure file sharing
-icon: https://i.imgur.com/H4RfI5O.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zipline/logo.png
 category: files & productivity
 version: "4.0.0"
 port: 3472
@@ -27,9 +27,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/diced/zipline
 support: https://github.com/diced/zipline/issues
 gallery:
-  - https://i.imgur.com/MjYRjue.png
-  - https://i.imgur.com/N6eulJk.png
-  - https://i.imgur.com/rdNnstK.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zipline/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zipline/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zipline/3.jpg
 releaseNotes: >-
   Zipline v4.0.0 is a major update released after over two years of development. It features a revamped API, a new invitation system, improved file and user management, and numerous UI enhancements in the dashboard. Additionally, it introduces features like password-protected URLs, OIDC support, a new CLI tool, and improved upload options, while v3 will continue receiving critical bug fixes and security updates.
 dependencies:

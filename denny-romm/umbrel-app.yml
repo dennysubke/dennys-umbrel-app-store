@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-romm
 name: RomM
 tagline: An elegant, powerful, and self-hosted ROM manager for seamless gaming
-icon: https://i.imgur.com/nVH14hi.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-romm/logo.png
 category: gaming
 version: "3.7.3"
 port: 9221
@@ -24,13 +24,13 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/rommapp/romm
 support: https://github.com/rommapp/romm/issues
 gallery:
-  - https://i.imgur.com/9zKoi5d.png
-  - https://i.imgur.com/pQfNtWL.png
-  - https://i.imgur.com/uXXkFWk.png
-  - https://i.imgur.com/knpABPc.png
-  - https://i.imgur.com/jl1HREJ.png
-  - https://i.imgur.com/S3SbBF3.png
-  - https://i.imgur.com/L9KRKRE.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-romm/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-romm/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-romm/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-romm/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-romm/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-romm/6.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-romm/7.jpg
 releaseNotes: >-
   Version 3.7.3 of RomM introduces new features and bug fixes. Highlights include the display of game summaries with Markdown editor support, the use of spiciness ratings for difficulty, and the ability to remember search queries when returning to a page. 
   

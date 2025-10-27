@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-slskd
 name: slskd
 tagline: A modern client-server application for the Soulseek file sharing network
-icon: https://i.imgur.com/KvwYux3.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-slskd/logo.png
 category: media
 version: "0.22.5"
 port: 5030
@@ -33,10 +33,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/slskd/slskd
 support: https://github.com/slskd/slskd/issues
 gallery:
-  - https://i.imgur.com/AIfP8yc.png
-  - https://i.imgur.com/mmyLEx8.png
-  - https://i.imgur.com/TjABk34.png
-  - https://i.imgur.com/KL0R5Cu.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-slskd/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-slskd/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-slskd/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-slskd/4.jpg
 releaseNotes: >-
   The latest version 0.22.5 of slskd was released last month and includes a fix for a cryptic error message that appeared when a remote client did not return any files when requesting directory contents.
 dependencies:

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-gatus
 name: Gatus
 tagline: An uptime guardian for critical endpoints
-icon: https://i.imgur.com/OqqoY3A.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gatus/logo.png
 category: networking
 version: "5.13.1"
 port: 8443
@@ -30,10 +30,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/TwiN/gatus
 support: https://github.com/TwiN/gatus/issues
 gallery:
-  - https://i.imgur.com/j8GDvxu.png
-  - https://i.imgur.com/uOfQXkn.png
-  - https://i.imgur.com/V02PkKe.png
-  - https://i.imgur.com/xyN9GSo.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gatus/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gatus/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gatus/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gatus/4.jpg
 releaseNotes: >-
   Version 5.13.1 of Gatus fixes an issue with missing support for default-alert in teams workflows, and updates dependencies like go-oidc and gofiber. Additionally, a typo in the README was corrected.
 dependencies:

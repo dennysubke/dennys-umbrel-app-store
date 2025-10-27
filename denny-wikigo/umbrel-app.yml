@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-wikigo
 name: Wiki-Go
 tagline: A modern flat-file wiki built with Go
-icon: https://i.imgur.com/zkkxmGe.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wikigo/logo.png
 category: files & productivity
 version: "1.3.14"
 port: 8833
@@ -24,10 +24,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/leomoon-studios/wiki-go
 support: https://github.com/leomoon-studios/wiki-go/issues
 gallery:
-  - https://i.imgur.com/aMBdyz5.png
-  - https://i.imgur.com/UGvCZAI.png
-  - https://i.imgur.com/c4WUZ2M.png
-  - https://i.imgur.com/6oHbp4W.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wikigo/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wikigo/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wikigo/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wikigo/4.jpg
 releaseNotes: >-
   Release v1.3.14 introduces several improvements: comment timestamps are now displayed in a human-readable format. The document picker search input now supports bidirectional text and includes new translations. Additionally, CSS for the recent edits stats has been refined.
 dependencies:

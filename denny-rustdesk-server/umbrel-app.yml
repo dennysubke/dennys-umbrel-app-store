@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-rustdesk-server
 name: RustDesk Server
 tagline: A fast and reliable solution for remote access
-icon: https://i.imgur.com/fRqoQTG.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rustdesk-server/logo.png
 category: networking
 version: "1.1.14"
 port: 21080
@@ -24,9 +24,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/rustdesk/rustdesk-server
 support: https://github.com/rustdesk/rustdesk/issues
 gallery:
-  - https://i.imgur.com/gICl9jn.png
-  - https://i.imgur.com/qmwRJDp.png
-  - https://i.imgur.com/wDFd5ZO.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rustdesk-server/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rustdesk-server/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rustdesk-server/3.jpg
 defaultUsername: ""
 defaultPassword: ""
 dependencies: []

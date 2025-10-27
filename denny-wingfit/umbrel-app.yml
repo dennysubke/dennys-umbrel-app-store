@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-wingfit
 name: Wingfit
 tagline: An open-source minimalist fitness app
-icon: https://i.imgur.com/UCfXoRH.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wingfit/logo.png
 category: files & productivity
 version: "5.2.2"
 port: 8950
@@ -21,11 +21,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/itskovacs/wingfit
 support: https://github.com/itskovacs/wingfit/issues
 gallery:
-  - https://i.imgur.com/aSojdJH.png
-  - https://i.imgur.com/0myq2Vf.png
-  - https://i.imgur.com/aIOg3Vt.png
-  - https://i.imgur.com/LRc132X.png
-  - https://i.imgur.com/oGtdhq1.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wingfit/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wingfit/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wingfit/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wingfit/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wingfit/5.jpg
 releaseNotes: >-
   Version 5.2.2 includes improvements to the weekday graph user interface with optimizations for the year and month views.
 dependencies:

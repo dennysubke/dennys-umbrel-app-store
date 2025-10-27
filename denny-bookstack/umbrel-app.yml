@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-bookstack
 name: BookStack
 tagline: An organized way to manage and share your knowledge
-icon: https://i.imgur.com/ASJ9aQS.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bookstack/logo.png
 category: files & productivity
 version: "25.02.5"
 port: 8875
@@ -27,11 +27,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/BookStackApp/BookStack
 support: https://github.com/BookStackApp/BookStack/issues
 gallery:
-  - https://i.imgur.com/f5TZlCr.png
-  - https://i.imgur.com/GLHsuzB.png
-  - https://i.imgur.com/SKaiatX.png
-  - https://i.imgur.com/yp9v1KU.png
-  - https://i.imgur.com/n29zDRe.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bookstack/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bookstack/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bookstack/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bookstack/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bookstack/5.jpg
 releaseNotes: >-
   The latest release includes several important updates and fixes. The export logic has been improved for better temporary file clean-up, and in-app export endpoints now have rate limits. Additionally, translations have been updated with the latest Crowdin changes, PHP dependency package versions have been updated, and a fix has been applied to prevent markdown editor focus from jumping when inserting an image.
 dependencies:

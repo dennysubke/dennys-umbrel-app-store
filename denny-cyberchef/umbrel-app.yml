@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-cyberchef
 name: CyberChef
 tagline: An intuitive web app for exploring and decoding data effortlessly
-icon: https://i.imgur.com/6bxC9hJ.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cyberchef/logo.png
 category: developer tools
 version: "10.19.4"
 port: 8817
@@ -25,10 +25,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/gchq/CyberChef
 support: https://github.com/gchq/CyberChef/issues
 gallery:
-  - https://i.imgur.com/tg3K9P2.png
-  - https://i.imgur.com/eo4f6GA.png
-  - https://i.imgur.com/3yH77Cd.png
-  - https://i.imgur.com/ezex3WT.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cyberchef/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cyberchef/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cyberchef/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cyberchef/4.jpg
 releaseNotes: >-
   Added support for ECDSA and DSA in the 'Parse CSR' feature, along with fixes for typos in SIGABA.mjs and other improvements.
 dependencies:

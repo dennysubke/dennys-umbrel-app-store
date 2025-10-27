@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-gopeed
 name: Gopeed
 tagline: A modern download manager
-icon: https://i.imgur.com/QhdDkla.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gopeed/logo.png
 category: media
 version: "1.6.11"
 port: 9999
@@ -30,10 +30,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/GopeedLab/gopeed
 support: https://github.com/GopeedLab/gopeed/issues
 gallery:
-  - https://i.imgur.com/tUdQZwt.png
-  - https://i.imgur.com/MQqM9om.png
-  - https://i.imgur.com/YiK7hNe.png
-  - https://i.imgur.com/jBKw20C.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gopeed/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gopeed/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gopeed/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gopeed/4.jpg
 releaseNotes: >-
   The latest Gopeed update introduces several improvements, including caching and gzip support for the built-in web file server, an auto-updater, and an enhanced HTTP download retry strategy. 
   

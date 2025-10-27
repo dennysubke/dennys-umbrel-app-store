@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-docmost
 name: Docmost
 tagline: An collaborative wiki and documentation software
-icon: https://i.imgur.com/qKOMBHh.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-docmost/logo.png
 category: files & productivity
 version: "0.20.4"
 port: 8941
@@ -33,12 +33,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/docmost/docmost
 support: https://github.com/docmost/docmost/issues
 gallery:
-  - https://i.imgur.com/nwC6EnX.png
-  - https://i.imgur.com/ROlwSUK.png
-  - https://i.imgur.com/VcyAvHw.png
-  - https://i.imgur.com/CR1tSbm.png
-  - https://i.imgur.com/UfmtSdM.png
-  - https://i.imgur.com/HNeYoSD.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-docmost/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-docmost/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-docmost/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-docmost/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-docmost/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-docmost/6.jpg
 releaseNotes: >-
   This update introduces the ability to copy pages to different spaces, improves handling of SSO URL casing, and fixes previously unhandled exceptions.
 dependencies:

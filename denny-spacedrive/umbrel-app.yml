@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-spacedrive
 name: Spacedrive
 tagline: A file manager from the future
-icon: https://i.imgur.com/vQnXuIx.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spacedrive/logo.png
 category: files & productivity
 version: "0.4.2"
 port: 8199
@@ -18,13 +18,13 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/spacedriveapp
 support: https://github.com/spacedriveapp/spacedrive/issues
 gallery:
-  - https://i.imgur.com/tjTyuWZ.png
-  - https://i.imgur.com/kNC1clL.png
-  - https://i.imgur.com/z6b322l.png
-  - https://i.imgur.com/KpuzlGx.png
-  - https://i.imgur.com/c7RLlXy.png
-  - https://i.imgur.com/bP07B8d.png
-  - https://i.imgur.com/lv9tfpx.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spacedrive/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spacedrive/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spacedrive/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spacedrive/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spacedrive/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spacedrive/6.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spacedrive/7.jpg
 releaseNotes: >-
   The Spacedrive 0.4.2 release focuses on stability and user experience, featuring UI improvements, bug fixes, and platform updates, including Tauri v2 integration and improved file management. Added Chinese translations and updated dependencies enhance overall functionality. The next update will bring cloud sync, P2P features, and a mobile app preview.
 dependencies:

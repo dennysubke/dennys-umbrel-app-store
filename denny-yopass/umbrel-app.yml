@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-yopass
 name: Yopass
 tagline: A secure platform to share encrypted secrets
-icon: https://i.imgur.com/dlnBH5l.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-yopass/logo.png
 category: files & productivity
 version: "11.17.0"
 port: 8193
@@ -33,9 +33,9 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store
 repo: https://github.com/jhaals/yopass
 support: https://github.com/jhaals/yopass/issues
 gallery:
-  - https://i.imgur.com/XRiZZyc.png
-  - https://i.imgur.com/9TH7jww.png
-  - https://i.imgur.com/1uIXjBX.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-yopass/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-yopass/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-yopass/3.jpg
 releaseNotes: >-
   In the recent changes, several dependencies were updated, including @mui/material, i18next, and cypress. Additionally, bug fixes and optimizations were implemented for various packages, including improvements to the shutdown process. These updates aim to enhance the stability and performance of the application.
 dependencies:

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-joplin
 name: Joplin Sync Server
 tagline: An open-source synchronization server for Joplin
-icon: https://i.imgur.com/n4G5itW.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-joplin/logo.png
 category: files & productivity
 version: "3.0.1"
 port: 22300
@@ -46,9 +46,9 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store
 repo: https://github.com/laurent22/joplin
 support: https://github.com/laurent22/joplin/issues
 gallery:
-  - https://i.imgur.com/fWtBRfX.png
-  - https://i.imgur.com/6tsIm9e.png
-  - https://i.imgur.com/MPiwRMU.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-joplin/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-joplin/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-joplin/3.jpg
 releaseNotes: >-
   Several new features have been introduced, including support for Postgres replication and the ability to display uploaded data size in reports. 
   A new report page has also been added. Performance improvements include optimizations for web client synchronization, logging, and delta change queries. 

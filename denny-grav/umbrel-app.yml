@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-grav
 name: Grav
 tagline: A Fast, Simple, and Flexible, file-based Web-platform
-icon: https://i.imgur.com/TFBctzf.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-grav/logo.png
 category: developer tools
 version: "1.7.48"
 port: 8888
@@ -61,10 +61,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/getgrav
 support: https://github.com/getgrav/grav/issues
 gallery:
-  - https://i.imgur.com/HkG4ti5.png
-  - https://i.imgur.com/QYUQYPf.png
-  - https://i.imgur.com/cKajzVg.png
-  - https://i.imgur.com/Xx6F95R.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-grav/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-grav/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-grav/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-grav/4.jpg
 releaseNotes: >-
   In version 1.7.48, a new trait was introduced for the fetchPriority attribute on images, and a fix was made to allow aliases as valid commands during lookup. Additionally, a style conflict with Clockwork and tooltips was resolved.
 dependencies:

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-myip
 name: MyIP
 tagline: A better IP-Toolbox
-icon: https://i.imgur.com/4zqbBFI.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-myip/logo.png
 category: networking
 version: "4.3.2"
 port: 18966
@@ -27,9 +27,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/jason5ng32/MyIP
 support: https://github.com/jason5ng32/MyIP/issues
 gallery:
-  - https://i.imgur.com/NNWXDAR.png
-  - https://i.imgur.com/f9nwn6D.png
-  - https://i.imgur.com/6GLzo2C.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-myip/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-myip/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-myip/3.jpg
 releaseNotes: >-
   Version 4.3.2 introduces minor improvements and optimizations.
 dependencies:

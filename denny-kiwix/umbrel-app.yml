@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-kiwix
 name: Kiwix
 tagline: An ocean of knowledge, ready to dive into offline
-icon: https://i.imgur.com/eFGQ84F.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kiwix/logo.png
 category: files & productivity
 version: "3.7.0"
 port: 8889
@@ -32,9 +32,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/kiwix
 support: https://kiwix.org/en/frequently-asked-questions/
 gallery:
-  - https://i.imgur.com/1JWhljT.png
-  - https://i.imgur.com/f7r8xVd.png
-  - https://i.imgur.com/DEdJ5qf.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kiwix/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kiwix/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kiwix/3.jpg
 releaseNotes: >-
   The update addresses various improvements, including clarifying documentation around ZIM and book name distinctions and ensuring correct versioning for compilation dependencies. Additionally, a new --skipInvalid command-line option has been introduced for Kiwix Server, enhancing its functionality.
 dependencies:

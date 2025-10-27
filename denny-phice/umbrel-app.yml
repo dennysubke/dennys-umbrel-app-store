@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-phice
 name: Phice
 tagline: A lightweight privacy-friendly Facebook front end
-icon: https://i.imgur.com/uKSg3rL.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-phice/logo.png
 category: files & productivity
 version: "0.0.1"
 port: 5777
@@ -19,10 +19,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://codeberg.org/c4ffe14e/phice
 support: https://codeberg.org/c4ffe14e/phice/issues
 gallery:
-  - https://i.imgur.com/vK8uiTq.png
-  - https://i.imgur.com/6Dr5Iue.png
-  - https://i.imgur.com/1dw6Gbm.png
-  - https://i.imgur.com/F85d3x0.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-phice/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-phice/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-phice/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-phice/4.jpg
 releaseNotes: >-
   Phice currently provides only a latest tag for releases. There are no specific versioned tags or detailed release notes available at this time.
 dependencies:

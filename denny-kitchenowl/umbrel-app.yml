@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-kitchenowl
 name: KitchenOwl
 tagline: A grocery list and recipe manager
-icon: https://i.imgur.com/GANtxzI.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kitchenowl/logo.png
 category: files & productivity
 version: "0.6.11"
 port: 8474
@@ -30,12 +30,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/TomBursch/kitchenowl
 support: https://github.com/TomBursch/kitchenowl/issues
 gallery:
-  - https://i.imgur.com/86GzRWy.png
-  - https://i.imgur.com/R3hpO2r.png
-  - https://i.imgur.com/Qg9j1DD.png
-  - https://i.imgur.com/KGuDhYT.png
-  - https://i.imgur.com/xa8OroD.png
-  - https://i.imgur.com/brZEisJ.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kitchenowl/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kitchenowl/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kitchenowl/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kitchenowl/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kitchenowl/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kitchenowl/6.jpg
 releaseNotes: >-
   KitchenOwl version 0.6.11 includes several bug fixes, such as properly rounding household member balances and improving the display of planned meals with varying portions. The update also adds a Caddy example to the documentation and introduces new translations for Romanian and Japanese, along with updates to existing languages.
 dependencies:

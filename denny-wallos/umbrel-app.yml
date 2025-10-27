@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-wallos
 name: Wallos
 tagline: An empowering app to effortlessly manage your finances and track subscriptions and expenses
-icon: https://i.imgur.com/TCl5Oh7.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wallos/logo.png
 category: finance
 version: "2.32.0"
 port: 8283
@@ -33,10 +33,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/ellite/Wallos
 support: https://github.com/ellite/Wallos/issues
 gallery:
-  - https://i.imgur.com/lNiARnJ.png
-  - https://i.imgur.com/9Orheox.png
-  - https://i.imgur.com/mkIi5BT.png
-  - https://i.imgur.com/xp5Mvlk.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wallos/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wallos/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wallos/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wallos/4.jpg
 releaseNotes: >-
   Added a new setting that allows users to ignore SSL/TLS certificates for specific notification methods, enhancing flexibility in managing secure connections.
 dependencies:

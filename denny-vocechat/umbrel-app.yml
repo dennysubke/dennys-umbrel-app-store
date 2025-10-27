@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-vocechat
 name: VoceChat
 tagline: A secure chat solution for privacy-focused communication
-icon: https://i.imgur.com/PpSXQ5j.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-vocechat/logo.png
 category: social
 version: "0.4.0"
 port: 3197
@@ -24,11 +24,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/Privoce/vocechat-server-rust
 support: https://github.com/Privoce/vocechat-server-rust/issues
 gallery:
-  - https://i.imgur.com/MSKieHj.png
-  - https://i.imgur.com/iYhTWyj.png
-  - https://i.imgur.com/uqo427J.png
-  - https://i.imgur.com/6BiQk5B.png
-  - https://i.imgur.com/doHuXLG.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-vocechat/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-vocechat/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-vocechat/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-vocechat/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-vocechat/5.jpg
 releaseNotes: >-
   Enhanced performance for faster message delivery, reducing latency during peak usage.
 dependencies:

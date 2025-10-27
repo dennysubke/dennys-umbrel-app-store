@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-rustpad
 name: Rustpad
 tagline: An easy solution for real-time collaborative writing
-icon: https://i.imgur.com/AkjjsFc.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rustpad/logo.png
 category: developer tools
 version: "0.1.0"
 port: 3038
@@ -22,10 +22,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/ekzhang/rustpad
 support: https://github.com/ekzhang/rustpad/issues
 gallery:
-  - https://i.imgur.com/GLCjQAG.png
-  - https://i.imgur.com/0wJcFD5.png
-  - https://i.imgur.com/Xfh07nW.png
-  - https://i.imgur.com/6Yw22Jo.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rustpad/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rustpad/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rustpad/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rustpad/4.jpg
 releaseNotes: >-
   Updated dependency to the latest stable version, improving performance and security. Cleaned up versioning and removed legacy code, resulting in a more efficient and streamlined user experience.
 dependencies:

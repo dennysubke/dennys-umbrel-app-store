@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-nocodb
 name: NocoDB
 tagline: A seamless no-code platform for database management
-icon: https://i.imgur.com/4iBJN2p.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nocodb/logo.png
 category: files & productivity
 version: "0.257.2"
 port: 8096
@@ -36,10 +36,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/nocodb
 support: https://github.com/nocodb/nocodb/issues
 gallery:
-  - https://i.imgur.com/yMYMBU0.png
-  - https://i.imgur.com/CY4OfbC.png
-  - https://i.imgur.com/Ci2mPvl.png
-  - https://i.imgur.com/Xg0JgJD.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nocodb/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nocodb/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nocodb/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nocodb/4.jpg
 releaseNotes: >-
   NocoDB 0.257.2 is a bug fix release that addresses various issues, including encryption key configuration failures, conditional field alias display, and .doc format support. It introduces new features, like pinning datasheets as favorites and setting the default date to today. 
   

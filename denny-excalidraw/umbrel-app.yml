@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-excalidraw
 name: Excalidraw
 tagline: An open source virtual hand-drawn style whiteboard
-icon: https://i.imgur.com/hRw2X6t.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-excalidraw/logo.png
 category: files & productivity
 version: "0.18.0"
 port: 4422
@@ -27,9 +27,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/ozencb/excalidraw-persist
 support: https://github.com/ozencb/excalidraw-persist/issues
 gallery:
-  - https://i.imgur.com/MgPIOwq.png
-  - https://i.imgur.com/6IzA37g.png
-  - https://i.imgur.com/7bef6eS.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-excalidraw/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-excalidraw/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-excalidraw/3.jpg
 releaseNotes: >-
   Key highlights in this release include:
     - ⚡ Significant improvements in page initialization and chat performance

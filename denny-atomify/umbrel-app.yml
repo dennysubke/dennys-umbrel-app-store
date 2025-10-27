@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-atomify
 name: Atomify
 tagline: A customizable ambient atmosphere creator
-icon: https://i.imgur.com/V4t4B6V.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-atomify/logo.png
 category: media
 version: "0.0.1"
 port: 3821
@@ -18,10 +18,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/bluegoosemedia/atmoify
 support: https://github.com/bluegoosemedia/atmoify/issues
 gallery:
-  - https://i.imgur.com/mODSl1m.png
-  - https://i.imgur.com/VHoscVu.png
-  - https://i.imgur.com/265azKd.png
-  - https://i.imgur.com/aYU67df.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-atomify/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-atomify/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-atomify/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-atomify/4.jpg
 releaseNotes: >-
   Atmoify does not use versioning at this time. There are no official release notes available. Updates may be applied without changelogs or version tags.
 dependencies:

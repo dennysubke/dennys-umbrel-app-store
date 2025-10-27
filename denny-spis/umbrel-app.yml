@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-spis
 name: SPIS
 tagline: A simple private image server
-icon: https://i.imgur.com/qc2GWEA.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spis/logo.png
 category: files & productivity
 version: "0.9.10"
 port: 8222
@@ -30,10 +30,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/gbbirkisson/spis
 support: https://github.com/gbbirkisson/spis/issues
 gallery:
-  - https://i.imgur.com/FFCuhiQ.png
-  - https://i.imgur.com/cPQxQny.png
-  - https://i.imgur.com/TWpL05V.png
-  - https://i.imgur.com/x1qXuTK.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spis/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spis/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spis/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spis/4.jpg
 releaseNotes: >-
   Version 0.9.10 of SPIS includes several dependency updates, bringing Rust to version 1.87.0 and updating key crates such as actix-web, clap, and tempfile. These changes primarily address maintenance and compatibility improvements without introducing new features.
 dependencies:

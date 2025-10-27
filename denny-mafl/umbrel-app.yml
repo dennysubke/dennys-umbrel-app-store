@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-mafl
 name: Mafl
 tagline: An intuitive service for organizing your homepage
-icon: https://i.imgur.com/vEgPQqF.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mafl/logo.png
 category: files & productivity
 version: "0.15.4"
 port: 3069
@@ -43,9 +43,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/hywax/mafl
 support: https://github.com/hywax/mafl/issues
 gallery:
-  - https://i.imgur.com/1qb7IF8.png
-  - https://i.imgur.com/RCHeP6N.png
-  - https://i.imgur.com/1uta6j7.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mafl/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mafl/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mafl/3.jpg
 releaseNotes: >-
   Recent updates to Mafl include enhancements to localization, adding support for Greek (Gr-GR) and German (De-DE) languages. Documentation improvements showcase app features, highlighting contributions from the community. The CONTRIBUTORS file has been updated to recognize key contributors like Hywax, Gehno, and Stratos.
 dependencies:

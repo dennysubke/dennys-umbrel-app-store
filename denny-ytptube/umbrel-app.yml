@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-ytptube
 name: YTPTube
 tagline: A WebGUI for yt-dlp with concurrent downloads support
-icon: https://i.imgur.com/y2oUk23.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ytptube/logo.png
 category: media
 version: "1.0.1"
 port: 8562
@@ -33,11 +33,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/arabcoders/ytptube
 support: https://github.com/arabcoders/ytptube/issues
 gallery:
-  - https://i.imgur.com/U6AH98V.png
-  - https://i.imgur.com/twefPP4.png
-  - https://i.imgur.com/8XHUxEV.png
-  - https://i.imgur.com/5ldxSa4.png
-  - https://i.imgur.com/Q49sWfK.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ytptube/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ytptube/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ytptube/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ytptube/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ytptube/5.jpg
 releaseNotes: >-
   Version 1.0.1 introduces several design improvements, updated external packages, and a quick contributing guide. It also adds support for loading different UIs and creating channel metadata with thumbnails.
 dependencies:

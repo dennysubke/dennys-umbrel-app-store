@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-bitaxe
 name: Bitaxe Webflasher
 tagline: An easy tool for flashing Bitaxe devices
-icon: https://i.imgur.com/Y9QBEfw.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bitaxe/logo.png
 category: bitcoin
 version: "1.0.1"
 port: 3640
@@ -21,10 +21,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/bitaxeorg/bitaxe-web-flasher
 support: https://github.com/bitaxeorg/bitaxe-web-flasher/issues
 gallery:
-  - https://i.imgur.com/dSCiDFr.png
-  - https://i.imgur.com/6CeIdPk.png
-  - https://i.imgur.com/up5MZLL.png
-  - https://i.imgur.com/AwBHqFx.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bitaxe/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bitaxe/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bitaxe/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bitaxe/4.jpg
 releaseNotes: >-
   This release features new Languages as well as a new feature that allows to keep the current configuration.
 dependencies:

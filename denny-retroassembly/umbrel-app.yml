@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-retroassembly
 name: RetroAssembly
 tagline: A personal retro game collection cabinet
-icon: https://i.imgur.com/mlMRALQ.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-retroassembly/logo.png
 category: gaming
 version: "1.0"
 port: 5999
@@ -24,12 +24,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/arianrhodsandlot/retroassembly
 support: https://github.com/arianrhodsandlot/retroassembly/issues
 gallery:
-  - https://i.imgur.com/eEC7p0h.png
-  - https://i.imgur.com/KARGctG.png
-  - https://i.imgur.com/91nNwcl.png
-  - https://i.imgur.com/PNRdlcD.png
-  - https://i.imgur.com/cf8WL2c.png
-  - https://i.imgur.com/zXEAqBw.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-retroassembly/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-retroassembly/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-retroassembly/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-retroassembly/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-retroassembly/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-retroassembly/6.jpg
 releaseNotes: >-
   This version marks the official v1 release of RetroAssembly, introducing several major improvements over the initial version. 
   

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-ryot
 name: Ryot
 tagline: An intelligent way to track, organize, and optimize your digital life
-icon: https://i.imgur.com/BEO3WDC.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ryot/logo.png
 category: files & productivity
 version: "8.2.1"
 port: 18030
@@ -24,11 +24,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/IgnisDa/ryot
 support: https://github.com/IgnisDa/ryot/issues
 gallery:
-  - https://i.imgur.com/LgSdAjR.png
-  - https://i.imgur.com/q3xbEjC.png
-  - https://i.imgur.com/0zpfnQg.png
-  - https://i.imgur.com/39eAd6Y.png
-  - https://i.imgur.com/Qt0UmJq.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ryot/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ryot/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ryot/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ryot/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ryot/5.jpg
 releaseNotes: >-
   This update introduces several improvements, including live updates on the imports page, better fitness tracking displays, and the ability to hide collections. 
   

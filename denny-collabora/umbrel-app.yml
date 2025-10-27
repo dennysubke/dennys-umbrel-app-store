@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-collabora
 name: Collabora Office
 tagline: An integrated solution to handling documents in Nextcloud
-icon: https://i.imgur.com/Zlj21xw.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-collabora/logo.png
 category: In Progress
 version: "24.04.12.3.1"
 port: 9980
@@ -36,9 +36,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/CollaboraOnline
 support: https://github.com/CollaboraOnline/online/issues
 gallery:
-  - https://i.imgur.com/sOjK1Yd.png
-  - https://i.imgur.com/sOjK1Yd.png
-  - https://i.imgur.com/sOjK1Yd.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-collabora/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-collabora/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-collabora/3.jpg
 releaseNotes: >-
   The latest release introduced a feature to hide the server signature, improving security by making it harder for attackers to identify the server’s configuration. Additionally, several bug fixes were applied, including resolving an issue where the font list in Impress showed no remote fonts, addressing slow saving of certain spreadsheets, and fixing a copy-paste issue when using Traefik.
 dependencies:

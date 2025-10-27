@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-timetagger
 name: TimeTagger
 tagline: An open source time tracker
-icon: https://i.imgur.com/LPCm8KZ.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-timetagger/logo.png
 category: files & productivity
 version: "24.12.2"
 port: 8905
@@ -30,11 +30,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/almarklein/timetagger/
 support: https://github.com/almarklein/timetagger//issues
 gallery:
-  - https://i.imgur.com/hnsiXzQ.png
-  - https://i.imgur.com/V2NUVob.png
-  - https://i.imgur.com/AuOV9iT.png
-  - https://i.imgur.com/dEDUjOC.png
-  - https://i.imgur.com/NbqyPe9.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-timetagger/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-timetagger/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-timetagger/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-timetagger/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-timetagger/5.jpg
 releaseNotes: >-
   TimeTagger version 24.12.2 is a security update that adds a localhost authentication check and changes the default server binding from 0.0.0.0:80 to 127.0.0.1:8080.
 dependencies:

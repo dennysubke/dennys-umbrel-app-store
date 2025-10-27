@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-slash
 name: Slash
 tagline: A link shortener that simplifies the managing and sharing of links
-icon: https://i.imgur.com/zlirDpm.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-slash/logo.png
 category: files & productivity
 version: "1.0.0"
 port: 5231
@@ -31,10 +31,10 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store
 repo: https://github.com/yourselfhosted/slash
 support: https://github.com/yourselfhosted/slash/issues
 gallery:
-  - https://i.imgur.com/uDmCODE.png
-  - https://i.imgur.com/ACJNwJo.png
-  - https://i.imgur.com/anh3Amu.png
-  - https://i.imgur.com/NyGD8t4.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-slash/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-slash/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-slash/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-slash/4.jpg
 releaseNotes: >-
   The update brings several improvements, including a fix for the issue where public shortcuts were not appearing in public collections.
 path: ""

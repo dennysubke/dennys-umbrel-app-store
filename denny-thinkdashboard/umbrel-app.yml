@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-thinkdashboard
 name: ThinkDashboard
 tagline: A simple self-hosted bookmark dashboard
-icon: https://i.imgur.com/OI5kTWr.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-thinkdashboard/logo.png
 category: In Progress
 version: "0.5.5"
 port: 8788
@@ -27,9 +27,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/MatiasDesuu/ThinkDashboard
 support: https://github.com/MatiasDesuu/ThinkDashboard/issues
 gallery:
-  - https://i.imgur.com/xWghTcQ.png
-  - https://i.imgur.com/xWghTcQ.png
-  - https://i.imgur.com/xWghTcQ.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-thinkdashboard/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-thinkdashboard/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-thinkdashboard/3.jpg
 releaseNotes: >-
   This update adds a full backup feature that allows users to export and import their entire data directory directly from the interface. Backups can now be created and restored through the configuration page, making it much easier to manage and safeguard personal data.
 

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-websurfx
 name: Websurfx
 tagline: A fast, private, secure open source SearX alternative
-icon: https://i.imgur.com/VfqHo7O.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-websurfx/logo.png
 category: networking
 version: "1.0.0"
 port: 8177
@@ -42,9 +42,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/neon-mmd/websurfx
 support: https://github.com/neon-mmd/websurfx/issues
 gallery:
-  - https://i.imgur.com/bHOxSfw.png
-  - https://i.imgur.com/1cbhQt4.png
-  - https://i.imgur.com/BWdDnEa.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-websurfx/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-websurfx/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-websurfx/3.jpg
 releaseNotes: >-
   This is the initial release of the project. There are no previous changelogs available.
 dependencies:

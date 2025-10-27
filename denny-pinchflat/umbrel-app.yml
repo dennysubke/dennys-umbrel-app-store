@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-pinchflat
 name: Pinchflat
 tagline: A YouTube media manager
-icon: https://i.imgur.com/qRtb0d0.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pinchflat/logo.png
 category: media
 version: "2025.3.17"
 port: 8945
@@ -30,11 +30,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/kieraneglin/pinchflat
 support: https://github.com/kieraneglin/pinchflat/issues
 gallery:
-  - https://i.imgur.com/VTfEetO.png
-  - https://i.imgur.com/zsoqonj.png
-  - https://i.imgur.com/jcxZiPN.png
-  - https://i.imgur.com/FAj4QMz.png
-  - https://i.imgur.com/bZJEQco.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pinchflat/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pinchflat/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pinchflat/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pinchflat/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pinchflat/5.jpg
 releaseNotes: >-
   The latest release v2025.3.17 includes enhancements such as download rate limiting, suppression of Docker healthcheck logs, and an option to restrict filenames to ASCII characters. These improvements optimize performance and file handling.
 dependencies:

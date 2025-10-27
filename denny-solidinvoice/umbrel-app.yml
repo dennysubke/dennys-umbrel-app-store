@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-solidinvoice
 name: SolidInvoice
 tagline: A sophisticated open-source invoicing application
-icon: https://i.imgur.com/cZdeMmT.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-solidinvoice/logo.png
 category: finance
 version: "2.2.2"
 port: 5484
@@ -73,11 +73,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: hhttps://github.com/SolidInvoice
 support: https://github.com/SolidInvoice/SolidInvoice/issues
 gallery:
-  - https://i.imgur.com/3Hb4KMv.png
-  - https://i.imgur.com/mrCCtLb.png
-  - https://i.imgur.com/uaZpBO2.png
-  - https://i.imgur.com/Rq1LF1B.png
-  - https://i.imgur.com/WN8kF6A.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-solidinvoice/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-solidinvoice/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-solidinvoice/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-solidinvoice/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-solidinvoice/5.jpg
 releaseNotes: >-
   Version 2.2.2 is a bugfix patch release that resolves four issues and integrates seven pull requests, contributed by four contributors. Key fixes include correcting the TaxType option when adding items, ensuring Money DataTransformer accurately processes cent values, and addressing errors with empty contact type details. Additionally, this update introduces separate configuration paths and enhanced settings for Sentry integration.
 dependencies:

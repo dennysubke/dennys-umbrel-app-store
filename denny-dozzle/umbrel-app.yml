@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-dozzle
 name: Dozzle
 tagline: A realtime log viewer for Docker containers
-icon: https://i.imgur.com/YvL96Ej.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dozzle/logo.png
 category: networking
 version: "8.12.8"
 port: 8558
@@ -30,9 +30,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/amir20/dozzle
 support: https://github.com/amir20/dozzle/issues
 gallery:
-  - https://i.imgur.com/9OHEmkj.png
-  - https://i.imgur.com/ZYygEts.png
-  - https://i.imgur.com/keht5E2.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dozzle/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dozzle/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dozzle/3.jpg
 releaseNotes: >-
   Version 8.12.8 of Dozzle includes several improvements and bug fixes. It introduces the use of /tmp for better permission handling, visual tweaks for the light theme, a fixed link on container titles, and updates to dependencies and documentation.
 dependencies:

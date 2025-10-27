@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-lucky
 name: Lucky
 tagline: An intuitive network management solution with powerful features
-icon: https://i.imgur.com/5aa7Swx.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-lucky/logo.png
 category: networking
 version: "2.15.7"
 port: 16601
@@ -33,11 +33,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/gdy666/lucky
 support: https://lucky666.cn/docs/problemset
 gallery:
-  - https://i.imgur.com/9YUdogr.png
-  - https://i.imgur.com/sywFlrc.png
-  - https://i.imgur.com/hxjkzCh.png
-  - https://i.imgur.com/JsY8mrW.png
-  - https://i.imgur.com/XhWYGtI.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-lucky/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-lucky/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-lucky/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-lucky/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-lucky/5.jpg
 releaseNotes: >-
   The v2.15.7 update improves port forwarding by preventing circular redirects, enhances DDNS functionality with fixes for Cloudflare and domain checks, and updates the default STUN server list. 
   

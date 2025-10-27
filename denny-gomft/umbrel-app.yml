@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-gomft
 name: GoMFT
 tagline: An innovative web-based file transfer application
-icon: https://i.imgur.com/yxe4B5O.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gomft/logo.png
 category: files & productivity
 version: "0.2.11"
 port: 8979
@@ -27,12 +27,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/StarFleetCPTN/GoMFT
 support: https://github.com/StarFleetCPTN/GoMFT/issues
 gallery:
-  - https://imgur.com/yyxoQb5.png
-  - https://imgur.com/c9PYUb3.png
-  - https://imgur.com/iWhut05.png
-  - https://imgur.com/hGiKwbb.png
-  - https://imgur.com/v8TedvW.png
-  - https://imgur.com/6jr7SaH.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gomft/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gomft/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gomft/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gomft/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gomft/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gomft/6.jpg
 releaseNotes: >-
   GoMFT v0.2.11 introduces a new documentation website built with Docusaurus, offering detailed guides and feature explanations for easier onboarding and usage. Additionally, the release adds multi-architecture Docker support, including images for amd64, arm64, and arm/v7, without introducing any breaking database changes - making the update safe and recommended for all users.
 dependencies:

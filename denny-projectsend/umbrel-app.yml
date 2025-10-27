@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-projectsend
 name: ProjectSend
 tagline: A private file sharing platform for client access
-icon: https://i.imgur.com/YLl4zWp.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-projectsend/logo.png
 category: files & productivity
 version: "r1720"
 port: 8181
@@ -30,12 +30,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/projectsend/projectsend
 support: https://github.com/projectsend/projectsend/issues
 gallery:
-  - https://i.imgur.com/sXd4DOF.png
-  - https://i.imgur.com/JyiUs0C.png
-  - https://i.imgur.com/2I1UONV.png
-  - https://i.imgur.com/Oj6BSdE.png
-  - https://i.imgur.com/BBKMXsE.png
-  - https://i.imgur.com/EQbqojh.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-projectsend/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-projectsend/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-projectsend/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-projectsend/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-projectsend/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-projectsend/6.jpg
 releaseNotes: >-
   The latest ProjectSend update (r1720) introduces highly requested folders and subfolders with drag-and-drop rearrangement and breadcrumb navigation. It also adds features like showing image dimensions, support for SVG branding images, improved file management options, SMTP environment variable support, and multiple bug fixes including PHP 8 warnings and 2FA validation. Admin pages have been improved for session handling, and security updates address vulnerabilities and dependency upgrades.
 dependencies:

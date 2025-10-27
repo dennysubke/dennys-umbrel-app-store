@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-mstream
 name: mStream
 tagline: A private music server
-icon: https://i.imgur.com/wnBEJOR.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mstream/logo.png
 category: media
 version: "5.13.1"
 port: 3840
@@ -21,11 +21,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/IrosTheBeggar/mStream
 support: https://github.com/IrosTheBeggar/mStream/issues
 gallery:
-  - https://i.imgur.com/dQPCy3a.png
-  - https://i.imgur.com/0nrJtJo.png
-  - https://i.imgur.com/SHKGTkC.png
-  - https://i.imgur.com/CICKqLT.png
-  - https://i.imgur.com/7OAQ06X.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mstream/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mstream/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mstream/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mstream/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mstream/5.jpg
 releaseNotes: >-
   Version 5.13.1 includes several improvements. Additionally, the 32-bit Windows installer has been removed for now.
 dependencies:

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-jdownloader-2
 name: JDownloader 2
 tagline: An advanced download manager for seamless file handling
-icon: https://i.imgur.com/AtlQfvP.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-jdownloader-2/logo.png
 category: files & productivity
 version: "24.11.1"
 port: 5800
@@ -24,9 +24,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/johna23-lab/jdownloader2
 support: https://github.com/johna23-lab/jdownloader2/issues
 gallery:
-  - https://i.imgur.com/rxXtgv3.png
-  - https://i.imgur.com/ICXxKVz.png
-  - https://i.imgur.com/uvALTrn.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-jdownloader-2/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-jdownloader-2/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-jdownloader-2/3.jpg
 releaseNotes: >-
   Version 24.11.1 includes improvements to reduce the risk of installation corruption during an update. This update enhances the stability and reliability of the software.
 dependencies:

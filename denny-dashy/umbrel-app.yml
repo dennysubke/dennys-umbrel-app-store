@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-dashy
 name: Dashy
 tagline: A personal dashboard built for you
-icon: https://i.imgur.com/aM8krGC.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dashy/logo.png
 category: files & productivity
 version: "3.1.1"
 port: 4444
@@ -24,11 +24,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/Lissy93/dashy
 support: https://github.com/Lissy93/dashy/issues
 gallery:
-  - https://i.imgur.com/CtY6Nig.png
-  - https://i.imgur.com/ljuTIIT.png
-  - https://i.imgur.com/g3gdwwW.png
-  - https://i.imgur.com/w0HMpmd.png
-  - https://i.imgur.com/V2bYH01.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dashy/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dashy/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dashy/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dashy/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dashy/5.jpg
 releaseNotes: >-
   This release improves both user experience and security by organizing backup configs into their own folder, hardening authentication, and allowing protection of the config via HTTP auth. It also includes various bug fixes, UI tweaks, and documentation updates.
 dependencies:

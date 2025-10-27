@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-facturascripts
 name: FacturaScripts
 tagline: A complete solution for your business
-icon: https://i.imgur.com/b4erCDv.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-facturascripts/logo.png
 category: files & productivity
 version: "2025.4"
 port: 8774
@@ -43,12 +43,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/NeoRazorX/facturascripts
 support: https://facturascripts.com/contacto
 gallery:
-  - https://i.imgur.com/WeGXejv.png
-  - https://i.imgur.com/xUVSQqG.png
-  - https://i.imgur.com/QN1XT7I.png
-  - https://i.imgur.com/hZttO2Q.png
-  - https://i.imgur.com/jHxK5ky.png
-  - https://i.imgur.com/Bm11lgA.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-facturascripts/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-facturascripts/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-facturascripts/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-facturascripts/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-facturascripts/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-facturascripts/6.jpg
 releaseNotes: >-
   Version 2025.4 introduces fixes for image and file widgets, improving overall stability and usability.
 dependencies: []

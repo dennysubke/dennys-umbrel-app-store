@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-fusion
 name: Fusion
 tagline: A lightweight RSS reader
-icon: https://i.imgur.com/Fq3fMKW.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fusion/logo.png
 category: files & productivity
 version: "0.9.8"
 port: 8899
@@ -24,10 +24,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/0x2E/fusion
 support: https://github.com/0x2E/fusion/issues
 gallery:
-  - https://i.imgur.com/yzh3RMX.png
-  - https://i.imgur.com/R9d3JDm.png
-  - https://i.imgur.com/222SUoF.png
-  - https://i.imgur.com/rRsSnad.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fusion/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fusion/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fusion/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fusion/4.jpg
 releaseNotes: >-
   Version 0.9.8 includes important fixes such as using the update time when an item lacks a publish time. It also ensures that the load process is properly retriggered when item filters are updated.
 dependencies:

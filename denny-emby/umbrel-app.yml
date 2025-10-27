@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-emby
 name: Emby
 tagline: A personal media server
-icon: https://i.imgur.com/OfOArez.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-emby/logo.png
 category: media
 version: "4.8.11"
 port: 8097
@@ -27,13 +27,13 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/MediaBrowser/Emby
 support: https://github.com/MediaBrowser/Emby/issues
 gallery:
-  - https://i.imgur.com/Jx26bNJ.png
-  - https://i.imgur.com/vim3opE.png
-  - https://i.imgur.com/MB3tIss.png
-  - https://i.imgur.com/scM1EwK.png
-  - https://i.imgur.com/Uz60KZZ.png
-  - https://i.imgur.com/KcxHUAu.png
-  - https://i.imgur.com/xGyIp5c.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-emby/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-emby/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-emby/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-emby/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-emby/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-emby/6.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-emby/7.jpg
 releaseNotes: >-
   The Emby 4.8.11 introduces numerous enhancements and fixes, including improved performance for library scans, live TV guide updates, and database operations. It brings full .NET 8 and SQLite 3.49.2 support, refined transcoding and subtitle handling, expanded customization options for users and libraries, and new UI features like drag-and-drop reordering and playback tweaks. 
   

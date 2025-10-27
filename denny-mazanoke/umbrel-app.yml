@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-mazanoke
 name: Mazanoke
 tagline: A self-hosted local image optimizer
-icon: https://i.imgur.com/HIQ0f45.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mazanoke/logo.png
 category: files & productivity
 version: "1.1.5"
 port: 3474
@@ -24,9 +24,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/civilblur/mazanoke
 support: https://github.com/civilblur/mazanoke/issues
 gallery:
-  - https://i.imgur.com/igro9Kr.png
-  - https://i.imgur.com/dPHUkpM.png
-  - https://i.imgur.com/8OF3pNc.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mazanoke/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mazanoke/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mazanoke/3.jpg
 releaseNotes: >-
   Version 1.1.5 focuses on strengthening the core foundation and expanding file format support, including TIFF and ICO conversions, while maintaining a simple user experience. It adds basic authentication for Docker setups, improves image optimization speed and UI feedback, fixes issues with image downloads and HEIC resizing, and updates documentation for setup and dependencies. The project has seen significant user growth and recent media features.
 dependencies:

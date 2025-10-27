@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-booklore
 name: BookLore
 tagline: An app for managing and reading books
-icon: https://i.imgur.com/d42NVXk.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-booklore/logo.png
 category: files & productivity
 version: "1.2.1"
 port: 6060
@@ -42,12 +42,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/booklore-app/booklore
 support: https://github.com/booklore-app/booklore/issues
 gallery:
-  - https://i.imgur.com/jszQd1R.png
-  - https://i.imgur.com/xGFZ82l.png
-  - https://i.imgur.com/Qkx5hem.png
-  - https://i.imgur.com/D5wUplt.png
-  - https://i.imgur.com/FhBfuOf.png
-  - https://i.imgur.com/PGLf2QI.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-booklore/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-booklore/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-booklore/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-booklore/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-booklore/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-booklore/6.jpg
 releaseNotes: >-
   The v1.2.1 update for Booklore fixes critical issues, including database lockouts caused by duplicate files, and improves file permission management in Docker. Users can now set USER_ID and GROUP_ID to ensure proper ownership of files, preventing previous permission problems.
 

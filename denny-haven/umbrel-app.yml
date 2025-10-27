@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-haven
 name: Haven
 tagline: An easy way to create your own private blog
-icon: https://i.imgur.com/tLGbPgK.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-haven/logo.png
 category: social
 version: "ed8777c"
 port: 3338
@@ -27,11 +27,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/havenweb/haven
 support: https://github.com/havenweb/haven/issues
 gallery:
-  - https://i.imgur.com/hxOReOO.png
-  - https://i.imgur.com/m98xOc5.png
-  - https://i.imgur.com/GsBT8ii.png
-  - https://i.imgur.com/cVYCv4w.png
-  - https://i.imgur.com/9857xeK.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-haven/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-haven/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-haven/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-haven/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-haven/5.jpg
 releaseNotes: >-
   Currently, no specific release notes are available for Haven. However, more information on changes and updates can be found directly in the project's GitHub repository.
 dependencies:

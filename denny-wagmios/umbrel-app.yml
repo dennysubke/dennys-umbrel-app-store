@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-wagmios
 name: Wagmi
 tagline: A self-hosted container management system with AI-powered automation
-icon: https://i.imgur.com/q320SZ4.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wagmios/logo.png
 category: networking
 version: "2.0.0"
 port: 5174
@@ -48,9 +48,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/mentholmike/wagmios
 support: https://github.com/mentholmike/wagmios/issues
 gallery:
-  - https://i.imgur.com/p6BSbBe.png
-  - https://i.imgur.com/lUvpob5.png
-  - https://i.imgur.com/wU3TRM3.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wagmios/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wagmios/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wagmios/3.jpg
 releaseNotes: >-
   Wagmi v2.0.0 is the latest stable version, now fully containerized. There’s no need for backend installations - just Docker. The update includes a light mode, added ports to the container view, styling improvements for better visibility in light mode, and a smaller footprint. The older version is still available for use if preferred.
 dependencies:

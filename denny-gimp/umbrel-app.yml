@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-gimp
 name: Gimp
 tagline: An open-source powerhouse for image editing
-icon: https://i.imgur.com/Z87zrNR.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gimp/logo.png
 category: files & productivity
 version: "2.10.38"
 port: 3388
@@ -21,9 +21,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://gitlab.gnome.org/GNOME/gimp
 support: https://gitlab.gnome.org/GNOME/gimp/-/issues
 gallery:
-  - https://i.imgur.com/HEWWBUp.png
-  - https://i.imgur.com/TJvIfUb.png
-  - https://i.imgur.com/dpqymyD.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gimp/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gimp/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gimp/3.jpg
 releaseNotes: >-
   GIMP 2.10.38 introduces support for Windows Ink, resolving issues with drawing tablets such as unresponsive buttons, incorrect pressure sensitivity, and lagging brush movement. Additionally, several bugs have been fixed, including crashes on exit, issues with very small selections, and improvements in transparent PNG exports and filter controls.
 dependencies:

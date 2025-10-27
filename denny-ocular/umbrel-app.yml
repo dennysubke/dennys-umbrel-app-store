@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-ocular
 name: Ocular
 tagline: A simplistic, beautiful and straightforward budgeting app
-icon: https://i.imgur.com/jH78kRR.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ocular/logo.png
 category: finance
 version: "1.5.0"
 port: 3957
@@ -40,10 +40,10 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store
 repo: https://github.com/Simonwep/ocular
 support: https://github.com/simonwep/ocular/issues
 gallery:
-  - https://i.imgur.com/VPz145K.png
-  - https://i.imgur.com/wNzbUlq.png
-  - https://i.imgur.com/vUIvau8.png
-  - https://i.imgur.com/FlzBdbh.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ocular/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ocular/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ocular/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ocular/4.jpg
 releaseNotes: >-
   The latest update introduces several new features, including support for Brazilian Portuguese and Turkish languages, an expanded list of currencies, and a fix to prevent dialogs from blocking password managers. Bug fixes include synchronizing the locale with the browser's locale, correcting the currency synchronization with internationalization (i18n), and ensuring the CellMenu functions properly on Safari and Firefox.
 

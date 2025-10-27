@@ -3,7 +3,7 @@ id: denny-ente-photos
 category: files & productivity
 name: Ente Photos
 tagline: An end-to-end encrypted platform for photo storage and sharing
-icon: https://i.imgur.com/Sm6pSFE.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ente-photos/logo.png
 version: "1.0.10"
 port: 33000
 description: >-
@@ -30,12 +30,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/ente-io/ente
 support: https://www.reddit.com/r/enteio/?rdt=39096
 gallery:
-  - https://i.imgur.com/m27LHp5.png
-  - https://i.imgur.com/SKLnBbF.png
-  - https://i.imgur.com/JE2dl0G.png
-  - https://i.imgur.com/wca6wvg.png
-  - https://i.imgur.com/WBmzz1h.png
-  - https://i.imgur.com/EZeeMVr.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ente-photos/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ente-photos/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ente-photos/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ente-photos/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ente-photos/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ente-photos/6.jpg
 releaseNotes: >- 
   The latest release of Ente Photos includes various bug fixes, performance enhancements, and updated translations. Key improvements focus on video editing, resumable uploads, and streaming performance, along with adjustments to the backup status screen and large file uploads. Additionally, several bugs related to iOS audio sessions, widget mounting, and Android ffmpeg-kit have been resolved, and minor UI updates and logging enhancements have been implemented.  
 dependencies:

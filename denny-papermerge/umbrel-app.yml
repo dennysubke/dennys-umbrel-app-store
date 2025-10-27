@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-papermerge
 name: Papermerge
 tagline: An open-source document management system for digital archives
-icon: https://i.imgur.com/abbsu0Z.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-papermerge/logo.png
 category: files & productivity
 version: "3.5.3"
 port: 12000
@@ -30,9 +30,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/ciur/papermerge
 support: https://github.com/ciur/papermerge/issues
 gallery:
-  - https://i.imgur.com/TxuWFw5.png
-  - https://i.imgur.com/VsNibDV.png
-  - https://i.imgur.com/BrbyqyJ.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-papermerge/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-papermerge/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-papermerge/3.jpg
 releaseNotes: >-
   Version 3.5.3 introduces asynchronous REST API and database operations for improved performance, adds NOT NULL constraints for home/inbox folders at the database level, and features a user-friendly RoleForm as a tree of checkboxes. 
   

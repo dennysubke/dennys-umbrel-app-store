@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-keycloak
 name: Keycloak
 tagline: An Open Source Identity and Access Management
-icon: https://i.imgur.com/SYaIYjZ.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-keycloak/logo.png
 category: developer tools
 version: "26.2.4"
 port: 8711
@@ -30,12 +30,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/keycloak/keycloak
 support: https://github.com/keycloak/keycloak/issues
 gallery:
-  - https://i.imgur.com/CDQn1xH.png
-  - https://i.imgur.com/B9Ekq31.png
-  - https://i.imgur.com/0ad0Ftv.png
-  - https://i.imgur.com/0wsTJXO.png
-  - https://i.imgur.com/lxv8dP2.png
-  - https://i.imgur.com/ggfoJxT.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-keycloak/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-keycloak/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-keycloak/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-keycloak/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-keycloak/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-keycloak/6.jpg
 releaseNotes: >-
   This update includes important bug fixes and enhancements such as improved Podman documentation and better IPv6 support. It addresses issues with login errors, token expiration, UI performance, and containerized deployments. Reviewing the migration guide before upgrading is recommended.
 dependencies:

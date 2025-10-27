@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-anse
 name: Anse
 tagline: A fully optimized UI for AI Chats
-icon: https://i.imgur.com/yvMMBmw.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-anse/logo.png
 category: AI
 version: "1.1.11"
 port: 3339
@@ -40,9 +40,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/anse-app/anse
 support: https://github.com/anse-app/anse/issues
 gallery:
-  - https://i.imgur.com/0WNBklK.png
-  - https://i.imgur.com/uR8Itss.png
-  - https://i.imgur.com/hNaAoi6.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-anse/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-anse/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-anse/3.jpg
 releaseNotes: >-
   The latest updates to the application include the addition of chat type settings in the header and the introduction of the model gpt-3.5-turbo-16k-0613. The user interface was improved by removing the border between the button and textarea. Additionally, a bug fix was implemented to support Progressive Web App (PWA) functionality on Netlify. These enhancements collectively improve user experience and broaden model capabilities.
 dependencies:

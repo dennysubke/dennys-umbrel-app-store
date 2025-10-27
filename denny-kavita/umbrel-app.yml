@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-kavita
 name: Kavita
 tagline: A fast, feature rich, cross platform reading server
-icon: https://i.imgur.com/LHZJTAW.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kavita/logo.png
 category: files & productivity
 version: "0.8.6"
 port: 5444
@@ -27,12 +27,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/Kareadita/Kavita
 support: https://github.com/Kareadita/Kavita/issues
 gallery:
-  - https://i.imgur.com/J8n5IOW.png
-  - https://i.imgur.com/wBdtOkV.png
-  - https://i.imgur.com/OQPMxTY.png
-  - https://i.imgur.com/eEiFXNX.png
-  - https://i.imgur.com/3jfcTth.png
-  - https://i.imgur.com/wry9gyY.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kavita/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kavita/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kavita/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kavita/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kavita/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kavita/6.jpg
 releaseNotes: >-
   Version 0.8.6 of Kavita introduces several new features, including the ability to delete and rename Smart Filters, reorder the side navigation without accessing the customization screen, and a new cleanup task that scans and resolves media errors. The update also improves localization support, adjusts how EPUBs and PDFs are processed, and enhances the webtoon reading experience by allowing automatic switching based on image resolution. 
   

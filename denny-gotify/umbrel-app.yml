@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-gotify
 name: Gotify
 tagline: A simple server for sending and receiving messages
-icon: https://i.imgur.com/HakL1r4.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gotify/logo.png
 category: networking
 version: "2.6.3"
 port: 8784
@@ -30,9 +30,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/gotify/server
 support: https://github.com/gotify/server/issues
 gallery:
-  - https://i.imgur.com/2Lx1snb.png
-  - https://i.imgur.com/bG45KkM.png
-  - https://i.imgur.com/ZF1XQca.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gotify/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gotify/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gotify/3.jpg
 releaseNotes: >-
   This update sets the umask to 0 when creating Unix sockets to ensure proper file permissions. It also updates dependencies and fixes the release build process.
 dependencies:

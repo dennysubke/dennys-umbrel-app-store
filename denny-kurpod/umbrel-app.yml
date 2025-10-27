@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-kurpod
 name: Kurpod
 tagline: An encrypted file storage system
-icon: https://i.imgur.com/FnMgBDr.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kurpod/logo.png
 category: files & productivity
 version: "0.1.3"
 port: 8571
@@ -21,10 +21,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/srv1n/kurpod
 support: https://github.com/srv1n/kurpod/issues
 gallery:
-  - https://i.imgur.com/zzFeyjA.png
-  - https://i.imgur.com/xVlegn6.png
-  - https://i.imgur.com/RB7rLFH.png
-  - https://i.imgur.com/fz8J91I.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kurpod/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kurpod/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kurpod/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kurpod/4.jpg
 releaseNotes: >-
   Version 0.1.3 of Kurpod introduces an updated Dockerfile. To get started, download the appropriate binary, extract it, and run the server executable for your platform.
 dependencies:

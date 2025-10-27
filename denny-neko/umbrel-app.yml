@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-neko
 name: Neko
 tagline: A self-hosted virtual browser powered by WebRTC
-icon: https://i.imgur.com/on6sew2.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-neko/logo.png
 category: networking
 version: "3.0.3"
 port: 3880
@@ -27,9 +27,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/m1k1o/neko
 support: https://github.com/m1k1o/neko/issues
 gallery:
-  - https://i.imgur.com/k9A7kU6.png
-  - https://i.imgur.com/TMmkokU.png
-  - https://i.imgur.com/jrdBaaw.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-neko/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-neko/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-neko/3.jpg
 releaseNotes: >-
   Neko v3.0.0 marks a major milestone with significant updates to both the server and the application. The default registry has changed, multiarch builds are now available, and a REST API with OpenAPI 3.0 documentation has been introduced. Key features include new support for additional browsers, improved capture and desktop functionalities, and the addition of a plugin system. The server also now includes advanced user management, authentication options, and WebRTC enhancements, while the client is yet to be updated with these new features.
 dependencies:

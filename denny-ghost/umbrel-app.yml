@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-ghost  
 name: Ghost
 tagline: A platform for creators to publish, grow, and monetize their content
-icon: https://i.imgur.com/o9Gfb7X.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ghost/logo.png
 category: files & productivity
 version: "5.109.2"
 port: 3368
@@ -33,13 +33,13 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/TryGhost/Ghost
 support: https://github.com/TryGhost/Ghost/issues
 gallery:
-  - https://i.imgur.com/5fpLOyM.png
-  - https://i.imgur.com/SDBH0cT.png
-  - https://i.imgur.com/ecEtQWm.png
-  - https://i.imgur.com/0DOgr75.png
-  - https://i.imgur.com/VH2iqGq.png
-  - https://i.imgur.com/AqM9dhv.png
-  - https://i.imgur.com/Vebm7p3.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ghost/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ghost/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ghost/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ghost/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ghost/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ghost/6.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ghost/7.jpg
 releaseNotes: >-
   This release contains fixes for minor bugs and issues reported by Ghost users.
 dependencies:

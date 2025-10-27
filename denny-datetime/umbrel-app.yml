@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-datetime
 name: Datetime
 tagline: A powerful time viewing and conversion tool
-icon: https://i.imgur.com/GKGeLDv.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-datetime/logo.png
 category: files & productivity
 version: "1.0"
 port: 3771
@@ -27,12 +27,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/airyland/datetime.app
 support: https://github.com/airyland/datetime.app/issues
 gallery:
-  - https://i.imgur.com/srPcIpL.png
-  - https://i.imgur.com/xE2dIjs.png
-  - https://i.imgur.com/99xDtcl.png
-  - https://i.imgur.com/QSWfdx2.png
-  - https://i.imgur.com/qQVWiNV.png
-  - https://i.imgur.com/R7bjhaa.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-datetime/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-datetime/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-datetime/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-datetime/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-datetime/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-datetime/6.jpg
 releaseNotes: >-
   Datetime does not use versioning and does not maintain a changelog. The application is continuously improved without formal version tags or release notes.
 dependencies:

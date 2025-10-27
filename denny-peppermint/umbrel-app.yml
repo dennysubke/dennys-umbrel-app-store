@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-peppermint
 name: Peppermint
 tagline: An issue management & help desk solution
-icon: https://i.imgur.com/ZpMFFgn.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-peppermint/logo.png
 category: developer tools
 version: "0.5.5"
 port: 3588
@@ -27,10 +27,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/Peppermint-Lab/peppermint
 support: https://github.com/Peppermint-Lab/peppermint/issues
 gallery:
-  - https://i.imgur.com/HLkk2It.png
-  - https://i.imgur.com/kFuXnL0.png
-  - https://i.imgur.com/BC7vdpM.png
-  - https://i.imgur.com/Mwqt6hw.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-peppermint/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-peppermint/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-peppermint/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-peppermint/4.jpg
 releaseNotes: >-
   Version 0.5.5 introduces dynamic role-based access control, allowing custom roles with different access levels instead of just admin and user. It also adds a server log panel in the admin interface, a right-click context menu for faster issue handling, and several internal improvements including better session management, cleaner code, and enhanced webhook payloads. 
   

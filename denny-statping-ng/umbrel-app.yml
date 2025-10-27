@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-statping-ng
 name: Statping NG
 tagline: A web and app status monitoring tool
-icon: https://i.imgur.com/3j7knnT.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-statping-ng/logo.png
 category: networking
 version: "0.93.0"
 port: 8722
@@ -27,11 +27,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/statping-ng/statping-ng
 support: https://github.com/statping-ng/statping-ng/issues
 gallery:
-  - https://i.imgur.com/IG8SzII.png
-  - https://i.imgur.com/p9y38kR.png
-  - https://i.imgur.com/aaEe8nP.png
-  - https://i.imgur.com/YAeHGx2.png
-  - https://i.imgur.com/QTGqcWF.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-statping-ng/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-statping-ng/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-statping-ng/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-statping-ng/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-statping-ng/5.jpg
 releaseNotes: >-
   Version 0.93.0 fixes broken check-ins for static services and improves overall reliability.
 dependencies:

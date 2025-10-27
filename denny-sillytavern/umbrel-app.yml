@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-sillytavern
 name: SillyTavern
 tagline: An immersive LLM chat with image generation and TTS support
-icon: https://i.imgur.com/AHRkBdg.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-sillytavern/logo.png
 category: AI
 version: "1.13.1"
 port: 8321
@@ -27,10 +27,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/SillyTavern/SillyTavern
 support: https://github.com/SillyTavern/SillyTavern/issues
 gallery:
-  - https://i.imgur.com/Jv7FiQF.png
-  - https://i.imgur.com/vVYrnBA.png
-  - https://i.imgur.com/EqEMD8n.png
-  - https://i.imgur.com/SkmDlrb.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-sillytavern/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-sillytavern/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-sillytavern/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-sillytavern/4.jpg
 releaseNotes: >-
   SillyTavern version 1.13.1 introduces important backend updates including support for Google Vertex AI Gemini models, new Gemini 2.5 Pro models in Google AI Studio, and additional features for OpenRouter, MistralAI, and others. 
   

@@ -4,7 +4,7 @@ category: networking
 name: Firefox
 version: "139.0.4"
 tagline: A free and open-source web browser
-icon: https://i.imgur.com/FbUqrpL.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-firefox/logo.png
 description: >-
   ⚠️ This app was removed from the official Umbrel App Store because it was disabled as there are no more updates that work without HTTPS.
   
@@ -41,9 +41,9 @@ repo: https://support.mozilla.org/en-US/contribute
 support: https://support.mozilla.org/en-US/products/firefox
 port: 3434
 gallery:
-  - https://i.imgur.com/BQoDxIa.png
-  - https://i.imgur.com/4oPfcCa.png
-  - https://i.imgur.com/O6NuP4H.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-firefox/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-firefox/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-firefox/3.jpg
 path: ""
 deterministicPassword: false
 torOnly: false

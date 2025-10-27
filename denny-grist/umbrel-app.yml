@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-grist
 name: Grist
 tagline: A modern, open source spreadsheet that goes beyond the grid
-icon: https://i.imgur.com/6yHfkEx.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-grist/logo.png
 category: files & productivity
 version: "1.6.1"
 port: 8484
@@ -36,9 +36,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/gristlabs/grist-core
 support: https://github.com/gristlabs/grist-core/issues
 gallery:
-  - https://i.imgur.com/diXtg6L.png
-  - https://i.imgur.com/R3j4SLu.png
-  - https://i.imgur.com/yuS4ljP.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-grist/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-grist/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-grist/3.jpg
 releaseNotes: >-
   Version 1.6.1 fully removes Python 2 support, requiring any existing Python 2 formulas to be migrated to Python 3. Grist now automatically checks for updates by default on the official Docker images. 
   

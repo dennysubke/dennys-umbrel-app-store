@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-nerdqaxe
 name: Nerd*axe Webflasher
 tagline: An easy tool for flashing Nerd*axe devices
-icon: https://i.imgur.com/oT3nXS2.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nerdqaxe/logo.png
 category: bitcoin
 version: "1.0.1"
 port: 3639
@@ -21,10 +21,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/shufps/nerdqaxe-web-flasher
 support: https://github.com/shufps/nerdqaxe-web-flasher
 gallery:
-  - https://i.imgur.com/dub2U9C.png
-  - https://i.imgur.com/KaiL5JT.png
-  - https://i.imgur.com/zRM4kmY.png
-  - https://i.imgur.com/mdwoUIC.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nerdqaxe/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nerdqaxe/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nerdqaxe/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-nerdqaxe/4.jpg
 releaseNotes: >-
   This release features new Languages as well as a new feature that allows to keep the current configuration.
 dependencies:

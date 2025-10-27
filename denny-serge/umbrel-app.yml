@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-serge
 name: Serge
 tagline: An easy way to chat with Alpaca & other LLaMa based models
-icon: https://i.imgur.com/t4K4qhE.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-serge/logo.png
 category: AI
 version: "0.9.0"
 port: 8803
@@ -33,9 +33,9 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store
 repo: https://github.com/serge-chat/serge
 support: https://github.com/serge-chat/serge/issues
 gallery:
-  - https://i.imgur.com/7FeNtDb.png
-  - https://i.imgur.com/5YXpf9X.png
-  - https://i.imgur.com/gQMcJuZ.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-serge/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-serge/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-serge/3.jpg
 releaseNotes: >-
   The latest update to the Serge project introduces several new features, including IPv6 support, an updated LLaMA-CPP-Python version (v0.2.41), and a sidebar menu. In terms of models, the OpenChat version was updated, and support was added for Phi 2, Mixtral 2.7, MedicineLLM, MistralLite, and Notux. Various updates were made, such as UI improvements, dependency cleanups, and multiple updates to LLaMA-CPP-Python, NodeJS dependencies, and project documentation. Additionally, the project migrated to SvelteKit v2 and made adjustments to tooltips and documentation titles.
 dependencies: []

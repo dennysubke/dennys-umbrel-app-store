@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-tududi
 name: Tududi
 tagline: A private task manager
-icon: https://i.imgur.com/z0TTUIc.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tududi/logo.png
 category: files & productivity
 version: "0.61"
 port: 3382
@@ -21,11 +21,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/chrisvel/tududi
 support: https://github.com/chrisvel/tududi/issues
 gallery:
-  - https://i.imgur.com/oVdop9q.png
-  - https://i.imgur.com/tbu5tGt.png
-  - https://i.imgur.com/nT7o5kT.png
-  - https://i.imgur.com/DkPr1vB.png
-  - https://i.imgur.com/JwB9udd.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tududi/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tududi/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tududi/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tududi/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tududi/5.jpg
 releaseNotes: >-
   Version 0.61 fixes issues with empty tags, inbox and project modals, and the disappearing plus icon. It also hides the calendar as a work in progress, resolves test problems, and improves the notes layout.
 dependencies:

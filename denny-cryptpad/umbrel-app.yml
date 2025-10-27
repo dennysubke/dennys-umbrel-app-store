@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-cryptpad
 name: CryptPad
 tagline: An all-in-one encrypted workspace for your team
-icon: https://i.imgur.com/9WwY4HQ.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cryptpad/logo.png
 category: In Progress
 version: "2024.12.0"
 port: 3790
@@ -27,9 +27,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/cryptpad/cryptpad
 support: https://github.com/cryptpad/cryptpad/issues
 gallery:
-  - https://i.imgur.com/crJ0v0K.png
-  - https://i.imgur.com/crJ0v0K.png
-  - https://i.imgur.com/crJ0v0K.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cryptpad/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cryptpad/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cryptpad/3.jpg
 releaseNotes: >-
   This version delivers fixes and improvements across CryptPad. We are particularly happy to release a fix of our OnlyOffice integration that could address long-standing issues with documents becoming corrupted. If confirmed at scale, this fix could dramatically improve the use of OnlyOffice apps in CryptPad.
 dependencies:

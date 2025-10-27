@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-kodi
 name: Kodi Headless
 tagline: A simple way to sync and stream with Kodi
-icon: https://i.imgur.com/hE9NlWE.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kodi/logo.png
 category: media
 version: "21.1"
 port: 8585
@@ -24,9 +24,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/matthuisman/docker-kodi-headless
 support: https://github.com/matthuisman/docker-kodi-headless/issues
 gallery:
-  - https://i.imgur.com/krsGap6.png
-  - https://i.imgur.com/HX8IUOZ.png
-  - https://i.imgur.com/hr1SEBY.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kodi/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kodi/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kodi/3.jpg
 releaseNotes: >-
   The recent updates for Kodi include numerous bug fixes, performance improvements, and feature enhancements. Key changes include fixes for heap-user-after-free issues, improved playback performance, enhanced support for various video formats, and several bug fixes related to PVR, video player, and subtitle handling. Additionally, multiple platform-specific issues were addressed, such as improvements for Android, MacOS, Linux, and Xbox, along with updates to the web interface and several backported features for better compatibility and stability.
 dependencies:

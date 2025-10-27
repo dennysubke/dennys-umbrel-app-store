@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-wger
 name: wger
 tagline: A fitness tracker for workouts and nutrition
-icon: https://i.imgur.com/7VzJnqi.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wger/logo.png
 category: files & productivity
 version: "2.4"
 port: 8450
@@ -30,12 +30,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/wger-project/wger
 support: https://github.com/wger-project/wger/issues
 gallery:
-  - https://i.imgur.com/SZcDCf0.png
-  - https://i.imgur.com/SF3zPed.png
-  - https://i.imgur.com/Q9rAzaT.png
-  - https://i.imgur.com/XCZAfXN.png
-  - https://i.imgur.com/lKwh3lT.png
-  - https://i.imgur.com/WVjRxrq.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wger/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wger/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wger/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wger/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wger/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wger/6.jpg
 releaseNotes: >-
   The latest wger update introduces several new features, bug fixes, and improvements. Notable additions include support for exercise videos, ingredient images, and improved exercise recognition, as well as enhancements to the nutrition planner and API functionality. Various bugs have been resolved, such as issues with calorie tracking, exercise downloads, and user preferences, while updates to dependencies and infrastructure ensure better performance and stability.
 dependencies:

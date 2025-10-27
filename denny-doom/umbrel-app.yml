@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-doom
 name: Doom
 tagline: A one-way ticket to Hell, and you’re driving the bus
-icon: https://i.imgur.com/80A1iyM.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-doom/logo.png
 category: gaming
 version: "0.1"
 port: 4113
@@ -27,9 +27,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/CallumHoughton18/Doom-In-Docker
 support: https://github.com/CallumHoughton18/Doom-In-Docker/issues
 gallery:
-  - https://i.imgur.com/31l6Urr.png
-  - https://i.imgur.com/Brmm45M.png
-  - https://i.imgur.com/Fcw8Fwi.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-doom/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-doom/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-doom/3.jpg
 releaseNotes: >-
   Hell’s still hot, the demons are angrier, and your weapons are louder. 👹💥
 dependencies:

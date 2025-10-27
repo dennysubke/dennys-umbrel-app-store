@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-superproductivity
 name: Super Productivity
 tagline: An efficient way to manage tasks, time, and projects all in one place
-icon: https://i.imgur.com/bNDXJHt.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-superproductivity/logo.png
 category: files & productivity
 version: "10.2.3"
 port: 8020
@@ -43,10 +43,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/johannesjo/super-productivity
 support: https://github.com/johannesjo/super-productivity/issues
 gallery:
-  - https://i.imgur.com/YCzDnUV.png
-  - https://i.imgur.com/xExHNAc.png
-  - https://i.imgur.com/ip2EbIg.png
-  - https://i.imgur.com/X2Jzxbh.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-superproductivity/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-superproductivity/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-superproductivity/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-superproductivity/4.jpg
 releaseNotes: >-
   The commit "Revert build try different workaround for npm install issue" undoes a change testing an alternative fix for an npm install issue. Multiarch support for Docker was added to enable containers to run on different CPU architectures like ARM and x86.
 dependencies:

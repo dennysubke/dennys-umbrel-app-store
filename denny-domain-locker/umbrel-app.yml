@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-domain-locker
 name: Domain Locker
 tagline: An all-in-one tool for keeping track of your domain name portfolio
-icon: https://i.imgur.com/NnUrs9L.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-domain-locker/logo.png
 category: networking
 version: "0.0.6"
 port: 8839
@@ -24,11 +24,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/Lissy93/domain-locker
 support: https://github.com/Lissy93/domain-locker/issues
 gallery:
-  - https://i.imgur.com/EgvNWBL.png
-  - https://i.imgur.com/gww6jxm.png
-  - https://i.imgur.com/HrNeLrG.png
-  - https://i.imgur.com/F3e3fjL.png
-  - https://i.imgur.com/fwWUbxd.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-domain-locker/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-domain-locker/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-domain-locker/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-domain-locker/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-domain-locker/5.jpg
 releaseNotes: >-
   Domain Locker v0.0.6 has been released, introducing full support for self-hosting. This update includes new features like password reset, Docker Compose support, improved documentation, performance enhancements, and a range of bug fixes related to SSR, CORS, and Docker compatibility.
 dependencies:

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-bitplay
 name: BitPlay
 tagline: A seamless way to stream torrents directly in your browser
-icon: https://i.imgur.com/Z0BTDQX.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bitplay/logo.png
 category: media
 version: "main"
 port: 3347
@@ -21,9 +21,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/aculix/bitplay
 support: https://github.com/aculix/bitplay/issues
 gallery:
-  - https://i.imgur.com/k1rnsra.png
-  - https://i.imgur.com/Lzz2hIh.png
-  - https://i.imgur.com/M70QsN1.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bitplay/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bitplay/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bitplay/3.jpg
 releaseNotes: >-
   BitPlay currently does not use any versioning system, and there are no changelogs available to track updates or changes.
 dependencies:

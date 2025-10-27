@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-linkstack
 name: LinkStack
 tagline: A highly customizable link sharing platform with an intuitive, easy to use user interface
-icon: https://i.imgur.com/1uzSQWG.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-linkstack/logo.png
 category: social
 version: "4.2.3"
 port: 8190
@@ -36,11 +36,11 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store
 repo: https://github.com/linkstackorg/linkstack
 support: https://github.com/LinkStackOrg/LinkStack/issues
 gallery:
-  - https://i.imgur.com/hgYPsEe.png
-  - https://i.imgur.com/xGtBotr.png
-  - https://i.imgur.com/gruMpsQ.png
-  - https://i.imgur.com/2ZENf0M.png
-  - https://i.imgur.com/ItJd5X6.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-linkstack/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-linkstack/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-linkstack/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-linkstack/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-linkstack/5.jpg
 releaseNotes: >-
   Critical security updates have been implemented, and an issue with cookie deletion in session management has been fixed. After installation, users are now automatically redirected to the dashboard. Unique avatar IDs are available for theme developers, and the info message for single-user mode during installation has been improved. New features include the ability to fetch favicons from CAPTCHA-protected pages and create custom buttons. Additionally, support for Chinese (zh-TW) and Galician (GL) languages has been added, along with a Simplex button.
 dependencies: []

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-grimoire
 name: Grimoire
 tagline: A bookmark manager for the wizards
-icon: https://i.imgur.com/m1soaVG.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-grimoire/logo.png
 category: files & productivity
 version: "0.5.0"
 port: 5173
@@ -24,10 +24,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/goniszewski/grimoire
 support: https://github.com/goniszewski/grimoire/issues
 gallery:
-  - https://i.imgur.com/ylUhhKX.png
-  - https://i.imgur.com/Mg8fZBs.png
-  - https://i.imgur.com/fIsS5XD.png
-  - https://i.imgur.com/Ev68W44.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-grimoire/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-grimoire/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-grimoire/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-grimoire/4.jpg
 releaseNotes: >-
   Release 0.5.0 introduces the ability to import bookmarks.
 dependencies:

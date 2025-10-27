@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-decypharr
 name: Decypharr
 tagline: An advanced solution for automated Debrid downloads
-icon: https://i.imgur.com/KllfrRz.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-decypharr/logo.png
 category: files & productivity
 version: "1.0.2"
 port: 8282
@@ -27,11 +27,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/sirrobot01/decypharr
 support: https://github.com/sirrobot01/decypharr/issues
 gallery:
-  - https://i.imgur.com/cmAKU6X.png
-  - https://i.imgur.com/reTy844.png
-  - https://i.imgur.com/RkORTXC.png
-  - https://i.imgur.com/Wrhd8TR.png
-  - https://i.imgur.com/DQUfFG8.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-decypharr/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-decypharr/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-decypharr/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-decypharr/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-decypharr/5.jpg
 releaseNotes: >-
   Version 1.0.2 introduces support for per-file deletion and per-file repair instead of per-torrent repair. It also includes fixes for LoadLocation issues and minor TorBox-related bugs.
 dependencies:

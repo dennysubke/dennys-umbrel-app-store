@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-zen
 name: Zen
 tagline: A simple app for focused and private note-taking
-icon: https://i.imgur.com/zAf0Le8.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zen/logo.png
 category: files & productivity
 version: "1.0.0"
 port: 8094
@@ -24,11 +24,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/sheshbabu/zen
 support: https://github.com/sheshbabu/zen/issues
 gallery:
-  - https://i.imgur.com/GdlW4D7.png
-  - https://i.imgur.com/83xecRM.png
-  - https://i.imgur.com/6bkkM7X.png
-  - https://i.imgur.com/VkDaMeB.png
-  - https://i.imgur.com/SUB62To.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zen/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zen/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zen/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zen/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zen/5.jpg
 releaseNotes: >-
   No detailed changelogs or versioning are available since the app is distributed using only a continuously updated latest tag. Users always receive the most current version without separate version histories.
   

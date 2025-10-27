@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-unifi
 name: UniFi Network Server
 tagline: An intuitive solution for seamless network management
-icon: https://i.imgur.com/mB4LM3F.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-unifi/logo.png
 category: networking
 version: "9.0.114"
 port: 8892
@@ -33,11 +33,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/linuxserver/docker-unifi-network-application
 support: https://github.com/linuxserver/docker-unifi-network-application/issues
 gallery:
-  - https://i.imgur.com/yw42hIY.png
-  - https://i.imgur.com/n18eHV8.png
-  - https://i.imgur.com/YS2BcKJ.png
-  - https://i.imgur.com/N44g7n8.png
-  - https://i.imgur.com/WNI23G2.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-unifi/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-unifi/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-unifi/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-unifi/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-unifi/5.jpg
 releaseNotes: >-
   The release 9.0.114 reverts the JRE to version 17, addressing compatibility or performance issues, and includes an update to UniFi Network Server version 9.0.114. The changes also reflect improvements or fixes based on feedback from remote updates, ensuring better functionality and stability.
 dependencies:

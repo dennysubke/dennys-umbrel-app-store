@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-emulatorjs
 name: EmulatorJS
 tagline: An immersive browser retro gaming experience
-icon: https://i.imgur.com/e7XGWmC.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-emulatorjs/logo.png
 category: gaming
 version: "1.9.2"
 port: 8662
@@ -27,10 +27,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/linuxserver/docker-emulatorjs
 support: https://github.com/linuxserver/docker-emulatorjs/issues
 gallery:
-  - https://i.imgur.com/8lzr0AQ.png
-  - https://i.imgur.com/Ufz5oAG.png
-  - https://i.imgur.com/CLYaqyD.png
-  - https://i.imgur.com/YM7YOZS.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-emulatorjs/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-emulatorjs/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-emulatorjs/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-emulatorjs/4.jpg
 releaseNotes: >-
   This update skips the IPFS configuration if the DISABLE_IPFS environment variable is set. It also adds many new logos and videos for platforms such as 3do, arcade, msx, nds, ngp, psx, saturn, and wonderswan.
 dependencies:

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-librephotos
 name: LibrePhotos
 tagline: A photo management service
-icon: https://i.imgur.com/O7S9k6W.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-librephotos/logo.png
 category: files & productivity
 version: "2025w28"
 port: 8150
@@ -27,12 +27,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/LibrePhotos/librephotos-docker
 support: https://github.com/LibrePhotos/librephotos-docker/issues
 gallery:
-  - https://i.imgur.com/QIpDZOG.png
-  - https://i.imgur.com/euxmRSv.png
-  - https://i.imgur.com/HF8ihW7.png
-  - https://i.imgur.com/Hq0kUeX.png
-  - https://i.imgur.com/Pevxbtq.png
-  - https://i.imgur.com/mYaPi1L.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-librephotos/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-librephotos/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-librephotos/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-librephotos/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-librephotos/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-librephotos/6.jpg
 releaseNotes: >-
   Version 2025w28 brings several improvements to LibrePhotos, including a fix for video scanning by correcting aspect ratio detection and improved support for media from Nextcloud. 
   

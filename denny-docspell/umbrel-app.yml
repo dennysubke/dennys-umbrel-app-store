@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-docspell
 name: Docspell
 tagline: A personal document organizer
-icon: https://i.imgur.com/MPmI4AF.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-docspell/logo.png
 category: files & productivity
 version: "0.42.0"
 port: 7853
@@ -27,12 +27,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/eikek/docspell
 support: https://github.com/eikek/docspell/issues
 gallery:
-  - https://i.imgur.com/MbMXT0C.png
-  - https://i.imgur.com/DA3jJ7z.png
-  - https://i.imgur.com/4INc87z.png
-  - https://i.imgur.com/QnDxX4b.png
-  - https://i.imgur.com/3Zhf7s5.png
-  - https://i.imgur.com/TbykhCM.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-docspell/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-docspell/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-docspell/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-docspell/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-docspell/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-docspell/6.jpg
 releaseNotes: >-
   This version of Docspell mainly focuses on bug fixes and maintenance improvements. It resolves issues like sidebar scrolling, duplicate tasks on reboot, and deprecated options in WeasyPrint, while also correcting a German word typo. 
   

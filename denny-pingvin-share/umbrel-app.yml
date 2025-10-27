@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-pingvin-share
 name: Pingvin Share
 tagline: A self-hosted file sharing solution, combining ease and elegance
-icon: https://i.imgur.com/AqqSXhy.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pingvin-share/logo.png
 category: files & productivity
 version: "1.1.3"
 port: 6453
@@ -27,9 +27,9 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store
 repo: https://github.com/stonith404/pingvin-share
 support: https://github.com/stonith404/pingvin-share/issues
 gallery:
-  - https://i.imgur.com/8YhcOn7.png
-  - https://i.imgur.com/Qw0Ekxt.png
-  - https://i.imgur.com/UJy6w4k.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pingvin-share/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pingvin-share/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pingvin-share/3.jpg
 releaseNotes: >-
   General improvements were made, allowing SMTP connections without authentication
   and introducing automatic redirection to the OAuth provider when it's the

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-filerise
 name: FileRise
 tagline: A secure platform for file management
-icon: https://i.imgur.com/SvMRSiF.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-filerise/logo.png
 category: files & productivity
 version: "1.3.9"
 port: 8733
@@ -27,11 +27,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/error311/FileRise
 support: https://github.com/error311/FileRise/issues
 gallery:
-  - https://i.imgur.com/99FunPI.png
-  - https://i.imgur.com/VvcIAA9.png
-  - https://i.imgur.com/AteqXkj.png
-  - https://i.imgur.com/YTxH7vG.png
-  - https://i.imgur.com/6Gx55Iu.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-filerise/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-filerise/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-filerise/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-filerise/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-filerise/5.jpg
 releaseNotes: >-
   FileRise version 1.3.9 introduces support for mounting CIFS (SMB) network shares via Docker volumes, allowing easier integration of network storage. 
   

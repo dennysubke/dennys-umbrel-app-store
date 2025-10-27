@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-privatebin
 name: PrivateBin
 tagline: A minimalist, open source online pastebin
-icon: https://i.imgur.com/Jz4lSRj.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-privatebin/logo.png
 category: files & productivity
 version: "1.7.4"
 port: 3070
@@ -48,10 +48,10 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store
 repo: https://github.com/PrivateBin/PrivateBin
 support: https://github.com/PrivateBin/PrivateBin/issues
 gallery:
-  - https://i.imgur.com/RTsBM0c.png
-  - https://i.imgur.com/qnNC32E.png
-  - https://i.imgur.com/Afj1Bdf.png
-  - https://i.imgur.com/7Jjs0yH.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-privatebin/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-privatebin/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-privatebin/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-privatebin/4.jpg
 releaseNotes: >-
   In version 1.7.4 of PrivateBin, several changes and fixes were implemented. Key changes include the use of the .md extension for saved markdown pastes instead of .txt, and the enabling of strict type checking in PHP. There were also tweaks to the Bootstrap5 template based on community suggestions.
 

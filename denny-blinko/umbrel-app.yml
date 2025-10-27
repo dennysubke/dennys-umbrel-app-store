@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-blinko
 name: Blinko
 tagline: An AI-powered hub for your ideas and notes
-icon: https://i.imgur.com/g2doLSR.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-blinko/logo.png
 category: files & productivity
 version: "0.38.5"
 port: 1111
@@ -21,11 +21,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/blinko-space/blinko
 support: https://github.com/blinko-space/blinko/issues
 gallery:
-  - https://i.imgur.com/QkvIUyG.png
-  - https://i.imgur.com/yZyDkrl.png
-  - https://i.imgur.com/BW4WreO.png
-  - https://i.imgur.com/7UoPyvG.png
-  - https://i.imgur.com/ZG0p4bH.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-blinko/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-blinko/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-blinko/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-blinko/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-blinko/5.jpg
 releaseNotes: >-
   Version 0.38.5 fixed an issue with retrieving the global configuration.
 dependencies:

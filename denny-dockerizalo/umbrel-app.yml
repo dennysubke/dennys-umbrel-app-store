@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-dockerizalo
 name: Dockerizalo
 tagline: A simple deployment platform
-icon: https://i.imgur.com/MXkGtSz.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dockerizalo/logo.png
 category: developer tools
 version: "1.4.0"
 port: 8522
@@ -21,11 +21,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/undernightcore/dockerizalo
 support: https://github.com/undernightcore/dockerizalo/issues
 gallery:
-  - https://i.imgur.com/iJ2ozQI.png
-  - https://i.imgur.com/sFENbyL.png
-  - https://i.imgur.com/gtQaydQ.png
-  - https://i.imgur.com/pBXx21H.png
-  - https://i.imgur.com/p7nobrL.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dockerizalo/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dockerizalo/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dockerizalo/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dockerizalo/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dockerizalo/5.jpg
 releaseNotes: >-
   In version 1.4.0, Dockerizalo introduces automatic deployments through webhooks that can build and deploy your app whenever they are called. You can now create flexible deployment triggers for any app and integrate them with GitHub, other VCS providers, or any system that supports HTTP requests.
 dependencies:

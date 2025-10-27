@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-odoo
 name: Odoo
 tagline: A suite of web based open source business apps
-icon: https://i.imgur.com/XGo6eDx.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-odoo/logo.png
 category: files & productivity
 version: "18.0"
 port: 8069
@@ -33,14 +33,14 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/odoo/odoo
 support: https://github.com/odoo/odoo/issues
 gallery:
-  - https://i.imgur.com/CD4c8gy.png
-  - https://i.imgur.com/TwKIKc0.png
-  - https://i.imgur.com/U547gZ3.png
-  - https://i.imgur.com/trnDvya.png
-  - https://i.imgur.com/pA2n8fr.png
-  - https://i.imgur.com/lHmlL6r.png
-  - https://i.imgur.com/x0baiPS.png
-  - https://i.imgur.com/r3aT9fF.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-odoo/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-odoo/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-odoo/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-odoo/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-odoo/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-odoo/6.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-odoo/7.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-odoo/8.jpg
 releaseNotes: >-
   This update introduces keyboard shortcuts to switch between companies quickly and enhances contact search by address. Error messages are now clearer, allowing users to provide technical details more easily, and the error debugging menu provides direct access to underlying models.
 

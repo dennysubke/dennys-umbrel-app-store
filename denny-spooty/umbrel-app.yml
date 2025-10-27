@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-spooty
 name: Spooty
 tagline: A self-hosted Spotify downloader
-icon: https://i.imgur.com/4QXUv8v.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spooty/logo.png
 category: media
 version: "2.0.9"
 port: 3381
@@ -18,9 +18,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/Raiper34/spooty
 support: https://github.com/Raiper34/spooty/issues
 gallery:
-  - https://i.imgur.com/0EUBx0Y.png
-  - https://i.imgur.com/L45UFM9.png
-  - https://i.imgur.com/PeFfmXB.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spooty/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spooty/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spooty/3.jpg
 releaseNotes: >-
   In Spooty version 2.0.9, the ytdl package was automatically upgraded, and the changelog was generated using auto-changelog.
 dependencies:

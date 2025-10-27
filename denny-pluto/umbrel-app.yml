@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-pluto
 name: Pluto
 tagline: A real time mining monitor
-icon: https://i.imgur.com/3tPeJdg.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pluto/logo.png
 category: bitcoin
 version: "0.6.0-rc.1"
 port: 7777
@@ -24,11 +24,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/1790
 repo: https://gitlab.com/plutomining/pluto
 support: https://gitlab.com/plutomining/pluto/issues
 gallery:
-  - https://i.imgur.com/jfRN2FS.png
-  - https://i.imgur.com/VmMDube.png
-  - https://i.imgur.com/g5B8CnW.png
-  - https://i.imgur.com/0OZgvmt.png
-  - https://i.imgur.com/YtQNvAx.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pluto/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pluto/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pluto/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pluto/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pluto/5.jpg
 releaseNotes: This is the initial release of Pluto. There are no previous changelogs available.
 dependencies: []
 path: ""

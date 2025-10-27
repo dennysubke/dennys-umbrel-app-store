@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-papra
 name: Papra
 tagline: A minimalistic document archiving platform
-icon: https://i.imgur.com/fvKaUPO.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-papra/logo.png
 category: files & productivity
 version: "0.4.0"
 port: 1221
@@ -24,10 +24,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/papra-hq/papra
 support: https://github.com/papra-hq/papra/issues
 gallery:
-  - https://i.imgur.com/3CnrLdD.png
-  - https://i.imgur.com/JDWwBDn.png
-  - https://i.imgur.com/H30rAL6.png
-  - https://i.imgur.com/kweQuE5.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-papra/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-papra/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-papra/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-papra/4.jpg
 releaseNotes: >-
   This update introduces support for Backblaze B2 and Azure Blob storage, webhook management, API keys, and editable searchable document content. It also adds a tag creation button, fixes ingestion configuration, properly handles file names without extensions, and excludes deleted documents from the document count.
 dependencies:

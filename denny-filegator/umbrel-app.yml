@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-filegator
 name: FileGator 
 tagline: An application for managing files and folders
-icon: https://i.imgur.com/uamUiRU.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-filegator/logo.png
 category: files & productivity
 version: "7.13.0"
 port: 8434
@@ -24,11 +24,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/filegator/filegator
 support: https://github.com/filegator/filegator/issues
 gallery:
-  - https://i.imgur.com/aIqPLSE.png
-  - https://i.imgur.com/2Q5E8zv.png
-  - https://i.imgur.com/70ACnOx.png
-  - https://i.imgur.com/u6ORBCj.png
-  - https://i.imgur.com/PJk4PCU.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-filegator/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-filegator/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-filegator/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-filegator/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-filegator/5.jpg
 releaseNotes: >-
   Version 7.13.0 of FileGator introduces several improvements, including a new column for displaying chmod permissions, external SCSS theme files, and configurable pagination. It also fixes an issue where all images were being loaded at once when opening the gallery view.
 dependencies:

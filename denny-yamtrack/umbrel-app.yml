@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-yamtrack
 name: Yamtrack
 tagline: A self hosted media tracker
-icon: https://i.imgur.com/iHsO88r.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-yamtrack/logo.png
 category: media
 version: "0.24.6 "
 port: 8742
@@ -24,12 +24,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/FuzzyGrim/Yamtrack
 support: https://github.com/FuzzyGrim/Yamtrack/issues
 gallery:
-  - https://i.imgur.com/1hYjNNo.png
-  - https://i.imgur.com/HaT1tgl.png
-  - https://i.imgur.com/OhBXJDf.png
-  - https://i.imgur.com/PLNypgQ.png
-  - https://i.imgur.com/DmRUjSi.png
-  - https://i.imgur.com/zqjPIVV.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-yamtrack/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-yamtrack/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-yamtrack/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-yamtrack/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-yamtrack/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-yamtrack/6.jpg
 releaseNotes: >-
   Version 0.24.6 adds progress and status fields to media grids and cards, enhancing list and statistics views. Additionally, duplicate entries on the media list page are now hidden and replaced with the latest entry plus a count.
 dependencies:

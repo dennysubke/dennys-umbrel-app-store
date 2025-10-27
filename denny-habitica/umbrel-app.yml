@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-habitica
 name: Habitica
 tagline: An RPG for your life
-icon: https://i.imgur.com/UvxFolT.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-habitica/logo.png
 category: files & productivity
 version: "5.36.4"
 port: 3944
@@ -21,12 +21,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/HabitRPG/habitica
 support: https://github.com/HabitRPG/habitica/issues
 gallery:
-  - https://i.imgur.com/ZIZSLYz.png
-  - https://i.imgur.com/yb7U9Yt.png
-  - https://i.imgur.com/24iNekZ.png
-  - https://i.imgur.com/wg5BcLp.png
-  - https://i.imgur.com/OJBhBsV.png
-  - https://i.imgur.com/WN0QPzJ.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-habitica/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-habitica/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-habitica/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-habitica/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-habitica/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-habitica/6.jpg
 releaseNotes: >-
   Version v5.36.4 includes new content like mystery items, quests, and pets. Additionally, locale files have been updated.
 dependencies:

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-docusaurus
 name: Docusaurus
 tagline: A streamlined way to build powerful documentation sites
-icon: https://i.imgur.com/CupytK6.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-docusaurus/logo.png
 category: files & productivity
 version: "2.0.0-rc.1"
 port: 9550
@@ -50,10 +50,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/facebook/docusaurus
 support: https://github.com/facebook/docusaurus/issues
 gallery:
-  - https://i.imgur.com/Hsh22o3.png
-  - https://i.imgur.com/G2arcqJ.png
-  - https://i.imgur.com/zUwHEOF.png
-  - https://i.imgur.com/1kGXkb6.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-docusaurus/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-docusaurus/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-docusaurus/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-docusaurus/4.jpg
 releaseNotes: >-
   The latest Docusaurus 2 beta comes with automatic updating and many improvements.
 dependencies:

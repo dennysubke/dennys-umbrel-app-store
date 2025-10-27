@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-yadnsb
 name: YaDNSb
 tagline: An advanced tool for testing DNS performance
-icon: https://i.imgur.com/9TzUVpe.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-yadnsb/logo.png
 category: networking
 version: "0.0.6"
 port: 3933
@@ -24,9 +24,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/altendorfme/yadnsb
 support: https://github.com/altendorfme/yadnsb/issues
 gallery:
-  - https://i.imgur.com/9aMsB0Q.png
-  - https://i.imgur.com/4w5IJtO.png
-  - https://i.imgur.com/qXTaFxy.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-yadnsb/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-yadnsb/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-yadnsb/3.jpg
 releaseNotes: >-
   Release v0.0.6 introduces server name logging and updates the test domains using OpenRank's top list. Additionally, the tool now supports multiple languages.
 dependencies:

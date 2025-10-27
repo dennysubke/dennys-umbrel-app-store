@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-moocup
 name: Moocup
 tagline: A visual editor to create stunning screenshots
-icon: https://i.imgur.com/BYIlVQx.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moocup/logo.png
 category: files & productivity
 version: "1.0.0"
 port: 3458
@@ -27,9 +27,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/jellydeck/moocup
 support: https://github.com/jellydeck/moocup/issues
 gallery:
-  - https://i.imgur.com/egUlScQ.png
-  - https://i.imgur.com/kkk2goK.png
-  - https://i.imgur.com/U4JBIhI.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moocup/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moocup/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moocup/3.jpg
 releaseNotes: >-
   This version marks the first official release of Moocup and introduces multi-arch Docker builds for amd64 and arm64. It also enables automatic semantic versioning for future updates and improves the Docker build and push workflow, with images now published under both latest and versioned tags.
 dependencies: []

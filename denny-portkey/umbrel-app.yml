@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-portkey
 name: portkey
 tagline: An engaging startup hub for favorite links and custom pages
-icon: https://i.imgur.com/qCgHPfU.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-portkey/logo.png
 category: files & productivity
 version: "1.2.0"
 port: 3343
@@ -41,9 +41,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/kodehat/portkey
 support: https://github.com/kodehat/portkey/issues
 gallery:
-  - https://i.imgur.com/pW3lCyW.png
-  - https://i.imgur.com/3L6NNei.png
-  - https://i.imgur.com/vLkweKd.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-portkey/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-portkey/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-portkey/3.jpg
 releaseNotes: >-
   In version 1.2.0, released on October 9, 2024, Prometheus metrics were added, enhancing monitoring capabilities. Additionally, dependencies were updated, including the go-release-action from version 1.51 to 1.52 and htmx.org from version 2.0.2 to 2.0.3. Lastly, a change was made to ensure that the Fly machine does not stop.
 dependencies:

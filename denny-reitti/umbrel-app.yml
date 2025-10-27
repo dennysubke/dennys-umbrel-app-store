@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-reitti
 name: Reitti
 tagline: A location tracking and analysis application
-icon: https://i.imgur.com/XhN4lDj.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-reitti/logo.png
 category: files & productivity
 version: "1.4.0"
 port: 8744
@@ -30,11 +30,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/dedicatedcode/reitti
 support: https://github.com/dedicatedcode/reitti/issues
 gallery:
-  - https://i.imgur.com/16JtF5u.png
-  - https://i.imgur.com/jOuMfxQ.png
-  - https://i.imgur.com/GV2M6mV.png
-  - https://i.imgur.com/SWksRlS.png
-  - https://i.imgur.com/ICx2xd6.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-reitti/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-reitti/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-reitti/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-reitti/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-reitti/5.jpg
 releaseNotes: >-
   The v1.4.0 update improves the user interface and mobile responsiveness, enhances reverse geocoding, and adds new data export options. Long-distance routes are now displayed as geodesic arcs, providing a clearer and more accurate visual representation of travel paths.
 dependencies: []

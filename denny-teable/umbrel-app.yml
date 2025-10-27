@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-teable
 name: Teable
 tagline: An AI no-code database
-icon: https://i.imgur.com/fG52Wny.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-teable/logo.png
 category: developer tools
 version: "1.8.0"
 port: 8599
@@ -24,11 +24,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/teableio/teable
 support: https://github.com/teableio/teable/issues
 gallery:
-  - https://i.imgur.com/ucxXRog.png
-  - https://i.imgur.com/VSd7FZT.png
-  - https://i.imgur.com/y3AuJ5I.png
-  - https://i.imgur.com/EBqT9kL.png
-  - https://i.imgur.com/ahjhaZ4.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-teable/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-teable/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-teable/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-teable/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-teable/5.jpg
 releaseNotes: >-
   Version 1.8.0 includes several important bug fixes such as resolving signup invitation issues, search errors in person view, and crashes related to automation and record deletion. 
   

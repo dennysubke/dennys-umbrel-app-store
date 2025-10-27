@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-openreader
 name: OpenReader WebUI
 tagline: A document reader with Text-to-Speech capabilities
-icon: https://i.imgur.com/J3K1k4L.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-openreader/logo.png
 category: AI
 version: "0.2.6"
 port: 3391
@@ -27,10 +27,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/richardr1126/OpenReader-WebUI
 support: https://github.com/richardr1126/OpenReader-WebUI/issues
 gallery:
-  - https://i.imgur.com/vp9q9Hu.png
-  - https://i.imgur.com/8OLsTMc.png
-  - https://i.imgur.com/GHHhDPB.png
-  - https://i.imgur.com/FXtMQdc.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-openreader/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-openreader/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-openreader/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-openreader/4.jpg
 releaseNotes: >-
   Version 0.2.6 of OpenReader WebUI adds support for Orpheus-FastAPI and improves space detection in PDF text extraction to prevent missing spaces between words in certain formats. Additionally, it ensures that the TTS correctly pauses when changing pages.
 dependencies:

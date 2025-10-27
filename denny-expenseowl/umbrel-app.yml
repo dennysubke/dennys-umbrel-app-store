@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-expenseowl
 name: ExpenseOwl
 tagline: A beautifully simple expense tracker
-icon: https://i.imgur.com/CvIuYxz.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-expenseowl/logo.png
 category: finance
 version: "4.0"
 port: 5007
@@ -24,9 +24,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/Tanq16/ExpenseOwl
 support: https://github.com/Tanq16/ExpenseOwl/issues
 gallery:
-  - https://i.imgur.com/6VPB4Yo.png
-  - https://i.imgur.com/r0Ao7fz.png
-  - https://i.imgur.com/afS9ZhJ.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-expenseowl/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-expenseowl/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-expenseowl/3.jpg
 releaseNotes: >-
   Version 4.0 introduces a completely refactored backend along with partial frontend updates that include multiple bug fixes and new features. 
   

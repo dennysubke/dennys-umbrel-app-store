@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-owncloud
 name: ownCloud
 tagline: A smart cloud for your files
-icon: https://i.imgur.com/JfhWxzP.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-owncloud/logo.png
 category: files & productivity
 version: "10.15.3"
 port: 8666
@@ -27,10 +27,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/owncloud-docker/server
 support: https://github.com/owncloud-docker/server/issues
 gallery:
-  - https://i.imgur.com/rMIC8QH.png
-  - https://i.imgur.com/vxI7eRj.png
-  - https://i.imgur.com/ndVS07Y.png
-  - https://i.imgur.com/KLYpHke.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-owncloud/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-owncloud/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-owncloud/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-owncloud/4.jpg
 releaseNotes: >-
   The ownCloud Core 10.15.3 update disables the outdated web updater by removing its integration from the admin interface to prevent potential issues. Additionally, it improves security by strengthening how remote services like WebDAV and CalDAV are resolved, ensuring they are loaded only from trusted sources.
 dependencies: []

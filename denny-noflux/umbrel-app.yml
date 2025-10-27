@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-noflux
 name: Noflux
 tagline: A simple decentralized feed reader powered by Nostr
-icon: https://i.imgur.com/jPdZrxU.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-noflux/logo.png
 category: files & productivity
 version: "0.1.0"
 port: 8064
@@ -24,9 +24,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/fiatjaf/noflux
 support: https://github.com/fiatjaf/noflux/issues
 gallery:
-  - https://i.imgur.com/2yxWF4B.png
-  - https://i.imgur.com/lkY27Ux.png
-  - https://i.imgur.com/eLwoOSW.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-noflux/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-noflux/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-noflux/3.jpg
 releaseNotes: >-
   This is the initial release (v0.1.0) of Noflux. There are no prior release notes as this marks the first version of the project.
 dependencies:

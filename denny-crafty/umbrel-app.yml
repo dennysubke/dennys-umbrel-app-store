@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-crafty
 name: Crafty Controller
 tagline: An intuitive way to automate and manage your Minecraft server with ease
-icon: https://i.imgur.com/S9pJOPi.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-crafty/logo.png
 category: gaming
 version: "4.5.4"
 port: 18443
@@ -33,11 +33,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://gitlab.com/crafty-controller
 support: https://gitlab.com/groups/crafty-controller/-/issues
 gallery:
-  - https://i.imgur.com/vSbZ6cA.png
-  - https://i.imgur.com/K5RoLTs.png
-  - https://i.imgur.com/3VeLF4I.png
-  - https://i.imgur.com/8cTkoj9.png
-  - https://i.imgur.com/DnwgLOR.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-crafty/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-crafty/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-crafty/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-crafty/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-crafty/5.jpg
 releaseNotes: >-
   Version 4.5.4 fixes bugs by refactoring the upload process to ensure asynchronous file operations. It also removes all third-party font requests.
 dependencies:

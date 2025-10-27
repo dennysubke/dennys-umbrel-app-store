@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-netdata
 name: Netdata
 tagline: A high-performance tool for monitoring systems in real time
-icon: https://i.imgur.com/WcRMwEH.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-netdata/logo.png
 category: networking
 version: "1.47.4"
 port: 19999
@@ -40,13 +40,13 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store
 repo: https://github.com/netdata/netdata
 support: https://github.com/netdata/netdata/issues
 gallery:
-  - https://imgur.com/3K4cxYY.png
-  - https://imgur.com/TCmYD1n.png
-  - https://imgur.com/A7W9m56.png
-  - https://imgur.com/8nHnxe4.png
-  - https://imgur.com/DECUadt.png
-  - https://imgur.com/sjMDAwZ.png
-  - https://imgur.com/2jqiFVe.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-netdata/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-netdata/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-netdata/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-netdata/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-netdata/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-netdata/6.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-netdata/7.jpg
 releaseNotes: >-
   This patch release addresses several issues discovered in previous versions. It resolves a problem with system-cat-native not sending messages to journald and updates the static installation packages with the latest versions of OpenSSL and cURL. 
 

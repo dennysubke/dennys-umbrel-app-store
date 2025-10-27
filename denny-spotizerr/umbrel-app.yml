@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-spotizerr
 name: Spotizerr
 tagline: A lossless-powered Spotify music downloader
-icon: https://i.imgur.com/bfUT5Y0.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spotizerr/logo.png
 category: In Progress
 version: "2.0.1"
 port: 7171
@@ -30,9 +30,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/Xoconoch/spotizerr
 support: https://github.com/Xoconoch/spotizerr/issues
 gallery:
-  - https://i.imgur.com/EdmeZKL.png
-  - https://i.imgur.com/EdmeZKL.png
-  - https://i.imgur.com/EdmeZKL.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spotizerr/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spotizerr/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spotizerr/3.jpg
 releaseNotes: >-
   Version 2.0.1 includes a hotpatch that ensures the setup process no longer requires manual creation of directories or config files. These are now automatically generated with default values if they are not found in the expected locations.
 dependencies:

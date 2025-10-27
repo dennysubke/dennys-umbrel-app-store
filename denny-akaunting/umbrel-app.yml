@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-akaunting
 name: Akaunting
 tagline: An intuitive accounting solution for small businesses and freelancers
-icon: https://i.imgur.com/UIeVQGZ.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-akaunting/logo.png
 category: finance
 version: "3.1.19"
 port: 8773
@@ -48,14 +48,14 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/akaunting/akaunting
 support: https://github.com/akaunting/akaunting/issues
 gallery:
-  - https://i.imgur.com/I76nzKV.png
-  - https://i.imgur.com/pYZ3W5n.png
-  - https://i.imgur.com/Fb1JWvS.png
-  - https://i.imgur.com/V4ffRaW.png
-  - https://i.imgur.com/BQK33CT.png
-  - https://i.imgur.com/uHBkwJ9.png
-  - https://i.imgur.com/95wj74d.png
-  - https://i.imgur.com/sz1EzMk.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-akaunting/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-akaunting/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-akaunting/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-akaunting/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-akaunting/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-akaunting/6.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-akaunting/7.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-akaunting/8.jpg
 releaseNotes: >-
   Version 3.1.19 introduces new features such as a discount summary report, configurable invoice logo size, and extended report data. Performance improvements and new Crowdin translations were also added. 
   

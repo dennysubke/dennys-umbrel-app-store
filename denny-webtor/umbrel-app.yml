@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-webtor
 name: Webtor
 tagline: An instant torrent stream in your browser
-icon: https://i.imgur.com/IsJkn1w.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-webtor/logo.png
 category: media
 version: "1.0.4"
 port: 8488
@@ -33,9 +33,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/webtor-io/self-hosted
 support: https://github.com/webtor-io/self-hosted/issues
 gallery:
-  - https://i.imgur.com/zbaUMZP.png
-  - https://i.imgur.com/vJrqOO6.png
-  - https://i.imgur.com/ihhQVcy.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-webtor/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-webtor/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-webtor/3.jpg
 releaseNotes: >-
   Version 1.0.4 focuses on increased stability.
 dependencies:

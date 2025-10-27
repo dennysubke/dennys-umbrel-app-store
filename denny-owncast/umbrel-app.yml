@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-owncast
 name: Owncast
 tagline: A free and open source live video and web chat server
-icon: https://i.imgur.com/Lqjm0QC.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-owncast/logo.png
 category: social
 version: "0.1.3"
 port: 8055
@@ -37,9 +37,9 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store
 repo: https://github.com/owncast
 support: https://github.com/owncast/owncast/issues
 gallery:
-  - https://i.imgur.com/Zbh07pz.png
-  - https://i.imgur.com/zIeK5Yc.png
-  - https://i.imgur.com/NyhKo1Y.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-owncast/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-owncast/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-owncast/3.jpg
 releaseNotes: >-
     In the latest update, several enhancements and fixes have been introduced to improve functionality and user experience. Notably, the addition of sanitization for Fediverse usernames and the specification of content types for custom JavaScript significantly enhance system integrity and performance. The "rel-me" attribute has also been added to the server-rendered bot/metadata/search page template, contributing to better SEO practices.
 

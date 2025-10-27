@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-etherpad  
 name: Etherpad
 tagline: An intuitive tool for real-time collaborative writing
-icon: https://i.imgur.com/eOZEMSj.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-etherpad/logo.png
 category: files & productivity
 version: "2.2.7"
 port: 9002
@@ -27,9 +27,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/ether/etherpad-lite
 support: https://github.com/ether/etherpad-lite/issues
 gallery:
-  - https://i.imgur.com/QOcbNKU.png
-  - https://i.imgur.com/Kw2z85y.png
-  - https://i.imgur.com/7YkFqkC.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-etherpad/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-etherpad/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-etherpad/3.jpg
 releaseNotes: >-
   The latest update includes notable enhancements and fixes, such as the migration of all important pages to React 19 and React Router v7, with only dependency updates beyond that.
 dependencies:

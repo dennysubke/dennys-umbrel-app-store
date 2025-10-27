@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-openhab
 name: openHAB
 tagline: An open platform for seamless integration and automation in smart homes
-icon: https://i.imgur.com/kh30x2c.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-openhab/logo.png
 category: Home & Automation
 version: "4.2.2"
 port: 8780
@@ -28,12 +28,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/openhab
 support: https://community.openhab.org/
 gallery:
-  - https://i.imgur.com/3WaRzIK.png
-  - https://i.imgur.com/ODjQ79W.png
-  - https://i.imgur.com/M1lOxKR.png
-  - https://i.imgur.com/hbph0xS.png
-  - https://i.imgur.com/8ro6Ib2.png
-  - https://i.imgur.com/k0nwxj9.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-openhab/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-openhab/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-openhab/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-openhab/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-openhab/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-openhab/6.jpg
 releaseNotes: >-
   The OpenHAB 4.2 release introduces significant improvements, focusing on enhancing the user experience and expanding device compatibility. Notable updates include a more intuitive user interface, faster automation rule execution, and new add-ons that broaden support for various smart home devices. These changes make it easier to set up, control, and automate home environments.
 dependencies:

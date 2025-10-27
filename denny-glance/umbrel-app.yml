@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-glance
 name: Glance
 tagline: A self-hosted dashboard that puts all your feeds in one place
-icon: https://i.imgur.com/krxJ46D.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-glance/logo.png
 category: files & productivity
 version: "0.7.13"
 port: 8907
@@ -33,11 +33,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/glanceapp/glance
 support: https://github.com/glanceapp/glance/issues
 gallery:
-  - https://i.imgur.com/RitrZ8M.png
-  - https://i.imgur.com/JrpI8iU.png
-  - https://i.imgur.com/UwcEbDe.png
-  - https://i.imgur.com/uelKMIj.png
-  - https://i.imgur.com/DaB9kHM.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-glance/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-glance/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-glance/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-glance/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-glance/5.jpg
 releaseNotes: >-
   Version 0.7.13 introduces the new parseLocalTime function for custom APIs, which defaults to the local timezone when no timezone is specified. It also adds a target property to the search widget for opening results in new tabs. Bug fixes include improved temperature sensor detection in the server stats widget and proper URL escaping in the Reddit widget.
 dependencies:

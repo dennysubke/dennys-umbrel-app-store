@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-changedetection
 name: Changedetection
 tagline: An easy tool to track website changes and get alerts for updates
-icon: https://i.imgur.com/tJluVKs.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-changedetection/logo.png
 category: networking
 version: "0.49.1"
 port: 5555
@@ -15,11 +15,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/dgtlmoon/changedetection.io
 support: https://github.com/dgtlmoon/changedetection.io/issues
 gallery:
-  - https://i.imgur.com/UjYRKHT.png
-  - https://i.imgur.com/NKwm4JI.png
-  - https://i.imgur.com/y6nwHJY.png
-  - https://i.imgur.com/3jMeplS.png
-  - https://i.imgur.com/5rxsDgG.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-changedetection/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-changedetection/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-changedetection/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-changedetection/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-changedetection/5.jpg
 releaseNotes: >-
   Version 0.49.1 of Changedetection includes several fixes and improvements, such as fixing custom header parsing, adding Jinja2/browsersteps tests, and supporting multiple semver tags for Docker releases. Additionally, it handles ByteOrderMark in JSON strings and updates Italian translations for the "stock-not-in-stock.js" file.
 dependencies:

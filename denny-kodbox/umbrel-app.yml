@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-kodbox
 name: kodbox
 tagline: A seamless web-based file manager for effortless cloud storage
-icon: https://i.imgur.com/rTsmgiN.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kodbox/logo.png
 category: files & productivity
 version: "1.56"
 port: 8383
@@ -18,11 +18,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/kalcaddle/kodbox
 support: https://github.com/kalcaddle/kodbox/issues
 gallery:
-  - https://i.imgur.com/FXwhZ05.png
-  - https://i.imgur.com/jvCRwZB.png
-  - https://i.imgur.com/zd97KjY.png
-  - https://i.imgur.com/jPC9qdj.png
-  - https://i.imgur.com/3QwxB8t.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kodbox/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kodbox/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kodbox/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kodbox/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kodbox/5.jpg
 releaseNotes: >-
   Version 1.56 introduces a fix for a security issue, enhancing the overall safety and stability of the platform.
 dependencies:

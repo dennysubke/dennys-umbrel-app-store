@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-fontgenerator
 name: Font Generator
 tagline: A creative text styling app
-icon: https://i.imgur.com/gzQz27U.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fontgenerator/logo.png
 category: files & productivity
 version: "0.3.6"
 port: 3876
@@ -21,9 +21,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/seadfeng/font-generator
 support: https://github.com/seadfeng/font-generator/issues
 gallery:
-  - https://i.imgur.com/HpGcYqq.png
-  - https://i.imgur.com/wQZzCfS.png
-  - https://i.imgur.com/GT0A5PM.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fontgenerator/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fontgenerator/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fontgenerator/3.jpg
 releaseNotes: >-
   Version 0.3.6 adds Google AdSense support and includes various improvements. It also contains minor maintenance and release updates.
 dependencies: []

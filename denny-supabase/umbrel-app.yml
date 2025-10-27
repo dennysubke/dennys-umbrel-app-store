@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-supabase
 category: developer tools
 name: Supabase
-icon: https://i.imgur.com/IKOoCbJ.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-supabase/logo.png
 tagline: An open source Firebase alternative
 version: "2025.05.21"
 port: 53000
@@ -34,12 +34,12 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store/pull/7
 repo: https://github.com/supabase/supabase
 support: https://supabase.com/support
 gallery:
-  - https://i.imgur.com/CUfEm5O.png
-  - https://i.imgur.com/mHiOReH.png
-  - https://i.imgur.com/Mkp5RuX.png
-  - https://i.imgur.com/sx3Dt3T.png
-  - https://i.imgur.com/w0jhm4X.png
-  - https://i.imgur.com/zYFEhMq.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-supabase/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-supabase/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-supabase/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-supabase/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-supabase/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-supabase/6.jpg
 releaseNotes: >-
   This update brings a wave of new tutorials and tools, including a reusable Team component built with Next.js and Shadcn, a Grocery Tracker app using Vue and Supabase, and the new SupaWP plugin for seamless WordPress integration. You’ll also find deep dives into multi-tenancy with Clerk, building AI agents powered by n8n and Supabase, setting up custom SMTP for authentication, and using Supabase MCP in VSCode, Cursor, and Agno. 
  

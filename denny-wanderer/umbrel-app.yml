@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-wanderer
 name: Wanderer
 tagline: A self-hosted trail database
-icon: https://i.imgur.com/TM3MZUK.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wanderer/logo.png
 category: files & productivity
 version: "0.17.0"
 port: 3111
@@ -21,13 +21,13 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/Flomp/wanderer
 support: https://github.com/Flomp/wanderer/issues
 gallery:
-  - https://i.imgur.com/s5JxJAx.png
-  - https://i.imgur.com/kDzYM1w.png
-  - https://i.imgur.com/yf274Us.png
-  - https://i.imgur.com/kMR6rOq.png
-  - https://i.imgur.com/1sEXkQz.png
-  - https://i.imgur.com/hYBfUp2.png
-  - https://i.imgur.com/Qck7fBO.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wanderer/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wanderer/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wanderer/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wanderer/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wanderer/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wanderer/6.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wanderer/7.jpg
 releaseNotes: >-
   Version 0.17.0 of Wanderer brings improved performance when displaying many trails on the map and now recalculates elevation data on import for more accurate stats. It also fixes several issues, including missing tags on the front page, broken direct links to lists, and problems with uploading trails containing waypoints or summit logs.
 dependencies:

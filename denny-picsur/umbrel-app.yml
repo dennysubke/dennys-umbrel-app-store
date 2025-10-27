@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-picsur
 name: Picsur
 tagline: An easy to use image sharing service
-icon: https://i.imgur.com/5cyHiul.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-picsur/logo.png
 category: files & productivity
 version: "0.5.6"
 port: 8286
@@ -24,11 +24,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/CaramelFur/Picsur
 support: https://github.com/CaramelFur/Picsur/issues
 gallery:
-  - https://i.imgur.com/xmpcGy3.png
-  - https://i.imgur.com/CGGjH8l.png
-  - https://i.imgur.com/lQ5aLBT.png
-  - https://i.imgur.com/3nBWDjw.png
-  - https://i.imgur.com/HtSnQLY.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-picsur/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-picsur/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-picsur/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-picsur/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-picsur/5.jpg
 releaseNotes: >-
   Version 0.5.6 of Picsur finally fixes a persistent thumbnail bug that remained unresolved in the previous release.
 dependencies:

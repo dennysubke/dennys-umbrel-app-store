@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-glances
 name: Glances
 tagline: An eye on your system
-icon: https://i.imgur.com/4T0Ff9S.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-glances/logo.png
 category: networking
 version: "4.3.0.8"
 port: 61208
@@ -30,9 +30,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/nicolargo/glances
 support: https://github.com/nicolargo/glances/issues
 gallery:
-  - https://i.imgur.com/7hQrGLo.png
-  - https://i.imgur.com/M6tjOio.png
-  - https://i.imgur.com/i45yzoe.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-glances/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-glances/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-glances/3.jpg
 releaseNotes: >-
   The WebUI display has been improved for low screen resolutions, the IP plugin issue with Netifaces2 has been fixed, and a message has been added to verify Netifaces2.
 dependencies:

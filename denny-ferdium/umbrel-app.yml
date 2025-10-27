@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-ferdium
 name: Ferdium
 tagline: An all-in-one messaging hub
-icon: https://i.imgur.com/akCnNFQ.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ferdium/logo.png
 category: files & productivity
 version: "2.0.10"
 port: 3333
@@ -30,9 +30,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/ferdium/ferdium-server
 support: https://github.com/ferdium/ferdium-server/issues
 gallery:
-  - https://i.imgur.com/Rfe6fUu.png
-  - https://i.imgur.com/IO7QNng.png
-  - https://i.imgur.com/rPW8Yel.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ferdium/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ferdium/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ferdium/3.jpg
 releaseNotes: >-
   Ferdium-Server version 2.0.10 includes various improvements and refinements to enhance the user experience.
 dependencies:

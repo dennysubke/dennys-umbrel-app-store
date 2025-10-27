@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-monica
 name: Monica
 tagline: An open-source CRM for personal relationships
-icon: https://i.imgur.com/AkYZbIs.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-monica/logo.png
 category: social
 version: "4.1.2"
 port: 8559
@@ -27,11 +27,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/monicahq/monica
 support: https://github.com/monicahq/monica/issues
 gallery:
-  - https://i.imgur.com/InoI42p.png
-  - https://i.imgur.com/HVoCcnU.png
-  - https://i.imgur.com/z9imnbs.png
-  - https://i.imgur.com/HTMHXhk.png
-  - https://i.imgur.com/Z8M8oBs.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-monica/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-monica/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-monica/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-monica/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-monica/5.jpg
 releaseNotes: >-
   Version 4.1.2 fixes a bug where updating a contact listing incorrectly modified the "updated_at" date for all contacts.
 dependencies:

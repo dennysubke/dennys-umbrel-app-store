@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-stremio
 name: Stremio
 tagline: An all-in-one streaming hub for all your entertainment needs
-icon: https://i.imgur.com/sCDDgMX.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-stremio/logo.png
 category: media
 version: "1.1.118"
 port: 10470
@@ -30,11 +30,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/tsaridas/stremio-docker
 support: https://github.com/tsaridas/stremio-docker/issues
 gallery:
-  - https://i.imgur.com/b1Ig6sW.png
-  - https://i.imgur.com/ZWBHgwv.png
-  - https://i.imgur.com/Y9TW3Jm.png
-  - https://i.imgur.com/lkp4IX9.png
-  - https://i.imgur.com/izZ4qOR.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-stremio/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-stremio/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-stremio/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-stremio/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-stremio/5.jpg
 releaseNotes: >-
   The latest release, v1.1.118, includes improvements and updates such as Web version v5.0.0-beta.21, with a server URL at https://dl.strem.io/server/v4.20.8/desktop/server.js.
 dependencies:

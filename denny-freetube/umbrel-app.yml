@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-freetube
 name: FreeTube
 tagline: An Open Source YouTube app for privacy
-icon: https://i.imgur.com/MIleQjB.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-freetube/logo.png
 category: media
 version: "v0.23.1-beta"
 port: 3422
@@ -24,11 +24,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/FreeTubeApp/FreeTube
 support: https://github.com/FreeTubeApp/FreeTube/issues
 gallery:
-  - https://i.imgur.com/3LwcZHj.png
-  - https://i.imgur.com/oPHOtHA.png
-  - https://i.imgur.com/fRmJbyW.png
-  - https://i.imgur.com/LcZglQp.png
-  - https://i.imgur.com/jC2tnvV.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-freetube/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-freetube/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-freetube/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-freetube/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-freetube/5.jpg
 releaseNotes: >-
   The latest version comes with general improvements and is the initial release.
 dependencies:

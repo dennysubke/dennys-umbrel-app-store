@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-slink
 name: Slink
 tagline: A powerful image sharing platform
-icon: https://i.imgur.com/08saTfi.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-slink/logo.png
 category: files & productivity
 version: "1.7.3"
 port: 8811
@@ -24,10 +24,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/andrii-kryvoviaz/slink
 support: https://github.com/andrii-kryvoviaz/slink/issues
 gallery:
-  - https://i.imgur.com/KhhIvU4.png
-  - https://i.imgur.com/QjePt11.png
-  - https://i.imgur.com/Il0UOKi.png
-  - https://i.imgur.com/XWudtxG.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-slink/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-slink/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-slink/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-slink/4.jpg
 releaseNotes: >-
   This update fixes an issue that caused large images to fail or process incorrectly during uploads.
 dependencies: []

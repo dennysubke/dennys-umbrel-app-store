@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-invoicerr
 name: Invoicerr
 tagline: A freelance-focused invoicing app
-icon: https://i.imgur.com/kTT83Mu.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-invoicerr/logo.png
 category: finance
 version: "1.0.8"
 port: 8092
@@ -27,11 +27,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/Impre-visible/invoicerr
 support: https://github.com/Impre-visible/invoicerr/issues
 gallery:
-  - https://i.imgur.com/mjn2Dr3.png
-  - https://i.imgur.com/uuh4pjm.png
-  - https://i.imgur.com/MKlNbGD.png
-  - https://i.imgur.com/T7SAtoT.png
-  - https://i.imgur.com/LIaEvgG.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-invoicerr/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-invoicerr/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-invoicerr/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-invoicerr/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-invoicerr/5.jpg
 releaseNotes: >-
   This version 1.0.8 introduces a new feature that allows users to add notes directly to both quote and invoice forms, enhancing the ability to include additional information and improve communication with clients.
 dependencies:

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-convertx
 name: ConvertX
 tagline: A self-hosted online file converter that converts tons of file types
-icon: https://i.imgur.com/eytlPGT.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-convertx/logo.png
 category: files & productivity
 version: "0.6.0"
 port: 13000
@@ -46,9 +46,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/C4illin/ConvertX
 support: https://github.com/C4illin/ConvertX/issues
 gallery:
-  - https://i.imgur.com/0JCm9x4.png
-  - https://i.imgur.com/6nwiA4D.png
-  - https://i.imgur.com/KyzJieE.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-convertx/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-convertx/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-convertx/3.jpg
 
 releaseNotes: >-
    This update features a complete remake of the user interface using Tailwind CSS, enhancing the overall design and responsiveness of the application. Additionally, the CSS file has been renamed to force a cache update, effectively resolving previous issues related to outdated styles. This update improves both the visual appeal and functionality of the application, ensuring a smoother user experience.

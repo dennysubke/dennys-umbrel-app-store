@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-zoraxy
 name: Zoraxy Proxy Server
 tagline: An efficient reverse proxy server with automated SSL management
-icon: https://i.imgur.com/Hi7EYoI.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zoraxy/logo.png
 category: networking
 version: "3.1.2"
 port: 8400
@@ -43,11 +43,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/tobychui/zoraxy
 support: https://github.com/tobychui/zoraxy/issues
 gallery:
-  - https://i.imgur.com/Kqv1pyy.png
-  - https://i.imgur.com/q00uOw4.png
-  - https://i.imgur.com/bIKqsaQ.png
-  - https://i.imgur.com/wgjleUc.png
-  - https://i.imgur.com/BYHeqCt.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zoraxy/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zoraxy/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zoraxy/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zoraxy/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zoraxy/5.jpg
 releaseNotes: >-
   The patch release for Zoraxy version 3.1.1 focuses on fixing the Docker image from the previous version, v3.1.1r2. The binaries remain unchanged, allowing users of the executable version to decide whether to update. The main highlight is the improved Docker image, which enhances performance and reliability for users operating in containerized environments.
 dependencies:

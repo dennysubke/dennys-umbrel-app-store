@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-kestra
 name: Kestra
 tagline: A platform to simplify the creation, management, and execution of complex workflows
-icon: https://i.imgur.com/Jxa9Pm7.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kestra/logo.png
 category: files & productivity
 version: "0.19.2"
 port: 8082
@@ -44,11 +44,11 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store
 repo: https://github.com/kestra-io
 support: https://github.com/kestra-io/kestra/issues
 gallery:
-  - https://i.imgur.com/xFxmKLH.png
-  - https://i.imgur.com/HKDmnTb.png
-  - https://i.imgur.com/Q6FqjzZ.png
-  - https://i.imgur.com/pccnGvt.png
-  - https://i.imgur.com/Uv9rkB6.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kestra/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kestra/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kestra/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kestra/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kestra/5.jpg
 releaseNotes: >-
   In the latest version (v0.19.2) of Kestra, several enhancements and bug fixes have been implemented. New features include the addition of an executions tab in the user interface and improved visibility of charts on the flows and logs pages. Additionally, various bug fixes were made, such as correcting typos in French translations and enhancing the user interface to address issues like incorrect date displays and inaccurate dashboard values. Maintenance tasks also focused on the user interface and translations.
 dependencies:

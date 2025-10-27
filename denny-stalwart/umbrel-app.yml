@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-stalwart
 name: Stalwart
 tagline: An all-in-one Mail & Collaboration server
-icon: https://i.imgur.com/Pr0Mauc.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-stalwart/logo.png
 category: networking
 version: "0.12.3"
 port: 18080
@@ -33,11 +33,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/stalwartlabs/stalwart
 support: https://github.com/stalwartlabs/stalwart/issues
 gallery:
-  - https://i.imgur.com/PCCJlCC.png
-  - https://i.imgur.com/l0JiJ8a.png
-  - https://i.imgur.com/ElYh7WO.png
-  - https://i.imgur.com/Eb4SdBA.png
-  - https://i.imgur.com/ZPPrbIO.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-stalwart/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-stalwart/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-stalwart/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-stalwart/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-stalwart/5.jpg
 releaseNotes: >-
   Version 0.12.3 introduces improved changelog tracking by storing vanished IMAP UIDs and WebDAV paths. It also fixes several issues, including an XML CDATA injection vulnerability and problems with CalDAV/CardDAV property tags and macro handling.
 dependencies:

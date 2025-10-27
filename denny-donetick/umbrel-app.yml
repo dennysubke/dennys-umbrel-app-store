@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-donetick
 name: Donetick
 tagline: An intelligent way to organize tasks and chores
-icon: https://i.imgur.com/eEOjA0q.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-donetick/logo.png
 category: files & productivity
 version: "0.1.37"
 port: 2021
@@ -24,11 +24,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/donetick/donetick
 support: https://github.com/donetick/donetick/issues
 gallery:
-  - https://i.imgur.com/rLtzhUT.png
-  - https://i.imgur.com/Kxzj1Bl.png
-  - https://i.imgur.com/kJPZsOf.png
-  - https://i.imgur.com/aGrU1ey.png
-  - https://i.imgur.com/sPg8LYa.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-donetick/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-donetick/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-donetick/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-donetick/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-donetick/5.jpg
 releaseNotes: >-
   Version 0.1.37 introduces nested sub-tasks, improved task filtering by assignee with the ability to save it as the default view, and user preferences for task grouping. Additionally, it fixes a PostgreSQL migration issue and allows webhooks to be used as the sole notification method.
 dependencies:

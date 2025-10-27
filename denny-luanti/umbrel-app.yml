@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-luanti
 name: Luanti 
 tagline: A limitless playground for builders, adventurers, and creators
-icon: https://i.imgur.com/IAUaNZn.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-luanti/logo.png
 category: gaming
 version: "5.11.0"
 port: 30000
@@ -27,11 +27,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/luanti-org/luanti
 support: https://github.com/luanti-org/luanti/issues
 gallery:
-  - https://imgur.com/xwK8P9p.png
-  - https://imgur.com/mAkZ3GZ.png
-  - https://imgur.com/3gOdPne.png
-  - https://imgur.com/e9VoQzm.png
-  - https://imgur.com/quo6mEK.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-luanti/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-luanti/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-luanti/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-luanti/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-luanti/5.jpg
 releaseNotes: >-
   Luanti 5.11.0 introduces several updates, including the renaming of the engine to "Luanti" in the previous release. Irrlicht is no longer required as a separate download, and "Minetest Game" is no longer intended to be packaged with Luanti.
 dependencies:

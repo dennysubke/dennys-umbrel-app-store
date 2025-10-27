@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-lunalytics
 name: Lunalytics
 tagline: A monitoring tool for teams
-icon: https://i.imgur.com/gFmN9B9.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-lunalytics/logo.png
 category: networking
 version: "0.9.7"
 port: 8183
@@ -30,11 +30,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/KSJaay/Lunalytics
 support: https://github.com/KSJaay/Lunalytics/issues
 gallery:
-  - https://i.imgur.com/dDsaYEo.png
-  - https://i.imgur.com/5EjbbjJ.png
-  - https://i.imgur.com/Omb2Fm6.png
-  - https://i.imgur.com/bIwCvPk.png
-  - https://i.imgur.com/KAKENvU.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-lunalytics/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-lunalytics/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-lunalytics/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-lunalytics/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-lunalytics/5.jpg
 releaseNotes: >-
   Version 0.9.7 introduces new monitoring types: Ping and JSON Query. It also fixes Telegram-related issues, including support for negative Chat IDs and proper Markdown escaping.
 dependencies:

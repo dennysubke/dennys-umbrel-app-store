@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-cloudreve
 name: Cloudreve
 tagline: A self-hosted file management system with multi-cloud support
-icon: https://i.imgur.com/2PTDRPQ.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cloudreve/logo.png
 category: files & productivity
 version: "5.4.0"
 port: 5212
@@ -24,12 +24,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/cloudreve/Cloudreve
 support: https://github.com/cloudreve/Cloudreve/issues
 gallery:
-  - https://i.imgur.com/3Z1XiCr.png
-  - https://i.imgur.com/eZJPu4m.png
-  - https://i.imgur.com/lb04Zi5.png
-  - https://i.imgur.com/S9EhzIq.png
-  - https://i.imgur.com/ygi88kd.png
-  - https://i.imgur.com/XDdSjXJ.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cloudreve/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cloudreve/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cloudreve/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cloudreve/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cloudreve/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cloudreve/6.jpg
 releaseNotes: >-
   Cloudreve version 4.0.0-beta.9 addresses several issues, including incorrect handling of negative quantities for credit increase, OneDrive OAuth callback errors, and missing marker icons on maps. It also improves language settings in receipt emails and corrects the handling of # in file names. Additionally, the order of group storage policy options is now preserved.
 dependencies:

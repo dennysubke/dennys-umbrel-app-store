@@ -3,7 +3,7 @@ id: denny-ente-auth
 category: files & productivity
 name: Ente Auth
 tagline: An 2FA authenticator with end-to-end encrypted backups
-icon: https://i.imgur.com/w2pj5ZE.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ente-auth/logo.png
 version: "4.3.5"
 port: 43000
 description: >-
@@ -25,10 +25,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/ente-io/ente
 support: https://www.reddit.com/r/enteio/?rdt=39096
 gallery:
-  - https://i.imgur.com/ifKsQKd.png
-  - https://i.imgur.com/Sr7QPpX.png
-  - https://i.imgur.com/GqIyAJA.png
-  - https://i.imgur.com/RurIXXk.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ente-auth/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ente-auth/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ente-auth/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ente-auth/4.jpg
 releaseNotes: >-
   Auth v4.3.5 introduces several enhancements and fixes, including updates to custom icons for various services such as AJ Bell, Ankama, Seafile, and LinkedIn. The release also addresses multiple bug fixes, such as improving the 2FA recovery flow, resolving issues with the logout button on the lock screen, and refining the change-password process after login. Additionally, it includes new translations, support for advanced TOTP options, and minor UI adjustments, ensuring a more polished and user-friendly experience.
 dependencies:

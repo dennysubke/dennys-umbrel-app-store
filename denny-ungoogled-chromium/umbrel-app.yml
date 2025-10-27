@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-ungoogled-chromium
 name: Ungoogled Chromium
 tagline: An optimized, privacy-focused browser experience
-icon: https://i.imgur.com/UckFwSb.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ungoogled-chromium/logo.png
 category: networking
 version: "135.0.7049"
 port: 3330
@@ -21,9 +21,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/linuxserver/docker-ungoogled-chromium
 support: https://github.com/linuxserver/docker-ungoogled-chromium/issues
 gallery:
-  - https://i.imgur.com/qyYh9k2.png
-  - https://i.imgur.com/ZRdnEvr.png
-  - https://i.imgur.com/y7yTmrK.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ungoogled-chromium/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ungoogled-chromium/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ungoogled-chromium/3.jpg
 releaseNotes: >-
   The latest release of Ungoogled Chromium includes updated launch options for improved performance and a portable Linux build.
 dependencies:

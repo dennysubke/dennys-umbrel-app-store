@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-librewolf
 name: LibreWolf
 tagline: A browser that puts your privacy first
-icon: https://i.imgur.com/mBqPQWM.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-librewolf/logo.png
 category: networking
 version: "135.0.1"
 port: 8914
@@ -27,9 +27,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/librewolf-community
 support: https://codeberg.org/librewolf/issues/issues
 gallery:
-  - https://i.imgur.com/BQwQvJR.png
-  - https://i.imgur.com/vbjsFfL.png
-  - https://i.imgur.com/BBK8ok6.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-librewolf/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-librewolf/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-librewolf/3.jpg
 releaseNotes: >-
   The update addresses issues with unusable drop-down menus on certain sites, incorrect scrolling behavior with anchor tags, and problems restoring closed windows or tabs when upgrading from older Firefox versions. Additionally, it fixes a broken search functionality when using a custom search engine with a large icon after updating to Firefox 135.
 dependencies: []

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-quakeiii
 name: Quake III Arena
 tagline: An explosive journey into the heart of '90s gaming madness
-icon: https://i.imgur.com/lx6l2HI.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-quakeiii/logo.png
 category: gaming
 version: "1.0"
 port: 8789
@@ -32,9 +32,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/treyyoder/quakejs-docker
 support: https://github.com/treyyoder/quakejs-docker/issues
 gallery:
-  - https://i.imgur.com/NoiakND.png
-  - https://i.imgur.com/QESKASw.png
-  - https://i.imgur.com/NcwN6Lb.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-quakeiii/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-quakeiii/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-quakeiii/3.jpg
 releaseNotes: >-
   Quake III Arena launches with more explosions, faster respawns, and enough chaos to keep your trigger finger busy for days. Frag or be fragged-there’s no in-between.
 dependencies:

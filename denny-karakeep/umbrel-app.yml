@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-karakeep
 name: Karakeep
 tagline: A bookmark-everything app
-icon: https://i.imgur.com/6AHtIAj.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-karakeep/logo.png
 category: files & productivity
 version: "0.24.1"
 port: 8620
@@ -21,10 +21,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/karakeep-app/karakeep
 support: https://github.com/karakeep-app/karakeep/issues
 gallery:
-  - https://i.imgur.com/TDAQfEj.png
-  - https://i.imgur.com/m3SAHjo.png
-  - https://i.imgur.com/DAdBc1e.png
-  - https://i.imgur.com/IRGfmyZ.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-karakeep/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-karakeep/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-karakeep/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-karakeep/4.jpg
 releaseNotes: >-
   Version 0.24.1 is a hotfix for 0.24.0, addressing an issue where smart list expansion in qualifiers caused Karakeep's server to run out of memory (OOM). It also adds missing translations for new features introduced in 0.24.0.
 dependencies:

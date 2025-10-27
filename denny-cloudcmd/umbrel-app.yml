@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-cloudcmd
 name: Cloud Commander
 tagline: A file manager for the web
-icon: https://i.imgur.com/Bh0R7Bt.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cloudcmd/logo.png
 category: files & productivity
 version: "19.0.5"
 port: 8631
@@ -27,11 +27,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/coderaiser/cloudcmd
 support: https://github.com/coderaiser/cloudcmd/issues
 gallery:
-  - https://i.imgur.com/401IgF7.png
-  - https://i.imgur.com/aMKj00e.png
-  - https://i.imgur.com/KF2UXQX.png
-  - https://i.imgur.com/XZFKU3h.png
-  - https://i.imgur.com/7Jetm3C.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cloudcmd/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cloudcmd/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cloudcmd/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cloudcmd/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cloudcmd/5.jpg
 releaseNotes: >-
   In Version 19.0.5 of Cloud Commander a bug with client listeners was fixed by stopping event propagation. 
   

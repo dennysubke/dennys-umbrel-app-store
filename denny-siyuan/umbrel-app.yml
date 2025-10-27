@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-siyuan
 name: SiYuan
 tagline: A privacy-first personal knowledge management system
-icon: https://i.imgur.com/r9jMdOo.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-siyuan/logo.png
 category: files & productivity
 version: "3.1.28"
 port: 6806
@@ -24,10 +24,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/siyuan-note/siyuan
 support: https://github.com/siyuan-note/siyuan/issues
 gallery:
-  - https://i.imgur.com/6XxUOlZ.png
-  - https://i.imgur.com/QQwoPBS.png
-  - https://i.imgur.com/FKVMtg5.png
-  - https://i.imgur.com/537xuWL.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-siyuan/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-siyuan/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-siyuan/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-siyuan/4.jpg
 releaseNotes: >-
   This SiYuan update delivers various usability improvements and bug fixes, particularly enhancing tag handling, table editing, web clipping, and PDF exports. It also improves the user experience on Android and introduces better synchronization and search behavior. 
   

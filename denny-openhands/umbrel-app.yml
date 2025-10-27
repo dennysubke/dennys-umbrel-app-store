@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-openhands
 name: OpenHands
 tagline: A local AI agent for writing and improving code
-icon: https://i.imgur.com/IQ4dW4G.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-openhands/logo.png
 category: AI
 version: "0.32.0"
 port: 3993
@@ -21,11 +21,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/All-Hands-AI/OpenHands
 support: https://github.com/All-Hands-AI/OpenHands/issues
 gallery:
-  - https://i.imgur.com/M7xPh0L.png
-  - https://i.imgur.com/NSs7FDI.png
-  - https://i.imgur.com/dlx7DxE.png
-  - https://i.imgur.com/ADYcpzG.png
-  - https://i.imgur.com/BVAttcB.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-openhands/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-openhands/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-openhands/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-openhands/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-openhands/5.jpg
 releaseNotes: >-
   Version 0.32.0 of OpenHands introduces several enhancements and new features. Vision-based browsing is now enabled by default, allowing OpenHands to view PDFs and images in the browser. The update also adds support for multiple providers (like GitHub and GitLab) and includes improvements to error handling, pull request behavior, and onboarding workflows.
 dependencies:

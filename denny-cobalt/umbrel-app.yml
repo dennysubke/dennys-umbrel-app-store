@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-cobalt
 name: Cobalt
 tagline: A media downloader that doesn't piss you off
-icon: https://i.imgur.com/jzNsNYz.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cobalt/logo.png
 category: media
 version: "11.5"
 port: 9009
@@ -24,11 +24,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/imputnet/cobalt
 support: https://github.com/imputnet/cobalt/issues
 gallery:
-  - https://i.imgur.com/k5fynzE.png
-  - https://i.imgur.com/EGfQ122.png
-  - https://i.imgur.com/d0EoEcj.png
-  - https://i.imgur.com/t6Zqege.png
-  - https://i.imgur.com/xIerJrO.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cobalt/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cobalt/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cobalt/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cobalt/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cobalt/5.jpg
 releaseNotes: >-
   This version adds a warning about the deprecation of API_EXTERNAL_PROXY in api/env and updates youtubei.js to version 15.0.1.
 dependencies:

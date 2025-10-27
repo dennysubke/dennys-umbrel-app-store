@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-quotysco
 name: Quotysco
 tagline: A creative hub for bloggers, writers, and visionaries
-icon: https://i.imgur.com/znbDKFP.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-quotysco/logo.png
 category: social
 version: "2.0.0"
 port: 1337
@@ -24,9 +24,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/interaapps/quotysco
 support: https://github.com/interaapps/quotysco/issues
 gallery:
-  - https://i.imgur.com/vKroTh1.png
-  - https://i.imgur.com/OEOmJPl.png
-  - https://i.imgur.com/G0uOSE8.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-quotysco/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-quotysco/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-quotysco/3.jpg
 releaseNotes: >-
   Version 2.0.0 introduces several improvements, including the addition of docker-hub.yml.
 dependencies:

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-postiz
 name: Postiz
 tagline: An intuitive tool for managing social media
-icon: https://i.imgur.com/5MWBlid.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-postiz/logo.png
 category: In Progress
 version: "1.37.3"
 port: 4442
@@ -30,9 +30,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/gitroomhq/postiz-app
 support: https://github.com/gitroomhq/postiz-app/issues
 gallery:
-  - https://i.imgur.com/zihjSkb.png
-  - https://i.imgur.com/zihjSkb.png
-  - https://i.imgur.com/zihjSkb.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-postiz/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-postiz/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-postiz/3.jpg
 releaseNotes: >-
   In v1.37.3, overall dependencies were updated, a Telegram alt text fix and a Jenkins pipeline upgrade were implemented, and unit tests were added. Additionally, the maximum message length in Telegram and the maximum video length in Instagram were increased, a backend port environment setting was added, TikTok images were integrated, and a Docker fix was applied.
 dependencies:

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-readur
 name: Readur
 tagline: An intuitive OCR platform for documents
-icon: https://i.imgur.com/yfxt7Ia.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-readur/logo.png
 category: files & productivity
 version: "2.3.1"
 port: 8111
@@ -27,12 +27,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/readur/readur
 support: https://github.com/readur/readur/issues
 gallery:
-  - https://i.imgur.com/tt3nIYx.png
-  - https://i.imgur.com/Wh54GGY.png
-  - https://i.imgur.com/MnG4DTE.png
-  - https://i.imgur.com/wwMnKIK.png
-  - https://i.imgur.com/fwRVccR.png
-  - https://i.imgur.com/MkooIWl.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-readur/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-readur/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-readur/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-readur/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-readur/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-readur/6.jpg
 releaseNotes: >-
   Version 2.3.1 improves WebDAV features by adding smart scanning, better subdirectory detection, and crash recovery. It also fixes multiple test and OCR retry issues to enhance stability. Additionally, dependencies were updated and minor documentation cleanup was performed.
 dependencies:

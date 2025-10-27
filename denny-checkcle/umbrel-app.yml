@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-checkcle
 name: CheckCle
 tagline: A Full-Stack Monitoring Platform
-icon: https://i.imgur.com/MRF6Oei.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-checkcle/logo.png
 category: networking
 version: "1.5.0"
 port: 8973
@@ -24,12 +24,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/operacle/checkcle
 support: https://github.com/operacle/checkcle/issues
 gallery:
-  - https://i.imgur.com/j12avx6.png
-  - https://i.imgur.com/FvVl6Ms.png
-  - https://i.imgur.com/MCXTctq.png
-  - https://i.imgur.com/yjh1BuH.png
-  - https://i.imgur.com/7OygQD3.png
-  - https://i.imgur.com/5vjJXup.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-checkcle/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-checkcle/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-checkcle/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-checkcle/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-checkcle/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-checkcle/6.jpg
 releaseNotes: >-
   Version 1.5.0 adds multi-channel notification support, enabling alerts via Telegram, Discord, Email, Slack, Google Chat, Signal, and custom webhooks. It introduces specialized notification managers for server resources, uptime services, and SSL certificates with customizable templates, detailed status tracking, and immediate delivery. 
   

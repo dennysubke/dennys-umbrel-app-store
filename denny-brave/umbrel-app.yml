@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-brave
 name: Brave
 tagline: A browser that puts you first
-icon: https://i.imgur.com/pABO7O7.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-brave/logo.png
 category: networking
 version: "1.79.126"
 port: 3934
@@ -33,10 +33,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/linuxserver/docker-brave
 support: https://github.com/linuxserver/docker-brave/issues
 gallery:
-  - https://i.imgur.com/prr0EA5.png
-  - https://i.imgur.com/sz343KI.png
-  - https://i.imgur.com/Qztoo9i.png
-  - https://i.imgur.com/70381Rh.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-brave/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-brave/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-brave/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-brave/4.jpg
 releaseNotes: >-
   This version addresses multiple stability issues, including crashes related to the shields panel and Google sign-in navigation. It also resolves a problem with importing from Trezor wallets when Trezor Connect is outdated. Additionally, Chromium has been updated to version 137.0.7151.119.
 dependencies:

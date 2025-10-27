@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-hortusfox
 name: HortusFox
 tagline: A collaborative plant tracking and management application
-icon: https://i.imgur.com/67vJT3R.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-hortusfox/logo.png
 category: files & productivity
 version: "5.1"
 port: 8838
@@ -30,12 +30,12 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/danielbrendel/hortusfox-web
 support: https://github.com/danielbrendel/hortusfox-web/issues
 gallery:
-  - https://imgur.com/l22UG9v.png
-  - https://imgur.com/v7IQyz1.png
-  - https://imgur.com/B1dFCh8.png
-  - https://imgur.com/0YafCew.png
-  - https://imgur.com/h7JRzMC.png
-  - https://imgur.com/9FxlSD0.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-hortusfox/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-hortusfox/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-hortusfox/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-hortusfox/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-hortusfox/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-hortusfox/6.jpg
 releaseNotes: >-
   Version 5.1 of HortusFox adds Russian language support and fixes several issues, including backup inconsistencies, API authentication errors, and group item linking. The location API endpoint now supports pagination.
 dependencies:

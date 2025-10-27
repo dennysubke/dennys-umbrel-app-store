@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-centrifugo
 name: Centrifugo
 tagline: A highly scalable real-time messaging server platform
-icon: https://i.imgur.com/rgZwgin.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-centrifugo/logo.png
 category: networking
 version: "5.4.6"
 port: 8086
@@ -43,9 +43,9 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store
 repo: https://github.com/centrifugal/centrifugo
 support: https://github.com/centrifugal/centrifugo/issues
 gallery:
-  - https://i.imgur.com/UkpPZGS.jpg
-  - https://i.imgur.com/LsvrkJg.jpg
-  - https://i.imgur.com/7jEhbrY.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-centrifugo/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-centrifugo/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-centrifugo/3.jpg
 releaseNotes: >-
   This update introduces the ability to configure a custom token user ID claim, providing more flexibility in authentication scenarios, and improves logging by displaying connection durations in a more readable format. Several fixes address issues such as bad checksum errors during recovery, Redis publish errors, and proxy log redaction for enhanced security. 
 

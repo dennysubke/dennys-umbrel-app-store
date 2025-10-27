@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-mermaid
 name: Mermaid Live Editor
 tagline: A live editor for instant Mermaid diagram visualization
-icon: https://i.imgur.com/JSZZQ90.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mermaid/logo.png
 category: developer tools
 version: "11.2.1"
 port: 9084
@@ -19,9 +19,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/mermaid-js/mermaid-live-editor
 support: https://github.com/mermaid-js/mermaid-live-editor/issues
 gallery:
-  - https://i.imgur.com/NIaBykJ.png
-  - https://i.imgur.com/UO7RgP7.png
-  - https://i.imgur.com/TNfa1Kh.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mermaid/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mermaid/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mermaid/3.jpg
 releaseNotes: >-
   These updates include version bumps for multiple dependencies: production dependencies mermaid and rollup, along with development dependencies vite-svg-loader, standard, and vite, to incorporate stability and security improvements in the latest versions
 dependencies:

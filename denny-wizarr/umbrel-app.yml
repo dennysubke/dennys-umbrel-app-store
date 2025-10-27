@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-wizarr
 name: Wizarr
 tagline: An advanced invitation and management system for media servers
-icon: https://i.imgur.com/p7ndWGP.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wizarr/logo.png
 category: media
 version: "2025.10.4"
 port: 5690
@@ -24,10 +24,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/wizarrrr/wizarr
 support: https://github.com/wizarrrr/wizarr/issues
 gallery:
-  - https://i.imgur.com/lfxEgG1.png
-  - https://i.imgur.com/ztaPz8F.png
-  - https://i.imgur.com/nrmDtkx.png
-  - https://i.imgur.com/wz6Lhj6.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wizarr/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wizarr/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wizarr/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wizarr/4.jpg
 releaseNotes: >-
   Version 2025.10.4 introduces major improvements to activity monitoring, historical data import, and user management. 
   

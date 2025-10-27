@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-vito
 name: Vito
 tagline: A secure, self-hosted secret sharing application
-icon: https://i.imgur.com/ocxO8xT.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-vito/logo.png
 category: files & productivity
 version: "0.0.4"
 port: 9998
@@ -30,9 +30,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/GlobusGroup/vito
 support: https://github.com/GlobusGroup/vito/issues
 gallery:
-  - https://i.imgur.com/WJqNfM9.png
-  - https://i.imgur.com/S3I4PA5.png
-  - https://i.imgur.com/qfnDSm3.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-vito/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-vito/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-vito/3.jpg
 releaseNotes: >-
   This update introduces Docker support to simplify self-hosting. Additionally, the backend code was refactored for better maintainability and minor performance optimizations were made.
 dependencies:

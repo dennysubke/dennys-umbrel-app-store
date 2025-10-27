@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-fluid
 name: FluidCalendar
 tagline: An open-source intelligent calendar for smarter scheduling
-icon: https://i.imgur.com/pSCyqAP.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fluid/logo.png
 category: files & productivity
 version: "1.2.3"
 port: 3411
@@ -27,13 +27,13 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/dotnetfactory/fluid-calendar
 support: https://github.com/dotnetfactory/fluid-calendar/issues
 gallery:
-  - https://i.imgur.com/ugTMwAC.png
-  - https://i.imgur.com/zMY23BS.png
-  - https://i.imgur.com/RYRwzRH.png
-  - https://i.imgur.com/7fiBn69.png
-  - https://i.imgur.com/eVyC02r.png
-  - https://i.imgur.com/BPNcjsY.png
-  - https://i.imgur.com/v3S9taz.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fluid/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fluid/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fluid/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fluid/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fluid/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fluid/6.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fluid/7.jpg
 releaseNotes: >-
   Version 1.2.3 of FluidCalendar introduces a new task start date feature, allowing tasks to be scheduled only when their start date arrives, along with improved sorting and filtering options. Calendar settings now allow for choosing the first day of the week, and expanded timezone options are available. Bug fixes include resolving all-day event display issues with Google Calendar and Outlook, along with other UI and technical improvements.
 dependencies:

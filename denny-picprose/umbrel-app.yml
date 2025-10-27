@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-picprose  
 name: PicProse
 tagline: An article cover image generator tool for stunning visuals
-icon: https://i.imgur.com/jEPMk4U.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-picprose/logo.png
 category: files & productivity
 version: "0.1.1"
 port: 3345
@@ -21,9 +21,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/jaaronkot/picprose
 support: https://github.com/jaaronkot/picprose/issues
 gallery:
-  - https://i.imgur.com/80mGEZD.png
-  - https://i.imgur.com/KqTzTya.png
-  - https://i.imgur.com/FdYh2Id.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-picprose/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-picprose/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-picprose/3.jpg
 releaseNotes: >-
   The 0.1.1 release includes system configuration support, internationalization (i18n) features, custom font support, and options to adjust title and author font sizes. These updates enhance customization and usability for users.
 dependencies:

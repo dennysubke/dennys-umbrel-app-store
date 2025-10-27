@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-rstudio
 name: RStudio
 tagline: An intuitive IDE for data analysis
-icon: https://i.imgur.com/unwFsjl.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rstudio/logo.png
 category: developer tools
 version: "4.4.2"
 port: 8787
@@ -27,11 +27,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/rstudio/rstudio
 support: https://github.com/rstudio/rstudio/issues
 gallery:
-  - https://i.imgur.com/AIQ2khn.png
-  - https://i.imgur.com/hlnVyZB.png
-  - https://i.imgur.com/x22k5a7.png
-  - https://i.imgur.com/ZNriKax.png
-  - https://i.imgur.com/vTHx80y.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rstudio/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rstudio/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rstudio/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rstudio/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rstudio/5.jpg
 releaseNotes: >-
   The R4.4.2 release includes several updates and fixes, such as automatic updates to container definition files, improvements in the installation process with the use of gdebi-core to install RStudio, and fixes to the devel builds of rocker/tidyverse and rocker/verse platforms. Additionally, it addresses cache issues for rocker/rstudio:devel and rocker/tidyverse:devel, removes outdated workarounds for old RStudio Server versions, and updates dependencies. 
   

@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-leto
 name: LetoReader
 tagline: An open-source speed reader for faster, focused reading
-icon: https://i.imgur.com/WGLtjMD.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-leto/logo.png
 category: files & productivity
 version: "3"
 port: 5001
@@ -24,9 +24,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/Axym-Labs/LetoReader
 support: https://github.com/Axym-Labs/LetoReader/issues
 gallery:
-  - https://i.imgur.com/hW1wQ9q.png
-  - https://i.imgur.com/i3V1K9g.png
-  - https://i.imgur.com/y4VM2TV.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-leto/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-leto/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-leto/3.jpg
 releaseNotes: >-
   Version 3 of LetoReader optimizes state management, significantly reducing RAM usage by keeping only one text in memory at a time. 
   

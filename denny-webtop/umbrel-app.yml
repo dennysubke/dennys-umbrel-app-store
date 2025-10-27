@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-webtop
 name: Ubuntu Mate
 tagline: An easy-to-use desktop that brings the power of Ubuntu to your fingertips
-icon: https://i.imgur.com/OspDvGc.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-webtop/logo.png
 category: files & productivity
 version: "04d8319c"
 port: 3399
@@ -27,13 +27,13 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/linuxserver/docker-webtop
 support: https://github.com/linuxserver/docker-webtop/issues
 gallery:
-  - https://i.imgur.com/yefsggC.png
-  - https://i.imgur.com/fedD4pg.png
-  - https://i.imgur.com/X7Mvkrm.png
-  - https://i.imgur.com/QX2im49.png
-  - https://i.imgur.com/Dn7vyA0.png
-  - https://i.imgur.com/hVwDCWL.png
-  - https://i.imgur.com/NHOGsw4.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-webtop/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-webtop/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-webtop/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-webtop/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-webtop/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-webtop/6.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-webtop/7.jpg
 releaseNotes: >-
   Updating base packages to Version 04d8319c. 
 dependencies:

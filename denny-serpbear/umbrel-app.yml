@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-serpbear
 name: SerpBear
 tagline: An SEO tool designed for accuracy and simplicity
-icon: https://i.imgur.com/G7FhsjG.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-serpbear/logo.png
 category: files & productivity
 version: "2.0.6"
 port: 3232
@@ -24,9 +24,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/towfiqi/serpbear
 support: https://github.com/towfiqi/serpbear/issues
 gallery:
-  - https://i.imgur.com/uI3oRV6.png
-  - https://i.imgur.com/58uvqC4.png
-  - https://i.imgur.com/QWvaDKQ.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-serpbear/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-serpbear/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-serpbear/3.jpg
 releaseNotes: >-
   Version 2.0.6 addresses several issues, including fixing the Docker build by ensuring npm package versions match and resolving the Proxy Scraper functionality. It also fixes a loading issue with Google Ads search volume data.
 dependencies:

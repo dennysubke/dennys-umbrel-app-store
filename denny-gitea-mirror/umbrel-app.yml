@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-gitea-mirror
 name: Gitea Mirror
 tagline: An automated mirror between GitHub and Gitea
-icon: https://i.imgur.com/M3YkKEb.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gitea-mirror/logo.png
 category: In Progress
 version: "3.8.7"
 port: 4321
@@ -24,9 +24,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/RayLabsHQ/gitea-mirror
 support: https://github.com/RayLabsHQ/gitea-mirror/issues
 gallery:
-  - https://i.imgur.com/IXQgNoL.png
-  - https://i.imgur.com/IXQgNoL.png
-  - https://i.imgur.com/IXQgNoL.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gitea-mirror/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gitea-mirror/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gitea-mirror/3.jpg
 releaseNotes: >-
   This version improves SSO stability.
 dependencies: []

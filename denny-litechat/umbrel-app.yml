@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-litechat
 name: LiteChat
 tagline: A local first AI chat app
-icon: https://i.imgur.com/BTERtr2.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-litechat/logo.png
 category: AI
 version: "0.2.9"
 port: 7744
@@ -30,11 +30,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/DimitriGilbert/LiteChat
 support: https://github.com/DimitriGilbert/LiteChat/issues
 gallery:
-  - https://i.imgur.com/xQ7w6gh.png
-  - https://i.imgur.com/aMenr9d.png
-  - https://i.imgur.com/P00WdaY.png
-  - https://i.imgur.com/AtWSTaS.png
-  - https://i.imgur.com/OmGeuIJ.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-litechat/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-litechat/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-litechat/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-litechat/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-litechat/5.jpg
 releaseNotes: >-
   Version 0.2.9 includes settings for proxy and Formedible update, as well as various improvements and bug fixes.
 dependencies: []

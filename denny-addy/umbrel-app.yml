@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-addy
 name: AnonAddy
 tagline: An undercover inbox for your secret agent needs
-icon: https://i.imgur.com/liI2R2e.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-addy/logo.png
 category: networking
 version: "1.3.1"
 port: 8727
@@ -27,11 +27,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/anonaddy/docker
 support: https://github.com/anonaddy/docker/issues
 gallery:
-  - https://imgur.com/F6ifD4M.png
-  - https://imgur.com/SPjLmBA.png
-  - https://imgur.com/3xGO30W.png
-  - https://imgur.com/mUZrMD4.png
-  - https://imgur.com/pHLcxV0.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-addy/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-addy/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-addy/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-addy/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-addy/5.jpg
 releaseNotes: >-
   Version 1.3.1 of AnonAddy introduces new environment variables for shared domains, Rspamd, Postfix relay host SSL, and DKIM selector. It also removes the sorbs.net blacklist filter due to its upcoming shutdown.
 dependencies:
