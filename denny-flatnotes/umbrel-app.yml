@@ -4,7 +4,7 @@ name: Flatnotes
 tagline: A self-hosted note-taking app with flat Markdown file storage
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-flatnotes/logo.png
 category: files & productivity
-version: "5.3.0"
+version: "5.5.4"
 port: 8061
 description: >-
   Flatnotes is an open-source note-taking app designed with a focus on simplicity and user-friendliness. It allows users to create and manage their notes in a clear and structured format, making it easy to organize thoughts and ideas. 
@@ -41,10 +41,10 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-flatnotes/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-flatnotes/3.jpg
 releaseNotes: >-
-  The new "Quick Access Notes" feature allows customization of the notes displayed on the home page, replacing the previous "RECENTLY MODIFIED" section. Users can now configure the search term, order, limit, and title of the notes shown, making it easier to pin or hide specific notes. Additionally, a button is available to view all "Quick Access Notes" if there are more than can be displayed. 
+  Version v5.5.4 updates both Python and JavaScript dependencies and improves authentication handling so the app correctly detects login requirements on load. 
   
   
-  Please note that the config option FLATNOTES_HIDE_RECENTLY_MODIFIED has been deprecated in favor of FLATNOTES_QUICK_ACCESS_HIDE.
+  Additionally, local drafts are now cleared when logging out or closing the browser without selecting “Remember Me.”
 dependencies:
 path: ""
 defaultUsername: "admin"
