@@ -33,13 +33,21 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-copyparty/4.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-copyparty/5.jpg
 releaseNotes: >-
-  This version introduces a broad range of improvements that make the platform more flexible, powerful, and user-friendly. You can now view CBZ manga and comics directly in the browser, magnify images and videos to fill the screen, and enjoy embedded album art in the audio player. Access control has been enhanced with options to subtract users and groups from permissions, new volume flags to prevent duplicate uploads, and settings to hide certain interface elements. Text files can also be viewed directly using a simple link suffix, while reflink-based deduplication is now supported across more Python versions for safer and faster file handling.
+  This release includes several new features and improvements:
 
-
-  This update also includes several bug fixes that improve stability and reliability. FTP uploads can now resume after interruptions, and the “race-the-beam” feature functions correctly in all shared directories.
-
-
-  Additionally, internal refinements make configuration and maintenance easier. A new example hook has been added, invalid configuration values are now blocked, and translation files are separated for better organization. Overall, this version is more polished, secure, and enjoyable to use.
+  - ✉️ When all uploads have finished, the client (browser and u2c) now sends a “done” message to the server  
+  - 🏢 Added **copyparty-en.pyz**, an enterprise-friendly variant  
+  - 🚫 No SMB-server included (antivirus won’t flag it)  
+  - 🇬🇧 English-only build to avoid AV false positives  
+  - 📄 Renamed WebDAV config `.bat` to `.txt` for safety  
+  - 📂 Volumes with permission `h` are now shown in the navigation pane  
+  - 💬 Added global option `--notooltips` to disable tooltips by default  
+  - ⚙️ Fixed `u2c --dr` option when the server runs on Windows  
+  - 🪲 Fixed crash on startup when using `volflags unlistc*` and the parent folder isn’t a volume  
+  - 🖼️ `h` permission no longer triggers 404 errors in OpenGraph / Discord embeds  
+  - 🗃️ Single-file volumes no longer expose parent filenames when combined with `--og`  
+  - 🧹 Removed harmless warnings from single-file volumes  
+  - 🎨 Fixed file size color display in selected rows  
 dependencies: []
 path: ""
 defaultUsername: "admin"
