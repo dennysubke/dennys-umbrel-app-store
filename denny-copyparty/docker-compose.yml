@@ -9,6 +9,7 @@ services:
   web:
     image: ghcr.io/9001/copyparty-ac:1.19.19@sha256:0799b3a495e4ba97304d8eeb052aafec744d871bdcbb0ad996a04c573d3ba696
     restart: on-failure
+    user: "1000:1000"
     volumes:
       - ${APP_DATA_DIR}/config/config.conf:/cfg/config.conf:ro
       - ${APP_DATA_DIR}/data/cp_data:/cfg/hists
