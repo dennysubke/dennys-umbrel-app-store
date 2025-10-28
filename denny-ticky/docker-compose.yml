@@ -16,7 +16,7 @@ services:
       DB_NAME: ticky
       DB_USERNAME: ticky
       DB_PASSWORD: s3cur3p@ssw0rd123
-      BASE_URL: http://${DEVICE_DOMAIN_NAME}
+      BASE_URL: http://${DEVICE_DOMAIN_NAME}:4088
       SMTP_ENABLED: false
     depends_on:
       - ticky-db
