@@ -16,22 +16,18 @@ services:
       DB_NAME: ticky
       DB_USERNAME: ticky
       DB_PASSWORD: s3cur3p@ssw0rd123
+      BASE_URL: http://${DEVICE_DOMAIN_NAME}
       SMTP_ENABLED: false
     depends_on:
-      ticky-db:
-        condition: service_healthy
+      - ticky-db
 
   ticky-db:
-    image: mysql:9.3.0@sha256:f1049ce35b3986b84c08184de43a0b2109ae037a4a10a23ecf373a893daeadf7
+    image: mysql:9.3.0@sha256:f1049ce35b3986b84c08184de43a0b2109ae037a4a10a23ecf373a893da
     restart: on-failure
     environment:
       MYSQL_DATABASE: ticky
       MYSQL_USER: ticky
-      MYSQL_ROOT_PASSWORD: s3cur3p@ssw0rd123
       MYSQL_PASSWORD: s3cur3p@ssw0rd123
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      timeout: 2s
-      retries: 30
+      MYSQL_ROOT_PASSWORD: s3cur3p@ssw0rd123
     volumes:
-      - ${APP_DATA_DIR}/data/db:/var/lib/mysql
+      - ${APP_DATA_DIR}/data/mysql:/var/lib/mysql
