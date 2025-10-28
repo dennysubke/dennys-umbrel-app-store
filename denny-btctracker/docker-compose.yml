@@ -7,7 +7,7 @@ services:
       APP_PORT: 3000
 
   web:
-    image: thewilqq/btc-tracker:v2025.10.28@sha256:28970995a541092655db03c43b7809bd3a41afdb27809565670f9246983ed250
+    image: thewilqq/btc-tracker:v0.6.2@sha256:04fa2d921d55514bc0e710e8be1a9e57371a4281d3eee09c2649a12a38acf446
     restart: on-failure
     user: 1000:1000
     environment:
@@ -18,4 +18,5 @@ services:
       - NEXTAUTH_URL=http://${DEVICE_DOMAIN_NAME}:3947
     volumes:
       - ${APP_DATA_DIR}/data:/app/data
+
 
