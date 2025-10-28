@@ -9,7 +9,7 @@ services:
   web:
     image: thewilqq/btc-tracker:v0.6.2@sha256:04fa2d921d55514bc0e710e8be1a9e57371a4281d3eee09c2649a12a38acf446
     restart: on-failure
-    user: 1000:1000
+    #user: 1000:1000
     environment:
       - NODE_ENV=production
       - PORT=3000
@@ -18,5 +18,6 @@ services:
       - NEXTAUTH_URL=http://${DEVICE_DOMAIN_NAME}:3947
     volumes:
       - ${APP_DATA_DIR}/data:/app/data
+
 
 
