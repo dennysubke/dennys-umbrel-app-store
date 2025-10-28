@@ -35,17 +35,16 @@ gallery:
 releaseNotes: >-
   This release includes several new features and improvements:
 
-    - ✉️ When all uploads have finished, the client (browser and u2c) now sends a “done” message to the server  
-    - 🏢 Added **copyparty-en.pyz**, an enterprise-friendly variant  
-    - 🚫 No SMB-server included (antivirus won’t flag it)  
-    - 🇬🇧 English-only build to avoid AV false positives  
-    - 📄 Renamed WebDAV config `.bat` to `.txt` for safety  
-    - 📂 Volumes with permission `h` are now shown in the navigation pane  
-    - 💬 Added global option `--notooltips` to disable tooltips by default  
-    - ⚙️ Fixed `u2c --dr` option when the server runs on Windows  
-    - 🪲 Fixed crash on startup when using `volflags unlistc*` and the parent folder isn’t a volume  
-    - 🖼️ `h` permission no longer triggers 404 errors in OpenGraph / Discord embeds  
-    - 🗃️ Single-file volumes no longer expose parent filenames when combined with `--og`  
+    - ✉️ When all uploads have finished, the client now sends a 'done' message to the server  
+    - 🏢 Added copyparty-en.pyz, an enterprise-friendly variant  
+    - 🚫 No SMB-server included  
+    - 🇬🇧  English-only build to avoid AV false positives  
+    - 📄 Renamed WebDAV config '.bat' to '.txt' for safety  
+    - 📂 Volumes with permission 'h' are now shown in the navigation pane  
+    - 💬 Added global option '--notooltips' to disable tooltips by default   
+    - 🪲 Fixed startup crash when using volflags unlistc  
+    - 🖼️ 'h' permission no longer triggers 404 errors in OpenGraph  
+    - 🗃️ Single-file volumes no longer expose parent filenames when combined with '--og'  
     - 🧹 Removed harmless warnings from single-file volumes  
     - 🎨 Fixed file size color display in selected rows  
 dependencies: []
