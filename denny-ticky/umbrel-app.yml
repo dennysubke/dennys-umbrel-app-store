@@ -4,7 +4,7 @@ name: Ticky
 tagline: A modern Kanban board app
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ticky/logo.png
 category: files & productivity
-version: "1.5.0"
+version: "1.14.0"
 port: 4088
 description: >-
   Ticky is a modern self hosted Kanban application built with ASP NET Core Blazor, designed to offer a powerful yet user friendly task management experience. It provides all the core functionalities expected from a Kanban tool such as projects, boards, columns, and cards, while introducing advanced features like time tracking, subtask support, reminders, priority labeling, and even linked tasks in a way reminiscent of professional platforms like Jira.
@@ -22,10 +22,10 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ticky/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ticky/3.jpg
 releaseNotes: >-
-  Version 1.5.0 introduces a responsive design and an early mobile version, making the app functional on various devices. New features include a confetti effect when tasks are completed and an icon indicating descriptions on cards, along with several bug fixes and visual improvements. 
-  
-  
-  Additionally, a Discord community has been created for users to share ideas and receive support.
+  Version 1.14.0 introduces several useful improvements: you can now reorder subtasks and assign users to them, while linking cards is easier thanks to a new search bar.
+
+
+  The board view now updates in real time, new info and feedback modals were added, and various UI refinements and bug fixes make everything smoother.
 dependencies:
 path: ""
 defaultUsername: "admin@ticky.com"
