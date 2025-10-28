@@ -38,7 +38,6 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-btctracker/6.jpg
 releaseNotes: >-
   This release includes several new features and improvements:
-
   
     - Added support for zero-cost Bitcoin transactions like mining rewards and gifts  
     - Zero-cost entries now correctly calculate cost basis as $0  
