@@ -7,7 +7,7 @@ services:
       APP_PORT: 8080
 
   web:
-    image: ghcr.io/dkorecko/ticky:v1.5.0@sha256:af2e73cf1cd1a877938c3a9a60265c4ee7f21fa1ee9a73540d62b492ee17596d
+    image: ghcr.io/dkorecko/ticky:v1.14.0@sha256:a56a9a3fc5d07ae2371515561ea8f822d918a372bc67131e771a0c9d4a34ac9d
     restart: on-failure
     volumes:
       - ${APP_DATA_DIR}/data/ticky_data:/app/wwwroot/uploaded
