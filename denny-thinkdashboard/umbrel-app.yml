@@ -30,6 +30,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-thinkdashboard/1.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-thinkdashboard/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-thinkdashboard/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-thinkdashboard/4.jpg
 releaseNotes: >-
   This update adds a full backup feature that allows users to export and import their entire data directory directly from the interface. Backups can now be created and restored through the configuration page, making it much easier to manage and safeguard personal data.
 
