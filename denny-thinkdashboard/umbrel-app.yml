@@ -3,7 +3,7 @@ id: denny-thinkdashboard
 name: ThinkDashboard
 tagline: A simple self-hosted bookmark dashboard
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-thinkdashboard/logo.png
-category: In Progress
+category: files & productivity
 version: "0.5.5"
 port: 8788
 description: >-
