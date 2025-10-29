@@ -3,7 +3,7 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: denny-btcpay-liquid_web_1
+      APP_HOST: denny-btcpay-lbtc_web_1
       APP_PORT: 3003
 
   postgres:
