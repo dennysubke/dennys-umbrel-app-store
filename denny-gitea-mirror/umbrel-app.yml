@@ -4,7 +4,7 @@ name: Gitea Mirror
 tagline: An automated mirror between GitHub and Gitea
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gitea-mirror/logo.png
 category: In Progress
-version: "3.8.7"
+version: "3.8.10"
 port: 4321
 description: >-
   🪞 Gitea Mirror is an automation tool that continuously synchronizes repositories from GitHub to Gitea. It replicates commits, branches, and tags from their source repositories, ensuring both platforms always stay in sync. Once configured, the process runs automatically without the need for manual updates, making it ideal for maintaining consistent backups or mirrors of active development projects.
@@ -28,7 +28,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gitea-mirror/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gitea-mirror/3.jpg
 releaseNotes: >-
-  This version improves SSO stability.
+  Version v3.8.10 preserves the original issuer formatting for OIDC authentication. This update ensures more consistent and reliable handling of identity provider data.
 dependencies: []
 path: ""
 defaultUsername: ""
