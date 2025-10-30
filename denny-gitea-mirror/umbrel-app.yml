@@ -3,7 +3,7 @@ id: denny-gitea-mirror
 name: Gitea Mirror
 tagline: An automated mirror between GitHub and Gitea
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gitea-mirror/logo.png
-category: In Progress
+category: developer tools
 version: "3.8.11"
 port: 4321
 description: >-
