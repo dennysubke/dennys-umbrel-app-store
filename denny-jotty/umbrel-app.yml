@@ -4,7 +4,7 @@ name: Jotty
 tagline: A simple app for notes and checklists
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-jotty/logo.png
 category: In Progress
-version: "1.8.1"
+version: "1.9.2"
 port: 3396
 description: >-
   🟣 Jotty is a modern open source application that focuses on simplicity, clarity, and control when managing notes and checklists. It is designed for people who prefer an organized yet minimal approach to writing and planning. The goal of Jotty is to make the process of capturing ideas, structuring thoughts, and tracking tasks as seamless as possible. Its clean interface encourages focus while maintaining enough flexibility for both personal and professional use.
