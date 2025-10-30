@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-open-notebook_web_1
+      APP_PORT: 8502
+
+  web:
+    image: nginx:alpine
+    restart: on-failure
+    depends_on:
+      - app
+    volumes:
+      - ${APP_DATA_DIR}/data/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+
+  app:
+    image: ghcr.io/lfnovo/open-notebook:1.0.11-single@sha256:0b159179c9ca6f83cc97ebd527a862e062c7dc95526db73a53e61d9517f5ae15
+    restart: on-failure
+    env_file:
+      - path: ${APP_DATA_DIR}/.env
+    environment:
+      - SURREAL_URL=ws://localhost:8000/rpc
+      - SURREAL_USER=root
+      - SURREAL_PASSWORD=root
+      - SURREAL_NAMESPACE=open_notebook
+      - SURREAL_DATABASE=production
+      - API_URL=/api
+      - RUST_LOG=warn
+    volumes:
+      - ${APP_DATA_DIR}/data/notebook:/app/data
+      - ${APP_DATA_DIR}/data/surreal:/mydata
