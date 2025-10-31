@@ -27,8 +27,7 @@ services:
       - mongo
 
   frontend:
-    image: twakedrive/tdrive-frontend:latest
-    container_name: denny-tdrive_frontend_1
+    image: twakedrive/twakedrive-frontend:latest
     environment:
       DEV: production
       NODE_HOST: http://tdrive_node:4000
