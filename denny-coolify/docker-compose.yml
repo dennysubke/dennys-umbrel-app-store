@@ -35,20 +35,34 @@ services:
       POSTGRES_PASSWORD: coolify
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
 
   redis:
     image: redis:7.4.6-alpine
     restart: on-failure
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
 
   web:
     image: ghcr.io/coollabsio/coolify:latest
     restart: on-failure
     stop_grace_period: 1m
     depends_on:
-      - db
-      - redis
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
     environment:
-      APP_KEY: base64:Z1n2bH7v1p9w3s6u8y0A2C4E6G8J0L2N4Q6S8U0W2Y4a6c8e0g==
+      APP_KEY: base64:VGhpc0lzQUR1bW15MzJCeXRlS2V5Zm9yTGFyYXZlbCE=
+      APP_URL: http://${DEVICE_DOMAIN_NAME}:8527
+      PORT: 8080
       DB_CONNECTION: pgsql
       DB_HOST: db
       DB_PORT: 5432
@@ -58,8 +72,6 @@ services:
       REDIS_HOST: redis
       REDIS_PORT: 6379
       QUEUE_CONNECTION: redis
-      APP_URL: http://${DEVICE_DOMAIN_NAME}:8527
       DOCKER_HOST: unix:///var/run/docker.sock
-      PORT: 8080
     volumes:
       - ${APP_DATA_DIR}/data/docker:/var/run
