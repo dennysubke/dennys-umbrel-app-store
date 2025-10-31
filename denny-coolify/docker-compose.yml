@@ -27,7 +27,7 @@ services:
       - ${APP_DATA_DIR}/data/docker:/data
 
   db:
-    image: postgres:15
+    image: postgres:15.14
     restart: on-failure
     environment:
       POSTGRES_DB: coolify
@@ -37,35 +37,29 @@ services:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
 
   redis:
-    image: redis:7
+    image: redis:7.4.6-alpine
     restart: on-failure
-    volumes:
-      - ${APP_DATA_DIR}/data/redis:/data
 
   web:
-    image: coollabsio/coolify:latest
+    image: ghcr.io/coollabsio/coolify:latest
     restart: on-failure
+    stop_grace_period: 1m
     depends_on:
       - db
       - redis
-      - docker
     environment:
-      APP_ENV: production
-      APP_URL: http://${DEVICE_DOMAIN_NAME}
+      APP_KEY: base64:Z1n2bH7v1p9w3s6u8y0A2C4E6G8J0L2N4Q6S8U0W2Y4a6c8e0g==
       DB_CONNECTION: pgsql
       DB_HOST: db
       DB_PORT: 5432
       DB_DATABASE: coolify
       DB_USERNAME: coolify
       DB_PASSWORD: coolify
-      CACHE_DRIVER: redis
-      SESSION_DRIVER: redis
-      QUEUE_CONNECTION: redis
       REDIS_HOST: redis
       REDIS_PORT: 6379
-      PHP_FPM_USER: www-data
-      PHP_FPM_GROUP: www-data
+      QUEUE_CONNECTION: redis
+      APP_URL: http://${DEVICE_DOMAIN_NAME}:8527
       DOCKER_HOST: unix:///var/run/docker.sock
+      PORT: 8080
     volumes:
-      - ${APP_DATA_DIR}/data/app:/data
       - ${APP_DATA_DIR}/data/docker:/var/run
