@@ -8,13 +8,11 @@ services:
 
   mongo:
     image: mongo:7.0.14
-    container_name: denny-tdrive_mongo_1
     volumes:
       - ${APP_DATA_DIR}/data/mongo:/data/db
 
   tdrive_node:
     image: twakedrive/tdrive-node:latest
-    container_name: denny-tdrive_node_1
     environment:
       DEV: production
       SEARCH_DRIVER: mongodb
