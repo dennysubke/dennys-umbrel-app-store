@@ -29,7 +29,7 @@ services:
     environment:
       DEV: production
       NODE_HOST: http://tdrive_node:4000
-      SSL_CERTS: selfsigned
+      SSL_CERTS: off
     volumes:
       - ${APP_DATA_DIR}/data/logs/nginx:/var/log/nginx
       - ${APP_DATA_DIR}/data/letsencrypt:/etc/letsencrypt
