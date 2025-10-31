@@ -25,7 +25,7 @@ services:
       - mongo
 
   frontend:
-    image: twakedrive/twakedrive-frontend:latest
+    image: twakedrive/tdrive-frontend:latest
     environment:
       DEV: production
       NODE_HOST: http://tdrive_node:4000
