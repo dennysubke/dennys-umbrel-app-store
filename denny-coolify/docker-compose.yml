@@ -44,6 +44,10 @@ services:
       REDIS_HOST: redis
       REDIS_PORT: 6379
       COOLIFY_REDIS_URL: redis://redis:6379
+      COOLIFY_SELF_HOSTED: "true"
+      COOLIFY_MIGRATION_ENABLED: "true"
+      COOLIFY_SEEDER_ENABLED: "false"
+      DOCKER_HOST: unix:///data/docker.sock
     extra_hosts:
       - host.docker.internal:host-gateway
       - ${APP_DOMAIN}:host-gateway
