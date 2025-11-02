@@ -28,7 +28,7 @@ services:
 
   web:
     image: coollabsio/coolify:4.0.0-beta.434@sha256:39db8373628c340747cf6199f5873322d5d0a9b6617bad0ce5cf6895369a3a83
-    command: --host unix:///var/run/docker.sock --admin-password-file=/default-password
+    #command: --host unix:///var/run/docker.sock --admin-password-file=/default-password
     restart: on-failure
     environment:
       COOLIFY_APP_ID: coolify
