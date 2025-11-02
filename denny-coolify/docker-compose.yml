@@ -46,10 +46,11 @@ services:
       COOLIFY_REDIS_URL: redis://redis:6379
     extra_hosts:
       - host.docker.internal:host-gateway
+      - ${APP_DOMAIN}:host-gateway
     volumes:
+      # /var/run/docker.sock:/var/run/docker.sock
       - ${APP_DATA_DIR}/data/docker:/var/run
       - ${APP_DATA_DIR}/data/coolify_data:/data
-      - ${APP_DATA_DIR}/default-password:/default-password
     depends_on:
       db:
         condition: service_healthy
