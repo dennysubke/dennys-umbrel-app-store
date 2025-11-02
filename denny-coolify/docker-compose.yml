@@ -47,7 +47,6 @@ services:
       COOLIFY_REDIS_URL: redis://redis:6379
     volumes:
       - ${APP_DATA_DIR}/data/coolify_data:/data
-      - ${APP_DATA_DIR}/default-password:/default-password
       - ${APP_DATA_DIR}/data/docker:/var/run
     depends_on:
       - db
