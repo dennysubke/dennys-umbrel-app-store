@@ -7,7 +7,7 @@ services:
       APP_PORT: 8080
 
   docker:
-    image: docker:28.0.4-dind@sha256:ddb0033088b4fab74881ade341a582e3c6c8021b82377703ba1a6106bd3ded44
+    image: docker:28.0.4-dind
     privileged: true
     network_mode: host
     stop_grace_period: 1m
@@ -26,8 +26,51 @@ services:
       - ${APP_DATA_DIR}/entrypoint.sh:/entrypoint.sh
       - ${APP_DATA_DIR}/data/docker:/data
 
+  keygen:
+    image: alpine:3.20
+    command: >
+      sh -c "
+      apk add --no-cache openssh-keygen &&
+      [ -f /keys/coolify_ed25519 ] || ssh-keygen -t ed25519 -a 100 -f /keys/coolify_ed255iny -q -N '' -C root@coolify &&
+      mv -f /keys/coolify_ed255iny /keys/coolify_ed25519 &&
+      mv -f /keys/coolify_ed255iny.pub /keys/coolify_ed25519.pub &&
+      chown -R 9999:9999 /keys
+      "
+    volumes:
+      - ${APP_DATA_DIR}/data/keys:/keys
+
+  prep-sshd:
+    image: alpine:3.20
+    depends_on:
+      - keygen
+    command: >
+      sh -c "
+      mkdir -p /sshd &&
+      cp /keys/coolify_ed25519.pub /sshd/authorized_keys &&
+      chmod 600 /sshd/authorized_keys
+      "
+    volumes:
+      - ${APP_DATA_DIR}/data/keys:/keys:ro
+      - ${APP_DATA_DIR}/data/sshd:/sshd
+
+  sshd:
+    image: lscr.io/linuxserver/openssh-server:latest
+    restart: on-failure
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Berlin
+      - PASSWORD_ACCESS=false
+      - PUBLIC_KEY_FILE=/config/ssh/authorized_keys
+      - USER_NAME=coolify
+      - SERVICE_PORT=2222
+    depends_on:
+      - prep-sshd
+    volumes:
+      - ${APP_DATA_DIR}/data/sshd:/config/ssh
+
   web:
-    image: coollabsio/coolify:latest #coollabsio/coolify:4.0.0-beta.434@sha256:39db8373628c340747cf6199f5873322d5d0a9b6617bad0ce5cf6895369a3a83
+    image: coollabsio/coolify:4.0.0-beta.438
     restart: on-failure
     environment:
       COOLIFY_APP_ID: coolify
@@ -48,14 +91,18 @@ services:
       - host.docker.internal:host-gateway
       - ${APP_DOMAIN}:host-gateway
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      # ${APP_DATA_DIR}/data/docker:/var/run
+      - ${APP_DATA_DIR}/data/docker:/var/run
       - ${APP_DATA_DIR}/data/coolify_data:/data
+      - ${APP_DATA_DIR}/data/keys:/data/coolify/ssh/keys:ro
     depends_on:
       db:
         condition: service_healthy
       redis:
         condition: service_healthy
+      docker:
+        condition: service_started
+      sshd:
+        condition: service_started
     healthcheck:
       test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:8080 >/dev/null 2>&1 || exit 1"]
       interval: 15s
@@ -64,7 +111,7 @@ services:
       start_period: 20s
 
   db:
-    image: postgres:15@sha256:c189d272e4fcdd1ac419adee675d30be3d389c22ee770d593f15819d22a68a0d
+    image: postgres:15
     restart: on-failure
     environment:
       POSTGRES_USER: coolify
@@ -80,7 +127,7 @@ services:
       start_period: 10s
 
   redis:
-    image: redis:alpine@sha256:59b6e694653476de2c992937ebe1c64182af4728e54bb49e9b7a6c26614d8933
+    image: redis:alpine
     restart: on-failure
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
