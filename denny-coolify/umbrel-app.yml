@@ -1,0 +1,41 @@
+manifestVersion: 1
+id: denny-coolify
+name: Coolify
+tagline: A lightweight platform to deploy apps easily
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-coolify/logo.png
+category: In Progress
+version: "4.0.0-beta.434"
+port: 8527
+description: >-
+  🧊 Coolify is a modern platform designed to simplify the deployment and management of web applications. It provides an intuitive interface that allows developers to launch and maintain projects with minimal configuration. By automating complex DevOps processes, it eliminates the need for manual server setup, making application delivery faster and more reliable.
+
+
+  At its core, Coolify automatically builds and runs applications inside containerized environments, ensuring consistency across different projects and versions. It supports multiple programming languages and frameworks, allowing users to deploy both static websites and full-stack applications with ease. Coolify also manages databases and background services, keeping all essential components connected and optimized for performance.
+
+
+  Security and stability are central to its design. The platform automatically provisions SSL certificates for secure connections, handles environment variables safely, and manages updates to keep everything running smoothly. It also includes real-time monitoring tools that track resource usage, logs, and deployment statuses, helping developers maintain full visibility over their applications.
+
+
+  Coolify integrates seamlessly with Git repositories, enabling automatic deployments whenever new code is pushed. This makes continuous delivery effortless while maintaining full control over the build and release process. Its flexible configuration options allow teams to adapt the platform to their workflows, combining the simplicity of managed services with the freedom of full customization.
+
+
+  In essence, Coolify transforms the process of hosting and managing applications into a straightforward, automated experience while preserving complete control, transparency, and flexibility for developers.
+developer: coolLabs
+website: https://coolify.io/
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/coollabsio/coolify
+support: https://github.com/coollabsio/coolify/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-coolify/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-coolify/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-coolify/3.jpg
+releaseNotes: >-
+  Version 4.0.0-beta.434 improves the handling of build and runtime environments during deployments and introduces automatic generation of service name environment variables from Docker Compose. 
+  
+  
+  The release also includes general refinements and stability improvements.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
