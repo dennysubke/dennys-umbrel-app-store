@@ -5,7 +5,6 @@ services:
     environment:
       APP_HOST: denny-coolify_web_1
       APP_PORT: 80
-      PROXY_AUTH_ADD: "false"
 
   db:
     image: postgres:15
@@ -17,6 +16,11 @@ services:
       TZ: Europe/Berlin
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL","pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 3s
+      retries: 40
 
   redis:
     image: redis:7-alpine
@@ -26,73 +30,23 @@ services:
       - ${APP_DATA_DIR}/data/redis:/data
 
   docker:
-    image: docker:28.0.4-dind
+    image: docker:28-dind
     restart: on-failure
     privileged: true
+    command: ["--host=unix:///data/docker.sock"]
     environment:
       DOCKER_TLS_CERTDIR: ""
       TZ: Europe/Berlin
-    command: >
-      dockerd
-      --host=unix:///data/docker.sock
-      --storage-driver=overlay2
     volumes:
-      - ${APP_DATA_DIR}/data/docker:/data
+      - docker:/data
+      - ${APP_DATA_DIR}/data/dind:/var/lib/docker
 
-  keygen:
-    image: lscr.io/linuxserver/openssh-server:latest
+  init:
+    image: ghcr.io/coollabsio/coolify:v3.6.1
     restart: "no"
-    entrypoint: ["/bin/sh","-lc"]
-    command: >
-      'mkdir -p /keys &&
-       [ -f /keys/coolify_ed25519 ] ||
-       ssh-keygen -t ed25519 -a 100 -f /keys/coolify_ed25519 -q -N "" -C root@coolify'
-    volumes:
-      - ${APP_DATA_DIR}/data/keys:/keys
-
-  prep-sshd:
-    image: alpine:3.20
-    restart: "no"
-    depends_on:
-      - keygen
-    entrypoint: ["/bin/sh","-lc"]
-    command: >
-      'mkdir -p /sshd &&
-       cp /keys/coolify_ed25519.pub /sshd/authorized_keys &&
-       chmod 600 /sshd/authorized_keys'
-    volumes:
-      - ${APP_DATA_DIR}/data/keys:/keys:ro
-      - ${APP_DATA_DIR}/data/sshd:/sshd
-
-  sshd:
-    image: lscr.io/linuxserver/openssh-server:latest
-    restart: on-failure
-    depends_on:
-      - prep-sshd
+    env_file:
+      - ${APP_DATA_DIR}/data/env/web.env
     environment:
-      PUID: 1000
-      PGID: 1000
-      TZ: Europe/Berlin
-      PASSWORD_ACCESS: "false"
-      PUBLIC_KEY_FILE: /config/ssh/authorized_keys
-      USER_NAME: coolify
-      SERVICE_PORT: 2222
-    volumes:
-      - ${APP_DATA_DIR}/data/sshd:/config/ssh
-
-  web:
-    image: ghcr.io/coollabsio/coolify:4.0.0-beta.438
-    restart: on-failure
-    stop_grace_period: 1m
-    depends_on:
-      - db
-      - redis
-      - docker
-      - sshd
-    environment:
-      TZ: Europe/Berlin
-      APP_ENV: production
-      APP_URL: http://${DEVICE_DOMAIN_NAME}:8527
       DB_CONNECTION: pgsql
       DB_HOST: db
       DB_PORT: 5432
@@ -101,13 +55,82 @@ services:
       DB_PASSWORD: coolify_password_change_me
       REDIS_HOST: redis
       REDIS_PORT: 6379
-      COOLIFY_SELF_HOSTED: "true"
-      COOLIFY_HOST_SSH_ADDRESS: sshd
-      COOLIFY_HOST_SSH_PORT: 2222
-      COOLIFY_HOST_SSH_USER: coolify
-      COOLIFY_SSH_KEYS_DIR: /data/coolify/ssh/keys
-      DOCKER_HOST: unix:///var/run/docker.sock
+      APP_ENV: production
+      APP_DEBUG: "false"
+      APP_URL: http://${DEVICE_DOMAIN_NAME}:8527
     volumes:
-      - ${APP_DATA_DIR}/data/coolify:/data
-      - ${APP_DATA_DIR}/data/docker/docker.sock:/var/run/docker.sock
-      - ${APP_DATA_DIR}/data/keys:/data/coolify/ssh/keys:ro
+      - ${APP_DATA_DIR}/data/storage:/var/www/html/storage
+    depends_on:
+      db:
+        condition: service_healthy
+    command:
+      - /bin/sh
+      - -lc
+      - |
+        set -e
+        until pg_isready -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USERNAME" -d "$DB_DATABASE"; do
+          sleep 2
+        done
+        if [ ! -f /var/www/html/storage/.setup_done ]; then
+          php artisan key:generate --force
+          php artisan migrate --force
+          php artisan db:seed --class=ProductionSeeder --force
+          touch /var/www/html/storage/.setup_done
+        fi
+
+  web:
+    image: ghcr.io/coollabsio/coolify:v3.6.1
+    restart: on-failure
+    env_file:
+      - ${APP_DATA_DIR}/data/env/web.env
+    environment:
+      DB_CONNECTION: pgsql
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_DATABASE: coolify
+      DB_USERNAME: coolify
+      DB_PASSWORD: coolify_password_change_me
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      QUEUE_CONNECTION: database
+      CACHE_DRIVER: redis
+      SESSION_DRIVER: redis
+      APP_ENV: production
+      APP_DEBUG: "false"
+      APP_URL: http://${DEVICE_DOMAIN_NAME}:8527
+      DOCKER_HOST: unix:///data/docker.sock
+      COOLIFY_SELF_HOSTED: "true"
+      COOLIFY_MIGRATION_ENABLED: "false"
+      COOLIFY_SEEDER_ENABLED: "false"
+    volumes:
+      - ${APP_DATA_DIR}/data/storage:/var/www/html/storage
+      - docker:/data
+    depends_on:
+      init:
+        condition: service_completed_successfully
+      docker:
+        condition: service_started
+      redis:
+        condition: service_started
+      db:
+        condition: service_healthy
+
+  sshd:
+    image: lscr.io/linuxserver/openssh-server:latest
+    restart: on-failure
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      PUBLIC_KEY_FILE: /config/keys/authorized_keys
+      SUDO_ACCESS: "false"
+      PASSWORD_ACCESS: "false"
+      USER_NAME: coolify
+      TZ: Europe/Berlin
+    volumes:
+      - ${APP_DATA_DIR}/data/ssh:/config
+    depends_on:
+      web:
+        condition: service_started
+
+volumes:
+  docker:
