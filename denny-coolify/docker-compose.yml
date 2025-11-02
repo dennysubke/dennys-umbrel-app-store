@@ -4,133 +4,90 @@ services:
   app_proxy:
     environment:
       APP_HOST: denny-coolify_web_1
-      APP_PORT: 80
-
-  db:
-    image: postgres:15
-    restart: on-failure
-    environment:
-      POSTGRES_DB: coolify
-      POSTGRES_USER: coolify
-      POSTGRES_PASSWORD: coolify_password_change_me
-      TZ: Europe/Berlin
-    volumes:
-      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL","pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
-      interval: 5s
-      timeout: 3s
-      retries: 40
-
-  redis:
-    image: redis:7-alpine
-    restart: on-failure
-    command: ["redis-server","--appendonly","yes"]
-    volumes:
-      - ${APP_DATA_DIR}/data/redis:/data
+      APP_PORT: 8080
 
   docker:
-    image: docker:28-dind
-    restart: on-failure
+    image: docker:28.0.4-dind@sha256:ddb0033088b4fab74881ade341a582e3c6c8021b82377703ba1a6106bd3ded44
     privileged: true
-    command: ["--host=unix:///data/docker.sock"]
+    network_mode: host
+    stop_grace_period: 1m
+    restart: on-failure
     environment:
-      DOCKER_TLS_CERTDIR: ""
-      TZ: Europe/Berlin
+      DOCKER_ENSURE_BRIDGE: "dind0:10.32.0.1/16"
+    entrypoint: /entrypoint.sh
+    command: >
+      dockerd
+        --bridge dind0
+        --data-root /data/data
+        --exec-root /data/exec
+        --host unix:///data/docker.sock
+        --pidfile /data/docker.pid
     volumes:
-      - docker:/data
-      - ${APP_DATA_DIR}/data/dind:/var/lib/docker
-
-  init:
-    image: ghcr.io/coollabsio/coolify:v3.6.1
-    restart: "no"
-    env_file:
-      - ${APP_DATA_DIR}/data/env/web.env
-    environment:
-      DB_CONNECTION: pgsql
-      DB_HOST: db
-      DB_PORT: 5432
-      DB_DATABASE: coolify
-      DB_USERNAME: coolify
-      DB_PASSWORD: coolify_password_change_me
-      REDIS_HOST: redis
-      REDIS_PORT: 6379
-      APP_ENV: production
-      APP_DEBUG: "false"
-      APP_URL: http://${DEVICE_DOMAIN_NAME}:8527
-    volumes:
-      - ${APP_DATA_DIR}/data/storage:/var/www/html/storage
-    depends_on:
-      db:
-        condition: service_healthy
-    command:
-      - /bin/sh
-      - -lc
-      - |
-        set -e
-        until pg_isready -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USERNAME" -d "$DB_DATABASE"; do
-          sleep 2
-        done
-        if [ ! -f /var/www/html/storage/.setup_done ]; then
-          php artisan key:generate --force
-          php artisan migrate --force
-          php artisan db:seed --class=ProductionSeeder --force
-          touch /var/www/html/storage/.setup_done
-        fi
+      - ${APP_DATA_DIR}/entrypoint.sh:/entrypoint.sh
+      - ${APP_DATA_DIR}/data/docker:/data
 
   web:
-    image: ghcr.io/coollabsio/coolify:v3.6.1
+    image: coollabsio/coolify:4.0.0-beta.434@sha256:39db8373628c340747cf6199f5873322d5d0a9b6617bad0ce5cf6895369a3a83
     restart: on-failure
-    env_file:
-      - ${APP_DATA_DIR}/data/env/web.env
     environment:
+      COOLIFY_APP_ID: coolify
+      COOLIFY_SECRET_KEY: 401a49063b516a93ac62a5dfdae969dd9189cae019dd0b1d7d9d7e8fd5db9269
+      APP_KEY: base64:FLESjZzM6M2rd7T023CHSMGNQKegQBRUaZJY7wq4VCI=
+      DATABASE_URL: postgresql://coolify:coolifypass123@db:5432/coolify
+      COOLIFY_DATABASE_URL: postgresql://coolify:coolifypass123@db:5432/coolify
       DB_CONNECTION: pgsql
       DB_HOST: db
       DB_PORT: 5432
       DB_DATABASE: coolify
       DB_USERNAME: coolify
-      DB_PASSWORD: coolify_password_change_me
+      DB_PASSWORD: coolifypass123
       REDIS_HOST: redis
       REDIS_PORT: 6379
-      QUEUE_CONNECTION: database
-      CACHE_DRIVER: redis
-      SESSION_DRIVER: redis
-      APP_ENV: production
-      APP_DEBUG: "false"
-      APP_URL: http://${DEVICE_DOMAIN_NAME}:8527
-      DOCKER_HOST: unix:///data/docker.sock
-      COOLIFY_SELF_HOSTED: "true"
-      COOLIFY_MIGRATION_ENABLED: "false"
-      COOLIFY_SEEDER_ENABLED: "false"
+      COOLIFY_REDIS_URL: redis://redis:6379
+    extra_hosts:
+      - host.docker.internal:host-gateway
+      - ${APP_DOMAIN}:host-gateway
     volumes:
-      - ${APP_DATA_DIR}/data/storage:/var/www/html/storage
-      - docker:/data
+      # /var/run/docker.sock:/var/run/docker.sock
+      - ${APP_DATA_DIR}/data/docker:/var/run
+      - ${APP_DATA_DIR}/data/coolify_data:/data
     depends_on:
-      init:
-        condition: service_completed_successfully
-      docker:
-        condition: service_started
-      redis:
-        condition: service_started
       db:
         condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:8080 >/dev/null 2>&1 || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
 
-  sshd:
-    image: lscr.io/linuxserver/openssh-server:latest
+  db:
+    image: postgres:15@sha256:c189d272e4fcdd1ac419adee675d30be3d389c22ee770d593f15819d22a68a0d
     restart: on-failure
     environment:
-      PUID: "1000"
-      PGID: "1000"
-      PUBLIC_KEY_FILE: /config/keys/authorized_keys
-      SUDO_ACCESS: "false"
-      PASSWORD_ACCESS: "false"
-      USER_NAME: coolify
-      TZ: Europe/Berlin
+      POSTGRES_USER: coolify
+      POSTGRES_PASSWORD: coolifypass123
+      POSTGRES_DB: coolify
     volumes:
-      - ${APP_DATA_DIR}/data/ssh:/config
-    depends_on:
-      web:
-        condition: service_started
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB -h 127.0.0.1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
 
-volumes:
-  docker:
+  redis:
+    image: redis:alpine@sha256:59b6e694653476de2c992937ebe1c64182af4728e54bb49e9b7a6c26614d8933
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data
+    command: ["redis-server", "--save", "60", "1", "--loglevel", "warning"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 5s
