@@ -3,114 +3,19 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: denny-authelia_traefik_1
-      APP_PORT: 8080
-      PROXY_AUTH_ADD: "false"
-
-  config_init:
-    image: busybox:1.36
-    command: >
-      sh -c '
-      mkdir -p /config /data;
-      [ -f /config/configuration.yml ] || cat > /config/configuration.yml << "EOF"
-      server:
-        address: "tcp://0.0.0.0:9091"
-      log:
-        level: info
-      default_redirection_url: "/"
-      session:
-        name: "authelia_session"
-        same_site: lax
-        expiration: "1h"
-        inactivity: "15m"
-        remember_me_duration: "30d"
-        cookies:
-          - name: "authelia_session"
-            domain: "umbrel.local"
-            authelia_url: "http://authelia:9091"
-      storage:
-        local:
-          path: "/data/db.sqlite3"
-      notifier:
-        filesystem:
-          filename: "/data/notifications.txt"
-      authentication_backend:
-        file:
-          path: "/config/users_database.yml"
-          search:
-            email: true
-            case_insensitive: true
-      access_control:
-        default_policy: one_factor
-        rules:
-          - resources:
-              - "^/public"
-            policy: bypass
-          - resources:
-              - "^/secure"
-            policy: one_factor
-      EOF
-      ;
-      [ -f /config/users_database.yml ] || cat > /config/users_database.yml << "EOF"
-      users:
-        admin:
-          displayname: "Admin"
-          email: "admin@example.com"
-          password: "$2b$12$k2zAYqUxK9B7oG27lzcRz.wXFyiqsRDhTLIj/ZNYHWgxbi1hz6LzG"
-          groups:
-            - admins
-      EOF
-      '
-    volumes:
-      - ${APP_DATA_DIR}/data/authelia:/config
-      - ${APP_DATA_DIR}/data/authelia-data:/data
-    restart: "no"
+      APP_HOST: denny-authelia_authelia_1 # ← anpassen an App-Ordnernamen
+      APP_PORT: 9091
 
   authelia:
-    image: authelia/authelia:4.39.13
-    depends_on:
-      - config_init
+    image: authelia/authelia:latest
     restart: on-failure
+    expose:
+      - "9091"
     environment:
-      TZ: Europe/Berlin
-      AUTHELIA_JWT_SECRET: "change-me-jwt-very-long-random"
-      AUTHELIA_SESSION_SECRET: "change-me-session-very-long-random"
-      AUTHELIA_STORAGE_ENCRYPTION_KEY: "change-me-storage-very-long-random"
+      AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET_FILE: "/secrets/JWT_SECRET"
+      AUTHELIA_SESSION_SECRET_FILE: "/secrets/SESSION_SECRET"
+      AUTHELIA_STORAGE_POSTGRES_PASSWORD_FILE: "/secrets/STORAGE_PASSWORD"
+      AUTHELIA_STORAGE_ENCRYPTION_KEY_FILE: "/secrets/STORAGE_ENCRYPTION_KEY"
     volumes:
-      - ${APP_DATA_DIR}/data/authelia:/config
-      - ${APP_DATA_DIR}/data/authelia-data:/data
-
-  traefik:
-    image: traefik:v3.5.4
-    command:
-      - "--api.dashboard=true"
-      - "--providers.docker=true"
-      - "--providers.docker.exposedByDefault=false"
-      - "--entrypoints.http.address=:8080"
-      - "--log.level=DEBUG"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ${APP_DATA_DIR}/data/traefik:/etc/traefik
-    labels:
-      traefik.enable: "true"
-      traefik.http.routers.api.rule: "PathPrefix(`/dashboard`) || PathPrefix(`/api`)"
-      traefik.http.routers.api.service: "api@internal"
-      traefik.http.routers.api.entrypoints: "http"
-      traefik.http.middlewares.authelia.forwardauth.address: "http://authelia:9091/api/authz/forward-auth"
-      traefik.http.middlewares.authelia.forwardauth.trustForwardHeader: "true"
-      traefik.http.middlewares.authelia.forwardauth.authResponseHeaders: "Remote-User,Remote-Groups,Remote-Name,Remote-Email"
-
-  secure:
-    image: traefik/whoami:latest
-    labels:
-      traefik.enable: "true"
-      traefik.http.routers.secure.rule: "PathPrefix(`/secure`)"
-      traefik.http.routers.secure.entrypoints: "http"
-      traefik.http.routers.secure.middlewares: "authelia@docker"
-
-  public:
-    image: traefik/whoami:latest
-    labels:
-      traefik.enable: "true"
-      traefik.http.routers.public.rule: "PathPrefix(`/public`)"
-      traefik.http.routers.public.entrypoints: "http"
+      - ${APP_DATA_DIR}/data/config:/config
+      - ${APP_DATA_DIR}/data/secrets:/secrets
