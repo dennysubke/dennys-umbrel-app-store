@@ -1,0 +1,67 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-authelia_traefik_1
+      APP_PORT: 8080
+      PROXY_AUTH_ADD: "false"
+
+  authelia:
+    image: authelia/authelia:latest
+    restart: on-failure
+    environment:
+      TZ: Europe/Berlin
+    volumes:
+      - ${APP_DATA_DIR}/data/authelia:/config
+      - ${APP_DATA_DIR}/data/authelia-data:/data
+    # Definiert das ForwardAuth-Middleware-Objekt "authelia" für Traefik
+    labels:
+      traefik.enable: "true"
+      traefik.http.middlewares.authelia.forwardauth.address: "http://authelia:9091/api/authz/forward-auth"
+      traefik.http.middlewares.authelia.forwardauth.trustForwardHeader: "true"
+      traefik.http.middlewares.authelia.forwardauth.authResponseHeaders: "Remote-User,Remote-Groups,Remote-Name,Remote-Email"
+
+  traefik:
+    image: traefik:v3.5.4
+    restart: on-failure
+    # Keine Ports! Umbrel app_proxy routet intern auf :8080
+    command:
+      - "--api.dashboard=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedByDefault=false"
+      # Ein einziger HTTP-EntryPoint für Umbrel
+      - "--entrypoints.http.address=:8080"
+      - "--log.level=DEBUG"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      # Optional: eigene Traefik-Dateien, falls benötigt
+      - ${APP_DATA_DIR}/data/traefik:/etc/traefik
+
+    # Beispiel: interne Demo-Services via PathPrefix
+    labels:
+      traefik.enable: "true"
+      # Dashboard auf /dashboard (optional absichern)
+      traefik.http.routers.api.rule: "PathPrefix(`/dashboard`) || PathPrefix(`/api`)"
+      traefik.http.routers.api.service: "api@internal"
+      traefik.http.routers.api.entrypoints: "http"
+      # Wenn Dashboard auch via Authelia geschützt werden soll, Middleware hinzufügen:
+      # traefik.http.routers.api.middlewares: "authelia@docker"
+
+  secure:
+    image: traefik/whoami:latest
+    restart: on-failure
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.secure.rule: "PathPrefix(`/secure`)"
+      traefik.http.routers.secure.entrypoints: "http"
+      # Schutz per Authelia
+      traefik.http.routers.secure.middlewares: "authelia@docker"
+
+  public:
+    image: traefik/whoami:latest
+    restart: on-failure
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.public.rule: "PathPrefix(`/public`)"
+      traefik.http.routers.public.entrypoints: "http"
