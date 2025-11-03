@@ -3,14 +3,12 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: denny-authelia_authelia_1 # ← anpassen an App-Ordnernamen
+      APP_HOST: denny-authelia_authelia_1
       APP_PORT: 9091
 
   authelia:
     image: authelia/authelia:latest
     restart: on-failure
-    expose:
-      - "9091"
     environment:
       AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET_FILE: "/secrets/JWT_SECRET"
       AUTHELIA_SESSION_SECRET_FILE: "/secrets/SESSION_SECRET"
