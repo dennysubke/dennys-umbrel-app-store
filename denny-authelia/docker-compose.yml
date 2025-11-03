@@ -17,7 +17,6 @@ services:
         address: "tcp://0.0.0.0:9091"
       log:
         level: info
-      theme: light
       default_redirection_url: "/"
       session:
         name: "authelia_session"
@@ -25,11 +24,13 @@ services:
         expiration: "1h"
         inactivity: "15m"
         remember_me_duration: "30d"
+        cookies:
+          - name: "authelia_session"
+            authelia_url: "http://authelia:9091"
       storage:
         local:
           path: "/data/db.sqlite3"
       notifier:
-        disable_startup_check: true
         filesystem:
           filename: "/data/notifications.txt"
       authentication_backend:
@@ -39,17 +40,14 @@ services:
             email: true
             case_insensitive: true
       access_control:
-        default_policy: deny
+        default_policy: one_factor
         rules:
-          - domain: "*"
-            resources:
+          - resources:
               - "^/public"
             policy: bypass
-          - domain: "*"
-            resources:
+          - resources:
               - "^/secure"
             policy: one_factor
-      identity_providers: {}
       EOF
       ;
       [ -f /config/users_database.yml ] || cat > /config/users_database.yml << "EOF"
