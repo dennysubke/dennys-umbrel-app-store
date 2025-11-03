@@ -7,11 +7,76 @@ services:
       APP_PORT: 8080
       PROXY_AUTH_ADD: "false"
 
+  config_init:
+    image: busybox:1.36
+    command: >
+      sh -c '
+      mkdir -p /config /data;
+      [ -f /config/configuration.yml ] || cat > /config/configuration.yml << "EOF"
+      server:
+        address: "tcp://0.0.0.0:9091"
+      log:
+        level: info
+      theme: light
+      default_redirection_url: "/"
+      session:
+        name: "authelia_session"
+        same_site: lax
+        expiration: "1h"
+        inactivity: "15m"
+        remember_me_duration: "30d"
+      storage:
+        local:
+          path: "/data/db.sqlite3"
+      notifier:
+        disable_startup_check: true
+        filesystem:
+          filename: "/data/notifications.txt"
+      authentication_backend:
+        file:
+          path: "/config/users_database.yml"
+          search:
+            email: true
+            case_insensitive: true
+      access_control:
+        default_policy: deny
+        rules:
+          - domain: "*"
+            resources:
+              - "^/public"
+            policy: bypass
+          - domain: "*"
+            resources:
+              - "^/secure"
+            policy: one_factor
+      identity_providers: {}
+      EOF
+      ;
+      [ -f /config/users_database.yml ] || cat > /config/users_database.yml << "EOF"
+      users:
+        admin:
+          displayname: "Admin"
+          email: "admin@example.com"
+          password: "$2b$12$k2zAYqUxK9B7oG27lzcRz.wXFyiqsRDhTLIj/ZNYHWgxbi1hz6LzG"
+          groups:
+            - admins
+      EOF
+      '
+    volumes:
+      - ${APP_DATA_DIR}/data/authelia:/config
+      - ${APP_DATA_DIR}/data/authelia-data:/data
+    restart: "no"
+
   authelia:
     image: authelia/authelia:latest
+    depends_on:
+      - config_init
     restart: on-failure
     environment:
       TZ: Europe/Berlin
+      AUTHELIA_JWT_SECRET: "change-me-jwt-very-long-random"
+      AUTHELIA_SESSION_SECRET: "change-me-session-very-long-random"
+      AUTHELIA_STORAGE_ENCRYPTION_KEY: "change-me-storage-very-long-random"
     volumes:
       - ${APP_DATA_DIR}/data/authelia:/config
       - ${APP_DATA_DIR}/data/authelia-data:/data
