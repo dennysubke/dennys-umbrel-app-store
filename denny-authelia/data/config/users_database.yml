@@ -1,0 +1,7 @@
+users:
+  admin:
+    displayname: "Umbrel Admin"
+    email: admin@umbrel.local
+    groups:
+      - admins
+    password: "$argon2id$v=19$m=65536,t=3,p=4$YWJjZGVmZ2hpamtsbW5vcA$6l9+Qf9cS8P2v7mYc3Cw7yq9o0x2pHc5cFJv3mB2n8A"

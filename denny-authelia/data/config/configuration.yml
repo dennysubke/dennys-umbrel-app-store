@@ -1,0 +1,65 @@
+server:
+  address: tcp://0.0.0.0:9091/
+
+log:
+  level: info
+
+theme: light
+
+authentication_backend:
+  file:
+    path: /config/users_database.yml
+    password:
+      algorithm: argon2id
+      iterations: 3
+      memory: 64
+      parallelism: 4
+      key_length: 32
+      salt_length: 16
+
+identity_validation:
+  reset_password:
+    jwt_secret: ""
+
+totp:
+  issuer: umbrel.local
+  period: 30
+
+session:
+  name: authelia_session
+  same_site: lax
+  expiration: 1h
+  inactivity: 5m
+  cookies:
+    - name: authelia_session
+      domain: umbrel.local
+      authelia_url: http://umbrel.local:9091
+      insecure: true
+  redis:
+    host: redis
+    port: 6379
+  secret: ""
+
+storage:
+  encryption_key: ""
+  postgres:
+    address: "tcp://postgres:5432"
+    database: authelia
+    username: authelia
+    password: ""
+
+notifier:
+  filesystem:
+    filename: /config/notification.txt
+
+access_control:
+  default_policy: one_factor
+  networks:
+    - name: private
+      networks:
+        - 10.0.0.0/8
+        - 172.16.0.0/12
+        - 192.168.0.0/16
+  rules:
+    - domain: "umbrel.local"
+      policy: bypass
