@@ -1,71 +1,44 @@
-version: '3.8'
-
-volumes:
-  web:
-  mongo:
-  redis:
-  mongo-init-replica:
+version: "3.7"
 
 services:
   app_proxy:
     environment:
-      APP_HOST: denny-overleaf_web_1
+      APP_HOST: web
       APP_PORT: 80
-      PROXY_AUTH_ADD: "false"
 
   web:
-    image: sharelatex/sharelatex:4.2.3@sha256:6c6498de22775f1227eed7cf472c764aa851f0fe5b9e640d989ea8a90837159e
+    image: sharelatex/sharelatex:latest
     depends_on:
-      mongo:
-        condition: service_healthy
-      redis:
-        condition: service_started
-    links:
       - mongo
       - redis
-    volumes:
-      - ${APP_DATA_DIR}/data/sharelatex:/var/lib/sharelatex
     environment:
-      SHARELATEX_APP_NAME: Overleaf
+      OVERLEAF_MONGO_URL: mongodb://mongo/sharelatex
       SHARELATEX_MONGO_URL: mongodb://mongo/sharelatex
+      OVERLEAF_REDIS_HOST: redis
       SHARELATEX_REDIS_HOST: redis
       REDIS_HOST: redis
-      ENABLED_LINKED_FILE_TYPES: "project_file,project_output_file"
+      SHARELATEX_APP_NAME: "Overleaf Community Edition"
       ENABLE_CONVERSIONS: "true"
       EMAIL_CONFIRMATION_DISABLED: "true"
       TEXMFVAR: /var/lib/sharelatex/tmp/texmf-var
+    volumes:
+      - ${APP_DATA_DIR}/data/sharelatex:/var/lib/sharelatex
 
   mongo:
-    image: mongo:4.4@sha256:52c42cbab240b3c5b1748582cc13ef46d521ddacae002bbbda645cebed270ec0
-    command: "--replSet overleaf"
+    image: mongo:4.0
     expose:
-      - 27017
+      - "27017"
     volumes:
       - ${APP_DATA_DIR}/data/mongo:/data/db
     healthcheck:
-      test: echo 'db.stats().ok' | mongo localhost:27017/test --quiet
+      test: ["CMD-SHELL", "echo 'db.stats().ok' | mongo localhost:27017/test --quiet"]
       interval: 10s
       timeout: 10s
       retries: 5
 
   redis:
-    image: redis:6.2@sha256:5610a8ffeaf386ecc7b6c8f070662a7a9d01bc7eafe237152a7d16e05b84afc9
+    image: redis:5
     expose:
-      - 6379
+      - "6379"
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
-
-  mongo-init-replica:
-    image: mongo:4.4
-    depends_on:
-      - mongo
-    entrypoint: >
-      bash -c "
-      until mongo --host mongo --eval 'print(\"waiting for mongo\")'; do sleep 2; done;
-      mongo --host mongo --eval 'rs.initiate({_id: \"overleaf\", members: [{_id: 0, host: \"mongo:27017\"}]})'"
-    restart: "on-failure"
-
-# Overleaf in a version higher than 4.X requires MongoDB 5.0+, which necessitates a CPU with AVX support. 
-# This means that older servers, like those with CPUs lacking AVX, will not work with Overleaf higher versions than 4.X. 
-# If you're using an older server, it's recommended to stick with Overleaf version 4.3.2 or to set up MongoDB with an older version (like 4.4) for compatibility. 
-# For more details on this issue, you can refer to the full discussion: https://github.com/overleaf/toolkit/issues/216
