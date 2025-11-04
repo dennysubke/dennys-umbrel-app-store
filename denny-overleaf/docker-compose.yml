@@ -25,7 +25,7 @@ services:
       - ${APP_DATA_DIR}/data/sharelatex:/var/lib/overleaf
 
   mongo:
-    image: mongo:4.0
+    image: mongo:6.0
     expose:
       - "27017"
     volumes:
