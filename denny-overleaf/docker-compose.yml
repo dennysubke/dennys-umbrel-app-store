@@ -10,10 +10,11 @@ services:
     image: sharelatex/sharelatex:latest
     depends_on:
       - mongo
+      - mongo-init
       - redis
     environment:
       OVERLEAF_APP_NAME: "Overleaf Community Edition"
-      OVERLEAF_SITE_URL: "http://umbrel.local:8063"
+      OVERLEAF_SITE_URL: "http://${DEVICE_DOMAIN_NAME}:8063"
       OVERLEAF_MONGO_URL: mongodb://mongo/sharelatex
       MONGO_URL: mongodb://mongo/sharelatex
       OVERLEAF_REDIS_HOST: redis
@@ -26,14 +27,23 @@ services:
 
   mongo:
     image: mongo:6.0
-    expose:
-      - "27017"
+    command: --replSet rs0 --bind_ip_all
     volumes:
       - ${APP_DATA_DIR}/data/mongo:/data/db
 
+  mongo-init:
+    image: mongo:6.0
+    depends_on:
+      - mongo
+    entrypoint: ["/bin/sh","-lc"]
+    command: |
+      'for i in `seq 1 60`; do
+         mongosh --host mongo:27017 --eval "db.runCommand({ ping: 1 })" && break;
+         sleep 1;
+       done
+       mongosh --host mongo:27017 --eval "try { rs.status() } catch(e) { rs.initiate({ _id: \"rs0\", members: [{ _id: 0, host: \"mongo:27017\" }] }) }"'
+
   redis:
     image: redis:5
-    expose:
-      - "6379"
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
