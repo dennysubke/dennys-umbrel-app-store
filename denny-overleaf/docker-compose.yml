@@ -21,6 +21,7 @@ services:
       REDIS_HOST: redis
       ENABLE_CONVERSIONS: "true"
       EMAIL_CONFIRMATION_DISABLED: "true"
+      OVERLEAF_ADMIN_EMAIL: "admin@umbrel.com"
       TEXMFVAR: /var/lib/overleaf/tmp/texmf-var
     volumes:
       - ${APP_DATA_DIR}/data/sharelatex:/var/lib/overleaf
