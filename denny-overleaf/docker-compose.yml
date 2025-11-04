@@ -20,8 +20,9 @@ services:
       OVERLEAF_REDIS_HOST: redis
       REDIS_HOST: redis
       ENABLE_CONVERSIONS: "true"
+      ENABLED_LINKED_FILE_TYPES: project_file,project_output_file
       EMAIL_CONFIRMATION_DISABLED: "true"
-      OVERLEAF_ADMIN_EMAIL: "admin@umbrel.com"
+      #OVERLEAF_ADMIN_EMAIL: "admin@umbrel.com"
       TEXMFVAR: /var/lib/overleaf/tmp/texmf-var
     volumes:
       - ${APP_DATA_DIR}/data/sharelatex:/var/lib/overleaf
