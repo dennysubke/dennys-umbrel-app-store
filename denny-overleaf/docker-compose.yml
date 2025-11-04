@@ -12,17 +12,17 @@ services:
       - mongo
       - redis
     environment:
+      OVERLEAF_APP_NAME: "Overleaf Community Edition"
+      OVERLEAF_SITE_URL: "http://umbrel.local:8063"
       OVERLEAF_MONGO_URL: mongodb://mongo/sharelatex
-      SHARELATEX_MONGO_URL: mongodb://mongo/sharelatex
+      MONGO_URL: mongodb://mongo/sharelatex
       OVERLEAF_REDIS_HOST: redis
-      SHARELATEX_REDIS_HOST: redis
       REDIS_HOST: redis
-      SHARELATEX_APP_NAME: "Overleaf Community Edition"
       ENABLE_CONVERSIONS: "true"
       EMAIL_CONFIRMATION_DISABLED: "true"
-      TEXMFVAR: /var/lib/sharelatex/tmp/texmf-var
+      TEXMFVAR: /var/lib/overleaf/tmp/texmf-var
     volumes:
-      - ${APP_DATA_DIR}/data/sharelatex:/var/lib/sharelatex
+      - ${APP_DATA_DIR}/data/sharelatex:/var/lib/overleaf
 
   mongo:
     image: mongo:4.0
@@ -30,11 +30,6 @@ services:
       - "27017"
     volumes:
       - ${APP_DATA_DIR}/data/mongo:/data/db
-    healthcheck:
-      test: ["CMD-SHELL", "echo 'db.stats().ok' | mongo localhost:27017/test --quiet"]
-      interval: 10s
-      timeout: 10s
-      retries: 5
 
   redis:
     image: redis:5
