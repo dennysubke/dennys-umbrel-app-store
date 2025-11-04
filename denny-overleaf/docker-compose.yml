@@ -7,7 +7,7 @@ services:
       APP_PORT: 80
 
   web:
-    image: sharelatex/sharelatex:latest
+    image: sharelatex/sharelatex:6.0.0@sha256:21b21080312f796885015cf1fba4852e144628ab92605a7e6ed1d85a02ac550f
     depends_on:
       - mongo
       - mongo-init
@@ -28,7 +28,7 @@ services:
       - ${APP_DATA_DIR}/data/sharelatex:/var/lib/overleaf
 
   mongo:
-    image: mongo:6.0
+    image: mongo:6.0@sha256:0a83b2f824b29c94c5284a49b018db2e3166d9879d1edda5cce545d899ef2bbb
     command: --replSet rs0 --bind_ip_all
     volumes:
       - ${APP_DATA_DIR}/data/mongo:/data/db
@@ -46,6 +46,6 @@ services:
        mongosh --host mongo:27017 --eval "try { rs.status() } catch(e) { rs.initiate({ _id: \"rs0\", members: [{ _id: 0, host: \"mongo:27017\" }] }) }"'
 
   redis:
-    image: redis:5
+    image: redis:8.0@sha256:50d31efd06c8b4f8bc0cb0367f2b083663f96adde2f7a729debda841cf8157db
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
