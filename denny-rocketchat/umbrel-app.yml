@@ -2,8 +2,8 @@ manifestVersion: 1
 id: denny-rocketchat
 name: Rocket.Chat
 tagline: A real time chat platform for teams
-icon: https://i.imgur.com/pdRVD3B.png
-category: In Progress
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rocketchat/logo.png
+category: files & productivity
 version: "7.12.0"
 port: 3111
 description: >-
@@ -24,9 +24,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/RocketChat/Rocket.Chat
 support: https://github.com/RocketChat/Rocket.Chat/issues
 gallery:
-  - https://i.imgur.com/Rd2Iy7m.png
-  - https://i.imgur.com/Rd2Iy7m.png
-  - https://i.imgur.com/Rd2Iy7m.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rocketchat/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rocketchat/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rocketchat/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rocketchat/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rocketchat/5.jpg
 releaseNotes: >-
   The latest update introduces several usability and security improvements, including a new range input for settings, safer permission handling with a warning modal, enhancements to voice calls with clearer transfer information and improved dial tone feedback, and an expandable message composer as a preview feature. The Apps Engine also receives an experimental API to retrieve a user’s room list, offering more flexibility for extensions and automation.
 
