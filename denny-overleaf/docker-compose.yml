@@ -7,7 +7,7 @@ services:
       APP_PORT: 80
 
   web:
-    image: sharelatex/sharelatex:6.0.0@sha256:21b21080312f796885015cf1fba4852e144628ab92605a7e6ed1d85a02ac550f
+    image: dennysubke/sharelatex-base:6.0.0@sha256:90fc0b140406129b0a09ce9e4923c06953f11bc162608238c1e1946041b09021
     depends_on:
       - mongo
       - mongo-init
