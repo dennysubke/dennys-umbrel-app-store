@@ -1,0 +1,50 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-rocketchat_rocketchat_1
+      APP_PORT: 3000
+
+  db:
+    image: docker.io/bitnamilegacy/mongodb:7.0.5-debian-11-r22
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
+    environment:
+      MONGODB_REPLICA_SET_MODE: primary
+      MONGODB_REPLICA_SET_NAME: rs0
+      ALLOW_EMPTY_PASSWORD: "1"
+      MONGODB_SYSTEM_LOG_VERBOSITY: "3"
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/bitnami/mongodb
+    restart: on-failure:5
+
+  rocketchat:
+    image: rocketchat/rocket.chat:latest
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z 127.0.0.1 3000 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      MONGO_URL: mongodb://rocketchat-db:27017/rocketchat?replicaSet=rs0
+      MONGO_OPLOG_URL: mongodb://rocketchat-db:27017/local?replicaSet=rs0
+      ROOT_URL: http://${APP_DOMAIN}:3111
+      URL: http://${APP_DOMAIN}:3111
+      PORT: "3000"
+      DEPLOY_METHOD: docker
+    volumes:
+      - ${APP_DATA_DIR}/data/uploads:/app/uploads
+    restart: on-failure:5
+    depends_on:
+      db:
+        condition: service_started
