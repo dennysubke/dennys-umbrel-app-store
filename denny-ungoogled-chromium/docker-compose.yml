@@ -13,9 +13,6 @@ services:
       PGID: "1000"
       TZ: Europe/Berlin
       LC_ALL: de_DE.UTF-8
-      # Optional nur fürs LAN:
-      # CUSTOM_USER: umbrel
-      # PASSWORD: umbrel
     volumes:
       - ${APP_DATA_DIR}/data/config:/config:rw
     shm_size: "2gb"
