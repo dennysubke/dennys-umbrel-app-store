@@ -7,23 +7,22 @@ services:
       APP_PORT: 3000
 
   db:
-    image: docker.io/bitnamilegacy/mongodb:7.0.5-debian-11-r22
-    security_opt:
-      - no-new-privileges:true
-    healthcheck:
-      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
-      interval: 10s
-      timeout: 10s
-      retries: 5
-      start_period: 20s
-    environment:
-      MONGODB_REPLICA_SET_MODE: primary
-      MONGODB_REPLICA_SET_NAME: rs0
-      ALLOW_EMPTY_PASSWORD: "1"
-      MONGODB_SYSTEM_LOG_VERBOSITY: "3"
+    image: mongo:7
+    command: ["--replSet", "rs0", "--bind_ip_all"]
     volumes:
-      - ${APP_DATA_DIR}/data/db:/bitnami/mongodb
+      - ${APP_DATA_DIR}/data/db:/data/db
     restart: on-failure:5
+
+  init-replica:
+    image: mongo:7
+    depends_on:
+      - db
+    entrypoint:
+      - bash
+      - -lc
+      - >
+        mongosh --host rocketchat-db:27017 --quiet --eval 'try{rs.status().ok}catch(e){rs.initiate({_id:"rs0",members:[{_id:0,host:"rocketchat-db:27017"}]})}'; exit 0
+    restart: "no"
 
   rocketchat:
     image: rocketchat/rocket.chat:latest
@@ -46,5 +45,5 @@ services:
       - ${APP_DATA_DIR}/data/uploads:/app/uploads
     restart: on-failure:5
     depends_on:
-      db:
-        condition: service_started
+      - db
+      - init-replica
