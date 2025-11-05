@@ -4,7 +4,7 @@ name: Ungoogled Chromium
 tagline: An optimized, privacy-focused browser experience
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ungoogled-chromium/logo.png
 category: networking
-version: "142.0.7444"
+version: "135.0.7049"
 port: 3330
 description: >-
   🌐 Ungoogled Chromium is an open-source web browser based on Chromium, designed with privacy and security in mind. Unlike the standard Chromium or Google Chrome browser, Ungoogled Chromium eliminates all integrations with Google services and removes various tracking and data collection features. The goal is to provide a fast, fully functional browser while protecting the user's privacy by removing Google's influence, including features like automatic synchronization with Google accounts, Google-specific APIs, and telemetry data collection.
@@ -25,7 +25,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ungoogled-chromium/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ungoogled-chromium/3.jpg
 releaseNotes: >-
-  This version introduces updated launch options for improved performance, adds a portable Linux build, and now includes support for ARM64.
+  This version introduces updated launch options for improved performance and adds a portable Linux build.
 dependencies:
 path: ""
 defaultUsername: ""
