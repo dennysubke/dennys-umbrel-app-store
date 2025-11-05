@@ -3,16 +3,16 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: denny-rocketchat_rocketchat_1
+      APP_HOST: denny-rocketchat_app_1
       APP_PORT: 3000
 
   db:
-    image: mongo:7
+    image: mongo:7.0.25@sha256:a814f930db8c4514f5fe5dc3e489f58637fb7ee32a7b9bb0b7064d3274e90b8e
     hostname: rocketchat-db
     command: ["--replSet", "rs0", "--bind_ip_all"]
     volumes:
       - ${APP_DATA_DIR}/data/db:/data/db
-    restart: on-failure:5
+    restart: on-failure
 
   init-replica:
     image: mongo:7
@@ -26,8 +26,8 @@ services:
         'try{if(rs.status().ok!=1)rs.initiate({_id:"rs0",members:[{_id:0,host:"rocketchat-db:27017"}]});1}catch(e){rs.initiate({_id:"rs0",members:[{_id:0,host:"rocketchat-db:27017"}]})};'
     restart: "no"
 
-  rocketchat:
-    image: rocketchat/rocket.chat:latest
+  app:
+    image: rocketchat/rocket.chat:7.12.0@sha256:658180bd79c0dca402f50c04371bbadf27fe2dffd5bf4a763590a5734416ffe4
     hostname: rocketchat
     environment:
       MONGO_URL: mongodb://rocketchat-db:27017/rocketchat?replicaSet=rs0&retryWrites=false
@@ -38,7 +38,7 @@ services:
       DEPLOY_METHOD: docker
     volumes:
       - ${APP_DATA_DIR}/data/uploads:/app/uploads
-    restart: on-failure:5
+    restart: on-failure
     depends_on:
       - db
       - init-replica
