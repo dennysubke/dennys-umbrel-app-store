@@ -21,15 +21,15 @@ services:
       - bash
       - -lc
       - >
-        mongosh --host rocketchat-db:27017 --quiet --eval
-        'try{if(rs.status().ok!=1)rs.initiate({_id:"rs0",members:[{_id:0,host:"rocketchat-db:27017"}]});1}catch(e){rs.initiate({_id:"rs0",members:[{_id:0,host:"rocketchat-db:27017"}]})};'
+        mongosh --host db:27017 --quiet --eval
+        'try{if(rs.status().ok!=1)rs.initiate({_id:"rs0",members:[{_id:0,host:"db:27017"}]});1}catch(e){rs.initiate({_id:"rs0",members:[{_id:0,host:"db:27017"}]})};'
     restart: "no"
 
   app:
     image: rocketchat/rocket.chat:7.12.0@sha256:658180bd79c0dca402f50c04371bbadf27fe2dffd5bf4a763590a5734416ffe4
     environment:
-      MONGO_URL: mongodb://rocketchat-db:27017/rocketchat?replicaSet=rs0&retryWrites=false
-      MONGO_OPLOG_URL: mongodb://rocketchat-db:27017/local?replicaSet=rs0
+      MONGO_URL: mongodb://db:27017/rocketchat?replicaSet=rs0&retryWrites=false
+      MONGO_OPLOG_URL: mongodb://db:27017/local?replicaSet=rs0
       ROOT_URL: http://${APP_DOMAIN}:3111
       URL: http://${APP_DOMAIN}:3111
       PORT: "3000"
