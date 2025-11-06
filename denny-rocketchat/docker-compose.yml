@@ -32,8 +32,8 @@ services:
     environment:
       MONGO_URL: mongodb://db:27017/rocketchat?replicaSet=rs0&retryWrites=false
       MONGO_OPLOG_URL: mongodb://db:27017/local?replicaSet=rs0
-      ROOT_URL: http://${APP_DOMAIN}:3111
-      URL: http://${APP_DOMAIN}:3111
+      ROOT_URL: http://${APP_DOMAIN}:3112
+      URL: http://${APP_DOMAIN}:3112
       PORT: "3000"
       DEPLOY_METHOD: docker
     volumes:
