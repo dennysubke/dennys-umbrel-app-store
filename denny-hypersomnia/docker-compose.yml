@@ -8,6 +8,7 @@ services:
 
   web:
     image: ghcr.io/teamhypersomnia/hypersomnia-server:latest
+    user: "1000:1000"
     volumes:
       - ${APP_DATA_DIR}/data:/home/hypersomniac/.config/Hypersomnia/user
     restart: on-failure
