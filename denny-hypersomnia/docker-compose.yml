@@ -1,14 +1,11 @@
 version: "3.7"
 
 services:
-  app_proxy:
-    environment:
-      APP_HOST: denny-hypersomnia_web_1
-      APP_PORT: 8412
-
   web:
     image: ghcr.io/teamhypersomnia/hypersomnia-server:latest
-    user: "0:0"
     volumes:
-      - ${APP_DATA_DIR}/data:/home/hypersomniac/.config/Hypersomnia/user
+      - ${APP_DATA_DIR}/data:/root/.config/Hypersomnia/user
+    ports:
+      - "3399:8412/udp"
+      - "9099:9000/udp"
     restart: on-failure
