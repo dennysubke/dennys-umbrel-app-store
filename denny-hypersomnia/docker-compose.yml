@@ -3,7 +3,6 @@ version: "3.7"
 services:
   web:
     image: ghcr.io/teamhypersomnia/hypersomnia-server:latest
-    user: "1000:1000"
     environment:
       - TZ=Europe/Berlin
     volumes:
