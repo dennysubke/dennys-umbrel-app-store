@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-perplexica_web_1
+      APP_PORT: 3000
+
+  web:
+    image: itzcrazykns1337/perplexica:latest
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/data/app_data:/home/perplexica/data
+      - ${APP_DATA_DIR}/data/uploads:/home/perplexica/uploads
