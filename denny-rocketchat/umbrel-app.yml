@@ -5,7 +5,7 @@ tagline: A real time chat platform for teams
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rocketchat/logo.png
 category: files & productivity
 version: "7.12.0"
-port: 3111
+port: 3112
 description: >-
   🚀 Rocket.Chat is a comprehensive real time communication platform that unifies conversations, collaboration, and knowledge sharing in a single digital workspace. It provides a familiar chat experience with individual and group conversations, persistent channels for focused topics, and threaded replies that keep discussions organized even when many participants are involved. Users can exchange text, images, videos, voice messages, and files of all types, making it a flexible communication hub for both short quick messages and more structured project discussions.
 
