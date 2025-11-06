@@ -2,8 +2,8 @@ manifestVersion: 1
 id: denny-perplexica
 name: Perplexica
 tagline: An AI-powered answering engine
-icon: https://i.imgur.com/HakL1r4.png
-category: Test
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-perplexica/logo.png
+category: AI
 version: "1.11.2"
 port: 3444
 description: >-
@@ -21,11 +21,15 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/ItzCrazyKns/Perplexica
 support: https://github.com/ItzCrazyKns/Perplexica/issues
 gallery:
-  - https://i.imgur.com/qBH4PgI.png
-  - https://i.imgur.com/qBH4PgI.png
-  - https://i.imgur.com/qBH4PgI.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-perplexica/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-perplexica/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-perplexica/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-perplexica/4.jpg
 releaseNotes: >-
-  Version 1.11.2 resolves several stability issues related to model handling and message flow. It fixes problems where Transformer models failed to load, model selection did not correctly update, and empty messages were occasionally sent. 
+  Version 1.11.2 resolves several stability issues related to model handling and message flow. 
+  
+  
+  It fixes problems where Transformer models failed to load, model selection did not correctly update, and empty messages were occasionally sent. 
   
   
   Overall, this update improves reliability and consistency in AI interactions.
