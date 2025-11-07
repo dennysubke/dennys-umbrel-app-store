@@ -1,6 +1,8 @@
 {
-  "remote_url": "http://umbrel.local",
-  "http_port": 4100,
-  "proxy": false,
-  "auth_whitelist": ["/api/*"]
+  "server_id": "umbrel-2.local",
+  "http_port": "auto",
+  "domain": "umbrel-2.local",
+  "experimental_no_subdomain": true,
+  "allow_nipio_domains": true,
+  "admin_password": "change-me-please"
 }
