@@ -1,10 +1,5 @@
 version: "3.7"
 
-app_proxy:
-  environment:
-    APP_HOST: denny-localstack_web_1
-    APP_PORT: 4566
-
 services:
   web:
     image: localstack/localstack:latest
