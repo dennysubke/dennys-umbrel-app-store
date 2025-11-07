@@ -35,9 +35,6 @@ services:
       SPOOLMAN_DB_NAME: spoolman
       SPOOLMAN_DB_USERNAME: spoolmanuser
       SPOOLMAN_DB_PASSWORD: spoolmanpass
-      PUID: 1000
-      PGID: 1000
-      TZ: Europe/Berlin
       FORWARDED_ALLOW_IPS: "*"
       SPOOLMAN_DEBUG_MODE: "TRUE"
     volumes:
