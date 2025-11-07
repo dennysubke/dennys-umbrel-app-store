@@ -35,5 +35,5 @@ releaseNotes: >-
   This version refactors expense handling by modularizing the generation of recurring entries.
 dependencies: []
 path: ""
-defaultUsername: "admin"
-defaultPassword: "umbrel"
+defaultUsername: ""
+defaultPassword: ""
