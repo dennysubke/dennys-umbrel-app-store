@@ -8,24 +8,16 @@ services:
 
   db:
     image: postgres:17
-    hostname: denny-spoolman_db_1
-    mem_limit: 1g
-    cpu_shares: 1024
-    security_opt:
-      - no-new-privileges:true
     volumes:
       - ${APP_DATA_DIR}/db:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: spoolman
       POSTGRES_USER: spoolmanuser
       POSTGRES_PASSWORD: spoolmanpass
-    restart: on-failure:5
+    restart: on-failure
 
   web:
     image: ghcr.io/donkie/spoolman:latest
-    hostname: denny-spoolman_web_1
-    security_opt:
-      - no-new-privileges:true
     depends_on:
       - db
     environment:
@@ -39,4 +31,4 @@ services:
       SPOOLMAN_DEBUG_MODE: "TRUE"
     volumes:
       - ${APP_DATA_DIR}/data:/home/app/.local/share/spoolman
-    restart: on-failure:5
+    restart: on-failure
