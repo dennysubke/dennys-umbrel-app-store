@@ -1,7 +1,8 @@
 {
-  "server_id": "umbrel-2.local",
+  "config_name": "umbrel",
+  "server_id": "umbrel.local",
+  "domain": "umbrel.local",
   "http_port": "auto",
-  "domain": "umbrel-2.local",
   "experimental_no_subdomain": true,
   "allow_nipio_domains": true,
   "admin_password": "change-me-please"
