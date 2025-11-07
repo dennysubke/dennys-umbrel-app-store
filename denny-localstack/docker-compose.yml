@@ -1,15 +1,13 @@
-version: "3.7"
-
-app_proxy:
-  environment:
-    APP_HOST: denny-localstack_web_1
-    APP_PORT: 4566
-
 services:
-  web:
-    image: localstack/localstack:latest
+  localstack:
+    container_name: "${LOCALSTACK_DOCKER_NAME:-localstack-main}"
+    image: localstack/localstack
+    ports:
+      - "127.0.0.1:4566:4566"            # LocalStack Gateway
+      - "127.0.0.1:4510-4559:4510-4559"  # external services port range
     environment:
-      DEBUG: "0"
+      # LocalStack configuration: https://docs.localstack.cloud/references/configuration/
+      - DEBUG=${DEBUG:-0}
     volumes:
-      - ${APP_DATA_DIR}/data:/var/lib/localstack
-      - /var/run/docker.sock:/var/run/docker.sock
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
