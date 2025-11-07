@@ -1,28 +1,24 @@
-version: '3.7'
+version: "3.7"
 
 services:
-  cryptpad:
-    image: "cryptpad/cryptpad:version-2024.12.0@sha256:a8f075b1a5f9ebb3f28944fa474028c43b8ac2c2513f898c8c78c58f25be8df7"
-    hostname: cryptpad
+  app_proxy:
     environment:
-      - CPAD_MAIN_DOMAIN=http://umbrel-2.local:3790
-      - CPAD_SANDBOX_DOMAIN=https://cryptpad.subke.cloud
+      APP_HOST: denny-cryptpad_cryptpad_1
+      APP_PORT: 3000
+
+  cryptpad:
+    image: cryptpad/cryptpad:version-2024.6.1
+    environment:
       - CPAD_CONF=/cryptpad/config/config.js
-      - CPAD_INSTALL_ONLYOFFICE=false
     volumes:
-      - ${APP_DATA_DIR}/data/blob:/cryptpad/blob:rw
-      - ${APP_DATA_DIR}/data/block:/cryptpad/block:rw
-      - ${APP_DATA_DIR}/data/data:/cryptpad/data:rw
-      - ${APP_DATA_DIR}/data/files:/cryptpad/datastore:rw
-      - ${APP_DATA_DIR}/data/customize:/cryptpad/customize:rw
-      - ${APP_DATA_DIR}/data/onlyoffice-dist:/cryptpad/www/common/onlyoffice/dist:rw
-      - ${APP_DATA_DIR}/data/onlyoffice-conf:/cryptpad/onlyoffice-conf:rw
-      - ${APP_DATA_DIR}/config/config.js:/cryptpad/config/config.js:rw
-    user: "1000:1000"
-    restart: on-failure
-    ports:
-      - "3790:3000"
-      - "3793:3003"
+      - ${APP_DATA_DIR}/blob:/cryptpad/blob
+      - ${APP_DATA_DIR}/block:/cryptpad/block
+      - ${APP_DATA_DIR}/customize:/cryptpad/customize
+      - ${APP_DATA_DIR}/data:/cryptpad/data
+      - ${APP_DATA_DIR}/files:/cryptpad/datastore
+      - ${APP_DATA_DIR}/onlyoffice-dist:/cryptpad/www/common/onlyoffice/dist
+      - ${APP_DATA_DIR}/onlyoffice-conf:/cryptpad/onlyoffice-conf
+      - ${APP_DATA_DIR}/config/config.js:/cryptpad/config/config.js:ro
     ulimits:
       nofile:
         soft: 1000000
