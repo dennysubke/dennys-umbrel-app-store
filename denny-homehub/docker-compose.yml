@@ -8,6 +8,7 @@ services:
 
   web:
     image: ghcr.io/surajverma/homehub:latest
+    user: "0:0"
     restart: on-failure
     environment:
       - FLASK_ENV=production
