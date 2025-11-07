@@ -11,13 +11,13 @@ services:
     environment:
       - CPAD_CONF=/cryptpad/config/config.js
     volumes:
-      - ${APP_DATA_DIR}/blob:/cryptpad/blob
-      - ${APP_DATA_DIR}/block:/cryptpad/block
+      - ${APP_DATA_DIR}/data/blob:/cryptpad/blob
+      - ${APP_DATA_DIR}/data/block:/cryptpad/block
       - ${APP_DATA_DIR}/customize:/cryptpad/customize
-      - ${APP_DATA_DIR}/data:/cryptpad/data
-      - ${APP_DATA_DIR}/files:/cryptpad/datastore
-      - ${APP_DATA_DIR}/onlyoffice-dist:/cryptpad/www/common/onlyoffice/dist
-      - ${APP_DATA_DIR}/onlyoffice-conf:/cryptpad/onlyoffice-conf
+      - ${APP_DATA_DIR}/data/app_data:/cryptpad/data
+      - ${APP_DATA_DIR}/data/files:/cryptpad/datastore
+      - ${APP_DATA_DIR}/data/onlyoffice-dist:/cryptpad/www/common/onlyoffice/dist
+      - ${APP_DATA_DIR}/data/onlyoffice-conf:/cryptpad/onlyoffice-conf
       - ${APP_DATA_DIR}/config/config.js:/cryptpad/config/config.js:ro
     ulimits:
       nofile:
