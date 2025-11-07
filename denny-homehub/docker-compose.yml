@@ -13,8 +13,8 @@ services:
       - FLASK_ENV=production
       - SECRET_KEY=umbrel
     volumes:
-      - ${APP_DATA_DIR}/uploads:/app/uploads
-      - ${APP_DATA_DIR}/media:/app/media
-      - ${APP_DATA_DIR}/pdfs:/app/pdfs
-      - ${APP_DATA_DIR}/data:/app/data
+      - ${APP_DATA_DIR}/data/uploads:/app/uploads
+      - ${APP_DATA_DIR}/data/media:/app/media
+      - ${APP_DATA_DIR}/data/pdfs:/app/pdfs
+      - ${APP_DATA_DIR}/data/app_data:/app/data
       - ${APP_DATA_DIR}/data/config/config.yml:/app/config.yml:ro
