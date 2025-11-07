@@ -8,7 +8,6 @@ services:
 
   web:
     image: ghcr.io/surajverma/homehub:latest
-    user: "0:0"
     restart: on-failure
     environment:
       - FLASK_ENV=production
@@ -18,4 +17,4 @@ services:
       - ${APP_DATA_DIR}/media:/app/media
       - ${APP_DATA_DIR}/pdfs:/app/pdfs
       - ${APP_DATA_DIR}/data:/app/data
-      - ${APP_DATA_DIR}/config.yml:/app/config.yml:ro
+      - ${APP_DATA_DIR}/data/config/config.yml:/app/config.yml:ro
