@@ -8,8 +8,9 @@ services:
 
   web:
     image: ghcr.io/donkie/spoolman:0.22.1@sha256:238ea5bfb2eeda4436c39f54e73df5fef4ee904fb7c291617588b856786fe0ef
-    user: "1000:1001"
     environment:
-      TZ: UTC
+      - TZ=UTC
+      - PUID=1001
+      - PGID=1001
     volumes:
       - ${APP_DATA_DIR}/data:/home/app/.local/share/spoolman
