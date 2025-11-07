@@ -2,8 +2,8 @@ manifestVersion: 1
 id: denny-homehub
 name: HomeHub
 tagline: A modern hub for family organization
-icon: icon.png
-category: test
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homehub/logo.png
+category: files & productivity
 version: " 0.2.1.4"
 port: 5050
 description: >-
@@ -30,7 +30,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/surajverma/homehub
 support: https://github.com/surajverma/homehub/issues
 gallery:
-  - 1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homehub/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homehub/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homehub/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homehub/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homehub/5.jpg
 releaseNotes: >-
   This version refactors expense handling by modularizing the generation of recurring entries.
 dependencies: []
