@@ -13,8 +13,8 @@ services:
       - ${APP_DATA_DIR}/data:/srv/shiori
     environment:
       SHIORI_DIR: /srv/shiori
-      # SHIORI_DATABASE_URL: postgres://shiori:shiori@denny-shiori_postgres_1/shiori?sslmode=disable
-      # SHIORI_DATABASE_URL: mysql://shiori:shiori@denny-shiori_mariadb_1/shiori?charset=utf8mb4
+      SHIORI_USERNAME: admin
+      SHIORI_PASSWORD: umbrel
     depends_on:
       - postgres
       - mariadb
