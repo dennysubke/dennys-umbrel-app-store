@@ -1,7 +1,6 @@
-// ${APP_DATA_DIR}/config/config.js
 module.exports = {
-  httpUnsafeOrigin: 'http://umbrel-2.local',
-  httpSafeOrigin:   'http://umbrel-2.local',
+  httpUnsafeOrigin: 'http://umbrel-2.local:3790',
+  httpSafeOrigin:   'http://umbrel-2.local:3790',
   blockPath: '/cryptpad/block',
   datastorePath: '/cryptpad/datastore',
   filePath: '/cryptpad/files',
