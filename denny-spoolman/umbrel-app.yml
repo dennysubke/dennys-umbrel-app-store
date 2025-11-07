@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-spoolman
 name: Spoolman
 tagline: An efficient filament manager
-icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homehub/logo.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-spoolman/logo.png
 category: Home & Automation
 version: " 0.22.1"
 port: 7912
