@@ -1,0 +1,45 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-spoolman_web_1
+      APP_PORT: 8000
+
+  db:
+    image: postgres:17
+    hostname: denny-spoolman_db_1
+    mem_limit: 1g
+    cpu_shares: 1024
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - ${APP_DATA_DIR}/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: spoolman
+      POSTGRES_USER: spoolmanuser
+      POSTGRES_PASSWORD: spoolmanpass
+    restart: on-failure:5
+
+  web:
+    image: ghcr.io/donkie/spoolman:latest
+    hostname: denny-spoolman_web_1
+    security_opt:
+      - no-new-privileges:true
+    depends_on:
+      - db
+    environment:
+      SPOOLMAN_DB_TYPE: postgres
+      SPOOLMAN_DB_HOST: denny-spoolman_db_1
+      SPOOLMAN_DB_PORT: 5432
+      SPOOLMAN_DB_NAME: spoolman
+      SPOOLMAN_DB_USERNAME: spoolmanuser
+      SPOOLMAN_DB_PASSWORD: spoolmanpass
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/Berlin
+      FORWARDED_ALLOW_IPS: "*"
+      SPOOLMAN_DEBUG_MODE: "TRUE"
+    volumes:
+      - ${APP_DATA_DIR}/data:/home/app/.local/share/spoolman
+    restart: on-failure:5
