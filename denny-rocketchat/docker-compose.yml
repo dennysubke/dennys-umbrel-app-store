@@ -27,7 +27,7 @@ services:
     restart: "no"
 
   app:
-    image: rocketchat/rocket.chat:7.12.0@sha256:658180bd79c0dca402f50c04371bbadf27fe2dffd5bf4a763590a5734416ffe4
+    image: rocketchat/rocket.chat:develop@sha256:6312cd8c63d5de40861415f41ee5993fab1588c36b620954205aa667278df694 #rocketchat/rocket.chat:7.12.0@sha256:658180bd79c0dca402f50c04371bbadf27fe2dffd5bf4a763590a5734416ffe4
     hostname: rocketchat
     environment:
       MONGO_URL: mongodb://db:27017/rocketchat?replicaSet=rs0&retryWrites=false
