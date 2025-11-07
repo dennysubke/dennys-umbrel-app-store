@@ -5,11 +5,10 @@ services:
     environment:
       APP_HOST: denny-spoolman_web_1
       APP_PORT: 8000
-      
+
   web:
     image: ghcr.io/donkie/spoolman:latest
-    restart: on-failure
+    environment:
+      TZ: Europe/Berlin
     volumes:
-      - type: bind
-        source: ${APP_DATA_DIR}/data:/data 
-        target: /home/app/.local/share/spoolman
+      - ${APP_DATA_DIR}/data:/home/app/.local/share/spoolman
