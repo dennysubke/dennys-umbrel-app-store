@@ -42,7 +42,7 @@ website: https://portainer.io
 dependencies: []
 repo: https://github.com/portainer/portainer
 support: https://github.com/portainer/portainer/issues
-port: 9000
+port: 3552
 gallery:
   - 1.jpg
   - 2.jpg
