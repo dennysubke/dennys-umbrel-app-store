@@ -33,7 +33,6 @@ dependencies: []
 repo: https://github.com/getarcaneapp/arcane
 support: https://github.com/getarcaneapp/arcane/issues
 port: 3552
-icon: 
 gallery:
   - 1.jpg
   - 2.jpg
