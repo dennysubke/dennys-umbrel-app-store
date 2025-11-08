@@ -14,7 +14,7 @@ services:
     restart: on-failure
     environment:
       DOCKER_ENSURE_BRIDGE: "dind0:10.32.0.1/16"
-    entrypoint: /entrypoint.sh
+    entrypoint: ["sh", "/entrypoint.sh"]
     command: >
       dockerd
         --bridge dind0
@@ -25,13 +25,26 @@ services:
     volumes:
       - ${APP_DATA_DIR}/entrypoint.sh:/entrypoint.sh
       - ${APP_DATA_DIR}/data/docker:/data
+    healthcheck:
+      test: ["CMD", "sh", "-c", "[ -S /data/docker.sock ]"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 10s
 
   arcane:
     image: ghcr.io/ofkm/arcane:latest
-    command: --host unix:///var/run/docker.sock --admin-password-file=/default-password
+    # WICHTIG: Binary + Flags (sonst su-exec-Fehler)
+    command: ["arcane", "--host", "unix:///var/run/docker.sock", "--admin-password-file=/default-password"]
+    depends_on:
+      docker:
+        condition: service_healthy
     volumes:
       - ${APP_DATA_DIR}/data:/app/data
       - ${APP_DATA_DIR}/projects:/app/data/projects
+      # Docker-Socket vom DIND auf /var/run/docker.sock durchreichen
+      - ${APP_DATA_DIR}/data/docker/docker.sock:/var/run/docker.sock
+      - ${APP_DATA_DIR}/default-password:/default-password:ro
     environment:
       APP_URL: http://${DEVICE_DOMAIN_NAME}:3552
       ENCRYPTION_KEY: 7e4f6b8c3b1a4d209c5f1a0e98b7f64d
