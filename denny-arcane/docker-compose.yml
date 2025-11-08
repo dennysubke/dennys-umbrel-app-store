@@ -5,10 +5,10 @@ services:
     environment:
       APP_HOST: denny-arcane_arcane_1
       APP_PORT: 3552
-    depends_on:
-      - arcane
     links:
       - arcane:denny-arcane_arcane_1
+    depends_on:
+      - arcane
 
   docker:
     image: docker:27.2.0-dind@sha256:f9f72ad901a78f27be922b2d320bbc263174f12919c1b37e6a01f828fa904565
@@ -24,26 +24,33 @@ services:
         --bridge dind0
         --data-root /data/data
         --exec-root /data/exec
-        --host unix:///data/docker.sock
+        --host unix:///data/docker/docker.sock
         --group 998
         --pidfile /data/docker.pid
     volumes:
       - ${APP_DATA_DIR}/entrypoint.sh:/entrypoint.sh
       - ${APP_DATA_DIR}/data/docker:/data
+    healthcheck:
+      test: ["CMD", "sh", "-c", "[ -S /data/docker/docker.sock ]"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 10s
 
   arcane:
     image: ghcr.io/ofkm/arcane:latest
-    command: ["arcane", "--host", "unix:///var/run/docker.sock", "--admin-password-file=/default-password"]
     depends_on:
-      - docker
+      docker:
+        condition: service_healthy
     group_add:
       - "998"
+    environment:
+      DOCKER_HOST: unix:///var/run/docker.sock
+      APP_URL: http://${DEVICE_DOMAIN_NAME}:3552
+      ENCRYPTION_KEY: 7e4f6b8c3b1a4d209c5f1a0e98b7f64d
+      JWT_SECRET: 0c2f8e19d7a44fbfae3c7b95c10e6f58
     volumes:
       - ${APP_DATA_DIR}/data:/app/data
       - ${APP_DATA_DIR}/projects:/app/data/projects
       - ${APP_DATA_DIR}/data/docker/docker.sock:/var/run/docker.sock
       - ${APP_DATA_DIR}/default-password:/default-password:ro
-    environment:
-      APP_URL: http://${DEVICE_DOMAIN_NAME}:3552
-      ENCRYPTION_KEY: 7e4f6b8c3b1a4d209c5f1a0e98b7f64d
-      JWT_SECRET: 0c2f8e19d7a44fbfae3c7b95c10e6f58
