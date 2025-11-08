@@ -5,6 +5,8 @@ services:
     environment:
       APP_HOST: denny-arcane_arcane_1
       APP_PORT: 3552
+    depends_on:
+      - arcane
     links:
       - arcane:denny-arcane_arcane_1
 
@@ -28,19 +30,12 @@ services:
     volumes:
       - ${APP_DATA_DIR}/entrypoint.sh:/entrypoint.sh
       - ${APP_DATA_DIR}/data/docker:/data
-    healthcheck:
-      test: ["CMD", "sh", "-c", "[ -S /data/docker.sock ]"]
-      interval: 5s
-      timeout: 3s
-      retries: 20
-      start_period: 10s
 
   arcane:
     image: ghcr.io/ofkm/arcane:latest
     command: ["arcane", "--host", "unix:///var/run/docker.sock", "--admin-password-file=/default-password"]
     depends_on:
-      docker:
-        condition: service_healthy
+      - docker
     group_add:
       - "998"
     volumes:
