@@ -38,6 +38,6 @@ services:
       ENCRYPTION_KEY: 9c0a7f4e2b8341c3a7d9e1c2f6b58a12
       JWT_SECRET: 7f1e3bc4d6a8921f5c3a9e7d2b4c1a9f58e3d2c7a1b9f4c6d8e2a3b4c5d6e7f1
     volumes:
-      - ${APP_DATA_DIR}/data:/app/data
-      - ${APP_DATA_DIR}/projects:/app/data/projects
+      - ${APP_DATA_DIR}/data/app_data:/app/data
+      - ${APP_DATA_DIR}/data/projects:/app/data/projects
       - ${APP_DATA_DIR}/data/docker:/var/run
