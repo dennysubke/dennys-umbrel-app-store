@@ -41,7 +41,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-arcane/4.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-arcane/5.jpg
 path: ""
-defaultUsername: "admin"
+defaultUsername: "arcane"
 defaultPassword: "arcane-admin"
 releaseNotes: >-
   This update includes several improvements and fixes:
