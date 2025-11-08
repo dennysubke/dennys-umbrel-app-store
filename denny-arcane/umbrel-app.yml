@@ -46,7 +46,7 @@ releaseNotes: >-
     - Docker images moved to new repositories.  
     - Added display of image repositories for untagged images.  
     - New option to save compose files as local templates.  
-    - Fixed multiple UI and network issues including syntax highlighting, log colors, and VLAN creation.  
+    - Fixed various UI and network issues.  
     - Major dependency updates across Svelte, Docker, Vite, Tailwind, and Go modules.  
     - Improved container creation dialog and expanded dashboard tables. 
 
