@@ -15,24 +15,25 @@ description: >-
 
 
 
-  🧩 Arcane on Umbrel is designed for advanced users who want complete control over their containers. Follow these recommendations to ensure a reliable and stable experience.  
+   🧩 Arcane on Umbrel is designed for advanced users who want complete control over their containers. Follow these recommendations to ensure a reliable and stable experience.  
   
 
-  1. Persistent data: Always use named Docker volumes for your containers and projects. Any data stored in bind mounts will be lost when the Arcane app is updated or restarted.  
+   1. Persistent data: Always use named Docker volumes for your containers and projects. Any data stored in bind mounts will be lost when the Arcane app is updated or restarted.  
   
   
-  2. Port usage: Be mindful of port conflicts between your containers, Umbrel system services, and other installed or future apps. Assign unique port numbers to prevent conflicts.  
+   2. Port usage: Be mindful of port conflicts between your containers, Umbrel system services, and other installed or future apps. Assign unique port numbers to prevent conflicts.  
   
   
-  3. Restart behavior: Configure your containers with the restart policy set to unless stopped or always. This ensures they automatically restart after Arcane restarts or updates.  
+   3. Restart behavior: Configure your containers with the restart policy set to unless stopped or always. This ensures they automatically restart after Arcane restarts or updates.  
   
   
-  4. Web access: You can access any container that exposes a web interface at `umbrel.local:PORT_NUMBER`. For example, if your app runs on port 5050, open `http://umbrel.local:5050` in your browser. 
+   4. Web access: You can access any container that exposes a web interface at `umbrel.local:PORT_NUMBER`. For example, if your app runs on port 5050, open `http://umbrel.local:5050` in your browser. 
 website: https://getarcane.app/
 dependencies: []
 repo: https://github.com/getarcaneapp/arcane
 support: https://github.com/getarcaneapp/arcane/issues
 port: 3552
+icon: logo.png
 gallery:
   - 1.jpg
   - 2.jpg
