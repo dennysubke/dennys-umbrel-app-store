@@ -21,6 +21,7 @@ services:
         --data-root /data/data
         --exec-root /data/exec
         --host unix:///data/docker.sock
+        --group 998
         --pidfile /data/docker.pid
     volumes:
       - ${APP_DATA_DIR}/entrypoint.sh:/entrypoint.sh
@@ -34,15 +35,15 @@ services:
 
   arcane:
     image: ghcr.io/ofkm/arcane:latest
-    # WICHTIG: Binary + Flags (sonst su-exec-Fehler)
     command: ["arcane", "--host", "unix:///var/run/docker.sock", "--admin-password-file=/default-password"]
     depends_on:
       docker:
         condition: service_healthy
+    group_add:
+      - "998"
     volumes:
       - ${APP_DATA_DIR}/data:/app/data
       - ${APP_DATA_DIR}/projects:/app/data/projects
-      # Docker-Socket vom DIND auf /var/run/docker.sock durchreichen
       - ${APP_DATA_DIR}/data/docker/docker.sock:/var/run/docker.sock
       - ${APP_DATA_DIR}/default-password:/default-password:ro
     environment:
