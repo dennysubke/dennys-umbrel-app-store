@@ -8,6 +8,7 @@ services:
 
   docker:
     image: docker:28.0.4-dind@sha256:ddb0033088b4fab74881ade341a582e3c6c8021b82377703ba1a6106bd3ded44
+    user: "0:0"
     privileged: true
     network_mode: host
     stop_grace_period: 1m
@@ -21,7 +22,6 @@ services:
         --data-root /data/data
         --exec-root /data/exec
         --host unix:///data/docker.sock
-        --host tcp://0.0.0.0:2375
         --pidfile /data/docker.pid
     volumes:
       - ${APP_DATA_DIR}/entrypoint.sh:/entrypoint.sh
@@ -34,7 +34,6 @@ services:
       COOLIFY_APP_ID: coolify
       COOLIFY_SECRET_KEY: 401a49063b516a93ac62a5dfdae969dd9189cae019dd0b1d7d9d7e8fd5db9269
       APP_KEY: base64:FLESjZzM6M2rd7T023CHSMGNQKegQBRUaZJY7wq4VCI=
-      APP_URL: http://${DEVICE_DOMAIN_NAME}:8527
       DATABASE_URL: postgresql://coolify:coolifypass123@db:5432/coolify
       COOLIFY_DATABASE_URL: postgresql://coolify:coolifypass123@db:5432/coolify
       DB_CONNECTION: pgsql
@@ -49,14 +48,25 @@ services:
       COOLIFY_SELF_HOSTED: "true"
       COOLIFY_MIGRATION_ENABLED: "true"
       COOLIFY_SEEDER_ENABLED: "false"
-      DOCKER_HOST: tcp://host.docker.internal:2375
+      DOCKER_HOST: unix:///data/docker.sock
     extra_hosts:
       - host.docker.internal:host-gateway
+      - ${APP_DOMAIN}:host-gateway
     volumes:
+      # /var/run/docker.sock:/var/run/docker.sock
+      - ${APP_DATA_DIR}/data/docker:/var/run
       - ${APP_DATA_DIR}/data/coolify_data:/data
     depends_on:
-      - db
-      - redis
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:8080 >/dev/null 2>&1 || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
 
   db:
     image: postgres:15@sha256:c189d272e4fcdd1ac419adee675d30be3d389c22ee770d593f15819d22a68a0d
@@ -67,10 +77,22 @@ services:
       POSTGRES_DB: coolify
     volumes:
       - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB -h 127.0.0.1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
 
   redis:
     image: redis:alpine@sha256:59b6e694653476de2c992937ebe1c64182af4728e54bb49e9b7a6c26614d8933
     restart: on-failure
-    command: ["redis-server", "--save", "60", "1", "--loglevel", "warning"]
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
+    command: ["redis-server", "--save", "60", "1", "--loglevel", "warning"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 5s
