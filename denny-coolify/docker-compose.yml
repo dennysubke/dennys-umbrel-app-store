@@ -44,6 +44,9 @@ services:
       DB_PASSWORD: coolifypass123
       REDIS_HOST: redis
       REDIS_PORT: 6379
+      REDIS_CLIENT: phpredis
+      REDIS_TIMEOUT: 2
+      REDIS_READ_TIMEOUT: 2
       COOLIFY_REDIS_URL: redis://redis:6379
       COOLIFY_SELF_HOSTED: "true"
       COOLIFY_MIGRATION_ENABLED: "true"
