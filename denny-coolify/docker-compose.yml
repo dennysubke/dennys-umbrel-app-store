@@ -8,7 +8,6 @@ services:
 
   docker:
     image: docker:28.0.4-dind@sha256:ddb0033088b4fab74881ade341a582e3c6c8021b82377703ba1a6106bd3ded44
-    user: "0:0"
     privileged: true
     network_mode: host
     stop_grace_period: 1m
@@ -45,10 +44,6 @@ services:
       REDIS_HOST: redis
       REDIS_PORT: 6379
       COOLIFY_REDIS_URL: redis://redis:6379
-      COOLIFY_SELF_HOSTED: "true"
-      COOLIFY_MIGRATION_ENABLED: "true"
-      COOLIFY_SEEDER_ENABLED: "false"
-      DOCKER_HOST: unix:///data/docker.sock
     extra_hosts:
       - host.docker.internal:host-gateway
       - ${APP_DOMAIN}:host-gateway
