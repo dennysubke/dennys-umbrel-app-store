@@ -33,6 +33,7 @@ services:
       COOLIFY_APP_ID: coolify
       COOLIFY_SECRET_KEY: 401a49063b516a93ac62a5dfdae969dd9189cae019dd0b1d7d9d7e8fd5db9269
       APP_KEY: base64:FLESjZzM6M2rd7T023CHSMGNQKegQBRUaZJY7wq4VCI=
+      APP_URL: http://${DEVICE_DOMAIN_NAME}:8527
       DATABASE_URL: postgresql://coolify:coolifypass123@db:5432/coolify
       COOLIFY_DATABASE_URL: postgresql://coolify:coolifypass123@db:5432/coolify
       DB_CONNECTION: pgsql
@@ -49,7 +50,7 @@ services:
       COOLIFY_SEEDER_ENABLED: "false"
       DOCKER_HOST: unix:///var/run/docker.sock
     volumes:
-      - ${APP_DATA_DIR}/data/docker:/var/run
+      - ${APP_DATA_DIR}/data/docker/docker.sock:/var/run/docker.sock
       - ${APP_DATA_DIR}/data/coolify_data:/data
     depends_on:
       - db
