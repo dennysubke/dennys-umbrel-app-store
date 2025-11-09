@@ -17,10 +17,7 @@ services:
     entrypoint: /bin/sh -c
     command: >
       "
-      if [ -d /data/docker.sock ]; then
-        echo '⚙️ Removing invalid /data/docker.sock directory...';
-        rm -rf /data/docker.sock;
-      fi;
+      if [ -d /data/docker.sock ]; then rm -rf /data/docker.sock; fi;
       mkdir -p /data/data /data/exec;
       exec dockerd
         --bridge dind0
@@ -56,11 +53,19 @@ services:
       COOLIFY_SEEDER_ENABLED: "false"
       DOCKER_HOST: unix:///dind/docker.sock
     volumes:
-      - ${APP_DATA_DIR}/data/docker/docker.sock:/dind/docker.sock
+      - ${APP_DATA_DIR}/data/docker:/dind/docker.sock
       - ${APP_DATA_DIR}/data/coolify_data:/data
     depends_on:
-      - db
-      - redis
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:8080 >/dev/null 2>&1 || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
 
   db:
     image: postgres:15@sha256:c189d272e4fcdd1ac419adee675d30be3d389c22ee770d593f15819d22a68a0d
@@ -71,10 +76,22 @@ services:
       POSTGRES_DB: coolify
     volumes:
       - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB -h 127.0.0.1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
 
   redis:
     image: redis:alpine@sha256:59b6e694653476de2c992937ebe1c64182af4728e54bb49e9b7a6c26614d8933
     restart: on-failure
+    command: ["redis-server", "--save", "60", "1", "--loglevel", "warning"]
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
-    command: ["redis-server", "--save", "60", "1", "--loglevel", "warning"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+      start_period: 5s
