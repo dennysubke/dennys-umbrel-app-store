@@ -14,16 +14,22 @@ services:
     restart: on-failure
     environment:
       DOCKER_ENSURE_BRIDGE: "dind0:10.32.0.1/16"
-    entrypoint: /entrypoint.sh
+    entrypoint: /bin/sh -c
     command: >
-      dockerd
+      "
+      if [ -d /data/docker.sock ]; then
+        echo '⚙️ Removing invalid /data/docker.sock directory...';
+        rm -rf /data/docker.sock;
+      fi;
+      mkdir -p /data/data /data/exec;
+      exec dockerd
         --bridge dind0
         --data-root /data/data
         --exec-root /data/exec
         --host unix:///data/docker.sock
         --pidfile /data/docker.pid
+      "
     volumes:
-      - ${APP_DATA_DIR}/entrypoint.sh:/entrypoint.sh
       - ${APP_DATA_DIR}/data/docker:/data
 
   web:
@@ -50,7 +56,7 @@ services:
       COOLIFY_SEEDER_ENABLED: "false"
       DOCKER_HOST: unix:///dind/docker.sock
     volumes:
-      - ${APP_DATA_DIR}/data/docker:/dind/docker.sock
+      - ${APP_DATA_DIR}/data/docker/docker.sock:/dind/docker.sock
       - ${APP_DATA_DIR}/data/coolify_data:/data
     depends_on:
       - db
