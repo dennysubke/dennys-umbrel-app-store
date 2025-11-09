@@ -50,7 +50,7 @@ services:
       COOLIFY_SEEDER_ENABLED: "false"
       DOCKER_HOST: unix:///dind/docker.sock
     volumes:
-      - ${APP_DATA_DIR}/data/docker/docker.sock:/dind/docker.sock
+      - ${APP_DATA_DIR}/data/docker:/dind/docker.sock
       - ${APP_DATA_DIR}/data/coolify_data:/data
     depends_on:
       - db
