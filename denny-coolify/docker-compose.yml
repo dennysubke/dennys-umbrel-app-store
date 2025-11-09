@@ -48,9 +48,8 @@ services:
       COOLIFY_SELF_HOSTED: "true"
       COOLIFY_MIGRATION_ENABLED: "true"
       COOLIFY_SEEDER_ENABLED: "false"
-      DOCKER_HOST: unix:///var/run/docker.sock
     volumes:
-      - ${APP_DATA_DIR}/data/docker/docker.sock:/var/run/docker.sock
+      - ${APP_DATA_DIR}/data/docker:/var/run
       - ${APP_DATA_DIR}/data/coolify_data:/data
     depends_on:
       - db
