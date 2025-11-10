@@ -33,5 +33,5 @@ releaseNotes: >-
   It resolves multiple issues related to authentication, cookies, and mobile display while refining the documentation for deployment and hosting. Additionally, the release updates dependencies, refactors key components, and enhances CI workflows for smoother delivery and maintenance.
 dependencies: []
 path: ""
-defaultUsername: ""
-defaultPassword: ""
+defaultUsername: "admin"
+defaultPassword: "umbrel"
