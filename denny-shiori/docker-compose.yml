@@ -7,10 +7,10 @@ services:
       APP_PORT: 8080
 
   shiori:
-    image: ghcr.io/go-shiori/shiori:latest
+    image: ghcr.io/go-shiori/shiori:v1.8.0@sha256:d3bdfc1b68b8f267a04cf74d73b8a0e1d99ac71c3a9047375e97202f079eb1f6
     command: ["server", "--log-level", "debug"]
     volumes:
-      - ${APP_DATA_DIR}/data:/srv/shiori
+      - ${APP_DATA_DIR}/data/app_data:/srv/shiori
     environment:
       SHIORI_DIR: /srv/shiori
       SHIORI_USERNAME: admin
@@ -26,7 +26,7 @@ services:
       POSTGRES_USER: shiori
       POSTGRES_PASSWORD: shiori
     volumes:
-      - ${APP_DATA_DIR}/postgres:/var/lib/postgresql/data
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
 
   mariadb:
     image: mariadb:10.5.27
@@ -36,4 +36,4 @@ services:
       MYSQL_USER: shiori
       MYSQL_PASSWORD: shiori
     volumes:
-      - ${APP_DATA_DIR}/mariadb:/var/lib/mysql
+      - ${APP_DATA_DIR}/data/mariadb:/var/lib/mysql
