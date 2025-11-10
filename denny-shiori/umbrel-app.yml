@@ -24,8 +24,6 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-shiori/1.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-shiori/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-shiori/3.jpg
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-shiori/4.jpg
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-shiori/5.jpg
 releaseNotes: >-
   This version introduces major improvements to performance and usability, including new API features for tag management, better SQLite efficiency, and support for PWA functionality with link sharing. It also adds proxy authentication and several enhancements to API v1 for filtering and retrieving tag data.
 
