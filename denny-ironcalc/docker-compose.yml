@@ -9,7 +9,10 @@ services:
   web:
     image: ghcr.io/ironcalc/ironcalc-caddy:0.6.0
     volumes:
-      - ${APP_DATA_DIR}/data:/data
+      - ${APP_DATA_DIR}/data/app_data:/data
+      - ${APP_DATA_DIR}/data/caddy/caddyfile:/etc/caddy/Caddyfile:ro
+    depends_on:
+      - server
 
   server:
     image: ghcr.io/ironcalc/ironcalc-server:0.6.0
