@@ -20,7 +20,7 @@ services:
       - mariadb
 
   postgres:
-    image: postgres:13.18
+    image: postgres:14.19@sha256:962ffbe9f6418387643411b127c1db27465e5a23b9a8849bfaf45fa6323963ce
     environment:
       POSTGRES_DB: shiori
       POSTGRES_USER: shiori
@@ -29,7 +29,7 @@ services:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
 
   mariadb:
-    image: mariadb:10.5.27
+    image: mariadb:12.0.2@sha256:5b6a1eac15b85b981a61afb89aea2a22bf76b5f58809d05f0bcc13ab6ec44cb8
     environment:
       MYSQL_ROOT_PASSWORD: toor
       MYSQL_DATABASE: shiori
