@@ -7,6 +7,11 @@ services:
       APP_PORT: 2080
 
   web:
-    image: ghcr.io/ironcalc/ironcalc-server:0.6.0@sha256:e56ef43627f16ef59063098601922fc382694e92d9924c589d36ef480e0f62b7
+    image: ghcr.io/ironcalc/ironcalc-caddy:0.6.0
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+
+  server:
+    image: ghcr.io/ironcalc/ironcalc-server:0.6.0
     volumes:
       - ${APP_DATA_DIR}/data:/data
