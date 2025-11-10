@@ -3,7 +3,7 @@ id: denny-shiori
 name: Shiori
 tagline: A simple and elegant bookmark manager
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-shiori/logo.png
-category: test
+category: files & productivity
 version: " 1.8.0"
 port: 8749
 description: >-
