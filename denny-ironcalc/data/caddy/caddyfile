@@ -1,31 +1,26 @@
 :2080 {
 	encode gzip
-	# Access-Logs zum Debuggen
-	log {
-		output stdout
-		format console
-	}
 
-	# Alle typischen Backend-Pfade der Webapp -> Rocket-Server
-	@backend path /api* /rpc* /v1* /files* /health*
+	# API/RPC -> Backend
+	@backend path /api* /rpc* /v1* /workbook* /workbooks* /graphql* /files* /health*
 	handle @backend {
 		reverse_proxy http://server:8000
 	}
 
-	# (Optional) WebSocket-Endpunkte, falls genutzt
-	@ws path /ws* /socket* /realtime*
-	handle @ws {
+	# Schreibende Fallbacks (falls die UI z. B. POST / nutzt)
+	@write method POST PUT PATCH DELETE
+	handle @write {
 		reverse_proxy http://server:8000
 	}
 
-	# Static SPA
+	# Static UI (IronCalc-Bundle liegt im Image unter /usr/share/caddy)
 	handle {
 		root * /usr/share/caddy
 		try_files {path} /index.html
 		file_server
 	}
 
-	# CORS offen (intern hinter Umbrel ok)
+	# CORS offen – hinter Umbrel ok
 	header {
 		Access-Control-Allow-Origin *
 		Access-Control-Allow-Methods "GET, POST, PUT, PATCH, DELETE, OPTIONS"
