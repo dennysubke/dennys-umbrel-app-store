@@ -4,7 +4,7 @@ name: Donetick
 tagline: An intelligent way to organize tasks and chores
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-donetick/logo.png
 category: files & productivity
-version: "0.1.37"
+version: "0.1.64"
 port: 2021
 description: >-
   Donetick is an open-source task management application designed to streamline the organization of household chores and other recurring responsibilities. It provides a flexible system for assigning tasks to multiple users, using various selection strategies such as random allocation or assignment based on the fewest completed tasks. Tasks can be scheduled with customizable recurrence patterns, making it easy to manage both daily routines and less frequent responsibilities.
@@ -30,7 +30,10 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-donetick/4.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-donetick/5.jpg
 releaseNotes: >-
-  Version 0.1.37 introduces nested sub-tasks, improved task filtering by assignee with the ability to save it as the default view, and user preferences for task grouping. Additionally, it fixes a PostgreSQL migration issue and allows webhooks to be used as the sole notification method.
+  ChatGPT said:This release brings several highly requested features and important refinements. You can now create and manage sub-accounts, a long-awaited addition that makes team organization much easier. It also introduces unassigned tasks that anyone in a group can pick up, along with the ability to assign users directly within a sentence using the “@” symbol.
+  
+  
+  On the improvement side, the update enhances frontend performance, resolves issues where task operations didn’t appear immediately, and fixes SSO login problems (currently supported only on the web version). A range of smaller frontend and UI tweaks further polish the overall experience.
 dependencies:
 path: ""
 defaultUsername: ""
