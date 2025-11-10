@@ -2,14 +2,8 @@ name: "selfhosted"
 is_done_tick_dot_com: false
 is_user_creation_disabled: false
 
-telegram:
-  token: ""  
-
-pushover:
-  token: ""  
-
 database:
-  type: "sqlite"  
+  type: "sqlite"
   migration: true
   host: "localhost"
   port: 5432
@@ -18,7 +12,7 @@ database:
   name: "selfhosted_db"
 
 jwt:
-  secret: "supergeheimesjwtsecret"
+  secret: "yYCBVjEKcrpEiTORFJX3K5TJ2dPbQhFJdZT4jyQPgvE="
   session_time: 168h
   max_refresh: 168h
 
@@ -30,29 +24,12 @@ server:
   rate_limit: 300
   cors_allow_origins:
     - "http://umbrel.local:2021"
-    - "http://localhost:5173"
-    - "http://localhost:7926"
-    - "https://localhost"
-    - "capacitor://localhost"
+    - "http://umbrel-2.local:2021"
+    - "http://umbrel:2021"
+    - "http://umbrel-2:2021"
   serve_frontend: true
 
 scheduler_jobs:
   due_job: 30m
   overdue_job: 3h
   pre_due_job: 3h
-
-email:
-  host: "smtp.example.com"
-  port: 587
-  key: "geheimer-api-key"
-  email: "noreply@example.com"
-  appHost: "http://umbrel.local:2021"
-
-oauth2:
-  client_id: "dein-client-id"
-  client_secret: "dein-client-secret"
-  auth_url: "https://auth.example.com/oauth/authorize"
-  token_url: "https://auth.example.com/oauth/token"
-  user_info_url: "https://auth.example.com/userinfo"
-  redirect_url: "http://umbrel.local:2021/oauth/callback"
-  name: "ExampleOAuth"
