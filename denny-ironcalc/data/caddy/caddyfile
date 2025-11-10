@@ -1,29 +1,5 @@
 :2080 {
 	encode gzip
-
-	# API/RPC -> Backend
-	@backend path /api* /rpc* /v1* /workbook* /workbooks* /graphql* /files* /health*
-	handle @backend {
-		reverse_proxy http://server:8000
-	}
-
-	# Schreibende Fallbacks (falls die UI z. B. POST / nutzt)
-	@write method POST PUT PATCH DELETE
-	handle @write {
-		reverse_proxy http://server:8000
-	}
-
-	# Static UI (IronCalc-Bundle liegt im Image unter /usr/share/caddy)
-	handle {
-		root * /usr/share/caddy
-		try_files {path} /index.html
-		file_server
-	}
-
-	# CORS offen – hinter Umbrel ok
-	header {
-		Access-Control-Allow-Origin *
-		Access-Control-Allow-Methods "GET, POST, PUT, PATCH, DELETE, OPTIONS"
-		Access-Control-Allow-Headers *
-	}
+	# Schicke ALLES an den Backend-Server
+	reverse_proxy http://server:8000
 }
