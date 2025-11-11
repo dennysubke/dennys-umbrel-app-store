@@ -4,6 +4,15 @@ services:
       APP_HOST: denny-spotizerr_spotizerr_1
       APP_PORT: 7171
 
+  perms:
+    image: busybox:latest
+    user: "0:0"
+    volumes:
+      - ${APP_DATA_DIR}/data:/fix/data
+      - ${APP_DATA_DIR}/downloads:/fix/downloads
+      - ${APP_DATA_DIR}/logs:/fix/logs
+    command: sh -lc 'mkdir -p /fix/data /fix/downloads /fix/logs && chown -R 1000:1000 /fix'
+
   spotizerr:
     image: cooldockerizer93/spotizerr
     user: "1000:1000"
@@ -20,6 +29,7 @@ services:
       - ${APP_DATA_DIR}/downloads:/app/downloads
       - ${APP_DATA_DIR}/logs:/app/logs
     depends_on:
+      - perms
       - redis
 
   redis:
