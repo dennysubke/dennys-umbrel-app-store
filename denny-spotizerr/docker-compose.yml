@@ -1,5 +1,3 @@
-version: "3.7"
-
 services:
   app_proxy:
     environment:
@@ -14,14 +12,13 @@ services:
       REDIS_HOST: "redis"
       REDIS_PORT: "6379"
       REDIS_PASSWORD: "spotizerr_redis_password"
-      JWT_SECRET: "superlongrandomjwtsecret"
+      JWT_SECRET: "b6e5a0f10c3f4e8f8d7d6a2bb8f9c6a1d2f3b7e9c1a4d5f8e3b9a7c2f1e6d4b0"
       DEFAULT_ADMIN_USERNAME: "admin"
       DEFAULT_ADMIN_PASSWORD: "umbrel"
     volumes:
       - ${APP_DATA_DIR}/data:/app/data
       - ${APP_DATA_DIR}/downloads:/app/downloads
       - ${APP_DATA_DIR}/logs:/app/logs
-      - ${APP_DATA_DIR}/.cache:/app/.cache
     depends_on:
       - redis
 
@@ -31,4 +28,4 @@ services:
       REDIS_PASSWORD: "spotizerr_redis_password"
     volumes:
       - ${APP_DATA_DIR}/redis:/data
-    command: sh -c 'redis-server --requirepass "$REDIS_PASSWORD" --appendonly yes'
+    command: sh -lc 'redis-server --requirepass "$$REDIS_PASSWORD" --appendonly yes'
