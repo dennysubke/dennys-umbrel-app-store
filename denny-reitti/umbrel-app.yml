@@ -4,7 +4,7 @@ name: Reitti
 tagline: A location tracking and analysis application
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-reitti/logo.png
 category: files & productivity
-version: "1.4.0"
+version: "2.4.2"
 port: 8744
 description: >-
   🗺️ Reitti is an application designed to monitor and record your movements in a comprehensive and automated way. It continuously tracks your location throughout the day and identifies the places you visit, creating a detailed log of your daily activities. By analyzing your movements, it can detect the mode of transportation you use, whether you are walking, cycling, or driving, and provides insights into how you travel between different locations.
@@ -36,7 +36,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-reitti/4.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-reitti/5.jpg
 releaseNotes: >-
-  The v1.4.0 update improves the user interface and mobile responsiveness, enhances reverse geocoding, and adds new data export options. Long-distance routes are now displayed as geodesic arcs, providing a clearer and more accurate visual representation of travel paths.
+  This version fixes an issue with OwnTracks ping messages that caused incorrect timestamps to be recorded. Reitti now completely ignores these ping events, while regular location and transition events continue to work as expected.
 dependencies: []
 path: ""
 defaultUsername: "admin"
