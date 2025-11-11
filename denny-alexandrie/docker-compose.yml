@@ -7,28 +7,34 @@ services:
       APP_PORT: 8200
 
   mysql:
-    image: mysql:9.5@sha256:569c4128dfa625ac2ac62cdd8af588a3a6a60a049d1a8d8f0fac95880ecdbbe5
+    image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: alexandrie
       MYSQL_USER: alexandrie
       MYSQL_PASSWORD: password
     volumes:
-      - ${APP_DATA_DIR}/data/mysql:/var/lib/mysql
+      - ${APP_DATA_DIR}/mysql:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u\"$MYSQL_USER\" -p\"$MYSQL_PASSWORD\" --silent"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 20s
 
   rustfs:
-    image: rustfs/rustfs:1.0.0-alpha.67@sha256:42059add0ba3370b3f1731e81d135f03c1680f8a3dfa996ec83b4a9e999b3afb
+    image: rustfs/rustfs:latest
     environment:
       RUSTFS_ACCESS_KEY: alexandrie-key
       RUSTFS_SECRET_KEY: alexandrie-secret
       RUSTFS_CONSOLE_ENABLE: "false"
       RUSTFS_LOG_LEVEL: info
     volumes:
-      - ${APP_DATA_DIR}/data/rustfs/rustfs_data:/data
-      - ${APP_DATA_DIR}/data/rustfs/rustfs_logs:/logs
+      - ${APP_DATA_DIR}/rustfs/data:/data
+      - ${APP_DATA_DIR}/rustfs/logs:/logs
 
   backend:
-    image: ghcr.io/smaug6739/alexandrie-backend:v8.1.0@sha256:9aabff635ce76f5e55bda5f9bd146fb8659eb69cb6b83fa6b2550d91970dc83d
+    image: ghcr.io/smaug6739/alexandrie-backend:latest
     environment:
       BACKEND_PORT: 8201
       GIN_MODE: release
@@ -48,11 +54,13 @@ services:
       FRONTEND_URL: http://${DEVICE_DOMAIN_NAME}:8291
       ALLOW_UNSECURE: "true"
     depends_on:
-      - mysql
-      - rustfs
+      mysql:
+        condition: service_healthy
+      rustfs:
+        condition: service_started
 
   frontend:
-    image: ghcr.io/smaug6739/alexandrie-frontend:v8.1.0@sha256:c1bb0d08e67a8f3576f6b5370548ec401b38a01b0a1522dca5a3e01a632d91a7
+    image: ghcr.io/smaug6739/alexandrie-frontend:latest
     environment:
       PORT: 8200
       NUXT_PUBLIC_BASE_API: http://backend:8201
