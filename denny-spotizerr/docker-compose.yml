@@ -1,37 +1,34 @@
-version: '3.7'
+version: "3.7"
 
 services:
   app_proxy:
     environment:
-      APP_HOST: denny-spotizerr_app_1
+      APP_HOST: denny-spotizerr_spotizerr_1
       APP_PORT: 7171
 
-  app:
+  spotizerr:
     image: cooldockerizer93/spotizerr
-    restart: on-failure
-    volumes:
-      - ${APP_DATA_DIR}/data/spotizerr_data:/app/data
-      - ${APP_DATA_DIR}/data/downloads:/app/downloads
-      - ${APP_DATA_DIR}/data/logs:/app/logs
+    user: "1000:1000"
     environment:
-      - PUID=1000
-      - PGID=1000
-      # - UMASK=022
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
-      - REDIS_DB=0
-      - REDIS_PASSWORD=E7r9Tx4uK1vM8qWp
-      - REDIS_URL=redis://:E7r9Tx4uK1vM8qWp@redis:6379/0
-      - REDIS_BACKEND=redis://:E7r9Tx4uK1vM8qWp@redis:6379/0
-      - EXPLICIT_FILTER=true
+      HOST: "0.0.0.0"
+      REDIS_HOST: "redis"
+      REDIS_PORT: "6379"
+      REDIS_PASSWORD: "spotizerr_redis_password"
+      JWT_SECRET: "superlongrandomjwtsecret"
+      DEFAULT_ADMIN_USERNAME: "admin"
+      DEFAULT_ADMIN_PASSWORD: "umbrel"
+    volumes:
+      - ${APP_DATA_DIR}/data:/app/data
+      - ${APP_DATA_DIR}/downloads:/app/downloads
+      - ${APP_DATA_DIR}/logs:/app/logs
+      - ${APP_DATA_DIR}/.cache:/app/.cache
     depends_on:
       - redis
 
   redis:
     image: redis:alpine
-    restart: on-failure
     environment:
-      - REDIS_PASSWORD=E7r9Tx4uK1vM8qWp
+      REDIS_PASSWORD: "spotizerr_redis_password"
     volumes:
-      - ${APP_DATA_DIR}/data/redis-data:/data
-    command: redis-server --requirepass E7r9Tx4uK1vM8qWp --appendonly yes
+      - ${APP_DATA_DIR}/redis:/data
+    command: sh -c 'redis-server --requirepass "$REDIS_PASSWORD" --appendonly yes'
