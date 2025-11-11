@@ -1,25 +1,25 @@
 manifestVersion: 1
 id: denny-alexandrie
 name: Alexandrie
-tagline: A simple and elegant bookmark manager
+tagline: A powerful Markdown workspace
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-alexandrie/logo.png
 category: test
-version: "1.8.0"
+version: "8.1.0"
 port: 8291
 description: >-
-  🔖 Shiori is a lightweight and elegant bookmark manager that helps you collect and organize your favorite websites in one place. It is designed for people who want to save useful articles, resources, and references without relying on external services. Every time you save a link, Shiori automatically fetches its title, description, and metadata to make your collection both structured and easy to browse.
+  Alexandrie is a modern note-taking application designed to make writing and organizing content effortless and enjoyable. It allows users to create, edit, and manage notes using an extended Markdown syntax that combines the simplicity of plain text with the richness of formatted writing. Notes can include headings, code blocks, tables, images, and other elements that make complex ideas easy to structure and read.
 
 
-  Beyond simple bookmarking, Shiori allows you to store readable versions of pages so you can revisit the content even when the original site is unavailable. This makes it perfect for research, long-term reference collections, or simply building your personal digital library. You can add tags, edit details, and search your saved content with fast, responsive filters that make finding information effortless.
+  The interface focuses on clarity and comfort, offering a clean writing environment that encourages focus and creativity. Every note can be quickly accessed, searched, and categorized, allowing users to build a personal knowledge base that grows naturally over time. Alexandrie supports a fluid writing experience where text flows smoothly, formatting feels intuitive, and users can stay fully immersed in their thoughts without distractions.
 
 
-  The interface is clean and distraction-free, focusing entirely on your saved content. Shiori aims to make managing bookmarks as natural and intuitive as possible while preserving the flexibility and control that power users appreciate. It turns your bookmarks into a personal archive that is searchable, reliable, and fully under your control.
-developer: Shiori
-website: https://github.com/go-shiori/shiori
+  Its design philosophy revolves around helping people think clearly through writing. Whether capturing fleeting ideas, developing detailed documents, or drafting long-form articles, Alexandrie turns the process into something fluid and rewarding. It is not just a place to store notes but a tool to refine, connect, and expand them into a coherent body of work.
+developer: Smaug
+website: https://alexandrie-hub.fr/
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
-repo: https://github.com/go-shiori/shiori
-support: https://github.com/go-shiori/shiori/issues
+repo: https://github.com/Smaug6739/Alexandrie
+support: https://github.com/Smaug6739/Alexandrie/issues
 gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-alexandrie/1.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-alexandrie/2.jpg
@@ -27,10 +27,16 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-alexandrie/4.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-alexandrie/5.jpg
 releaseNotes: >-
-  This version introduces major improvements to performance and usability, including new API features for tag management, better SQLite efficiency, and support for PWA functionality with link sharing. It also adds proxy authentication and several enhancements to API v1 for filtering and retrieving tag data.
+  This version of Alexandrie introduces several major improvements and refinements across the platform. The MinIO storage system has been replaced with RufusFS to provide better performance, stability, and compatibility with the backend.
 
 
-  It resolves multiple issues related to authentication, cookies, and mobile display while refining the documentation for deployment and hosting. Additionally, the release updates dependencies, refactors key components, and enhances CI workflows for smoother delivery and maintenance.
+  The landing page has been completely redesigned to include a live demo of core features and to properly display contributor profile images from GitHub. A new Markdown syntax component has been introduced, adding support for colored info containers and mathematical notation using $$, giving users more flexibility when writing advanced notes.
+
+
+  The update also enhances usability with a search bar in the CDN component, a cleaner dark theme, and an improved logout system that allows signing out from all devices. Security has been strengthened with an HTML sanitizer to protect against XSS attacks.
+
+
+  In addition, numerous fixes improve responsiveness on mobile, align Markdown columns more neatly, and resolve issues with dark mode synchronization, PWA installation, and backend bucket policies. The documentation and README have been updated with clearer instructions and new visuals, rounding out a polished and reliable release.
 dependencies: []
 path: ""
 defaultUsername: ""
