@@ -4,7 +4,7 @@ name: Shiori
 tagline: A simple and elegant bookmark manager
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-shiori/logo.png
 category: files & productivity
-version: " 1.8.0"
+version: "1.8.0"
 port: 8749
 description: >-
   🔖 Shiori is a lightweight and elegant bookmark manager that helps you collect and organize your favorite websites in one place. It is designed for people who want to save useful articles, resources, and references without relying on external services. Every time you save a link, Shiori automatically fetches its title, description, and metadata to make your collection both structured and easy to browse.
