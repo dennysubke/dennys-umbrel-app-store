@@ -15,8 +15,6 @@ services:
       MYSQL_PASSWORD: password
     volumes:
       - ${APP_DATA_DIR}/mysql:/var/lib/mysql
-    networks:
-      - alexandrie-network
 
   rustfs:
     image: rustfs/rustfs:latest
@@ -28,8 +26,6 @@ services:
     volumes:
       - ${APP_DATA_DIR}/rustfs/data:/data
       - ${APP_DATA_DIR}/rustfs/logs:/logs
-    networks:
-      - alexandrie-network
 
   backend:
     image: ghcr.io/smaug6739/alexandrie-backend:latest
@@ -51,11 +47,10 @@ services:
       JWT_SECRET: ${APP_SEED}
       FRONTEND_URL: http://${DEVICE_DOMAIN_NAME}:8291
       ALLOW_UNSECURE: "true"
+      CORS_ALLOWED_ORIGINS: "http://${DEVICE_DOMAIN_NAME},http://${DEVICE_DOMAIN_NAME}:8291,http://umbrel.local,http://umbrel-2.local"
     depends_on:
       - mysql
       - rustfs
-    networks:
-      - alexandrie-network
 
   frontend:
     image: ghcr.io/smaug6739/alexandrie-frontend:latest
@@ -66,9 +61,3 @@ services:
       NUXT_PUBLIC_BASE_URL: /
     depends_on:
       - backend
-    networks:
-      - alexandrie-network
-
-networks:
-  alexandrie-network:
-    driver: bridge
