@@ -17,6 +17,18 @@ description: >-
 
 
   By focusing on timing precision, collaboration, and clarity, Ontime transforms complex event planning into a structured and controlled process. It helps creative teams maintain focus, anticipate upcoming actions, and deliver perfectly timed results even in high pressure live environments.
+
+
+  ⚙️ OSC Ports
+
+
+  Ontime supports Open Sound Control (OSC) — a protocol commonly used in stage, studio, and live environments to send and receive real-time commands between devices.
+
+
+  - Port 4088 (UDP) – OSC Control Port: receives control commands from external devices or software.
+  
+
+  - Port 4099 (UDP) – OSC Feedback Port: sends status updates and timing data back to connected systems.
 developer: Carlos Valente
 website: https://www.getontime.no/
 submitter: dennysubke
