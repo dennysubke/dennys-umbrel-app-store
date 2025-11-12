@@ -1,129 +1,64 @@
-# Docker Compose configuration for Alexandrie application stack
-# This setup includes:
-# - MySQL Database
-# - RustFS Object Storage (S3 compatible)
-# - Alexandrie Backend
-# - Alexandrie Frontend
-
-# For details please refer to the documentation (./docs/setup.md)
+version: "3.7"
 
 services:
-  # MySQL Database
+  app_proxy:
+    environment:
+      APP_HOST: denny-alexandrie_frontend_1
+      APP_PORT: 8200
+
   mysql:
     image: mysql:8.0
-    container_name: alexandrie-mysql
-    restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: alexandrie
       MYSQL_USER: alexandrie
       MYSQL_PASSWORD: password
     volumes:
-      - mysql_data:/var/lib/mysql
-    ports:
-      - '3307:3306'
-    networks:
-      - alexandrie-network
-    healthcheck:
-      test: ['CMD-SHELL', "mysql -u$$MYSQL_USER -p$$MYSQL_PASSWORD -e 'SELECT 1' $$MYSQL_DATABASE"]
-      timeout: 10s
-      retries: 5
-      start_period: 30s
+      - ${APP_DATA_DIR}/mysql:/var/lib/mysql
 
-  # Object Storage (RustFS, S3 compatible)
   rustfs:
     image: rustfs/rustfs:latest
-    container_name: alexandrie-rustfs
-    restart: unless-stopped
+    user: "0:0"
     environment:
       RUSTFS_ACCESS_KEY: alexandrie-key
       RUSTFS_SECRET_KEY: alexandrie-secret
-      RUSTFS_CONSOLE_ENABLE: 'false' # Disable web console
+      RUSTFS_CONSOLE_ENABLE: "false"
       RUSTFS_LOG_LEVEL: info
-    ports:
-      - '9000:9000'
+    # Einfaches Mapping verhindert Rechteprobleme
     volumes:
-      - rustfs_data:/data
-      - rustfs_logs:/logs
-    networks:
-      - alexandrie-network
-    healthcheck:
-      test: ['CMD-SHELL', 'nc -z localhost 9000 || exit 1']
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 20s
+      - ${APP_DATA_DIR}/rustfs:/data
 
-  # Alexandrie Backend
   backend:
     image: ghcr.io/smaug6739/alexandrie-backend:latest
-    container_name: alexandrie-backend
     environment:
-      # General configuration
       BACKEND_PORT: 8201
-      GIN_MODE: release # Set to 'release' for production, 'debug' for development
-
-      # Database Configuration
+      GIN_MODE: release
       DATABASE_HOST: mysql
       DATABASE_PORT: 3306
       DATABASE_NAME: alexandrie
       DATABASE_USER: alexandrie
       DATABASE_PASSWORD: password
-
-      # Object storage configuration (S3 compatible like RustFS, MinIO, etc.)
-      # OPTIONAL: If you don't want to use the CDN feature you can leave these variables empty
       MINIO_ENDPOINT: rustfs:9000
       MINIO_ACCESSKEY: alexandrie-key
       MINIO_SECRETKEY: alexandrie-secret
       MINIO_BUCKET: alexandrie
-
-      # SMTP Configuration (only for password reset emails)
-      # OPTIONAL: If you don't want to use email features, you can leave these variables empty
-      SMTP_HOST: ''
-      SMTP_MAIL: ''
-      SMTP_PASSWORD: ''
-
-      # Application authentication and security
-      JWT_SECRET: ${APP_SEED}# Change this secret in production!
-      FRONTEND_URL: http://${DEVICE_DOMAIN_NAME}:8291 # URL where the frontend is hosted
-      ALLOW_UNSECURE: 'true' # Set to 'true' if you run without HTTPS (e.g., local dev);
-
-    ports:
-      - '8201:8201'
+      SMTP_HOST: ""
+      SMTP_MAIL: ""
+      SMTP_PASSWORD: ""
+      JWT_SECRET: ${APP_SEED}
+      FRONTEND_URL: http://${DEVICE_DOMAIN_NAME}:8291
+      ALLOW_UNSECURE: "true"
+      CORS_ALLOWED_ORIGINS: "http://${DEVICE_DOMAIN_NAME},http://${DEVICE_DOMAIN_NAME}:8291,http://umbrel.local,http://umbrel-2.local"
     depends_on:
-      mysql:
-        condition: service_healthy
-      rustfs:
-        condition: service_healthy
-    networks:
-      - alexandrie-network
+      - mysql
+      - rustfs
 
-  # Alexandrie Frontend
   frontend:
     image: ghcr.io/smaug6739/alexandrie-frontend:latest
-    container_name: alexandrie-frontend
-    restart: unless-stopped
     environment:
       PORT: 8200
-      # Runtime configuration - builds with these values at startup
-      NUXT_PUBLIC_BASE_API: http://localhost:8201
-      NUXT_PUBLIC_BASE_CDN: http://localhost:9000/alexandrie
-      NUXT_PUBLIC_BASE_URL: http://${DEVICE_DOMAIN_NAME}:8291
-    ports:
-      - '8291:8200'
+      NUXT_PUBLIC_BASE_API: http://backend:8201
+      NUXT_PUBLIC_BASE_CDN: http://rustfs:9000/alexandrie
+      NUXT_PUBLIC_BASE_URL: /
     depends_on:
       - backend
-    networks:
-      - alexandrie-network
-
-networks:
-  alexandrie-network:
-    driver: bridge
-
-volumes:
-  mysql_data:
-    driver: local
-  rustfs_data:
-    driver: local
-  rustfs_logs:
-    driver: local
