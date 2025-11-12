@@ -12,3 +12,6 @@ services:
       - ${APP_DATA_DIR}/data:/data
     environment:
       TZ: Europe/Berlin
+    ports:
+      - "4088:8888/udp"
+      - "4099:9999/udp"
