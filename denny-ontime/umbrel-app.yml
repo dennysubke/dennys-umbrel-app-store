@@ -1,0 +1,41 @@
+manifestVersion: 1
+id: denny-ontime
+name: Ontime
+tagline: A modular tool for timing automation
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ontime/logo.png
+category: files & productivity
+version: "4.1.0"
+port: 4101
+description: >-
+  ⏱️ Ontime is an advanced event and show management application designed for creating, organizing, and controlling precise production timelines. It provides a real time environment where teams can plan every aspect of a live event, from the initial rundown to the final cue, while maintaining complete control over timing and coordination. Each element of an event can be scheduled with exact durations, start times, and transitions, allowing every participant to stay synchronized and aware of what happens next.
+
+
+  The application enables seamless collaboration among producers, stage managers, and technicians by updating all connected devices instantly when changes are made. Its flexible interface allows users to build complex show rundowns that display current, next, and completed segments with accurate countdowns and progress indicators. This ensures that everyone involved in a production remains aligned, reducing errors and last minute confusion during critical moments.
+
+
+  Ontime also supports visual communication across different views, showing timers, messages, and cues tailored to specific roles in a production. A director can monitor overall progress while a stage operator or presenter receives only relevant timing information. This adaptability makes it ideal for concerts, broadcasts, conferences, and any type of live performance that demands perfect synchronization.
+
+
+  By focusing on timing precision, collaboration, and clarity, Ontime transforms complex event planning into a structured and controlled process. It helps creative teams maintain focus, anticipate upcoming actions, and deliver perfectly timed results even in high pressure live environments.
+developer: Carlos Valente
+website: https://www.getontime.no/
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/cpvalente/ontime
+support: https://github.com/cpvalente/ontime/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ontime/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ontime/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-ontime/3.jpg
+releaseNotes: >-
+  This version introduces the ability to rename and duplicate rundowns and to create share links for local IP addresses.
+
+
+  It improves sheet import previews, prevents ID conflicts, and adds a new “none” timer type that hides timestamps. 
+
+
+  The update also includes network link fixes, container improvements, and a simple health check endpoint for greater stability.
+dependencies:
+path: ""
+defaultUsername: ""
+defaultPassword: ""
