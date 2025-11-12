@@ -1,0 +1,74 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-alexandrie_frontend_1
+      APP_PORT: 8200
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: alexandrie
+      MYSQL_USER: alexandrie
+      MYSQL_PASSWORD: password
+    volumes:
+      - ${APP_DATA_DIR}/mysql:/var/lib/mysql
+    networks:
+      - alexandrie-network
+
+  rustfs:
+    image: rustfs/rustfs:latest
+    environment:
+      RUSTFS_ACCESS_KEY: alexandrie-key
+      RUSTFS_SECRET_KEY: alexandrie-secret
+      RUSTFS_CONSOLE_ENABLE: "false"
+      RUSTFS_LOG_LEVEL: info
+    volumes:
+      - ${APP_DATA_DIR}/rustfs/data:/data
+      - ${APP_DATA_DIR}/rustfs/logs:/logs
+    networks:
+      - alexandrie-network
+
+  backend:
+    image: ghcr.io/smaug6739/alexandrie-backend:latest
+    environment:
+      BACKEND_PORT: 8201
+      GIN_MODE: release
+      DATABASE_HOST: mysql
+      DATABASE_PORT: 3306
+      DATABASE_NAME: alexandrie
+      DATABASE_USER: alexandrie
+      DATABASE_PASSWORD: password
+      MINIO_ENDPOINT: rustfs:9000
+      MINIO_ACCESSKEY: alexandrie-key
+      MINIO_SECRETKEY: alexandrie-secret
+      MINIO_BUCKET: alexandrie
+      SMTP_HOST: ""
+      SMTP_MAIL: ""
+      SMTP_PASSWORD: ""
+      JWT_SECRET: ${APP_SEED}
+      FRONTEND_URL: "*"
+      ALLOW_UNSECURE: "true"
+    depends_on:
+      - mysql
+      - rustfs
+    networks:
+      - alexandrie-network
+
+  frontend:
+    image: ghcr.io/smaug6739/alexandrie-frontend:latest
+    environment:
+      PORT: 8200
+      NUXT_PUBLIC_BASE_API: http://backend:8201
+      NUXT_PUBLIC_BASE_CDN: http://rustfs:9000/alexandrie
+      NUXT_PUBLIC_BASE_URL: /
+    depends_on:
+      - backend
+    networks:
+      - alexandrie-network
+
+networks:
+  alexandrie-network:
+    driver: bridge
