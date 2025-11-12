@@ -7,7 +7,7 @@ services:
       APP_PORT: 8080
 
   app:
-    image: nikunjsingh/glass-keep:latest
+    image: nikunjsingh/glass-keep:v20250817-0123@sha256:9064edbac289a8cd301ceb1fcd07e8099a1b11a668bd6221744b550c7aaa4a6a
     environment:
       NODE_ENV: production
       API_PORT: "8080"
