@@ -1,42 +1,38 @@
 manifestVersion: 1
 id: denny-glass-keep
 name: Glass Keep
-tagline: A powerful Markdown workspace
-icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-alexandrie/logo.png
-category: test
-version: "8.1.0"
+tagline: A fast and elegant note keeper
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-glass-keep/logo.png
+category: files & productivity
+version: "1.0.1"
 port: 8153
 description: >-
-  Alexandrie is a modern note-taking application designed to make writing and organizing content effortless and enjoyable. It allows users to create, edit, and manage notes using an extended Markdown syntax that combines the simplicity of plain text with the richness of formatted writing. Notes can include headings, code blocks, tables, images, and other elements that make complex ideas easy to structure and read.
+  🗒️ Glass Keep is a beautifully designed note taking application that brings a calm and modern experience to organizing thoughts and ideas. It features a clean glassmorphic interface inspired by Google Keep, creating a smooth and elegant environment for writing and creativity.
 
 
-  The interface focuses on clarity and comfort, offering a clean writing environment that encourages focus and creativity. Every note can be quickly accessed, searched, and categorized, allowing users to build a personal knowledge base that grows naturally over time. Alexandrie supports a fluid writing experience where text flows smoothly, formatting feels intuitive, and users can stay fully immersed in their thoughts without distractions.
+  It allows users to create, edit, and manage notes with ease. Each note can contain rich text, checklists, and markdown formatting, offering flexibility for anything from quick reminders to detailed reflections. Notes can be color coded and tagged to keep information neatly structured and personalized.
 
 
-  Its design philosophy revolves around helping people think clearly through writing. Whether capturing fleeting ideas, developing detailed documents, or drafting long-form articles, Alexandrie turns the process into something fluid and rewarding. It is not just a place to store notes but a tool to refine, connect, and expand them into a coherent body of work.
-developer: Smaug
-website: https://alexandrie-hub.fr/
+  Images can be added directly to notes, allowing users to visually enrich their thoughts or capture moments of inspiration. Pinned notes stay at the top, making sure that important information is always visible and easy to access.
+
+
+  Users can edit notes inline, archive older ones for later reference, or delete them permanently when they are no longer needed. A powerful search and filter system ensures that even large collections of notes remain easy to navigate and organize.
+
+
+  With its responsive and minimal design, Glass Keep feels fluid and pleasant to use on any device. Whether writing a long journal entry, managing a to do list, or collecting creative ideas, it combines simplicity, clarity, and elegance to make note taking both productive and enjoyable.
+developer: Nikunj Singh
+website: https://github.com/nikunjsingh93/react-glass-keep
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
-repo: https://github.com/Smaug6739/Alexandrie
-support: https://github.com/Smaug6739/Alexandrie/issues
+repo: https://github.com/nikunjsingh93/react-glass-keep
+support: https://github.com/nikunjsingh93/react-glass-keep/issues
 gallery:
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-alexandrie/1.jpg
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-alexandrie/2.jpg
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-alexandrie/3.jpg
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-alexandrie/4.jpg
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-alexandrie/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-glass-keep/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-glass-keep/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-glass-keep/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-glass-keep/4.jpg
 releaseNotes: >-
-  This version of Alexandrie introduces several major improvements and refinements across the platform. The MinIO storage system has been replaced with RufusFS to provide better performance, stability, and compatibility with the backend.
-
-
-  The landing page has been completely redesigned to include a live demo of core features and to properly display contributor profile images from GitHub. A new Markdown syntax component has been introduced, adding support for colored info containers and mathematical notation using $$, giving users more flexibility when writing advanced notes.
-
-
-  The update also enhances usability with a search bar in the CDN component, a cleaner dark theme, and an improved logout system that allows signing out from all devices. Security has been strengthened with an HTML sanitizer to protect against XSS attacks.
-
-
-  In addition, numerous fixes improve responsiveness on mobile, align Markdown columns more neatly, and resolve issues with dark mode synchronization, PWA installation, and backend bucket policies. The documentation and README have been updated with clearer instructions and new visuals, rounding out a polished and reliable release.
+  This update improves stability and offline functionality. It fixes issues with default formatting, restores proper offline viewing, and ensures notes update correctly when working offline. Reordering of notes now behaves consistently and smoothly.
 dependencies: []
 path: ""
 defaultUsername: ""
