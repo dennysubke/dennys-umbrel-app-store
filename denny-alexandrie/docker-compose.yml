@@ -49,7 +49,7 @@ services:
       SMTP_MAIL: ""
       SMTP_PASSWORD: ""
       JWT_SECRET: ${APP_SEED}
-      FRONTEND_URL: "*"
+      FRONTEND_URL: http://${DEVICE_DOMAIN_NAME}:8291
       ALLOW_UNSECURE: "true"
     depends_on:
       - mysql
