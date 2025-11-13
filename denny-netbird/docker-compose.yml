@@ -7,7 +7,7 @@ services:
       APP_PORT: 80
 
   app:
-    image: netbirdio/netbird:latest
+    image: netbirdio/netbird:0.59.12@sha256:b98eb5f69423ea46ef959bcdcdf66472bd1c9d4a98bed83199fbadef95923298
     cap_add:
       - NET_ADMIN
       - SYS_ADMIN
