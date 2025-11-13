@@ -2,8 +2,8 @@ manifestVersion: 1
 id: denny-netbird
 name: Netbird
 tagline: A task manager that respects your privacy
-icon: icon.png
-category: test
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-netbird/logo.png
+category: In Progress
 version: "0.2.0"
 port: 8479
 description: >-
@@ -21,7 +21,9 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/dohsimpson/TaskTrove
 support: https://github.com/dohsimpson/TaskTrove/issues
 gallery:
-  - 1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-netbird/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-netbird/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-netbird/3.jpg
 releaseNotes: >-
   This update adds new natural language shortcuts for today and tomorrow, introduces a comprehensive settings dialog with UI improvements, and enhances drag and drop with shadow effects and collapsed section support. It also fixes a bug affecting kanban board drag and drop between sections.
 dependencies: []
