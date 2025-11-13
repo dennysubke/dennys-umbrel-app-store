@@ -1,32 +1,50 @@
 manifestVersion: 1
 id: denny-netbird
 name: Netbird
-tagline: A task manager that respects your privacy
+tagline: An adaptive client for Zero Trust Networking
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-netbird/logo.png
 category: In Progress
-version: "0.2.0"
+version: "0.59.12"
 port: 8479
 description: >-
-  TaskTrove is a modern task management application designed to help people organize their daily work and personal projects with clarity and efficiency. It provides a clean and intuitive interface where tasks can be quickly added, edited, and managed. The application supports natural language input so due dates, reminders, and scheduling details can be written in everyday language and immediately transformed into structured information. Tasks can be grouped into projects and further refined with labels, subtasks, and recurring patterns, making it easy to manage both simple to do lists and more complex workflows.
+  NetBird is a secure networking platform that creates private, peer-to-peer connections between devices using encrypted communication channels. It builds a trusted network layer that allows seamless and direct communication without exposing data to intermediaries. Every connection is protected with modern encryption standards and managed automatically through a zero trust security model that authenticates identities rather than networks.
 
 
-  TaskTrove offers multiple ways to view and interact with tasks including a traditional list view, a compact view for dense overviews, and a Kanban style board that is especially useful for visual organization and progress tracking. Searching and filtering are central features, allowing users to focus only on what is relevant at a given moment without losing sight of the bigger picture. Upcoming additions such as calendar integration and analytical tools extend its ability to provide insights into productivity and time management.
+  The NetBird Client is the component that brings this system to life. It handles all encrypted communication, key management, and access control between connected peers. Once active, it securely links the device to the NetBird network and continuously manages all background operations to maintain a reliable and private connection.
 
 
-  The application is built with privacy in mind and avoids unnecessary tracking or telemetry. It encourages a personal and distraction free workflow where the user stays in full control of their information. Its flexibility makes it suitable for different styles of productivity whether that means a simple checklist for everyday errands or a structured system for managing multiple projects at once.
-developer: Mushroom Theory Inc.
-website: https://tasktrove.io/
+  By combining simplicity, automation, and strong cryptography, the NetBird Client enables secure networking without configuration. It provides a stable foundation for private communication and collaboration while ensuring that every connection remains fully encrypted, authenticated, and resilient.
+
+
+  ⚙️ Get your Umbrel connected with NetBird
+
+
+  Right click on the app and select Troubleshoot to open the console. In the console, you will see the address containing your unique login code, for example:
+
+
+  https://login.netbird.io/activate?user_code=[YOUR-CODE]
+
+
+  Open this link in your browser on your computer or mobile device and sign in with the same NetBird account you use for the dashboard. Approve the device when prompted. After confirmation, your Umbrel client will automatically register itself and remain connected across restarts.
+developer: NetBird
+website: https://netbird.io/
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
-repo: https://github.com/dohsimpson/TaskTrove
-support: https://github.com/dohsimpson/TaskTrove/issues
+repo: https://github.com/netbirdio/netbird
+support: https://github.com/netbirdio/netbird/issues
 gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-netbird/1.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-netbird/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-netbird/3.jpg
 releaseNotes: >-
-  This update adds new natural language shortcuts for today and tomorrow, introduces a comprehensive settings dialog with UI improvements, and enhances drag and drop with shadow effects and collapsed section support. It also fixes a bug affecting kanban board drag and drop between sections.
+  This version introduces several updates and refinements to the NetBird client and management components. The deprecated gRPC client code has been replaced, DNS forwarding has been improved, and network monitoring on macOS has been extended with wakeup detection for better responsiveness.
+
+
+  The client now clamps MSS on outbound traffic, improves compatibility with nftables by allowing INPUT traffic on the compat filter table, and ensures cleaner shutdown behavior across all subsystems. These changes enhance both performance and reliability during network transitions.
+
+
+  Additional improvements include the addition of a login hint for OIDC authentication flows, DNS configuration data in debug bundles, and a refined database connection lifecycle configuration within the management service. Together, these updates strengthen stability, connectivity, and observability across the platform.
 dependencies: []
 path: ""
-defaultUsername: "admin"
-defaultPassword: "umbrel"
+defaultUsername: ""
+defaultPassword: ""
