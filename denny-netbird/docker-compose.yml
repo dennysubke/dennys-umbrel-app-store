@@ -13,6 +13,8 @@ services:
       - SYS_ADMIN
       - SYS_RESOURCE
     network_mode: host
+    environment:
+      - NB_SETUP_KEY=${NB_SETUP_KEY}
     volumes:
       - ${APP_DATA_DIR}/data/app_data:/var/lib/netbird
 
