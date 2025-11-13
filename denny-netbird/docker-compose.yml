@@ -12,6 +12,8 @@ services:
       - NET_ADMIN
       - SYS_ADMIN
       - SYS_RESOURCE
+    sysctls:
+      net.ipv4.conf.all.src_valid_mark: "1"
     network_mode: host
     environment:
       - NB_SETUP_KEY=${NB_SETUP_KEY}
