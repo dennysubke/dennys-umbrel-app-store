@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-liquid-photos_app_1
+      APP_PORT: 6363
+
+  app:
+    image: nikunjsingh/liquid-photos:v20250822-1726@sha256:8d751de558bb75aa3a7e94eebec8aefd7ac679434ce5eb1472b33515368d90fa
+    restart: on-failure
+    environment:
+      HOST: "0.0.0.0"
+      PORT: "6363"
+      ADMIN_USER: "admin"
+      ADMIN_PASS: "umbrel"
+    volumes:
+      - ${UMBREL_ROOT}/data/storage/Photos:/pictures:ro
+      - ${APP_DATA_DIR}/data/cache:/app/.cache
