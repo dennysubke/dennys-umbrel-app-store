@@ -3,7 +3,7 @@ id: denny-netbird
 name: Netbird
 tagline: An adaptive client for Zero Trust Networking
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-netbird/logo.png
-category: In Progress
+category: networking
 version: "0.59.12"
 port: 8479
 description: >-
