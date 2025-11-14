@@ -34,5 +34,5 @@ releaseNotes: >-
   Support for HEIC fallback and an additional ffmpeg fallback was added to improve image handling reliability. The README received extensive updates, including new screenshots, PWA information, favorites, share links, licensing details, and general documentation improvements.
 dependencies: []
 path: ""
-defaultUsername: ""
-defaultPassword: ""
+defaultUsername: "admin"
+defaultPassword: "umbrel"
