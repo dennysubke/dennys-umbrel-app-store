@@ -17,6 +17,9 @@ description: >-
 
 
   Overall it provides a calm straightforward way to view photos exactly as they are stored, making even very large archives feel light and manageable.
+
+
+  ℹ️ Photos must be placed inside the Photos folder in the Umbrel Files app.
 developer: Nikunj Singh
 website: https://github.com/nikunjsingh93/react-liquid-photos
 submitter: dennysubke
