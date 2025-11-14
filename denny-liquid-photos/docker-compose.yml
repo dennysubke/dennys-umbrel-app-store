@@ -16,4 +16,4 @@ services:
       ADMIN_PASS: "umbrel"
     volumes:
       - ${UMBREL_ROOT}/data/storage/Photos:/pictures:ro
-      - ${APP_DATA_DIR}/data/cache:/app/.cache
+      - ${APP_DATA_DIR}/data:/app/.cache
