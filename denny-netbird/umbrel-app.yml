@@ -1,6 +1,6 @@
 manifestVersion: 1
 id: denny-netbird
-name: Netbird
+name: NetBird
 tagline: An adaptive client for Zero Trust Networking
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-netbird/logo.png
 category: networking
