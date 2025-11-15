@@ -28,13 +28,13 @@ services:
       - ${APP_DATA_DIR}/data/sharelatex:/var/lib/overleaf
 
   mongo:
-    image: mongo:6.0@sha256:0a83b2f824b29c94c5284a49b018db2e3166d9879d1edda5cce545d899ef2bbb
+    image: mongo:8.0 #mongo:6.0@sha256:0a83b2f824b29c94c5284a49b018db2e3166d9879d1edda5cce545d899ef2bbb
     command: --replSet rs0 --bind_ip_all
     volumes:
       - ${APP_DATA_DIR}/data/mongo:/data/db
 
   mongo-init:
-    image: mongo:6.0
+    image: mongo:8.0 #mongo:6.0@sha256:0a83b2f824b29c94c5284a49b018db2e3166d9879d1edda5cce545d899ef2bbb
     depends_on:
       - mongo
     entrypoint: ["/bin/sh","-lc"]
