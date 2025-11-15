@@ -6,31 +6,28 @@ services:
       APP_HOST: denny-youtarr_app_1
       APP_PORT: 3011
 
-  youtarr-db:
+  db:
     image: mariadb:10.3
+    restart: on-failure
     environment:
       MYSQL_ROOT_PASSWORD: 123qweasd
       MYSQL_DATABASE: youtarr
-      MYSQL_TCP_PORT: 3321
       MYSQL_USER: root
       MYSQL_PASSWORD: 123qweasd
-      MYSQL_CHARSET: utf8mb4
-      MYSQL_COLLATION: utf8mb4_unicode_ci
     volumes:
       - ${APP_DATA_DIR}/database:/var/lib/mysql
       - ${APP_DATA_DIR}/config/mariadb.cnf:/etc/mysql/conf.d/charset.cnf:ro
-    command: --port=3321 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 
   app:
     image: dialmaster/youtarr:latest
+    restart: on-failure
     user: "0:0"
     depends_on:
-      - youtarr-db
+      - db
     environment:
       IN_DOCKER_CONTAINER: 1
       TZ: UTC
-      DB_HOST: youtarr-db
-      DB_PORT: 3321
+      DB_HOST: db
       DB_USER: root
       DB_PASSWORD: 123qweasd
       DB_NAME: youtarr
