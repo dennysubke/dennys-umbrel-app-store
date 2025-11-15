@@ -24,7 +24,6 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-postgresus/1.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-postgresus/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-postgresus/3.jpg
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-postgresus/4.jpg
 releaseNotes: >-
   This release improves notifications by including the workspace name in success and failure messages. It also provides an updated Docker image available for both amd64 and arm64 platforms.
 dependencies:
