@@ -23,9 +23,6 @@ description: >-
 
  
   🔑 Once the Overleaf instance is running, visit  "umbrel.local:8063/launchpad" to set up your first admin user.
-
-
-  ⚠️ Overleaf versions higher than 4.X require MongoDB 5.0+ and a CPU with AVX support. Servers lacking AVX won't be compatible with these newer versions. If you're using such servers, it's recommended to stick with Overleaf 4.2.3 or set up MongoDB 4.4 for compatibility. For more details, refer to the discussion on this issue: https://github.com/overleaf/toolkit/issues/216
 developer: Overleaf Ltd.
 website: https://overleaf.com/
 submitter: dennysubke
@@ -37,6 +34,9 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-overleaf/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-overleaf/3.jpg
 releaseNotes: >-
+  ⚠️ Due to the update to MongoDB 8, all existing data will be lost. Please be aware that installing the app may take some time, and after installation you should wait an additional one to two minutes before accessing it.
+
+
   This version prepares the shift to a unified file-storage system that will cut binary storage usage in half by keeping only a single copy in the full project history. 
   
   
