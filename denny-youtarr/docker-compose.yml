@@ -25,7 +25,6 @@ services:
   app:
     image: dialmaster/youtarr:latest
     restart: on-failure
-    user: "1000:1000"
     depends_on:
       - youtarr-db
     environment:
