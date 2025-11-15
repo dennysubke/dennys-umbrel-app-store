@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-postgresus_web_1
+      APP_PORT: 4005
+
+  db:
+    image: postgres:15.15@sha256:c23f5a12ca4e848f8fcd85a74f348888a89e04916a98726b00697af36ec0a700
+    restart: on-failure
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: postgresus_db
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres-data:/var/lib/postgresql
+
+  web:
+    image: rostislavdugin/postgresus:v1.33.0@sha256:a6b75e5df8c69b4d4e12fec5480c6d941f624596d94623ea52942c379973dc4f
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/data/app_data:/postgresus-data

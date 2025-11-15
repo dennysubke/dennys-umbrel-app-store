@@ -1,0 +1,33 @@
+manifestVersion: 1
+id: denny-postgresus
+name: Postgresus
+tagline: An open source PostgreSQL backup tool
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-postgresus/logo.png
+category: networking
+version: "1.33.0"
+port: 4005
+description: >-
+  🐘 Postgresus is an application designed to simplify the entire workflow of creating, managing, and storing backups for PostgreSQL databases. It provides a structured environment where backups can be scheduled at custom intervals, automatically executed, and organized in a consistent format. The system handles the full lifecycle of a backup, from initiating the dump process to compressing the data so that storage usage remains efficient. Once created, each backup is transferred to a preferred storage destination and catalogued, allowing users to maintain a clear overview of their database history.
+
+
+  The application also includes mechanisms to monitor the health of a PostgreSQL instance. It performs periodic checks to determine whether a database is reachable and operational, sending alerts when problems occur. This ensures that issues are detected early and reduces the risk of unnoticed downtime.
+
+
+  Postgresus provides a central dashboard where past backups can be reviewed, restored, or deleted. Metadata such as timestamps, sizes, retention policies, and execution results help users keep track of their backup strategy and maintain clarity even in complex environments. The goal of the application is to make PostgreSQL backup management reliable, transparent, and easy to control without requiring custom scripts or manual intervention.
+developer: Rostislav Dugin
+website: https://postgresus.com/
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/RostislavDugin/postgresus
+support: https://github.com/RostislavDugin/postgresus/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-postgresus/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-postgresus/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-postgresus/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-postgresus/4.jpg
+releaseNotes: >-
+  This release improves notifications by including the workspace name in success and failure messages. It also provides an updated Docker image available for both amd64 and arm64 platforms.
+dependencies:
+path: ""
+defaultUsername: ""
+defaultPassword: ""
