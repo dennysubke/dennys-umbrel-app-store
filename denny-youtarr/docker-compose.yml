@@ -25,7 +25,7 @@ services:
   app:
     image: dialmaster/youtarr:latest
     restart: on-failure
-    user: "0:0"
+    user: "1000:1000"
     depends_on:
       - youtarr-db
     environment:
@@ -37,6 +37,8 @@ services:
       DB_NAME: youtarr
       LOG_LEVEL: warn
       YOUTUBE_OUTPUT_DIR: ${APP_DATA_DIR}/videos
+      AUTH_PRESET_USERNAME: admin
+      AUTH_PRESET_PASSWORD: umbrel
     volumes:
       - ${APP_DATA_DIR}/videos:/usr/src/app/data
       - ${APP_DATA_DIR}/server_images:/app/server/images
