@@ -4,7 +4,7 @@ name: Overleaf
 tagline: An efficient solution for writing, formatting, and collaborating on LaTeX documents
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-overleaf/logo.png
 category: files & productivity
-version: "4.2.3"
+version: "6.0.0"
 port: 8063
 description: >-
   Overleaf is a web-based platform that provides a user-friendly environment for creating and editing LaTeX documents. LaTeX is a widely used typesetting system, particularly in academia and technical fields, for creating well-formatted, professional documents such as research papers, dissertations, technical reports, and academic articles.
@@ -37,7 +37,13 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-overleaf/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-overleaf/3.jpg
 releaseNotes: >-
-  This version is a security release that upgrades the Node.js runtime to version 18.19.1, addressing CVE-2024-22019, a Denial of Service vulnerability. This update primarily impacts Server Pro instances with publicly accessible access points, such as login pages or redirects.
+  This version prepares the shift to a unified file-storage system that will cut binary storage usage in half by keeping only a single copy in the full project history. 
+  
+  
+  It includes an online migration with minimal downtime, introduced in 5.5.6, to handle the transition smoothly. 
+  
+  
+  A new migration flag and a processing script for all active and soft-deleted projects complete the change.
 dependencies:
 path: ""
 defaultUsername: ""
