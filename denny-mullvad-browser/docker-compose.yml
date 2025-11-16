@@ -3,7 +3,7 @@ version: '3.7'
 services:
   app_proxy:
     environment:
-      APP_HOST: denny-mullvadbrowser_web_1
+      APP_HOST: denny-mullvad-browser_web_1
       APP_PORT: 5880
       PROXY_AUTH_ADD: "false"
   web:
