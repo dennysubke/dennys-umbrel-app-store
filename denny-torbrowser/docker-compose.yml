@@ -7,7 +7,7 @@ services:
       APP_PORT: 5800
       PROXY_AUTH_ADD: "false"
   web:
-    image: domistyle/tor-browser:14.0.6@sha256:00b7ba0263e6cc46338fea406b48901f71a81e9fea028709751c6ad471a4a9a7
+    image: dennysubke/torbrowser:15.0.1@sha256:cfc45fbb5ef03ffcf301d3bc322cac8f611ceb13b37154127b3028423f21cb3f
     restart: always
     environment:
       - TZ=Europe/Berlin
