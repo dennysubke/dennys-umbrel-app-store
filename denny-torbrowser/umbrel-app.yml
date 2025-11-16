@@ -4,7 +4,7 @@ name: Tor Browser
 tagline: An invisible shield for your browsing experience
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torbrowser/logo.png
 category: networking
-version: "14.0.6"
+version: "15.0.1"
 port: 5832
 description: >-
   🧅 Tor Browser is a powerful tool designed to provide anonymous, secure, and private access to the internet. Built on Mozilla Firefox and optimized for privacy, Tor Browser uses the Tor network (The Onion Router) to protect users' identities and locations by encrypting and relaying their internet traffic through multiple nodes across the globe. This process, known as “onion routing,” conceals users' IP addresses, making it extremely difficult for websites, advertisers, or surveillance entities to track browsing activities or pinpoint locations.
@@ -25,7 +25,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torbrowser/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torbrowser/3.jpg
 releaseNotes: >-
-  The latest version of Tor Browser includes an update to Firefox, bringing bug fixes, stability improvements, and important security updates. It also backports Android-specific security updates from a newer Firefox version and updates the NoScript extension to enhance security and performance.
+  This release includes important security updates for Firefox, along with general bug fixes and stability improvements. It also backports Android-specific security updates from a newer Firefox version. Additionally, the NoScript extension has been updated to enhance both security and performance.
 dependencies:
 path: ""
 defaultUsername: ""
