@@ -4,7 +4,7 @@ name: Overleaf
 tagline: An efficient solution for writing, formatting, and collaborating on LaTeX documents
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-overleaf/logo.png
 category: files & productivity
-version: "6.0.0"
+version: "4.2.3"
 port: 8063
 description: >-
   Overleaf is a web-based platform that provides a user-friendly environment for creating and editing LaTeX documents. LaTeX is a widely used typesetting system, particularly in academia and technical fields, for creating well-formatted, professional documents such as research papers, dissertations, technical reports, and academic articles.
@@ -34,16 +34,16 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-overleaf/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-overleaf/3.jpg
 releaseNotes: >-
-  ⚠️ Due to the update to MongoDB 8, all existing data will be lost. Please be aware that installing the app may take some time, and after installation you should wait an additional one to two minutes before accessing it.
-
-
-  This version prepares the shift to a unified file-storage system that will cut binary storage usage in half by keeping only a single copy in the full project history. 
+  ℹ️ Overleaf versions beyond 4.2.3 require MongoDB releases that depend on AVX/AVX2 CPU support. Systems without AVX capability cannot run these newer MongoDB versions, making Overleaf 4.2.3 the latest release that remains fully compatible. This hardware limitation prevents updating to more recent Overleaf versions on non-AVX systems.
   
   
-  It includes an online migration with minimal downtime, introduced in 5.5.6, to handle the transition smoothly. 
+  This update introduces several improvements to the Visual Editor, including easier table editing, direct image insertion, symbol previews, and enhanced chemical formula rendering. 
   
   
-  A new migration flag and a processing script for all active and soft-deleted projects complete the change.
+  XeLaTeX is now included by default for non-sandboxed compiles, and the legacy source editor has been removed. 
+  
+  
+  Additional updates include a configurable session length, an upgrade to Node v18.18.2, and restored public access to the SAML metadata endpoint.
 dependencies:
 path: ""
 defaultUsername: ""
