@@ -8,6 +8,14 @@ services:
 
   app:
     image: dennysubke/ashigaru-terminal:1.0.0-gotty@sha256:5a27f8e5c0cf2443c7cfd0650560ddfdeb493d14366287faa2fd5f2e81a8a5fe
+    command:
+      - "ttyd"
+      - "-W"
+      - "-p"
+      - "7682"
+      - "bash"
+      - "-c"
+      - "/bash-wrapper.sh"
     restart: on-failure
     volumes:
       - ${APP_DATA_DIR}/data/tor:/home/ashigaru/.ashigaru/tor
