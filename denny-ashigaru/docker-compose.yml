@@ -7,7 +7,6 @@ services:
       APP_PORT: 7682
 
   app:
-    image: dennysubke/ashigaru-terminal:1.0.0@sha256:b4b8ab092ab5231bbd50390d0a72e536bede6f5c5b6fae443f8af857f75cfb68
-    restart: on-failure
+    image: dennysubke/ashigaru-terminal:1.0.0@sha256:f5cc32934dec55097b96fdbf2c4dcb402c02756eafd788a5e942b3a4d06e9863
     volumes:
       - ${APP_DATA_DIR}/data:/home/ashigaru
