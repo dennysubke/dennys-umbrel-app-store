@@ -4,22 +4,14 @@ services:
   app_proxy:
     environment:
       APP_HOST: denny-mullvad-browser_web_1
-      APP_PORT: 3000
-
+      APP_PORT: 5880
+      PROXY_AUTH_ADD: "false"
   web:
-    image: ghcr.io/linuxserver/mullvad-browser:14.0.5@sha256:a873cd7077d9f68af00c79288edcca473ffa706939a4eb58d331a6f2cb4a7b20
-    cap_add:
-      - NET_ADMIN
-    security_opt:
-      - seccomp:unconfined
+    image: dennysubke/mullvadbrowser:15.0.1@sha256:50dfd3d277ef598603f31fb38113d86f5f8be1e28975a949d20b0607e3639a68
+    restart: always
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Etc/UTC
-      # LOCAL_NET=192.168.0.0/16 #Optional
+      - TZ=Europe/Berlin
+      - DARK_MODE=1
+      - WEB_AUDIO=1
     volumes:
-      - ${APP_DATA_DIR}/data/config:/config
-    ports:
-      - 3001:3001
-    shm_size: "1gb"
-    restart: on-failure
+      - ${APP_DATA_DIR}/config:/config
