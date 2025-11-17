@@ -4,7 +4,7 @@ name: Overleaf
 tagline: An efficient solution for writing, formatting, and collaborating on LaTeX documents
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-overleaf/logo.png
 category: files & productivity
-version: "4.2.3"
+version: "4.2.8"
 port: 8063
 description: >-
   Overleaf is a web-based platform that provides a user-friendly environment for creating and editing LaTeX documents. LaTeX is a widely used typesetting system, particularly in academia and technical fields, for creating well-formatted, professional documents such as research papers, dissertations, technical reports, and academic articles.
@@ -34,7 +34,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-overleaf/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-overleaf/3.jpg
 releaseNotes: >-
-  ℹ️ Overleaf versions beyond 4.2.3 require MongoDB releases that depend on AVX/AVX2 CPU support. Systems without AVX capability cannot run these newer MongoDB versions, making Overleaf 4.2.3 the latest release that remains fully compatible. This hardware limitation prevents updating to more recent Overleaf versions on non-AVX systems.
+  ℹ️ Overleaf versions beyond 4.2.8 require MongoDB releases that depend on AVX/AVX2 CPU support. Systems without AVX capability cannot run these newer MongoDB versions, making Overleaf 4.2.3 the latest release that remains fully compatible. This hardware limitation prevents updating to more recent Overleaf versions on non-AVX systems.
   
   
   This update introduces several improvements to the Visual Editor, including easier table editing, direct image insertion, symbol previews, and enhanced chemical formula rendering. 
