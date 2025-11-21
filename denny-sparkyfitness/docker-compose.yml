@@ -8,8 +8,6 @@ services:
 
   sparkyfitness-db:
     image: postgres:15-alpine
-    security_opt:
-      - no-new-privileges:true
     environment:
       POSTGRES_DB: sparky
       POSTGRES_USER: sparkyuser
@@ -21,10 +19,9 @@ services:
     image: codewithcj/sparkyfitness_server:latest
     depends_on:
       - sparkyfitness-db
-    restart: on-failure:5
+    restart: on-failure
     environment:
       SPARKY_FITNESS_LOG_LEVEL: INFO
-
       SPARKY_FITNESS_APP_DB_USER: sparkyuser
       SPARKY_FITNESS_APP_DB_PASSWORD: sparkypass
       SPARKY_FITNESS_DB_USER: sparkyuser
@@ -32,18 +29,14 @@ services:
       SPARKY_FITNESS_DB_HOST: sparkyfitness-db
       SPARKY_FITNESS_DB_NAME: sparky
       SPARKY_FITNESS_DB_PORT: 5432
-
       SPARKY_FITNESS_SERVER_PORT: 3010
       NODE_ENV: production
-      TZ: Europe/Bucharest
-
-      SPARKY_FITNESS_API_ENCRYPTION_KEY: dOxZYTTZgXKMHkqLBIQVImayQXAVWdzGBPuFJKggzcgvgPJPXpWzqzKaUOIOGGIr
-      JWT_SECRET: ${APP_SEED}
-
+      TZ: Europe/Berlin
+      SPARKY_FITNESS_API_ENCRYPTION_KEY: a3dde95c371ff338c576dad7e295751bccc3b25ab7af6d262a5a0a4a9ae893a5
+      JWT_SECRET: k35iTUx8kxWeRFRueIAiGl3I6KMkW11d2tozhffvr+A=
       SPARKY_FITNESS_FRONTEND_URL: http://${DEVICE_DOMAIN_NAME}:8944
-      SPARKY_FITNESS_DISABLE_SIGNUP: "false"
+      SPARKY_FITNESS_DISABLE_SIGNUP: "true"
       SPARKY_FITNESS_FORCE_EMAIL_LOGIN: "true"
-
     volumes:
       - ${APP_DATA_DIR}/uploads:/app/SparkyFitnessServer/uploads
       - ${APP_DATA_DIR}/backup:/app/SparkyFitnessServer/backup
