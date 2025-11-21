@@ -32,9 +32,8 @@ services:
       SPARKY_FITNESS_DB_PORT: 5432
       SPARKY_FITNESS_SERVER_PORT: 3010
       NODE_ENV: production
-      TZ: Europe/Bucharest
       SPARKY_FITNESS_API_ENCRYPTION_KEY: dOxZYTTZgXKMHkqLBIQVImayQXAVWdzGBPuFJKggzcgvgPJPXpWzqzKaUOIOGGIr
-      JWT_SECRET: ${APP_SEED}
+      JWT_SECRET: VXUeUzalQRwTqAbXABrhLcwbzuooFhoDedsWASMDUsJblvTrubEDpOtqymJgWIgw
       SPARKY_FITNESS_FRONTEND_URL: http://${DEVICE_DOMAIN_NAME}:8944
       SPARKY_FITNESS_DISABLE_SIGNUP: "false"
 
@@ -42,6 +41,3 @@ services:
     image: codewithcj/sparkyfitness:latest
     depends_on:
       - sparkyfitness-server
-    environment:
-      SPARKY_FITNESS_SERVER_HOST: sparkyfitness-server
-      SPARKY_FITNESS_SERVER_PORT: 3010
