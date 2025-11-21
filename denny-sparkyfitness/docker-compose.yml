@@ -7,7 +7,7 @@ services:
       APP_PORT: 80
 
   sparkyfitness-db:
-    image: postgres:15-alpine
+    image: postgres:15-alpine@sha256:aa7b1ef595e165f0b780162e3a41edd0a7ed3ea672eb8a0f81615ba725e62bc5
     environment:
       POSTGRES_DB: sparky
       POSTGRES_USER: sparkyuser
@@ -16,7 +16,7 @@ services:
       - ${APP_DATA_DIR}/db:/var/lib/postgresql/data
 
   sparkyfitness-server:
-    image: codewithcj/sparkyfitness_server:latest
+    image: codewithcj/sparkyfitness_server:v0.15.9.4@sha256:d49f6b20536ca946dd108fb9fde7f1a041c1ebadc73f55a8eec246eb16dd75c8
     depends_on:
       - sparkyfitness-db
     restart: on-failure
@@ -41,7 +41,7 @@ services:
       - ${APP_DATA_DIR}/backup:/app/SparkyFitnessServer/backup
 
   sparkyfitness-web:
-    image: codewithcj/sparkyfitness:latest
+    image: codewithcj/sparkyfitness:v0.15.9.4@sha256:a7b4427a4317fd6b95a7b186094855fdc1a410fda5e648fb919028bec457c3f1
     depends_on:
       - sparkyfitness-server
     environment:
