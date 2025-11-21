@@ -7,7 +7,7 @@ services:
       APP_PORT: 7682
 
   terminal:
-    image: dennysubke/ashigaru-terminal:1.0.0@sha256:a2b95e4a6f1d2a28cbf1975b3254c701c8b28a207e7f305617ba446ec90f55b6
+    image: dennysubke/ashigaru-terminal:1.0.0@sha256:28b6f23a5bcaa72ebaf063be10cf96b00cbc9fb80c92079c8327a90e3f218c0b
     restart: on-failure
     volumes:
       - ${APP_DATA_DIR}/data/tor:/home/ashigaru/.ashigaru/tor
