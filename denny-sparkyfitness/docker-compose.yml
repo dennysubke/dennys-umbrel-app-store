@@ -13,7 +13,7 @@ services:
       POSTGRES_USER: sparkyuser
       POSTGRES_PASSWORD: sparkypass
     volumes:
-      - ${APP_DATA_DIR}/db:/var/lib/postgresql/data
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
 
   sparkyfitness-server:
     image: codewithcj/sparkyfitness_server:v0.15.9.4@sha256:d49f6b20536ca946dd108fb9fde7f1a041c1ebadc73f55a8eec246eb16dd75c8
@@ -37,8 +37,8 @@ services:
       SPARKY_FITNESS_DISABLE_SIGNUP: "false"
       SPARKY_FITNESS_FORCE_EMAIL_LOGIN: "true"
     volumes:
-      - ${APP_DATA_DIR}/uploads:/app/SparkyFitnessServer/uploads
-      - ${APP_DATA_DIR}/backup:/app/SparkyFitnessServer/backup
+      - ${APP_DATA_DIR}/data/uploads:/app/SparkyFitnessServer/uploads
+      - ${APP_DATA_DIR}/data/backup:/app/SparkyFitnessServer/backup
 
   sparkyfitness-web:
     image: codewithcj/sparkyfitness:v0.15.9.4@sha256:a7b4427a4317fd6b95a7b186094855fdc1a410fda5e648fb919028bec457c3f1
