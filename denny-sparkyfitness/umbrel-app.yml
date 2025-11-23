@@ -1,0 +1,37 @@
+manifestVersion: 1
+id: denny-sparkyfitness
+name: SparkyFitness
+tagline: A comprehensive fitness tracking and management app
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-sparkyfitness/logo.png
+category: files & productivity
+version: "0.15.9.4"
+port: 8499
+description: >-
+  🏃‍♂️ SparkyFitness is an application that helps individuals and families track their daily health, nutrition and fitness habits in a structured and intuitive way. It allows you to log meals and see detailed nutritional information so you can understand how your diet evolves over time. The app also lets you record workouts, create or customize exercises and follow your physical progress through clear visual summaries.
+
+
+  Beyond food and training, SparkyFitness provides tools for tracking water intake and body measurements, giving you a complete view of your daily routines and long term changes. It supports simple daily check ins and personal goal setting, which helps maintain motivation and build consistent habits. Over time it becomes a personal health journal that highlights patterns, shows improvements and offers insight into how your everyday choices influence your overall wellbeing.
+developer: CodeWithCJ
+website: https://codewithcj.github.io/SparkyFitness/
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/CodeWithCJ/SparkyFitness
+support: https://github.com/CodeWithCJ/SparkyFitness/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-sparkyfitness/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-sparkyfitness/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-sparkyfitness/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-sparkyfitness/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-sparkyfitness/5.jpg
+releaseNotes: >-
+  Version v0.15.9.4 introduces multi factor authentication with support for TOTP codes, email codes and magic link login. 
+  
+  
+  The update also adds new language options including Slovenian, improves exercise import from CSV and includes a fix for Garmin scheduling. 
+  
+  
+  A backup before upgrading is strongly recommended.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
