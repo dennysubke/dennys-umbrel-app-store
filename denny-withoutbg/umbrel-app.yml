@@ -3,7 +3,7 @@ id: denny-withoutbg
 name: withoutBG
 tagline: A comprehensive fitness tracking and management app
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-sparkyfitness/logo.png
-category: files & productivity
+category: test
 version: "0.15.9.4"
 port: 8512
 description: >-
