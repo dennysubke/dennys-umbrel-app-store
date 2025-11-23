@@ -1,0 +1,31 @@
+manifestVersion: 1
+id: denny-withoutbg
+name: withoutBG
+tagline: A smart Image Background Removal Toolkit
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-withoutbg/logo.png
+category: In Progress
+version: "1.0.1"
+port: 8512
+description: >-
+  🪄 withoutBG is an advanced image processing tool that automatically removes backgrounds from photos with a high level of precision. It identifies the primary subject in an image, isolates it from its surroundings, and generates a clean transparent result that can be used in design, editing, or product presentation. Its focus is on preserving natural contours and subtle details such as hair, soft edges, and fine textures so the final cutout looks smooth and realistic.
+
+
+  The system processes each image only for the duration of the operation and does not store or keep any user visuals. Its refined algorithms ensure consistent results across a wide range of image types, from portraits to objects with complex shapes. It also supports flexible customization so users can refine the outcome or integrate the background removal process into their own workflows through code or automated tools.
+developer: withoutBG
+website: https://withoutbg.com/
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/withoutbg/withoutbg
+support: https://github.com/withoutbg/withoutbg/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-withoutbg/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-withoutbg/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-withoutbg/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-withoutbg/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-withoutbg/5.jpg
+releaseNotes: >-
+  Version v1.0.1 delivers much sharper edge detail, more natural hair and fur rendering, and overall better generalization across diverse image types. A multi-architecture Docker image was also added, making the model available on all major platforms.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
