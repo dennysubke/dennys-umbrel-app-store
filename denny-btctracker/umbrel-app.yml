@@ -4,7 +4,7 @@ name: BTC Tracker
 tagline: A simple, privacy-focused Bitcoin investment tracker
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-btctracker/logo.png
 category: bitcoin
-version: "0.6.2"
+version: "0.6.5"
 port: 3947
 description: >-
   BTC Tracker is a user-friendly yet powerful application designed for managing and analyzing Bitcoin investments. It was created to offer a privacy-focused and straightforward alternative to existing tracking tools, which are often cluttered with unnecessary features, complicated to set up, or designed for managing large, diversified portfolios. Many of those tools require connections to external services and the sharing of sensitive information such as wallet addresses or transaction histories.
