@@ -3,7 +3,7 @@ id: denny-withoutbg
 name: withoutBG
 tagline: A smart Image Background Removal Toolkit
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-withoutbg/logo.png
-category: In Progress
+category: files & productivity
 version: "1.0.1"
 port: 8512
 description: >-
