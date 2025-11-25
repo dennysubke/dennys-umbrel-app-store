@@ -23,6 +23,7 @@ services:
       UPLOAD_DIR: /upload-dir
       CACHE_HOST: cache
       CACHE_PORT: 6379
+      ALLOWED_ORIGINS: "*"
     volumes:
       - ${APP_DATA_DIR}/upload-dir:/upload-dir
     ports:
@@ -38,6 +39,7 @@ services:
 
   cache:
     image: redis:7.2.1
+
 
 
 
