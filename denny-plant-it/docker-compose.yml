@@ -1,0 +1,38 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-plant-it_server_1
+      APP_PORT: 3000
+
+  server:
+    image: msdeluise/plant-it-server:latest
+    depends_on:
+      - db
+      - cache
+    environment:
+      MYSQL_HOST: db
+      MYSQL_PORT: 3306
+      MYSQL_USERNAME: root
+      MYSQL_PSW: changeme
+      MYSQL_DATABASE: bootdb
+      MYSQL_ROOT_PASSWORD: changeme
+      JWT_SECRET: ${APP_SEED}
+      API_PORT: 8080
+      UPLOAD_DIR: /upload-dir
+      CACHE_HOST: cache
+      CACHE_PORT: 6379
+    volumes:
+      - ${APP_DATA_DIR}/upload-dir:/upload-dir
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: changeme
+      MYSQL_DATABASE: bootdb
+    volumes:
+      - ${APP_DATA_DIR}/db:/var/lib/mysql
+
+  cache:
+    image: redis:7.2.1
