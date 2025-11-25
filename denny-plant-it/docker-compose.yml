@@ -7,7 +7,7 @@ services:
       APP_PORT: 3000
 
   server:
-    image: msdeluise/plant-it-server:latest
+    image: msdeluise/plant-it-server:0.10.0@sha256:23ddf8660087d6b9f5dbdca2ca09817b84db45cb2d9d6e2e0176e70f514629e7
     depends_on:
       - db
       - cache
@@ -25,20 +25,21 @@ services:
       CACHE_PORT: 6379
       ALLOWED_ORIGINS: "*"
     volumes:
-      - ${APP_DATA_DIR}/upload-dir:/upload-dir
+      - ${APP_DATA_DIR}/data/uploads:/upload-dir
     ports:
       - "8836:8080"
 
   db:
-    image: mysql:8.0
+    image: mysql:8.0@sha256:f37951fc3753a6a22d6c7bf6978c5e5fefcf6f31814d98c582524f98eae52b21
     environment:
       MYSQL_ROOT_PASSWORD: changeme
       MYSQL_DATABASE: bootdb
     volumes:
-      - ${APP_DATA_DIR}/db:/var/lib/mysql
+      - ${APP_DATA_DIR}/data/db:/var/lib/mysql
 
   cache:
-    image: redis:7.2.1
+    image: redis:7.2.1@sha256:4ca2a277f1dc3ddd0da33a258096de9a1cf5b9d9bd96b27ee78763ee2248c28c
+
 
 
 
