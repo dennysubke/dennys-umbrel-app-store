@@ -21,9 +21,9 @@ description: >-
 
   ⚙️ Quick Setup Guide: 
   
-      1. Open the Plant-it app at http://umbrel.local:8837. 
-      2. Enter http://umbrel.local:8836 as the server URL. (Hostname may differ on your system.)
-      3. Then click Continue to complete the setup.
+       1. After installation, the app opens at http://umbrel.local:8837. 
+       2. Enter http://umbrel.local:8836 as the server URL. (Hostname may differ on your system.)
+       3. Then click Continue to complete the setup process and start using Plant-it.
 developer: MDeLuise
 website: https://plant-it.org/
 submitter: dennysubke
