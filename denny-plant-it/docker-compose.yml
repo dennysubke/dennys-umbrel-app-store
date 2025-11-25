@@ -25,6 +25,8 @@ services:
       CACHE_PORT: 6379
     volumes:
       - ${APP_DATA_DIR}/upload-dir:/upload-dir
+    ports:
+      - "8836:8080"
 
   db:
     image: mysql:8.0
@@ -36,3 +38,4 @@ services:
 
   cache:
     image: redis:7.2.1
+
