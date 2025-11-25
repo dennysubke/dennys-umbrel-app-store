@@ -19,7 +19,11 @@ description: >-
   By combining structured documentation with visual history and plant information, Plant it turns plant care into an intuitive and well organized experience. It supports you in making better decisions, noticing patterns and maintaining a healthier collection through consistent and transparent tracking.
 
 
-  ⚙️ Quick Setup Guide: Open the Plant-it app at http://umbrel.local:8837. Enter http://umbrel.local:8836 as the server URL. Then click Continue to complete the setup. The hostname may vary depending on your system.
+  ⚙️ Quick Setup Guide: 
+  
+      1. Open the Plant-it app at http://umbrel.local:8837. 
+      2. Enter http://umbrel.local:8836 as the server URL. 
+      3. Then click Continue to complete the setup. The hostname may vary depending on your system.
 developer: MDeLuise
 website: https://plant-it.org/
 submitter: dennysubke
