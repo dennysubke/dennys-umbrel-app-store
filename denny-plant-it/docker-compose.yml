@@ -19,7 +19,7 @@ services:
       MYSQL_DATABASE: bootdb
       MYSQL_ROOT_PASSWORD: changeme
       JWT_SECRET: ${APP_SEED}
-      API_PORT: 8080
+      API_PORT: 8836
       UPLOAD_DIR: /upload-dir
       CACHE_HOST: cache
       CACHE_PORT: 6379
@@ -38,4 +38,5 @@ services:
 
   cache:
     image: redis:7.2.1
+
 
