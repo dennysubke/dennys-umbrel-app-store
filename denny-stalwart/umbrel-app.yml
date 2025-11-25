@@ -4,7 +4,7 @@ name: Stalwart
 tagline: An all-in-one Mail & Collaboration server
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-stalwart/logo.png
 category: networking
-version: "0.12.3"
+version: "0.14.1"
 port: 18080
 description: >-
   📮 Stalwart is a modern open-source mail and collaboration server designed to streamline and modernize traditional email infrastructure. Built from the ground up with performance, scalability, and security in mind, it combines a wide range of functionalities into a single efficient platform. Stalwart supports both legacy and modern protocols, making it compatible with a broad range of clients and services. It allows seamless communication through protocols such as IMAP, SMTP, and POP3, while also supporting next-generation standards like JMAP, CalDAV, and CardDAV.
@@ -39,7 +39,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-stalwart/4.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-stalwart/5.jpg
 releaseNotes: >-
-  Version 0.12.3 introduces improved changelog tracking by storing vanished IMAP UIDs and WebDAV paths. It also fixes several issues, including an XML CDATA injection vulnerability and problems with CalDAV/CardDAV property tags and macro handling.
+  Version 0.14.1 introduces breaking changes to the internal directory, calendar, and contacts, and adds autoconfiguration support for CalDAV, CardDAV, and WebDAV. It also fixes issues with OTP/AppPasswords retention and corrects JMAP operations related to contact and calendar item deletion.
 dependencies:
 path: ""
 defaultUsername: ""
