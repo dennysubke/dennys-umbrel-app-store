@@ -1,37 +1,40 @@
 manifestVersion: 1
 id: denny-plant-it
 name: Plant-it
-tagline: A simple server for sending and receiving messages
-icon: https://i.imgur.com/HakL1r4.png
-category: Test
-version: "2.6.3"
+tagline: A gardening app for effortless plant tracking
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-plant-it/logo.png
+category: In Progress
+version: "0.10.0"
 port: 8837
 description: >-
-  Gotify is an open-source, self-hosted notification server designed to enable real-time push notifications across multiple devices. It is a lightweight, efficient system that allows applications to send messages to the Gotify server via a REST API. These messages are then delivered to connected clients, including web browsers, mobile devices, or other systems that support Gotify’s push notification service.
+  🌱 Plant it is an open source application designed to help you keep a detailed and organized record of your plant care. It focuses entirely on documenting what you do for your plants, giving you a clear and structured history of every action you take. Instead of guessing when you last watered or fertilized something, you can simply check your timeline and see all previous entries with precise information.
 
 
-  The server is built with Go, known for its high performance and minimal resource consumption, making it suitable for various environments. Gotify’s simple and intuitive web interface allows users to manage notifications, configure applications, and generate API tokens for authentication and access control.
+  The app lets you log actions such as watering, fertilizing, pruning, repotting and many other care activities. Each entry can include notes, dates and optional photos, which makes it easy to track progress or identify changes in a plant’s condition. Over time, this creates a complete care journal that helps you understand how your routines affect the health of your plants.
 
 
-  One of the core features of Gotify is its support for real-time notifications using WebSockets. This allows connected clients to receive notifications instantly, ensuring timely delivery of messages. Additionally, Gotify supports categorizing and prioritizing notifications, helping users organize incoming messages based on importance.
+  Plant it also provides a rich plant information system that helps you organize and categorize your collection. You can browse detailed data about species and attach the correct information to each plant you add. This makes it easier to manage large plant collections and maintain a clear overview of what each plant needs.
 
 
-  Gotify offers a native Android app, which allows users to receive push notifications directly on their devices. It also provides a web app, ensuring that users can stay updated across different platforms. The system’s architecture is designed for flexibility and scalability, enabling it to handle notifications from a variety of sources, from system alerts and monitoring tools to custom applications.
+  By combining structured documentation with visual history and plant information, Plant it turns plant care into an intuitive and well organized experience. It supports you in making better decisions, noticing patterns and maintaining a healthier collection through consistent and transparent tracking.
 
 
-  As a self-hosted solution, Gotify gives users complete control over their notification infrastructure, ensuring privacy and data security. With its open-source nature, it can be customized and extended to suit different use cases. The ability to host notifications locally, without relying on third-party services, makes Gotify an attractive option for those seeking a private, cost-effective solution for delivering real-time notifications.
-developer: Gotify
-website: https://gotify.net/
+  ⚙️ Quick Setup Guide: Open the Plant-it app at http://umbrel.local:8837. Enter http://umbrel.local:8836 as the server URL. Then click Continue to complete the setup. The hostname may vary depending on your system.
+developer: MDeLuise
+website: https://plant-it.org/
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
-repo: https://github.com/gotify/server
-support: https://github.com/gotify/server/issues
+repo: https://github.com/MDeLuise/plant-it
+support: https://github.com/MDeLuise/plant-it/issues
 gallery:
-  - https://i.imgur.com/qBH4PgI.png
-  - https://i.imgur.com/qBH4PgI.png
-  - https://i.imgur.com/qBH4PgI.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-plant-it/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-plant-it/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-plant-it/3.jpg
 releaseNotes: >-
-  This update sets the umask to 0 when creating Unix sockets to ensure proper file permissions. It also updates dependencies and fixes the release build process.
+  The update brings Spring Boot 3.4.0, which increases overall security and improves compatibility. 
+  
+  
+  Several server dependencies were refreshed to boost stability and performance. Overall, the release focuses on a safer and more reliable backend.
 dependencies:
 path: ""
 defaultUsername: ""
