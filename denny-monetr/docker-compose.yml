@@ -22,6 +22,7 @@ services:
 
   monetr:
     image: ghcr.io/monetr/monetr:latest
+    user: "1000:1000"
     command:
       - serve
       - --migrate
@@ -41,3 +42,4 @@ services:
       MONETR_REDIS_ADDRESS: valkey
       MONETR_STORAGE_ENABLED: ${MONETR_STORAGE_ENABLED:-true}
       MONETR_STORAGE_PROVIDER: ${MONETR_STORAGE_PROVIDER:-filesystem}
+
