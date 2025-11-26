@@ -3,7 +3,7 @@ id: denny-plant-it
 name: Plant-it
 tagline: A gardening app for effortless plant tracking
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-plant-it/logo.png
-category: In Progress
+category: files & productivity
 version: "0.10.0"
 port: 8837
 description: >-
@@ -34,6 +34,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-plant-it/1.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-plant-it/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-plant-it/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-plant-it/4.jpg
 releaseNotes: >-
   The update brings Spring Boot 3.4.0, which increases overall security and improves compatibility. 
   
