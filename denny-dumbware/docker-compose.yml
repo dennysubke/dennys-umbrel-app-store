@@ -8,17 +8,17 @@ services:
 
   nginx:
     image: nginx:alpine
-    restart: unless-stopped
+    restart: on-failure
     volumes:
-      - ${APP_DATA_DIR}/www:/usr/share/nginx/html:ro
+      - ${APP_DATA_DIR}/data/www:/usr/share/nginx/html:ro
 
   dumbbudget:
     image: dumbwareio/dumbbudget:latest
-    restart: unless-stopped
+    restart: on-failure
     ports:
       - 13331:3000
     volumes:
-      - ${APP_DATA_DIR}/dumbsuite/dumbbudget:/app/data
+      - ${APP_DATA_DIR}/data/dumbsuite/dumbbudget:/app/data
     environment:
       DUMBBUDGET_PIN: ""
       BASE_URL: "http://${DEVICE_DOMAIN_NAME}:13331"
@@ -28,11 +28,11 @@ services:
 
   dumbdo:
     image: dumbwareio/dumbdo:latest
-    restart: unless-stopped
+    restart: on-failure
     ports:
       - 13332:3000
     volumes:
-      - ${APP_DATA_DIR}/dumbsuite/dumbdo:/app/data
+      - ${APP_DATA_DIR}/data/dumbsuite/dumbdo:/app/data
     environment:
       DUMBDO_PIN: ""
       DUMBDO_SITE_TITLE: "DumbDo"
@@ -41,11 +41,11 @@ services:
 
   dumbdrop:
     image: dumbwareio/dumbdrop:latest
-    restart: unless-stopped
+    restart: on-failure
     ports:
       - 13333:3000
     volumes:
-      - ${APP_DATA_DIR}/dumbsuite/dumbdrop:/app/uploads
+      - ${APP_DATA_DIR}/data/dumbsuite/dumbdrop:/app/uploads
     environment:
       DUMBDROP_PIN: ""
       DUMBDROP_TITLE: "DumbDrop"
@@ -55,11 +55,11 @@ services:
 
   dumbpad:
     image: dumbwareio/dumbpad:latest
-    restart: unless-stopped
+    restart: on-failure
     ports:
       - 13334:3000
     volumes:
-      - ${APP_DATA_DIR}/dumbsuite/dumbpad:/app/data
+      - ${APP_DATA_DIR}/data/dumbsuite/dumbpad:/app/data
     environment:
       SITE_TITLE: "DumbPad"
       DUMBPAD_PIN: ""
@@ -72,19 +72,19 @@ services:
 
   dumbkan:
     image: dumbwareio/dumbkan:latest
-    restart: unless-stopped
+    restart: on-failure
     ports:
       - 13335:3000
     volumes:
-      - ${APP_DATA_DIR}/dumbsuite/dumbkan:/app/data
+      - ${APP_DATA_DIR}/data/dumbsuite/dumbkan:/app/data
     environment:
       SITE_TITLE: "DumbKan"
       DUMBKAN_PIN: ""
       BASE_URL: "http://${DEVICE_DOMAIN_NAME}:13335"
 
   dumbwhois:
-    image: dumbwareio/dumbwhois:latest
-    restart: unless-stopped
+    image: dumbwareio/data/dumbwhois:latest
+    restart: on-failure
     ports:
       - 13336:3000
     environment:
@@ -93,13 +93,13 @@ services:
       BASE_URL: "http://${DEVICE_DOMAIN_NAME}:13336"
 
   dumbterm:
-    image: dumbwareio/dumbterm:latest
-    restart: unless-stopped
+    image: dumbwareio/data/dumbterm:latest
+    restart: on-failure
     ports:
       - 13337:3000
     volumes:
-      - ${APP_DATA_DIR}/dumbsuite/dumbterm/config:/root/.config
-      - ${APP_DATA_DIR}/dumbsuite/dumbterm/data:/root/data
+      - ${APP_DATA_DIR}/data/dumbsuite/dumbterm/config:/root/.config
+      - ${APP_DATA_DIR}/data/dumbsuite/dumbterm/data:/root/data
     environment:
       TZ: "America/Los_Angeles"
       SITE_TITLE: "DumbTerm"
