@@ -15,11 +15,13 @@ services:
   dumbbudget:
     image: dumbwareio/dumbbudget:latest
     restart: unless-stopped
+    ports:
+      - 13331:3000
     volumes:
       - ${APP_DATA_DIR}/dumbsuite/dumbbudget:/app/data
     environment:
-      DUMBBUDGET_PIN: ""                  # leer = kein PIN
-      BASE_URL: "http://localhost:3333"
+      DUMBBUDGET_PIN: ""
+      BASE_URL: "http://${DEVICE_DOMAIN_NAME}:13331"
       CURRENCY: "USD"
       SITE_TITLE: "DumbBudget"
       INSTANCE_NAME: ""
@@ -27,34 +29,41 @@ services:
   dumbdo:
     image: dumbwareio/dumbdo:latest
     restart: unless-stopped
+    ports:
+      - 13332:3000
     volumes:
       - ${APP_DATA_DIR}/dumbsuite/dumbdo:/app/data
     environment:
-      DUMBDO_PIN: ""                      # leer = kein PIN
+      DUMBDO_PIN: ""
       DUMBDO_SITE_TITLE: "DumbDo"
       ALLOWED_ORIGINS: "*"
+      BASE_URL: "http://${DEVICE_DOMAIN_NAME}:13332"
 
   dumbdrop:
     image: dumbwareio/dumbdrop:latest
     restart: unless-stopped
+    ports:
+      - 13333:3000
     volumes:
       - ${APP_DATA_DIR}/dumbsuite/dumbdrop:/app/uploads
     environment:
-      DUMBDROP_PIN: ""                    # leer = kein PIN
+      DUMBDROP_PIN: ""
       DUMBDROP_TITLE: "DumbDrop"
       MAX_FILE_SIZE: "1024"
-      BASE_URL: "http://localhost:3335"
+      BASE_URL: "http://${DEVICE_DOMAIN_NAME}:13333"
       AUTO_UPLOAD: "false"
 
   dumbpad:
     image: dumbwareio/dumbpad:latest
     restart: unless-stopped
+    ports:
+      - 13334:3000
     volumes:
       - ${APP_DATA_DIR}/dumbsuite/dumbpad:/app/data
     environment:
       SITE_TITLE: "DumbPad"
-      DUMBPAD_PIN: ""                     # leer = kein PIN
-      BASE_URL: "http://localhost:3336"
+      DUMBPAD_PIN: ""
+      BASE_URL: "http://${DEVICE_DOMAIN_NAME}:13334"
       ALLOWED_ORIGINS: "*"
       LOCKOUT_TIME: "15"
       MAX_ATTEMPTS: "5"
@@ -64,31 +73,38 @@ services:
   dumbkan:
     image: dumbwareio/dumbkan:latest
     restart: unless-stopped
+    ports:
+      - 13335:3000
     volumes:
       - ${APP_DATA_DIR}/dumbsuite/dumbkan:/app/data
     environment:
       SITE_TITLE: "DumbKan"
-      DUMBKAN_PIN: ""                     # leer = kein PIN
-      BASE_URL: "http://localhost:3337"
+      DUMBKAN_PIN: ""
+      BASE_URL: "http://${DEVICE_DOMAIN_NAME}:13335"
 
   dumbwhois:
     image: dumbwareio/dumbwhois:latest
     restart: unless-stopped
+    ports:
+      - 13336:3000
     environment:
       SITE_TITLE: "DumbWhois"
       ALLOWED_ORIGINS: "*"
+      BASE_URL: "http://${DEVICE_DOMAIN_NAME}:13336"
 
   dumbterm:
     image: dumbwareio/dumbterm:latest
     restart: unless-stopped
+    ports:
+      - 13337:3000
     volumes:
       - ${APP_DATA_DIR}/dumbsuite/dumbterm/config:/root/.config
       - ${APP_DATA_DIR}/dumbsuite/dumbterm/data:/root/data
     environment:
       TZ: "America/Los_Angeles"
       SITE_TITLE: "DumbTerm"
-      DUMBTERM_PIN: ""                    # leer = kein PIN
-      BASE_URL: "http://localhost:3339"
+      DUMBTERM_PIN: ""
+      BASE_URL: "http://${DEVICE_DOMAIN_NAME}:13337"
       ENABLE_STARSHIP: "true"
       LOCKOUT_TIME: "15"
       MAX_SESSION_AGE: "24"
