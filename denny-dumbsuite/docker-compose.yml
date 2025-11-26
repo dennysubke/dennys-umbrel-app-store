@@ -55,7 +55,7 @@ services:
 
   dumbpad:
     image: dumbwareio/dumbpad:latest
-    user: "1000:1000"
+    user: "0:0"
     restart: on-failure
     ports:
       - 13334:3000
@@ -110,3 +110,20 @@ services:
       LOCKOUT_TIME: "15"
       MAX_SESSION_AGE: "24"
       ALLOWED_ORIGINS: "*"
+
+  dumbassets:
+    image: dumbwareio/dumbassets:latest
+    restart: on-failure
+    ports:
+      - 13338:3000
+    volumes:
+      - ${APP_DATA_DIR}/data/dumbsuite/dumbassets:/app/data
+    environment:
+      PORT: "3000"
+      NODE_ENV: "production"
+      DEBUG: "true"
+      SITE_TITLE: "DumbAssets"
+      BASE_URL: "http://${DEVICE_DOMAIN_NAME}:13338"
+      DUMBASSETS_PIN: ""
+      ALLOWED_ORIGINS: "*"
+      APPRISE_URL: ""
