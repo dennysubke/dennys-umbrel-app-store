@@ -1,0 +1,43 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-monetr_monetr_1
+      APP_PORT: 4000
+
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_PASSWORD: m0netrPass123
+      POSTGRES_USER: postgres
+      POSTGRES_DB: monetr
+    volumes:
+      - ${APP_DATA_DIR}/postgres:/var/lib/postgresql/data
+
+  valkey:
+    image: valkey/valkey:9
+    volumes:
+      - ${APP_DATA_DIR}/valkey:/data
+
+  monetr:
+    image: ghcr.io/monetr/monetr:latest
+    command:
+      - serve
+      - --migrate
+      - --generate-certificates
+    depends_on:
+      - valkey
+      - postgres
+    volumes:
+      - ${APP_DATA_DIR}/data:/etc/monetr
+    environment:
+      MONETR_ALLOW_SIGN_UP: ${MONETR_ALLOW_SIGN_UP:-true}
+      MONETR_PG_USERNAME: postgres
+      MONETR_PG_PASSWORD: m0netrPass123
+      MONETR_PG_DATABASE: monetr
+      MONETR_PG_ADDRESS: postgres
+      MONETR_REDIS_ENABLED: "true"
+      MONETR_REDIS_ADDRESS: valkey
+      MONETR_STORAGE_ENABLED: ${MONETR_STORAGE_ENABLED:-true}
+      MONETR_STORAGE_PROVIDER: ${MONETR_STORAGE_PROVIDER:-filesystem}
