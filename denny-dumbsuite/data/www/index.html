@@ -276,9 +276,21 @@
 
         .apps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4 oben, 4 unten */
             gap: 20px;
             margin-top: 24px;
+        }
+
+        @media (max-width: 1024px) {
+            .apps-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .app-card {
@@ -306,11 +318,13 @@
         }
 
         .app-card-logo {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            object-fit: cover;
-            background: #1b1818;
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            object-fit: contain;
+            background: #151314;
+            padding: 6px;          /* weicher Rand um die PNGs */
+            display: block;
         }
 
         .app-card-title {
@@ -322,28 +336,6 @@
             font-size: 16px;
             opacity: 0.9;
             margin-top: 4px;
-        }
-
-        .app-card-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 8px;
-            font-size: 14px;
-            opacity: 0.85;
-        }
-
-        .app-card-port {
-            font-family: monospace;
-        }
-
-        .app-card-open {
-            font-size: 14px;
-            text-decoration: underline;
-        }
-
-        .app-card-open span {
-            font-size: 14px;
         }
 
         @media (max-width: 600px) {
@@ -369,7 +361,7 @@
                 <h1 class="app-name">Dumbware Suite</h1>
                 <p class="text-muted">
                     Dumbware is a collection of lightweight self hosted tools for everyday life and organization:
-                    simple budgeting, task tracking, file drops, notes, kanban boards, domain lookups and a browser based terminal
+                    simple budgeting, task tracking, file drops, notes, kanban boards, domain lookups and a browser based terminal,
                     all running on your own server.
                 </p>
             </div>
@@ -395,10 +387,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="app-card-meta">
-                    <span class="app-card-port">Port 13331</span>
-                    <span class="app-card-open">Open app →</span>
-                </div>
             </div>
 
             <div class="app-card" onclick="openApp(13332);">
@@ -410,10 +398,6 @@
                             Clean todo lists for tasks and quick reminders.
                         </div>
                     </div>
-                </div>
-                <div class="app-card-meta">
-                    <span class="app-card-port">Port 13332</span>
-                    <span class="app-card-open">Open app →</span>
                 </div>
             </div>
 
@@ -427,10 +411,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="app-card-meta">
-                    <span class="app-card-port">Port 13333</span>
-                    <span class="app-card-open">Open app →</span>
-                </div>
             </div>
 
             <div class="app-card" onclick="openApp(13334);">
@@ -442,10 +422,6 @@
                             Browser based notepad for quick notes and snippets.
                         </div>
                     </div>
-                </div>
-                <div class="app-card-meta">
-                    <span class="app-card-port">Port 13334</span>
-                    <span class="app-card-open">Open app →</span>
                 </div>
             </div>
 
@@ -459,10 +435,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="app-card-meta">
-                    <span class="app-card-port">Port 13335</span>
-                    <span class="app-card-open">Open app →</span>
-                </div>
             </div>
 
             <div class="app-card" onclick="openApp(13336);">
@@ -471,13 +443,9 @@
                     <div>
                         <div class="app-card-title">DumbWhois</div>
                         <div class="app-card-desc">
-                            Quick WHOIS lookups for domains using simple web UI.
+                            Quick WHOIS lookups for domains with a minimal UI.
                         </div>
                     </div>
-                </div>
-                <div class="app-card-meta">
-                    <span class="app-card-port">Port 13336</span>
-                    <span class="app-card-open">Open app →</span>
                 </div>
             </div>
 
@@ -487,13 +455,9 @@
                     <div>
                         <div class="app-card-title">DumbTerm</div>
                         <div class="app-card-desc">
-                            Terminal in the browser for quick shell sessions.
+                            Terminal in the browser for fast shell sessions.
                         </div>
                     </div>
-                </div>
-                <div class="app-card-meta">
-                    <span class="app-card-port">Port 13337</span>
-                    <span class="app-card-open">Open app →</span>
                 </div>
             </div>
 
@@ -506,10 +470,6 @@
                             Self hosted asset manager for images, files and media.
                         </div>
                     </div>
-                </div>
-                <div class="app-card-meta">
-                    <span class="app-card-port">Port 13338</span>
-                    <span class="app-card-open">Open app →</span>
                 </div>
             </div>
         </div>
