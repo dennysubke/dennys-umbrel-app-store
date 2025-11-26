@@ -1,0 +1,95 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-dumbsuite_nginx_1
+      APP_PORT: 80
+
+  nginx:
+    image: nginx:alpine
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/www:/usr/share/nginx/html:ro
+
+  dumbbudget:
+    image: dumbwareio/dumbbudget:latest
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/dumbsuite/dumbbudget:/app/data
+    environment:
+      DUMBBUDGET_PIN: ""                  # leer = kein PIN
+      BASE_URL: "http://localhost:3333"
+      CURRENCY: "USD"
+      SITE_TITLE: "DumbBudget"
+      INSTANCE_NAME: ""
+
+  dumbdo:
+    image: dumbwareio/dumbdo:latest
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/dumbsuite/dumbdo:/app/data
+    environment:
+      DUMBDO_PIN: ""                      # leer = kein PIN
+      DUMBDO_SITE_TITLE: "DumbDo"
+      ALLOWED_ORIGINS: "*"
+
+  dumbdrop:
+    image: dumbwareio/dumbdrop:latest
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/dumbsuite/dumbdrop:/app/uploads
+    environment:
+      DUMBDROP_PIN: ""                    # leer = kein PIN
+      DUMBDROP_TITLE: "DumbDrop"
+      MAX_FILE_SIZE: "1024"
+      BASE_URL: "http://localhost:3335"
+      AUTO_UPLOAD: "false"
+
+  dumbpad:
+    image: dumbwareio/dumbpad:latest
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/dumbsuite/dumbpad:/app/data
+    environment:
+      SITE_TITLE: "DumbPad"
+      DUMBPAD_PIN: ""                     # leer = kein PIN
+      BASE_URL: "http://localhost:3336"
+      ALLOWED_ORIGINS: "*"
+      LOCKOUT_TIME: "15"
+      MAX_ATTEMPTS: "5"
+      COOKIE_MAX_AGE: "24"
+      PAGE_HISTORY_COOKIE_AGE: "365"
+
+  dumbkan:
+    image: dumbwareio/dumbkan:latest
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/dumbsuite/dumbkan:/app/data
+    environment:
+      SITE_TITLE: "DumbKan"
+      DUMBKAN_PIN: ""                     # leer = kein PIN
+      BASE_URL: "http://localhost:3337"
+
+  dumbwhois:
+    image: dumbwareio/dumbwhois:latest
+    restart: unless-stopped
+    environment:
+      SITE_TITLE: "DumbWhois"
+      ALLOWED_ORIGINS: "*"
+
+  dumbterm:
+    image: dumbwareio/dumbterm:latest
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/dumbsuite/dumbterm/config:/root/.config
+      - ${APP_DATA_DIR}/dumbsuite/dumbterm/data:/root/data
+    environment:
+      TZ: "America/Los_Angeles"
+      SITE_TITLE: "DumbTerm"
+      DUMBTERM_PIN: ""                    # leer = kein PIN
+      BASE_URL: "http://localhost:3339"
+      ENABLE_STARSHIP: "true"
+      LOCKOUT_TIME: "15"
+      MAX_SESSION_AGE: "24"
+      ALLOWED_ORIGINS: "*"
