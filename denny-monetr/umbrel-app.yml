@@ -1,37 +1,40 @@
 manifestVersion: 1
 id: denny-monetr
 name: monetr
-tagline: A simple server for sending and receiving messages
-icon: https://i.imgur.com/HakL1r4.png
-category: Test
-version: "2.6.3"
+tagline: A budgeting application focused on planning for recurring expenses
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-monetr/logo.png
+category: In Progress
+version: "1.7.0"
 port: 8379
 description: >-
-  Gotify is an open-source, self-hosted notification server designed to enable real-time push notifications across multiple devices. It is a lightweight, efficient system that allows applications to send messages to the Gotify server via a REST API. These messages are then delivered to connected clients, including web browsers, mobile devices, or other systems that support Gotify’s push notification service.
+  💸 Monetr is a personal finance application that helps users understand their spending and manage their money with clarity. It focuses on presenting a clear picture of available funds by showing how much remains after accounting for upcoming expenses and savings goals. The application allows users to organise their finances around real obligations and planned costs rather than relying on a simple monthly view. It supports recurring expenses of any interval and uses these to calculate what must be set aside so that future payments are always covered.
 
 
-  The server is built with Go, known for its high performance and minimal resource consumption, making it suitable for various environments. Gotify’s simple and intuitive web interface allows users to manage notifications, configure applications, and generate API tokens for authentication and access control.
+  Monetr provides tools to categorise transactions, track spending patterns and manage budgets in a way that adapts to individual financial habits. It allows users to build an accurate overview of their financial commitments and ensures that both regular and irregular payments are reflected in their balance. The system encourages a realistic approach to budgeting by helping users allocate money intentionally and avoid unexpected shortfalls.
 
 
-  One of the core features of Gotify is its support for real-time notifications using WebSockets. This allows connected clients to receive notifications instantly, ensuring timely delivery of messages. Additionally, Gotify supports categorizing and prioritizing notifications, helping users organize incoming messages based on importance.
-
-
-  Gotify offers a native Android app, which allows users to receive push notifications directly on their devices. It also provides a web app, ensuring that users can stay updated across different platforms. The system’s architecture is designed for flexibility and scalability, enabling it to handle notifications from a variety of sources, from system alerts and monitoring tools to custom applications.
-
-
-  As a self-hosted solution, Gotify gives users complete control over their notification infrastructure, ensuring privacy and data security. With its open-source nature, it can be customized and extended to suit different use cases. The ability to host notifications locally, without relying on third-party services, makes Gotify an attractive option for those seeking a private, cost-effective solution for delivering real-time notifications.
-developer: Gotify
-website: https://gotify.net/
+  Through its design, monetr aims to make personal financial planning more predictable and less stressful by giving users a structured and transparent view of their finances.
+developer: monetr LLC.
+website: https://monetr.app/
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
-repo: https://github.com/gotify/server
-support: https://github.com/gotify/server/issues
+repo: https://github.com/monetr/monetr
+support: https://github.com/monetr/monetr/issues
 gallery:
-  - https://i.imgur.com/qBH4PgI.png
-  - https://i.imgur.com/qBH4PgI.png
-  - https://i.imgur.com/qBH4PgI.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-monetr/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-monetr/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-monetr/3.jpg
 releaseNotes: >-
-  This update sets the umask to 0 when creating Unix sockets to ensure proper file permissions. It also updates dependencies and fixes the release build process.
+  This version introduces improved handling of similar transactions and expands the transaction details view while refining date formatting and loading behaviour. It also integrates the react compiler into the frontend build and moves several components to lazy or asynchronous loading to enhance performance.
+
+
+  This update includes a broad set of dependency upgrades to keep both the API and UI modern and stable.
+
+
+  It also fixes a wide range of visual and functional issues, including badge styling, icon rendering, checkbox descriptions, login validation and sidebar text behaviour. Several loading states and interaction elements were corrected for a smoother user experience.
+
+
+  The release further contains extensive refactoring work. Many components were migrated to css modules, unused code was removed and various UI elements were restructured for cleaner design and better maintainability.
 dependencies:
 path: ""
 defaultUsername: ""
