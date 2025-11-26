@@ -256,30 +256,105 @@
             margin: 10px 0 0 0;
         }
 
-        .app-list {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 20px;
+        /* Apps grid */
+
+        .apps-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 16px;
+            flex-wrap: wrap;
         }
 
-        .app-list li {
-            margin-bottom: 16px;
+        .apps-header h2 {
+            margin: 0;
         }
 
-        .app-link {
-            font-weight: bold;
-            text-decoration: none;
+        .apps-header p {
+            margin: 0;
         }
 
-        .app-link:hover {
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .app-card {
+            background: #252122;
+            border-radius: 18px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.03);
+        }
+
+        .app-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+            background: #2b2627;
+        }
+
+        .app-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .app-card-logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            object-fit: cover;
+            background: #1b1818;
+        }
+
+        .app-card-title {
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .app-card-desc {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+
+        .app-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .app-card-port {
+            font-family: monospace;
+        }
+
+        .app-card-open {
+            font-size: 14px;
             text-decoration: underline;
         }
 
-        .app-desc {
-            display: block;
-            opacity: 0.85;
-            margin-top: 4px;
-            font-size: 16px;
+        .app-card-open span {
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .app > .app-details > .app-name {
+                font-size: 36px;
+                line-height: 40px;
+            }
+
+            .container {
+                padding: 24px;
+            }
         }
     </style>
     <link rel="shortcut icon" type="image/png" href="favicon.png">
@@ -293,54 +368,157 @@
                 <span class="app-status success">&#9679; Suite running</span>
                 <h1 class="app-name">Dumbware Suite</h1>
                 <p class="text-muted">
-                    Dumbware ist eine Sammlung schlanker, selbst gehosteter Tools für Alltag und Organisation:
-                    einfache Finanzen, Aufgaben, Dateiablage, Notizen, Boards, Domainabfragen und ein Terminal direkt im Browser.
+                    Dumbware is a collection of lightweight self hosted tools for everyday life and organization:
+                    simple budgeting, task tracking, file drops, notes, kanban boards, domain lookups and a browser based terminal
+                    all running on your own server.
                 </p>
             </div>
         </div>
 
         <hr />
 
-        <h2><strong>Apps in dieser Instanz</strong></h2>
-        <p class="text-muted text-small">
-            Klicke auf eine App, um sie in einem neuen Tab zu öffnen.
-        </p>
+        <div class="apps-header">
+            <h2><strong>Apps on this instance</strong></h2>
+            <p class="text-muted text-small">
+                Click any card to open the app in a new tab.
+            </p>
+        </div>
 
-        <ul class="app-list">
-            <li>
-                <a href="#" class="app-link" onclick="openApp(13331); return false;">DumbBudget</a>
-                <span class="app-desc">Einfaches Budget und Ausgabenverwaltung für deinen Alltag.</span>
-            </li>
-            <li>
-                <a href="#" class="app-link" onclick="openApp(13332); return false;">DumbDo</a>
-                <span class="app-desc">Schlanke Aufgabenlisten und To dos ohne Ballast.</span>
-            </li>
-            <li>
-                <a href="#" class="app-link" onclick="openApp(13333); return false;">DumbDrop</a>
-                <span class="app-desc">Schnelle Dateiablage und Sharing im eigenen Netz.</span>
-            </li>
-            <li>
-                <a href="#" class="app-link" onclick="openApp(13334); return false;">DumbPad</a>
-                <span class="app-desc">Notizen und Textschnipsel direkt im Browser speichern.</span>
-            </li>
-            <li>
-                <a href="#" class="app-link" onclick="openApp(13335); return false;">DumbKan</a>
-                <span class="app-desc">Einfache Kanban Boards für Projekte und Aufgaben.</span>
-            </li>
-            <li>
-                <a href="#" class="app-link" onclick="openApp(13336); return false;">DumbWhois</a>
-                <span class="app-desc">Schnelle Whois Abfragen für Domains.</span>
-            </li>
-            <li>
-                <a href="#" class="app-link" onclick="openApp(13337); return false;">DumbTerm</a>
-                <span class="app-desc">Terminal im Browser für schnelle Shell Sessions.</span>
-            </li>
-        </ul>
+        <div class="apps-grid">
+            <div class="app-card" onclick="openApp(13331);">
+                <div class="app-card-header">
+                    <img src="dumbbudget.png" alt="DumbBudget Logo" class="app-card-logo">
+                    <div>
+                        <div class="app-card-title">DumbBudget</div>
+                        <div class="app-card-desc">
+                            Simple budgeting and expense tracking without distractions.
+                        </div>
+                    </div>
+                </div>
+                <div class="app-card-meta">
+                    <span class="app-card-port">Port 13331</span>
+                    <span class="app-card-open">Open app →</span>
+                </div>
+            </div>
+
+            <div class="app-card" onclick="openApp(13332);">
+                <div class="app-card-header">
+                    <img src="dumbdo.png" alt="DumbDo Logo" class="app-card-logo">
+                    <div>
+                        <div class="app-card-title">DumbDo</div>
+                        <div class="app-card-desc">
+                            Clean todo lists for tasks and quick reminders.
+                        </div>
+                    </div>
+                </div>
+                <div class="app-card-meta">
+                    <span class="app-card-port">Port 13332</span>
+                    <span class="app-card-open">Open app →</span>
+                </div>
+            </div>
+
+            <div class="app-card" onclick="openApp(13333);">
+                <div class="app-card-header">
+                    <img src="dumbdrop.png" alt="DumbDrop Logo" class="app-card-logo">
+                    <div>
+                        <div class="app-card-title">DumbDrop</div>
+                        <div class="app-card-desc">
+                            Fast file drop and sharing inside your own network.
+                        </div>
+                    </div>
+                </div>
+                <div class="app-card-meta">
+                    <span class="app-card-port">Port 13333</span>
+                    <span class="app-card-open">Open app →</span>
+                </div>
+            </div>
+
+            <div class="app-card" onclick="openApp(13334);">
+                <div class="app-card-header">
+                    <img src="dumbpad.png" alt="DumbPad Logo" class="app-card-logo">
+                    <div>
+                        <div class="app-card-title">DumbPad</div>
+                        <div class="app-card-desc">
+                            Browser based notepad for quick notes and snippets.
+                        </div>
+                    </div>
+                </div>
+                <div class="app-card-meta">
+                    <span class="app-card-port">Port 13334</span>
+                    <span class="app-card-open">Open app →</span>
+                </div>
+            </div>
+
+            <div class="app-card" onclick="openApp(13335);">
+                <div class="app-card-header">
+                    <img src="dumbkan.png" alt="DumbKan Logo" class="app-card-logo">
+                    <div>
+                        <div class="app-card-title">DumbKan</div>
+                        <div class="app-card-desc">
+                            Simple kanban boards for projects, workflows and planning.
+                        </div>
+                    </div>
+                </div>
+                <div class="app-card-meta">
+                    <span class="app-card-port">Port 13335</span>
+                    <span class="app-card-open">Open app →</span>
+                </div>
+            </div>
+
+            <div class="app-card" onclick="openApp(13336);">
+                <div class="app-card-header">
+                    <img src="dumbwhois.png" alt="DumbWhois Logo" class="app-card-logo">
+                    <div>
+                        <div class="app-card-title">DumbWhois</div>
+                        <div class="app-card-desc">
+                            Quick WHOIS lookups for domains using simple web UI.
+                        </div>
+                    </div>
+                </div>
+                <div class="app-card-meta">
+                    <span class="app-card-port">Port 13336</span>
+                    <span class="app-card-open">Open app →</span>
+                </div>
+            </div>
+
+            <div class="app-card" onclick="openApp(13337);">
+                <div class="app-card-header">
+                    <img src="dumbterm.png" alt="DumbTerm Logo" class="app-card-logo">
+                    <div>
+                        <div class="app-card-title">DumbTerm</div>
+                        <div class="app-card-desc">
+                            Terminal in the browser for quick shell sessions.
+                        </div>
+                    </div>
+                </div>
+                <div class="app-card-meta">
+                    <span class="app-card-port">Port 13337</span>
+                    <span class="app-card-open">Open app →</span>
+                </div>
+            </div>
+
+            <div class="app-card" onclick="openApp(13338);">
+                <div class="app-card-header">
+                    <img src="dumbassets.png" alt="DumbAssets Logo" class="app-card-logo">
+                    <div>
+                        <div class="app-card-title">DumbAssets</div>
+                        <div class="app-card-desc">
+                            Self hosted asset manager for images, files and media.
+                        </div>
+                    </div>
+                </div>
+                <div class="app-card-meta">
+                    <span class="app-card-port">Port 13338</span>
+                    <span class="app-card-open">Open app →</span>
+                </div>
+            </div>
+        </div>
 
         <hr />
 
         <p class="text-small text-muted">
-            Tipp: Diese Seite wird statisch von Nginx ausgeliefert. Die Apps selbst laufen auf den Ports 13331 bis 13337 dieser Instanz.
+            Hint: This page is served statically by Nginx.  
+            The apps themselves run on ports 13331 to 13338 on this instance.
         </p>
     </section>
 
