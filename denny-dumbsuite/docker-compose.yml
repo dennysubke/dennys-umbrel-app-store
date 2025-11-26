@@ -1,0 +1,111 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-dumbsuite_nginx_1
+      APP_PORT: 80
+
+  nginx:
+    image: nginx:alpine
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/data/www:/usr/share/nginx/html:ro
+
+  dumbbudget:
+    image: dumbwareio/dumbbudget:latest
+    restart: on-failure
+    ports:
+      - 13331:3000
+    volumes:
+      - ${APP_DATA_DIR}/data/dumbsuite/dumbbudget:/app/data
+    environment:
+      DUMBBUDGET_PIN: ""
+      BASE_URL: "http://${DEVICE_DOMAIN_NAME}:13331"
+      CURRENCY: "USD"
+      SITE_TITLE: "DumbBudget"
+      INSTANCE_NAME: ""
+
+  dumbdo:
+    image: dumbwareio/dumbdo:latest
+    restart: on-failure
+    ports:
+      - 13332:3000
+    volumes:
+      - ${APP_DATA_DIR}/data/dumbsuite/dumbdo:/app/data
+    environment:
+      DUMBDO_PIN: ""
+      DUMBDO_SITE_TITLE: "DumbDo"
+      ALLOWED_ORIGINS: "*"
+      BASE_URL: "http://${DEVICE_DOMAIN_NAME}:13332"
+
+  dumbdrop:
+    image: dumbwareio/dumbdrop:latest
+    restart: on-failure
+    ports:
+      - 13333:3000
+    volumes:
+      - ${APP_DATA_DIR}/data/dumbsuite/dumbdrop:/app/uploads
+    environment:
+      DUMBDROP_PIN: ""
+      DUMBDROP_TITLE: "DumbDrop"
+      MAX_FILE_SIZE: "1024"
+      BASE_URL: "http://${DEVICE_DOMAIN_NAME}:13333"
+      AUTO_UPLOAD: "false"
+
+  dumbpad:
+    image: dumbwareio/dumbpad:latest
+    restart: on-failure
+    ports:
+      - 13334:3000
+    volumes:
+      - ${APP_DATA_DIR}/data/dumbsuite/dumbpad:/app/data
+    environment:
+      SITE_TITLE: "DumbPad"
+      DUMBPAD_PIN: ""
+      BASE_URL: "http://${DEVICE_DOMAIN_NAME}:13334"
+      ALLOWED_ORIGINS: "*"
+      LOCKOUT_TIME: "15"
+      MAX_ATTEMPTS: "5"
+      COOKIE_MAX_AGE: "24"
+      PAGE_HISTORY_COOKIE_AGE: "365"
+
+  dumbkan:
+    image: dumbwareio/dumbkan:latest
+    restart: on-failure
+    ports:
+      - 13335:3000
+    volumes:
+      - ${APP_DATA_DIR}/data/dumbsuite/dumbkan:/app/data
+    environment:
+      SITE_TITLE: "DumbKan"
+      DUMBKAN_PIN: ""
+      BASE_URL: "http://${DEVICE_DOMAIN_NAME}:13335"
+
+  dumbwhois:
+    image: dumbwareio/data/dumbwhois:latest
+    restart: on-failure
+    ports:
+      - 13336:3000
+    environment:
+      SITE_TITLE: "DumbWhois"
+      ALLOWED_ORIGINS: "*"
+      BASE_URL: "http://${DEVICE_DOMAIN_NAME}:13336"
+
+  dumbterm:
+    image: dumbwareio/data/dumbterm:latest
+    restart: on-failure
+    ports:
+      - 13337:3000
+    volumes:
+      - ${APP_DATA_DIR}/data/dumbsuite/dumbterm/config:/root/.config
+      - ${APP_DATA_DIR}/data/dumbsuite/dumbterm/data:/root/data
+    environment:
+      TZ: "America/Los_Angeles"
+      SITE_TITLE: "DumbTerm"
+      DUMBTERM_PIN: ""
+      BASE_URL: "http://${DEVICE_DOMAIN_NAME}:13337"
+      ENABLE_STARSHIP: "true"
+      LOCKOUT_TIME: "15"
+      MAX_SESSION_AGE: "24"
+      ALLOWED_ORIGINS: "*"
