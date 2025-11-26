@@ -55,6 +55,7 @@ services:
 
   dumbpad:
     image: dumbwareio/dumbpad:latest
+    user: "1000:1000"
     restart: on-failure
     ports:
       - 13334:3000
