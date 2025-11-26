@@ -52,6 +52,7 @@ services:
       MAX_FILE_SIZE: "1024"
       BASE_URL: "http://${DEVICE_DOMAIN_NAME}:13333"
       AUTO_UPLOAD: "false"
+      LOCAL_UPLOAD_DIR: "/app/uploads"
 
   dumbpad:
     image: dumbwareio/dumbpad:latest
