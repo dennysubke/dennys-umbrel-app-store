@@ -4,57 +4,38 @@
     <meta charset="utf-8">
     <title>Dumbware Suite</title>
 
-    <!-- Normalize -->
+    <!-- Normalize + Base -->
     <style>
         html { line-height: 1.15; -webkit-text-size-adjust: 100% }
         body { margin: 0 }
         main { display: block }
         h1 { font-size: 2em; margin: .67em 0 }
+        hr { box-sizing: content-box; height: 0; overflow: visible }
+        pre, code, kbd, samp { font-family: monospace, monospace; font-size: 1em }
+        a { background-color: transparent }
+        b, strong { font-weight: bolder }
+        small { font-size: 80% }
         img { border-style: none }
-        button, input, select, textarea { font: inherit; margin: 0 }
-        *, h1, h2, h3, h4, h5, h6, p, span {
+        [hidden] { display: none }
+    </style>
+
+    <!-- Design -->
+    <style>
+        body {
+            background-color: #1D1B1B;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, Roboto, Segoe UI, Arial;
+            color: #fff;
+        }
+
+        *,
+        h1, h2, h3, p, span {
             color: #fff;
             font-size: 20px;
             font-weight: normal;
         }
-    </style>
 
-    <!-- Page Design -->
-    <style>
-        body {
-            background-color: #1D1B1B;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue,
-                         Segoe UI, Arial, Noto Sans, sans-serif;
-        }
-
-        .container {
-            padding: 40px;
-            max-width: 1440px;
-            margin: auto;
-        }
-
-        /* Header section */
-        .app {
-            display: flex;
-            align-items: center;
-            margin: 20px 0 40px 0;
-            gap: 32px;
-        }
-
-        .app-icon {
-            height: 180px;
-            width: 180px;
-            border-radius: 24px;
-            box-shadow: 0 0 40px rgba(0,0,0,0.9);
-        }
-
-        .app-name {
-            font-size: 52px;
-            line-height: 52px;
-            font-weight: bold;
-        }
-
-        .text-muted { opacity: 0.85; }
+        .text-muted { opacity: 0.8; }
+        .text-small { font-size: 14px; }
 
         hr {
             width: 100%;
@@ -64,53 +45,87 @@
             margin: 40px 0;
         }
 
-        /* Apps Grid */
+        .container {
+            padding: 40px;
+            max-width: 1440px;
+            margin: auto;
+        }
+
+        /* Header */
+        .app {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            margin: 20px 0 40px 0;
+        }
+
+        .app-icon {
+            flex-shrink: 0;
+            height: 160px;
+            width: 160px;
+            border-radius: 24px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.9);
+        }
+
+        .app-name {
+            font-size: 56px;
+            line-height: 56px;
+            font-weight: bold;
+            margin: 0 0 12px 0;
+        }
+
+        /* Apps grid */
         .apps-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            flex-wrap: wrap;
             gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .apps-header p {
+            margin: 0;
         }
 
         .apps-grid {
-            margin-top: 26px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 26px;
+            grid-template-columns: repeat(4, minmax(220px, 1fr));
+            gap: 28px;
+            margin-top: 32px;
         }
 
         .app-card {
             background: #252122;
-            border-radius: 18px;
+            border-radius: 20px;
             padding: 20px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
             cursor: pointer;
-            transition: 0.15s ease;
-            box-shadow: 0 0 0 1px rgba(255,255,255,0.04);
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.03);
         }
 
         .app-card:hover {
             transform: translateY(-3px);
+            box-shadow: 0 14px 32px rgba(0,0,0,0.55);
             background: #2b2627;
-            box-shadow: 0 18px 36px rgba(0,0,0,0.55);
         }
 
         .app-card-header {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 16px;
+            margin-bottom: 10px;
         }
 
+        /* 🔥 Optimierte Logo-Qualität */
         .app-card-logo {
             width: 52px;
             height: 52px;
-            border-radius: 14px;
-            object-fit: cover;
-            background: #1a1717;
-            image-rendering: crisp-edges;
+            border-radius: 12px;
+            object-fit: contain;     /* Nie strecken */
+            background: #1a1717;     /* leichte Umrandung */
+            image-rendering: auto;   /* volle PNG-Schärfe */
         }
 
         .app-card-title {
@@ -122,12 +137,23 @@
             font-size: 16px;
             opacity: 0.9;
             margin-top: 4px;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 1000px) {
+            .apps-grid {
+                grid-template-columns: repeat(2, minmax(200px, 1fr));
+            }
         }
 
         @media (max-width: 600px) {
-            .app-name { font-size: 36px; line-height: 40px; }
-            .app-icon { width: 140px; height: 140px; }
-            .container { padding: 24px; }
+            .apps-grid {
+                grid-template-columns: repeat(1, minmax(200px, 1fr));
+            }
+            .app {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 
@@ -137,35 +163,32 @@
 <body>
     <section class="container app-container">
 
-        <!-- HEADER -->
+        <!-- Header -->
         <div class="app">
-            <img class="app-icon" src="logo.png" alt="Dumbware Logo">
+            <img class="app-icon" src="logo.png" width="256" height="256" alt="Dumbware Logo">
             <div class="app-details">
                 <h1 class="app-name">Dumbware Suite</h1>
                 <p class="text-muted">
-                    Dumbware is a collection of lightweight self hosted tools for everyday life and organization:
-                    simple budgeting, task tracking, file drops, notes, kanban boards, domain lookups and a browser-based
-                    terminal, all running on your own Umbrel.
+                    Dumbware is a collection of lightweight self-hosted tools for everyday life and organization:
+                    simple budgeting, task tracking, file drops, notes, kanban boards, domain lookups, and a browser-based terminal —
+                    all running on your own Umbrel.
                 </p>
             </div>
         </div>
 
         <hr />
 
-        <!-- GRID HEADER -->
+        <!-- Apps -->
         <div class="apps-header">
             <h2><strong>Apps on this instance</strong></h2>
-            <p class="text-muted text-small">
-                Click any card to open the app.
-            </p>
+            <p class="text-muted text-small">Click any app to open it in a new tab.</p>
         </div>
 
-        <!-- GRID OF 8 APPS -->
         <div class="apps-grid">
 
             <div class="app-card" onclick="openApp(13331);">
                 <div class="app-card-header">
-                    <img src="dumbbudget.png" class="app-card-logo" alt="">
+                    <img src="dumbbudget.png" class="app-card-logo">
                     <div>
                         <div class="app-card-title">DumbBudget</div>
                         <div class="app-card-desc">Simple budgeting and expense tracking.</div>
@@ -175,75 +198,76 @@
 
             <div class="app-card" onclick="openApp(13332);">
                 <div class="app-card-header">
-                    <img src="dumbdo.png" class="app-card-logo" alt="">
+                    <img src="dumbdo.png" class="app-card-logo">
                     <div>
                         <div class="app-card-title">DumbDo</div>
-                        <div class="app-card-desc">Clean todo lists for quick work.</div>
+                        <div class="app-card-desc">Clean todo lists without clutter.</div>
                     </div>
                 </div>
             </div>
 
             <div class="app-card" onclick="openApp(13333);">
                 <div class="app-card-header">
-                    <img src="dumbdrop.png" class="app-card-logo" alt="">
+                    <img src="dumbdrop.png" class="app-card-logo">
                     <div>
                         <div class="app-card-title">DumbDrop</div>
-                        <div class="app-card-desc">Fast file drop inside your network.</div>
+                        <div class="app-card-desc">Fast file drops inside your network.</div>
                     </div>
                 </div>
             </div>
 
             <div class="app-card" onclick="openApp(13334);">
                 <div class="app-card-header">
-                    <img src="dumbpad.png" class="app-card-logo" alt="">
+                    <img src="dumbpad.png" class="app-card-logo">
                     <div>
                         <div class="app-card-title">DumbPad</div>
-                        <div class="app-card-desc">Browser-based notepad for quick snippets.</div>
+                        <div class="app-card-desc">Quick notes and text snippets.</div>
                     </div>
                 </div>
             </div>
 
             <div class="app-card" onclick="openApp(13335);">
                 <div class="app-card-header">
-                    <img src="dumbkan.png" class="app-card-logo" alt="">
+                    <img src="dumbkan.png" class="app-card-logo">
                     <div>
                         <div class="app-card-title">DumbKan</div>
-                        <div class="app-card-desc">Simple kanban boards for planning.</div>
+                        <div class="app-card-desc">Simple kanban boards for projects.</div>
                     </div>
                 </div>
             </div>
 
             <div class="app-card" onclick="openApp(13336);">
                 <div class="app-card-header">
-                    <img src="dumbwhois.png" class="app-card-logo" alt="">
+                    <img src="dumbwhois.png" class="app-card-logo">
                     <div>
                         <div class="app-card-title">DumbWhois</div>
-                        <div class="app-card-desc">Quick WHOIS lookups for domains.</div>
+                        <div class="app-card-desc">Quick WHOIS domain lookups.</div>
                     </div>
                 </div>
             </div>
 
             <div class="app-card" onclick="openApp(13337);">
                 <div class="app-card-header">
-                    <img src="dumbterm.png" class="app-card-logo" alt="">
+                    <img src="dumbterm.png" class="app-card-logo">
                     <div>
                         <div class="app-card-title">DumbTerm</div>
-                        <div class="app-card-desc">Terminal in the browser.</div>
+                        <div class="app-card-desc">Browser-based terminal sessions.</div>
                     </div>
                 </div>
             </div>
 
             <div class="app-card" onclick="openApp(13338);">
                 <div class="app-card-header">
-                    <img src="dumbassets.png" class="app-card-logo" alt="">
+                    <img src="dumbassets.png" class="app-card-logo">
                     <div>
                         <div class="app-card-title">DumbAssets</div>
-                        <div class="app-card-desc">Self hosted asset manager.</div>
+                        <div class="app-card-desc">Self-hosted media & asset manager.</div>
                     </div>
                 </div>
             </div>
 
         </div>
+
     </section>
 
     <script>
@@ -252,6 +276,5 @@
             window.open("http://" + host + ":" + port, "_blank");
         }
     </script>
-
 </body>
 </html>
