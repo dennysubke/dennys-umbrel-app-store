@@ -1,0 +1,51 @@
+manifestVersion: 1
+id: denny-dumbware
+name: DumbWare Suite
+tagline: A simple suite for everyday tasks
+icon: icon.png
+category: files & productivity
+version: "1.0.0"
+port: 13330
+description: >-
+  DumbWare is a lightweight app suite built around the idea that everyday digital tools should be simple, immediate and distraction free. Each application focuses on doing one job well, without configuration screens, cluttered interfaces or unnecessary features. The suite creates a calm and efficient environment for writing, organising, tracking and sharing, all while keeping the experience as minimal as possible.
+
+
+  The suite includes the following applications, each designed with the same clean and focused philosophy:
+
+
+  📝 DumbPad is a minimalist writing space for instant note taking with automatic saving and smooth Markdown support.
+
+
+  📦 DumbDrop provides an effortless way to upload files and share them through a simple link without accounts or extra steps.
+
+
+  💰 DumbBudget offers a clear interface for managing income and expenses, making budgeting straightforward and easy to maintain.
+
+
+  📋 DumbDo is a clean and fast task list that helps capture and complete tasks without unnecessary distractions.
+
+
+  🗂️ DumbAssets serves as a lightweight asset tracker for recording items, components and related information in a structured way.
+
+
+  💻 DumbTerm delivers a simplified in browser terminal for executing quick commands in a tidy and modern shell environment.
+
+
+  🧰 DumbWhois provides domain information through a single search field with a clean and readable output.
+
+
+  🗃️ DumbKan is a compact Kanban board that helps organise ideas and tasks visually with an intuitive and minimal layout.
+developer: Mushroom Theory Inc.
+website: https://dumbware.io/
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/DumbWareio
+support: https://github.com/DumbWareio/DumbCompose/issues
+gallery:
+  - 1.jpg
+releaseNotes: >-
+  There are no changelogs available, but you can find more information here: https://github.com/DumbWareio
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
