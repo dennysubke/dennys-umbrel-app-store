@@ -13,29 +13,29 @@ description: >-
   The suite includes the following applications, each designed with the same clean and focused philosophy:
 
 
-  📝 DumbPad is a minimalist writing space for instant note taking with automatic saving and smooth Markdown support.
-
-
-  📦 DumbDrop provides an effortless way to upload files and share them through a simple link without accounts or extra steps.
-
-
   💰 DumbBudget offers a clear interface for managing income and expenses, making budgeting straightforward and easy to maintain.
 
 
   📋 DumbDo is a clean and fast task list that helps capture and complete tasks without unnecessary distractions.
 
 
-  🗂️ DumbAssets serves as a lightweight asset tracker for recording items, components and related information in a structured way.
+  📦 DumbDrop provides an effortless way to upload files and share them through a simple link without accounts or extra steps.
+
+  
+  📝 DumbPad is a minimalist writing space for instant note taking with automatic saving and smooth Markdown support.
 
 
-  💻 DumbTerm delivers a simplified in browser terminal for executing quick commands in a tidy and modern shell environment.
+  🗃️ DumbKan is a compact Kanban board that helps organise ideas and tasks visually with an intuitive and minimal layout.
 
 
   🧰 DumbWhois provides domain information through a single search field with a clean and readable output.
 
 
-  🗃️ DumbKan is a compact Kanban board that helps organise ideas and tasks visually with an intuitive and minimal layout.
-developer: Mushroom Theory Inc.
+  💻 DumbTerm delivers a simplified in browser terminal for executing quick commands in a tidy and modern shell environment.
+
+
+  🗂️ DumbAssets serves as a lightweight asset tracker for recording items, components and related information in a structured way.  
+developer: Dumbware.io
 website: https://dumbware.io/
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
