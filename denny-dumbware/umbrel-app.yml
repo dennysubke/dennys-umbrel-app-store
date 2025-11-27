@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-dumbware
 name: DumbWare Suite
 tagline: A simple suite for everyday tasks
-icon: icon.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dumbware/logo.png
 category: files & productivity
 version: "1.0.0"
 port: 13330
@@ -42,7 +42,15 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/DumbWareio
 support: https://github.com/DumbWareio/DumbCompose/issues
 gallery:
-  - 1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dumbware/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dumbware/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dumbware/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dumbware/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dumbware/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dumbware/6.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dumbware/7.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dumbware/8.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dumbware/9.jpg
 releaseNotes: >-
   There are no changelogs available, but you can find more information here: https://github.com/DumbWareio
 dependencies: []
