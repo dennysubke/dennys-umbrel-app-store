@@ -1,0 +1,35 @@
+manifestVersion: 1
+id: denny-e2ecp
+name: e2ecp
+tagline: A powerful CalDAV and CardDAV server
+icon: https://i.imgur.com/pdRVD3B.png
+category: test
+version: "3.5.4.0"
+port: 3239
+description: >-
+  Radicale is a lightweight server application designed to manage and synchronize calendar and contact data using open standards such as CalDAV and CardDAV. It enables seamless sharing and synchronization of events, tasks, and contact information across multiple clients and devices.
+
+
+  By adhering to widely supported protocols, Radicale allows different calendar and address book applications to communicate with each other, ensuring that data stays consistent and up to date.
+
+
+  It is capable of handling both individual and shared collections of data, making it suitable for personal use as well as collaborative environments where multiple users need to access and update the same information.
+
+
+  Radicale focuses on simplicity and efficiency, providing a straightforward way to store and access calendar entries and contact details while maintaining compatibility with a broad range of software clients.
+developer: Radicale Project
+website: https://radicale.org/v3.html
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/Kozea/Radicale
+support: https://github.com/tomsquest/docker-radicale/issues
+gallery:
+  - https://i.imgur.com/Rd2Iy7m.png
+  - https://i.imgur.com/Rd2Iy7m.png
+  - https://i.imgur.com/Rd2Iy7m.png
+releaseNotes: >-
+  Version 3.5.4 improves the item filter by adding third-level support, including VALARM and TRIGGER (offset or absolute). It also introduces an example Caddy configuration file in the contrib directory.
+dependencies:
+path: ""
+defaultUsername: ""
+defaultPassword: ""
