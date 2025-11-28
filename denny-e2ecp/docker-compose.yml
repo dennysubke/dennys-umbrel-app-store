@@ -1,9 +1,0 @@
-version: "3.7"
-
-services:
-  app:
-    image: schollz/e2ecp:latest
-    ports:
-      - "3239:3001"
-    volumes:
-      - ${APP_DATA_DIR}/data:/data
