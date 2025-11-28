@@ -1,39 +1,9 @@
 version: "3.7"
 
 services:
-  app_proxy:
-    environment:
-      APP_HOST: denny-e2ecp_app_1
-      APP_PORT: 8080
-
-  postgres:
-    image: postgres:17
-    environment:
-      POSTGRES_DB: e2ecp
-      POSTGRES_USER: e2ecp
-      POSTGRES_PASSWORD: e2ecpPassword
-    volumes:
-      - ${APP_DATA_DIR}/postgres:/var/lib/postgresql/data
-
   app:
-    image: schollz/e2ecp:3.2.0
-    depends_on:
-      - postgres
-    environment:
-      # Postgres für Sessions und API
-      DATABASE_URL: postgres://e2ecp:e2ecpPassword@postgres:5432/e2ecp?sslmode=disable
-      # Profile / Storage / Login Features aktivieren
-      ALLOW_STORAGE_PROFILE: "yes"
-      # optional: Logging-Level
-      LOG_LEVEL: info
-    command:
-      - --port
-      - "3001"
-      - --max-rooms
-      - "50"
-      - --max-rooms-per-ip
-      - "5"
-      - --log-level
-      - info
+    image: schollz/e2ecp:latest
+    ports:
+      - "3239:3001"
     volumes:
       - ${APP_DATA_DIR}/data:/data
