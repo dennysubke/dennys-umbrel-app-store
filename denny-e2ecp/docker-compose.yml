@@ -16,7 +16,7 @@ services:
       - ${APP_DATA_DIR}/postgres:/var/lib/postgresql/data
 
   app:
-    image: schollz/e2ecp:3.2.0
+    image: schollz/e2ecp:3.1
     depends_on:
       - postgres
     environment:
