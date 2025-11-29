@@ -1,94 +1,89 @@
-title: "Denny’s Umbrel Dashboard"
-subtitle: "Your Home Server at a glance"
-logo: "/app/public/images/logo.png"
-favicon: "/app/public/images/favicon.png"
-
+title: "Home Dashboard"
+subtitle: "Your self-hosted control center"
 theme: dark
 color: slate
 
 background:
   image: "/app/public/images/wallpaper.jpg"
   blur: "2px"
-  brightness: 0.7
-
-provider:
-  name: denny
-  email: denny@wenke.email
-  location: germany
+  brightness: 0.75
 
 layout:
   - Main
-  - Umbrel
+  - Apps
   - Tools
-  - External
   - System
 
 services:
-  - name: Umbrel
-    icon: umbrel
+  - name: Apps
+    icon: apps
     items:
-      - name: Umbrel Home
+      - name: Umbrel
         url: "http://umbrel.local"
-        icon: "home"
-        description: "Dashboard"
-        target: newtab
+        icon: "server"
       - name: App Store
         url: "http://umbrel.local/appstore"
         icon: "package"
       - name: File Manager
         url: "http://umbrel.local/files"
         icon: "folder"
+      - name: Glance
+        url: "http://umbrel.local:8080"
+        icon: "dashboard"
+      - name: Docmost
+        url: "http://umbrel.local:8912"
+        icon: "book"
 
   - name: Tools
     icon: toolbox
     items:
-      - name: Glance
-        url: "http://umbrel.local:8080"
-        icon: "view-grid"
-        description: "System overview"
-      - name: Docmost
-        url: "http://umbrel.local:8912"
-        icon: "document"
-      - name: Postiz
-        url: "http://umbrel.local:9999"
-        icon: "share"
+      - name: Portainer
+        url: "http://umbrel.local:9443"
+        icon: "boxes"
+      - name: Homepage
+        url: "http://umbrel.local:3550"
+        icon: "home"
+      - name: Adminer
+        url: "http://umbrel.local:8081"
+        icon: "database"
 
   - name: External
-    icon: cloud
+    icon: globe
     items:
       - name: GitHub
-        url: "https://github.com/dennysubke"
+        url: "https://github.com"
         icon: "github"
       - name: Docker Hub
-        url: "https://hub.docker.com/u/dennysubke"
+        url: "https://hub.docker.com"
         icon: "docker"
 
 widgets:
   - type: search
-    id: search-main
-    provider: google
-    placeholder: "Search the web..."
+    provider: duckduckgo
+    placeholder: "Search..."
 
   - type: weather
-    id: weather
     units: metric
     location: "Berlin,DE"
     api_key: "YOUR_OPENWEATHER_KEY"
 
   - type: datetime
-    id: clock
     format: "dddd, DD.MM.YYYY HH:mm"
 
   - type: resources
-    id: system-resources
     cpu: true
     memory: true
     disk: /
     interval: 5
 
-  - type: piracy
-    id: internet-speed
-    showGraph: true
+  - type: nav
+    items:
+      - label: "Main"
+        icon: "home"
+      - label: "Apps"
+        icon: "grid"
+      - label: "System"
+        icon: "cpu"
 
 bookmarks:
   - category: Development
@@ -102,28 +97,19 @@ bookmarks:
   - category: Selfhosting
     icon: server
     links:
-      - name: Umbrel Docs
-        url: "https://github.com/getumbrel/umbrel-os"
-
-  - category: Social
-    icon: chat
-    links:
-      - name: Reddit
-        url: "https://reddit.com"
-      - name: Twitter
-        url: "https://twitter.com"
+      - name: TrueCharts
+        url: "https://truecharts.org"
+      - name: Portainer
+        url: "https://www.portainer.io"
 
 icons:
   style: outline
 
 custom_css: |
-  body {
-    font-family: "Inter", sans-serif;
-  }
   .widget {
-    border-radius: 14px;
+    border-radius: 12px;
   }
-  .bookmark {
+  .bookmark a {
     padding: 6px;
   }
 
@@ -131,8 +117,6 @@ experimental:
   docker:
     enabled: false
     showStats: false
-
-hide_desktop_notification: false
 
 session:
   timeout: 12h
