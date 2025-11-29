@@ -1,1 +1,123 @@
+title: "Home Dashboard"
+subtitle: "Your self-hosted control center"
+theme: dark
+color: slate
+
+background:
+  image: "/app/public/images/wallpaper.jpg"
+  blur: "2px"
+  brightness: 0.75
+
+layout:
+  - Main
+  - Apps
+  - Tools
+  - System
+
+services:
+  - name: Apps
+    icon: apps
+    items:
+      - name: Umbrel
+        url: "http://umbrel.local"
+        icon: "server"
+      - name: App Store
+        url: "http://umbrel.local/appstore"
+        icon: "package"
+      - name: File Manager
+        url: "http://umbrel.local/files"
+        icon: "folder"
+      - name: Glance
+        url: "http://umbrel.local:8080"
+        icon: "dashboard"
+      - name: Docmost
+        url: "http://umbrel.local:8912"
+        icon: "book"
+
+  - name: Tools
+    icon: toolbox
+    items:
+      - name: Portainer
+        url: "http://umbrel.local:9443"
+        icon: "boxes"
+      - name: Homepage
+        url: "http://umbrel.local:3550"
+        icon: "home"
+      - name: Adminer
+        url: "http://umbrel.local:8081"
+        icon: "database"
+
+  - name: External
+    icon: globe
+    items:
+      - name: GitHub
+        url: "https://github.com"
+        icon: "github"
+      - name: Docker Hub
+        url: "https://hub.docker.com"
+        icon: "docker"
+
+widgets:
+  - type: search
+    provider: duckduckgo
+    placeholder: "Search..."
+
+  - type: weather
+    units: metric
+    location: "Berlin,DE"
+    api_key: "YOUR_OPENWEATHER_KEY"
+
+  - type: datetime
+    format: "dddd, DD.MM.YYYY HH:mm"
+
+  - type: resources
+    cpu: true
+    memory: true
+    disk: /
+    interval: 5
+
+  - type: nav
+    items:
+      - label: "Main"
+        icon: "home"
+      - label: "Apps"
+        icon: "grid"
+      - label: "System"
+        icon: "cpu"
+
+bookmarks:
+  - category: Development
+    icon: code
+    links:
+      - name: GitHub
+        url: "https://github.com"
+      - name: Docker Docs
+        url: "https://docs.docker.com"
+
+  - category: Selfhosting
+    icon: server
+    links:
+      - name: TrueCharts
+        url: "https://truecharts.org"
+      - name: Portainer
+        url: "https://www.portainer.io"
+
+icons:
+  style: outline
+
+custom_css: |
+  .widget {
+    border-radius: 12px;
+  }
+  .bookmark a {
+    padding: 6px;
+  }
+
+experimental:
+  docker:
+    enabled: false
+    showStats: false
+
+session:
+  timeout: 12h
 
