@@ -1,0 +1,62 @@
+manifestVersion: 1
+id: denny-homepage
+name: Homepage
+tagline: A customizable dashboard application
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homepage/logo.png
+category: files & productivity
+version: "1.7.0"
+port: 3852
+description: >-
+  Homepage is a customizable dashboard application that allows you to gather important information in a single organized interface. It gives you full control over the layout by using simple configuration files that define what appears on the screen and how it is arranged. This approach makes it easy to adapt the dashboard to your own needs without complexity or technical overhead.
+
+
+  The application focuses on clarity and visual balance. It presents links, widgets, and informational elements in a clean design that helps you access everything quickly and without distractions. Whether you want a minimal overview or a richer information display, the structure of the interface can be shaped to match your personal workflow.
+
+
+  Homepage also supports many types of content that can be combined freely. You can include application entries, metrics, bookmarks, search fields, or small status indicators. These items can be grouped and ordered to create a dashboard that feels natural and efficient. Its flexibility makes it useful for both personal and professional environments where an organized starting point is essential.
+
+
+  By keeping everything in a single space, Homepage turns your daily routine into a smooth experience. It serves as a central place where you can focus on what matters most and access the tools or information you rely on every day.
+
+
+  ⚙️ Homepage on Umbrel works through a file-based configuration system where all settings and interface elements are defined in YAML files inside the app’s data directory.
+
+
+  All configuration files must be placed in
+  /data/config/
+  This directory should contain settings.yaml, services.yaml, widgets.yaml and bookmarks.yaml.
+  After each modification, the Homepage app in Umbrel should be restarted so the changes are applied.
+
+
+  Custom images can be stored in
+  /data/public/images/
+  and referenced in settings.yaml
+
+
+  YAML formatting requires precision. Always use spaces, avoid tabs and keep indentation consistent.
+  To prevent “API Error Information” messages, remove or simplify widget blocks that use external API calls.
+
+
+  For full documentation, visit https://gethomepage.dev/
+developer: gethomepage
+website: https://gethomepage.dev/
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/gethomepage/homepage
+support: https://github.com/gethomepage/homepage/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homepage/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homepage/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homepage/1.jpg
+releaseNotes: >-
+  This version focuses on improving stability and refinement across several parts of the application. 
+  
+  
+  It enhances event handling in the iCal integration, strengthens UID support, and fixes limitations in the ESP Home widget. 
+  
+  
+  Dependency updates further improve build consistency and overall reliability.
+dependencies:
+path: ""
+defaultUsername: ""
+defaultPassword: ""
