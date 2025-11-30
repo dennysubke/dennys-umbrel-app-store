@@ -5,7 +5,7 @@ tagline: A powerful CalDAV and CardDAV server
 icon: https://i.imgur.com/pdRVD3B.png
 category: test
 version: "3.5.4.0"
-port: 3852
+port: 8734
 description: >-
   Radicale is a lightweight server application designed to manage and synchronize calendar and contact data using open standards such as CalDAV and CardDAV. It enables seamless sharing and synchronization of events, tasks, and contact information across multiple clients and devices.
 
