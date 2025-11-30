@@ -1,0 +1,107 @@
+version: "3.7"
+
+app_proxy:
+  environment:
+    APP_HOST: denny-appwrite_app_1
+    APP_PORT: 80
+
+x-appwrite-env: &appwrite-env
+  _APP_ENV: "production"
+  _APP_LOCALE: "en"
+  _APP_OPTIONS_ABUSE: "enabled"
+  _APP_OPTIONS_ROUTER_FORCE_HTTPS: "disabled"
+  _APP_OPTIONS_FORCE_HTTPS: "disabled"
+  _APP_OPENSSL_KEY_V1: "${APP_SEED}"
+
+  _APP_DOMAIN: "${DEVICE_DOMAIN_NAME}:8734"
+  _APP_DOMAIN_TARGET: "${DEVICE_DOMAIN_NAME}:8734"
+  _APP_CONSOLE_DOMAIN: "${DEVICE_DOMAIN_NAME}:8734"
+  _APP_DOMAIN_FUNCTIONS: "functions.${DEVICE_DOMAIN_NAME}:8734"
+
+  _APP_SYSTEM_EMAIL_NAME: "Appwrite"
+  _APP_SYSTEM_EMAIL_ADDRESS: "appwrite@${DEVICE_DOMAIN_NAME}"
+
+  _APP_REDIS_HOST: "redis"
+  _APP_REDIS_PORT: 6379
+  _APP_REDIS_USER: ""
+  _APP_REDIS_PASS: ""
+
+  _APP_DB_HOST: "mariadb"
+  _APP_DB_PORT: 3306
+  _APP_DB_SCHEMA: "appwrite"
+  _APP_DB_USER: "appwrite"
+  _APP_DB_PASS: "supersecurepassword"
+  _APP_DB_ROOT_PASS: "supersecurepassword"
+
+  _APP_SMTP_HOST: ""
+  _APP_SMTP_PORT: ""
+  _APP_SMTP_SECURE: ""
+  _APP_SMTP_USERNAME: ""
+  _APP_SMTP_PASSWORD: ""
+
+  _APP_STORAGE_LIMIT: 0
+  _APP_STORAGE_PREVIEW_LIMIT: 0
+  _APP_STORAGE_DEVICE: "local"
+  _APP_STORAGE_ANTIVIRUS: "disabled"
+
+  _APP_USAGE_STATS: "enabled"
+  _APP_MAINTENANCE_INTERVAL: 86400
+  _APP_MAINTENANCE_RETENTION_EXECUTION: 1209600
+  _APP_MAINTENANCE_RETENTION_CACHE: 2592000
+  _APP_MAINTENANCE_RETENTION_ABUSE: 86400
+  _APP_MAINTENANCE_RETENTION_AUDIT: 1209600
+  _APP_MAINTENANCE_RETENTION_USAGE_HOURLY: 8640000
+  _APP_MAINTENANCE_RETENTION_SCHEDULES: 86400
+
+  _APP_FUNCTIONS_TIMEOUT: 900
+  _APP_COMPUTE_BUILD_TIMEOUT: 900
+  _APP_COMPUTE_CPUS: 0
+  _APP_COMPUTE_MEMORY: 0
+  _APP_COMPUTE_SIZE_LIMIT: 0
+  _APP_FUNCTIONS_RUNTIMES: "node-20.0"
+  _APP_FUNCTIONS_RUNTIMES_NETWORK: ""
+
+  _APP_LOGGING_CONFIG: ""
+  _APP_LOGGING_PROVIDER: ""
+
+services:
+  app:
+    image: appwrite/appwrite:1.8.0
+    entrypoint:
+      - php
+      - -e
+      - app/http.php
+    environment:
+      <<: *appwrite-env
+    volumes:
+      - ${APP_DATA_DIR}/data/uploads:/storage/uploads:rw
+      - ${APP_DATA_DIR}/data/imports:/storage/imports:rw
+      - ${APP_DATA_DIR}/data/cache:/storage/cache:rw
+      - ${APP_DATA_DIR}/data/config:/storage/config:rw
+      - ${APP_DATA_DIR}/data/certificates:/storage/certificates:rw
+      - ${APP_DATA_DIR}/data/functions:/storage/functions:rw
+      - ${APP_DATA_DIR}/data/sites:/storage/sites:rw
+      - ${APP_DATA_DIR}/data/builds:/storage/builds:rw
+    depends_on:
+      - mariadb
+      - redis
+
+  mariadb:
+    image: mariadb:11.4
+    environment:
+      MYSQL_ROOT_PASSWORD: "supersecurepassword"
+      MYSQL_DATABASE: "appwrite"
+      MYSQL_USER: "appwrite"
+      MYSQL_PASSWORD: "supersecurepassword"
+    volumes:
+      - ${APP_DATA_DIR}/data/mariadb:/var/lib/mysql:rw
+
+  redis:
+    image: redis:7.2-alpine
+    command: >
+      redis-server
+      --maxmemory 512mb
+      --maxmemory-policy allkeys-lru
+      --maxmemory-samples 5
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data:rw
