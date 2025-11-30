@@ -23,6 +23,7 @@ x-appwrite-env: &appwrite-env
   _APP_DB_USER: "appwrite"
   _APP_DB_PASS: "supersecurepassword"
   _APP_DB_ROOT_PASS: "supersecurepassword"
+  _APP_DATABASE_HOSTS: "%"
   _APP_SMTP_HOST: ""
   _APP_SMTP_PORT: ""
   _APP_SMTP_SECURE: ""
@@ -57,6 +58,7 @@ services:
       APP_PORT: 80
 
   app:
+    hostname: denny-appwrite_app_1
     image: appwrite/appwrite:1.8.0
     entrypoint:
       - php
