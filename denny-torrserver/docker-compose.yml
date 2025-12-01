@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-torrserver_app_1
+      APP_PORT: 5665
+
+  app:
+    image: ghcr.io/yourok/torrserver:MatriX.136@sha256:e7663dce47e3977363f9f7ad07403bef219a386741ca626b9bf85afbc830baac
+    network_mode: host
+    environment:
+      TS_PORT: "5665"
+      TS_DONTKILL: "1"
+      TS_HTTPAUTH: "0"
+      TS_CONF_PATH: /opt/ts/config
+      TS_TORR_DIR: /opt/ts/torrents
+    volumes:
+      - ${APP_DATA_DIR}/data/torrents:/opt/ts/torrents
+      - ${APP_DATA_DIR}/data/config:/opt/ts/config

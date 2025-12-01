@@ -1,0 +1,37 @@
+manifestVersion: 1
+id: denny-torrserver
+name: TorrServer
+tagline: A torrent streaming server
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torrserver/logo.png
+category: networking
+version: "MatriX.136"
+port: 5665
+description: >-
+  📡 TorrServer is an application that receives torrent sources and transforms them into a direct and continuous media stream. It accepts magnet links or torrent files, connects to the swarm, retrieves the necessary data segments and prepares them in a way that media players can access immediately without waiting for a complete download. The application manages buffering, caching and sequential reading so that playback begins as soon as the first pieces of the file are available. It keeps track of the torrent structure, selects the required pieces in the correct order, maintains connections to peers and ensures a stable data flow for smooth playback.
+
+
+  TorrServer presents each file inside the torrent as a streamable resource. A media player can read the video or audio track in real time while the application continues to gather remaining data in the background. It organizes active torrents, caches recently used segments and optimizes retrieval so that jumps within the media or resuming playback remain fluid.
+
+
+  The core purpose of the application is to simplify torrent based media consumption by acting as a translator between peer to peer data and traditional streaming. It removes the need for manual torrent management, hides protocol complexity and provides an immediate streaming experience for any supported media file contained within a torrent source.
+developer: YouROK
+website: https://yourok.ru/
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/YouROK/TorrServer
+support: https://github.com/YouROK/TorrServer/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torrserver/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torrserver/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torrserver/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torrserver/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torrserver/5.jpg
+releaseNotes: >-
+  This version introduces several functional improvements, including new support for BBR configuration, a reworked Linux installer and enhanced reconfiguration options such as adjustable authentication credentials. It also adds a PWA Infuse action and improves overall documentation.
+
+
+ The update includes refinements to installation scripts, fixes for Windows path handling and corrections to service logic. It concludes with code cleanups and a broad set of dependency upgrades across both the server and web components.
+dependencies:
+path: ""
+defaultUsername: ""
+defaultPassword: ""
