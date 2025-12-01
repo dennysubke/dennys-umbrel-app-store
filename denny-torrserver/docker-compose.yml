@@ -8,7 +8,7 @@ services:
 
   app:
     image: ghcr.io/yourok/torrserver:MatriX.136@sha256:e7663dce47e3977363f9f7ad07403bef219a386741ca626b9bf85afbc830baac
-    network_mode: host
+    #network_mode: host
     environment:
       TS_PORT: "5665"
       TS_DONTKILL: "1"
@@ -18,3 +18,4 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/torrents:/opt/ts/torrents
       - ${APP_DATA_DIR}/data/config:/opt/ts/config
+
