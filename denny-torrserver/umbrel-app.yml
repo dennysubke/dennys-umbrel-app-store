@@ -30,7 +30,7 @@ releaseNotes: >-
   This version introduces several functional improvements, including new support for BBR configuration, a reworked Linux installer and enhanced reconfiguration options such as adjustable authentication credentials. It also adds a PWA Infuse action and improves overall documentation.
 
 
- The update includes refinements to installation scripts, fixes for Windows path handling and corrections to service logic. It concludes with code cleanups and a broad set of dependency upgrades across both the server and web components.
+  The update includes refinements to installation scripts, fixes for Windows path handling and corrections to service logic. It concludes with code cleanups and a broad set of dependency upgrades across both the server and web components.
 dependencies:
 path: ""
 defaultUsername: ""
