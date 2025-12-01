@@ -24,8 +24,6 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torrserver/1.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torrserver/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torrserver/3.jpg
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torrserver/4.jpg
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torrserver/5.jpg
 releaseNotes: >-
   This version introduces several functional improvements, including new support for BBR configuration, a reworked Linux installer and enhanced reconfiguration options such as adjustable authentication credentials. It also adds a PWA Infuse action and improves overall documentation.
 
