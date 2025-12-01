@@ -3,7 +3,7 @@ id: denny-monetr
 name: monetr
 tagline: A budgeting application focused on planning for recurring expenses
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-monetr/logo.png
-category: In Progress
+category: finance
 version: "1.7.0"
 port: 8379
 description: >-
@@ -24,6 +24,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-monetr/1.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-monetr/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-monetr/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-monetr/4.jpg
 releaseNotes: >-
   This version introduces improved handling of similar transactions and expands the transaction details view while refining date formatting and loading behaviour. It also integrates the react compiler into the frontend build and moves several components to lazy or asynchronous loading to enhance performance.
 
