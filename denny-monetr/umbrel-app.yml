@@ -1,6 +1,6 @@
 manifestVersion: 1
 id: denny-monetr
-name: monetr
+name: Monetr
 tagline: A budgeting application focused on planning for recurring expenses
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-monetr/logo.png
 category: finance
@@ -14,7 +14,7 @@ description: >-
 
 
   Through its design, monetr aims to make personal financial planning more predictable and less stressful by giving users a structured and transparent view of their finances.
-developer: monetr LLC.
+developer: Monetr LLC.
 website: https://monetr.app/
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
