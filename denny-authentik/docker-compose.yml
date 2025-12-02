@@ -13,20 +13,14 @@ services:
       POSTGRES_USER: authentik
       POSTGRES_PASSWORD: vZ3mYx9GQ4sP2kR7tB8wUeL6pH2cX9nJ
     volumes:
-      - ${APP_DATA_DIR}/postgres:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -d authentik -U authentik"]
-      interval: 30s
-      timeout: 5s
-      retries: 5
-      start_period: 20s
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
 
   server:
     image: authentik/server:2025.10.2@sha256:8322e449feefcc2416f0401038d5a1a28552c4403b079a59d3b4d978d8f3f530
     command: server
+    user: root
     depends_on:
-      postgresql:
-        condition: service_healthy
+      - postgresql
     environment:
       AUTHENTIK_POSTGRESQL__HOST: postgresql
       AUTHENTIK_POSTGRESQL__NAME: authentik
@@ -35,15 +29,15 @@ services:
       AUTHENTIK_SECRET_KEY: ak_secret_Qm9vQk1uR3p4eTgycE1kUjZxV1l2cDhFc0d5MTVhQnY=
       AUTHENTIK_ERROR_REPORTING__ENABLED: "false"
     volumes:
-      - ${APP_DATA_DIR}/media:/media
-      - ${APP_DATA_DIR}/custom-templates:/templates
+      - ${APP_DATA_DIR}/data/media:/media
+      - ${APP_DATA_DIR}/data/custom-templates:/templates
 
   worker:
     image: authentik/server:2025.10.2@sha256:8322e449feefcc2416f0401038d5a1a28552c4403b079a59d3b4d978d8f3f530
     command: worker
+    user: root
     depends_on:
-      postgresql:
-        condition: service_healthy
+      - postgresql
     environment:
       AUTHENTIK_POSTGRESQL__HOST: postgresql
       AUTHENTIK_POSTGRESQL__NAME: authentik
@@ -51,7 +45,6 @@ services:
       AUTHENTIK_POSTGRESQL__PASSWORD: vZ3mYx9GQ4sP2kR7tB8wUeL6pH2cX9nJ
       AUTHENTIK_SECRET_KEY: ak_secret_Qm9vQk1uR3p4eTgycE1kUjZxV1l2cDhFc0d5MTVhQnY=
       AUTHENTIK_ERROR_REPORTING__ENABLED: "false"
-    user: root
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ${APP_DATA_DIR}/data/media:/media
