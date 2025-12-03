@@ -33,10 +33,16 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-authentik/4.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-authentik/5.jpg
 releaseNotes: >-
-  This version delivers a wide range of refinements that enhance accuracy, stability, and overall usability throughout the application. 
-  
-  
-  Improvements to brand matching result in more reliable detection and ordering, while updates in the documentation clarify default behaviors and remove outdated or broken content.
+  This version delivers a wide range of refinements that enhance accuracy, stability, and overall usability throughout the application. Improvements to brand matching result in more reliable detection and ordering, while updates in the documentation clarify default behaviors and remove outdated or broken content.
+
+
+  It also resolves several functional issues, including problems with task scheduling, timezone handling in event logs, and formatting for application launch URLs. Web interface behavior has been polished through fixes to modal visibility, tab activation, and form choice handling.
+
+
+  Backend reliability is strengthened as well, improving background processing, schema handling, and integrations across providers. Internal patches and CI adjustments further stabilize the platform and ensure better testing consistency.
+
+
+  Overall, the update focuses on polishing the existing feature set, tightening overall quality, and providing a smoother and more predictable experience for both administrators and users.
 dependencies:
 path: ""
 defaultUsername: ""
