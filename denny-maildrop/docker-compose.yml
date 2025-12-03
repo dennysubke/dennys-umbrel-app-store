@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-maildrop_maildrop_1
+      APP_PORT: 5000
+
+  maildrop:
+    image: haileyydev/maildrop:latest
+    environment:
+      DOMAIN: ${DEVICE_DOMAIN_NAME}:5900
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
