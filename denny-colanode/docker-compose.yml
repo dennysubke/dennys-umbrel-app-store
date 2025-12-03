@@ -1,0 +1,47 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-colanode_web_1
+      APP_PORT: 80
+
+  postgres:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_USER: colanode_user
+      POSTGRES_PASSWORD: postgrespass123
+      POSTGRES_DB: colanode_db
+    volumes:
+      - ${APP_DATA_DIR}/postgres:/var/lib/postgresql/data
+
+  valkey:
+    image: valkey/valkey:8.1
+    command: ["valkey-server", "--requirepass", "your_valkey_password"]
+    volumes:
+      - ${APP_DATA_DIR}/valkey:/data
+
+  server:
+    image: ghcr.io/colanode/server:latest
+    depends_on:
+      - postgres
+      - valkey
+    environment:
+      NODE_ENV: production
+      SERVER_NAME: "Colanode"
+      SERVER_MODE: "standalone"
+      USER_STORAGE_LIMIT: "10737418240"
+      USER_MAX_FILE_SIZE: "104857600"
+      POSTGRES_URL: "postgres://colanode_user:postgrespass123@postgres:5432/colanode_db"
+      REDIS_URL: "redis://:your_valkey_password@valkey:6379/0"
+      REDIS_DB: "0"
+      STORAGE_TYPE: "file"
+      STORAGE_FILE_DIRECTORY: "/var/lib/colanode/storage"
+      SMTP_ENABLED: "false"
+    volumes:
+      - ${APP_DATA_DIR}/server:/var/lib/colanode/storage
+
+  web:
+    image: ghcr.io/colanode/web:latest
+    depends_on:
+      - server
