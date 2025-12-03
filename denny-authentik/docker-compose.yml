@@ -1,0 +1,52 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-authentik_server_1
+      APP_PORT: 9000
+
+  postgresql:
+    image: postgres:15@sha256:24d6c206bba8c0440bceb24a8d4bf642f60bf7aea94887051ea5761d29c22323
+    environment:
+      POSTGRES_DB: authentik
+      POSTGRES_USER: authentik
+      POSTGRES_PASSWORD: vZ3mYx9GQ4sP2kR7tB8wUeL6pH2cX9nJ
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+
+  server:
+    image: authentik/server:2025.10.2@sha256:8322e449feefcc2416f0401038d5a1a28552c4403b079a59d3b4d978d8f3f530
+    command: server
+    user: root
+    depends_on:
+      - postgresql
+    environment:
+      AUTHENTIK_POSTGRESQL__HOST: postgresql
+      AUTHENTIK_POSTGRESQL__NAME: authentik
+      AUTHENTIK_POSTGRESQL__USER: authentik
+      AUTHENTIK_POSTGRESQL__PASSWORD: vZ3mYx9GQ4sP2kR7tB8wUeL6pH2cX9nJ
+      AUTHENTIK_SECRET_KEY: ak_secret_Qm9vQk1uR3p4eTgycE1kUjZxV1l2cDhFc0d5MTVhQnY=
+      AUTHENTIK_ERROR_REPORTING__ENABLED: "false"
+    volumes:
+      - ${APP_DATA_DIR}/data/media:/media
+      - ${APP_DATA_DIR}/data/custom-templates:/templates
+
+  worker:
+    image: authentik/server:2025.10.2@sha256:8322e449feefcc2416f0401038d5a1a28552c4403b079a59d3b4d978d8f3f530
+    command: worker
+    user: root
+    depends_on:
+      - postgresql
+    environment:
+      AUTHENTIK_POSTGRESQL__HOST: postgresql
+      AUTHENTIK_POSTGRESQL__NAME: authentik
+      AUTHENTIK_POSTGRESQL__USER: authentik
+      AUTHENTIK_POSTGRESQL__PASSWORD: vZ3mYx9GQ4sP2kR7tB8wUeL6pH2cX9nJ
+      AUTHENTIK_SECRET_KEY: ak_secret_Qm9vQk1uR3p4eTgycE1kUjZxV1l2cDhFc0d5MTVhQnY=
+      AUTHENTIK_ERROR_REPORTING__ENABLED: "false"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${APP_DATA_DIR}/data/media:/media
+      - ${APP_DATA_DIR}/data/certs:/certs
+      - ${APP_DATA_DIR}/data/custom-templates:/templates
