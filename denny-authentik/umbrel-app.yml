@@ -20,6 +20,15 @@ description: >-
 
 
   Overall, Authentik functions as a complete platform for identity management and controlled access, ensuring that user authentication and authorization remain secure, reliable, and easy to manage across many different types of applications.
+
+
+  ⚙️ To begin the initial setup, open your browser and navigate to
+  
+  
+  http://<your server's IP or hostname (e.g. umbrel.local)>:9000/if/flow/initial-setup/.
+
+  
+  This launches the guided setup flow where you create the administrator account, configure essential settings, and complete the initial system configuration.
 developer: Authentik Security
 website: https://goauthentik.io/
 submitter: dennysubke
