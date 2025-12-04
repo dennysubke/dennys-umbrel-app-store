@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-sun-panel_web_1
+      APP_PORT: 3002
+  
+  web:
+    image: hslr/sun-panel:1.8.0@sha256:f08d5d7556305c31d7a048f91889e00afc0db570bad2d0e49c7aeb73ed993640
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/data/conf:/app/conf
+      - ${APP_DATA_DIR}/data/uploads:/app/uploads
+      - ${APP_DATA_DIR}/data/database:/app/database
