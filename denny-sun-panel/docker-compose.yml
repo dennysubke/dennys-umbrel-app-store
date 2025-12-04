@@ -13,4 +13,4 @@ services:
       - ${APP_DATA_DIR}/data/conf:/app/conf
       - ${APP_DATA_DIR}/data/uploads:/app/uploads
       - ${APP_DATA_DIR}/data/database:/app/database
-     #- /var/run/docker.sock:/var/run/docker.sock # Mount the Docker socket
+      - /var/run/docker.sock:/var/run/docker.sock 
