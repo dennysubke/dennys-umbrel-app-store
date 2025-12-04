@@ -1,29 +1,34 @@
 manifestVersion: 1
 id: denny-medama
 name: Medama
-tagline: A task manager that respects your privacy
-icon: icon.png
+tagline: A privacy first analytics solution
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-medama/logo.png
 category: networking
 version: "0.6.1"
 port: 8921
 description: >-
-  TaskTrove is a modern task management application designed to help people organize their daily work and personal projects with clarity and efficiency. It provides a clean and intuitive interface where tasks can be quickly added, edited, and managed. The application supports natural language input so due dates, reminders, and scheduling details can be written in everyday language and immediately transformed into structured information. Tasks can be grouped into projects and further refined with labels, subtasks, and recurring patterns, making it easy to manage both simple to do lists and more complex workflows.
+  📊 Medama Analytics is a privacy focused analytics platform designed to give clear insight into how people interact with a website while avoiding intrusive data collection. It focuses on simplicity and clarity by tracking only the essential interaction events that matter for understanding user behavior. The tracking script is extremely lightweight and does not rely on cookies or personal identifiers, which makes the analytics feel clean, transparent and respectful of user privacy.
 
 
-  TaskTrove offers multiple ways to view and interact with tasks including a traditional list view, a compact view for dense overviews, and a Kanban style board that is especially useful for visual organization and progress tracking. Searching and filtering are central features, allowing users to focus only on what is relevant at a given moment without losing sight of the bigger picture. Upcoming additions such as calendar integration and analytical tools extend its ability to provide insights into productivity and time management.
+  The application provides real time visibility into visits and interactions, allowing you to observe activity the moment it happens. Its data model is intentionally minimal so that the information you receive is easy to interpret without being overwhelmed by noise. Events such as page views, navigation flows and custom actions can be captured and viewed in a focused interface that highlights what is important.
 
 
-  The application is built with privacy in mind and avoids unnecessary tracking or telemetry. It encourages a personal and distraction free workflow where the user stays in full control of their information. Its flexibility makes it suitable for different styles of productivity whether that means a simple checklist for everyday errands or a structured system for managing multiple projects at once.
-developer: Mushroom Theory Inc.
-website: https://tasktrove.io/
+  Medama Analytics also exposes an accessible API that allows developers to fetch analytics data and use it in their own dashboards or tools. This makes it flexible for integrating analytical insights into other workflows. Overall, the application delivers modern lightweight analytics with an emphasis on speed, clarity and privacy, giving you a straightforward view of how your audience uses your website.
+developer: Medama Analytics
+website: https://oss.medama.io/
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
-repo: https://github.com/dohsimpson/TaskTrove
-support: https://github.com/dohsimpson/TaskTrove/issues
+repo: https://github.com/medama-io/medama
+support: https://github.com/medama-io/medama/issues
 gallery:
-  - 1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-medama/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-medama/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-medama/3.jpg
 releaseNotes: >-
-  This update adds new natural language shortcuts for today and tomorrow, introduces a comprehensive settings dialog with UI improvements, and enhances drag and drop with shadow effects and collapsed section support. It also fixes a bug affecting kanban board drag and drop between sections.
+  This version fixes a packaging issue that previously prevented binaries from being correctly zipped and attached, ensuring that all release assets are now properly generated and available for download. It also improves the overall reliability of the release workflow.
+
+
+  In addition, the update introduces native ARM image builds, smoother release testing steps and several dependency upgrades, resulting in a more stable and consistent build process.
 dependencies: []
 path: ""
 defaultUsername: "admin"
