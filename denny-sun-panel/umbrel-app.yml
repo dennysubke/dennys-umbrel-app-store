@@ -39,5 +39,5 @@ releaseNotes: >-
   Improvements to brand matching result in more reliable detection and ordering, while updates in the documentation clarify default behaviors and remove outdated or broken content.
 dependencies:
 path: ""
-defaultUsername: ""
-defaultPassword: ""
+defaultUsername: "admin@sun.cc"
+defaultPassword: "12345678"
