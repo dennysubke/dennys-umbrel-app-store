@@ -7,9 +7,9 @@ services:
       APP_PORT: 8080
 
   db:
-    image: mariadb:11.4.9-noble
+    image: mariadb:11.4-noble
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_ROOT_PASSWORD: ${APP_SEED}
       MYSQL_DATABASE: writefreely
       MYSQL_USER: writefreelyuser
       MYSQL_PASSWORD: writefreelypass
@@ -18,13 +18,19 @@ services:
 
   app:
     image: writeas/writefreely:latest
-    user: "0:0"
+    user: 0:0
+    working_dir: /go
     depends_on:
       - db
+    environment:
+      WRITEFREELY_ADMIN_USER: admin
+      WRITEFREELY_ADMIN_PASSWORD: umbrel
     volumes:
-      - ${APP_DATA_DIR}/config/config.ini:/go/config.ini
-      - ${APP_DATA_DIR}/keys:/go/keys
+      - ${APP_DATA_DIR}/data:/go
     command: >
-      sh -c "/go/cmd/writefreely/writefreely -c /go/config.ini --init-db || true;
-             /go/cmd/writefreely/writefreely -c /go/config.ini --create-admin admin:umbrel || true;
-             /go/cmd/writefreely/writefreely -c /go/config.ini"
+      sh -c "
+        /go/cmd/writefreely/writefreely -c /go/config.ini --gen-keys || true;
+        /go/cmd/writefreely/writefreely -c /go/config.ini --init-db || true;
+        /go/cmd/writefreely/writefreely -c /go/config.ini --create-admin ${WRITEFREELY_ADMIN_USER}:${WRITEFREELY_ADMIN_PASSWORD} || true;
+        /go/cmd/writefreely/writefreely -c /go/config.ini
+      "
