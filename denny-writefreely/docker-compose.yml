@@ -17,14 +17,13 @@ services:
       - ${APP_DATA_DIR}/db:/var/lib/mysql
 
   app:
-    image: algernon/writefreely:latest
+    image: writeas/writefreely:latest
     user: 0:0
     volumes:
       - ${APP_DATA_DIR}/data:/data
+    entrypoint: ["/bin/sh", "-c"]
     command: >
-      sh -c "
-        writefreely -c /data/config/config.ini --create-admin admin:umbrel || true &&
-        writefreely -c /data/config/config.ini
-      "
+      "/bin/writefreely -c /data/config/config.ini --create-admin admin:umbrel || true &&
+       /bin/writefreely -c /data/config/config.ini"
     depends_on:
       - db
