@@ -21,8 +21,6 @@ services:
     user: 0:0
     volumes:
       - ${APP_DATA_DIR}/data:/data
-    environment:
-      WRITEFREELY_SITE_NAME: "WriteFreely on Umbrel"
-      WRITEFREELY_HOST: "http://${DEVICE_DOMAIN_NAME}:8109"
+    command: ["writefreely", "-c", "/data/config/config.ini"]
     depends_on:
       - db
