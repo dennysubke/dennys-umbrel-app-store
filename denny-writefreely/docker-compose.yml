@@ -21,7 +21,10 @@ services:
     user: 0:0
     volumes:
       - ${APP_DATA_DIR}/data:/data
-      - ${APP_DATA_DIR}/data/config/config.ini:/go/config.ini
-    #command: ["writefreely", "-c", "/data/config/config.ini"]
+    command: >
+      sh -c "
+        writefreely -c /data/config/config.ini --create-admin admin:umbrel || true &&
+        writefreely -c /data/config/config.ini
+      "
     depends_on:
       - db
