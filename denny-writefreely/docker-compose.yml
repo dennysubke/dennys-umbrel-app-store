@@ -8,16 +8,21 @@ services:
 
   web:
     image: writeas/writefreely:latest
+    restart: on-failure
     volumes:
-      - ${APP_DATA_DIR}/data/web-keys:/go/keys
-      - ${APP_DATA_DIR}/data/config/config.ini:/go/config.ini
+      - ${APP_DATA_DIR}/data:/data
     depends_on:
       - db
 
   db:
-    image: mariadb:latest
+    image: lscr.io/linuxserver/mariadb
+    restart: on-failure
+    volumes: 
+      - ${APP_DATA_DIR}/data/db:/config
     environment:
-      MYSQL_DATABASE: writefreely
-      MYSQL_ROOT_PASSWORD: dbpassword
-    volumes:
-      - ${APP_DATA_DIR}/data/db:/var/lib/mysql
+      - PUID=65534
+      - PGID=65534
+      - TZ=Etc/UTC
+      - MYSQL_DATABASE=writefreely
+      - MYSQL_USER=writefreely
+      - MYSQL_PASSWORD=P@ssw0rd
