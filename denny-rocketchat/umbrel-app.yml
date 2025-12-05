@@ -30,10 +30,13 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rocketchat/4.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-rocketchat/5.jpg
 releaseNotes: >-
-  The latest update introduces several usability and security improvements, including a new range input for settings, safer permission handling with a warning modal, enhancements to voice calls with clearer transfer information and improved dial tone feedback, and an expandable message composer as a preview feature. The Apps Engine also receives an experimental API to retrieve a user’s room list, offering more flexibility for extensions and automation.
+  This release introduces the foundational infrastructure for future Attribute Based Access Control, including the ability for admins to manage room attributes. It also strengthens the security model with a unified v2 encryption system, stricter password requirements, authenticated encryption for new data, and improved key-handling processes.
 
 
-  Additionally, this release resolves a wide range of bugs, improving stability and reliability across the platform. Fixes address issues affecting encrypted messaging, permissions, monitoring charts, omnichannel translations, notification handling, volume controls, and user management. Crashes have been prevented in multiple areas, calls can no longer start in archived rooms, and protection has been added to avoid accidental deletion of core rooms.
+  Calling receives extensive upgrades such as synchronized call states, clearer UI indicators, better DTMF behavior, improved VoIP reliability, and automatic call summaries posted to the correct DM rooms. The expandable message composer preview was further stabilized, and the Livechat API was updated in preparation for a deprecation planned for version 8.0.0.
+
+
+  A wide range of bugs were fixed, including issues with missing call buttons, LDAP VoIP sync, incorrect timezone handling, private channels not appearing in Directory search, and inconsistent favicon updates. Additional fixes resolve authentication edge cases involving Email 2FA and TOTP, UI breakpoint issues, failed lead captures, incorrect tag rendering in reports, and double deletion errors. The update also corrects problems with room deletion logic and ensures that encrypted attachment descriptions can be edited and displayed properly.
 dependencies:
 path: ""
 defaultUsername: ""
