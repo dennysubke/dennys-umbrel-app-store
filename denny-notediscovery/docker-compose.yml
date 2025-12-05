@@ -12,10 +12,11 @@ services:
       - ${APP_DATA_DIR}/data/app_data:/app/data
       - ${APP_DATA_DIR}/data/plugins:/app/plugins
       - ${APP_DATA_DIR}/data/themes:/app/themes
-      - ${APP_DATA_DIR}/data/config.yaml:/app/config.yaml
+      - ${APP_DATA_DIR}/data/config/config.yaml:/app/config.yaml
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
       interval: 60s
       timeout: 3s
       retries: 3
       start_period: 5s
+
