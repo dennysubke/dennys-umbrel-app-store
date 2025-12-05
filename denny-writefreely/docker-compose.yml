@@ -9,7 +9,7 @@ services:
   db:
     image: mariadb:11.4-noble
     environment:
-      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_ROOT_PASSWORD: writefreelyrootpass
       MYSQL_DATABASE: writefreely
       MYSQL_USER: writefreelyuser
       MYSQL_PASSWORD: writefreelypass
@@ -19,12 +19,16 @@ services:
   app:
     image: writeas/writefreely:latest
     user: 0:0
-    volumes:
-      - ${APP_DATA_DIR}/data:/data
-      - ${APP_DATA_DIR}/config/config.ini:/go/config.ini
-    entrypoint: ["/bin/sh", "-c"]
-    command: >
-      "writefreely -c /go/config.ini --create-admin admin:umbrel || true &&
-       writefreely -c /go/config.ini"
     depends_on:
       - db
+    environment:
+      WRITEFREELY_SITE_NAME: "WriteFreely on Umbrel"
+      WRITEFREELY_HOST: "http://${DEVICE_DOMAIN_NAME}:8109"
+      WRITEFREELY_ADMIN_USER: "admin"
+      WRITEFREELY_ADMIN_PASSWORD: "umbrel"
+      MYSQL_ROOT_PASSWORD: writefreelyrootpass
+      MYSQL_DATABASE: writefreely
+      MYSQL_USER: writefreelyuser
+      MYSQL_PASSWORD: writefreelypass
+    volumes:
+      - ${APP_DATA_DIR}/data:/go
