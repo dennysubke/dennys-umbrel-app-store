@@ -3,7 +3,7 @@ id: denny-poznote
 name: Poznote
 tagline: A powerful app for taking notes
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-poznote/logo.png
-category: In Progress
+category: files & productivity
 version: "1.9.9"
 port: 8387
 description: >-
@@ -27,6 +27,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-poznote/1.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-poznote/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-poznote/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-poznote/4.jpg
 releaseNotes: >-
   This version was generated automatically after the system detected a new release in the repository and contains no functional changes.
 dependencies: []
