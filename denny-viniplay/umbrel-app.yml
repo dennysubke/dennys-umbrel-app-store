@@ -1,0 +1,32 @@
+manifestVersion: 1
+id: denny-viniplay
+name: ViniPlay
+tagline: A powerful IPTV player
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-viniplay/logo.png
+category: test
+version: "0.10.1"
+port: 8998
+description: >-
+  📺 ViniPlay is an IPTV streaming application that brings television channels, electronic program data, and video on demand content together in a clean and intuitive interface. It reads M3U playlists and EPG sources and transforms them into a structured viewing experience with categories, channel details, and program information. The app allows users to browse live channels, check what is currently playing, and explore upcoming schedules through a built in guide. It supports playback of different stream formats and can transcode media to ensure smooth viewing on various devices.
+
+
+  ViniPlay also offers the ability to create user accounts and manage individual preferences such as favorites or viewing history. It includes a search feature that helps users quickly find channels or shows within large playlists. The player interface focuses on simplicity and clarity, making it easy to switch channels or adjust playback settings while watching.
+
+
+  For viewers who want more control, the app provides tools for organizing playlists, grouping channels, and customizing the structure of their content. It can also handle video on demand sources, presenting films and series with metadata when available. Overall, ViniPlay turns raw IPTV lists into a polished and enjoyable television experience that feels cohesive and accessible.
+developer: Andrea Ardovini
+website: https://github.com/ardoviniandrea/ViniPlay
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/ardoviniandrea/ViniPlay
+support: https://github.com/ardoviniandrea/ViniPlay/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-viniplay/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-viniplay/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-viniplay/3.jpg
+releaseNotes: >-
+  This version includes a small adjustment that improves how settings are transferred between different versions of the app and ensures smoother upgrades.
+dependencies:
+path: ""
+defaultUsername: ""
+defaultPassword: ""

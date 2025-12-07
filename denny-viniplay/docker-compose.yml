@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-viniplay_app_1
+      APP_PORT: 8998
+
+  app:
+    image: ghcr.io/ardoviniandrea/viniplay:0.10.1@sha256:8face41726d042ac2cd36283ed4742a0d6acd42cf19fa0677732514ff6371e01
+    volumes:
+      - ${APP_DATA_DIR}/data/app_data:/data
+      - ${APP_DATA_DIR}/data/dvr:/dvr
+    environment:
+      SESSION_SECRET: ${APP_PASSWORD}
+      VAPID_CONTACT_EMAIL: mailto:your_email@example.com
