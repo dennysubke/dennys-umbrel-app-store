@@ -3,7 +3,7 @@ id: denny-viniplay
 name: ViniPlay
 tagline: A powerful IPTV player
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-viniplay/logo.png
-category: test
+category: In Progress
 version: "0.10.1"
 port: 8998
 description: >-
