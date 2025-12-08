@@ -3,7 +3,7 @@ id: denny-viniplay
 name: ViniPlay
 tagline: A powerful IPTV player
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-viniplay/logo.png
-category: In Progress
+category: files & productivity
 version: "0.10.1"
 port: 8998
 description: >-
@@ -24,6 +24,9 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-viniplay/1.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-viniplay/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-viniplay/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-viniplay/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-viniplay/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-viniplay/6.jpg
 releaseNotes: >-
   This version includes a small adjustment that improves how settings are transferred between different versions of the app and ensures smoother upgrades.
 dependencies:
