@@ -1,34 +1,31 @@
 manifestVersion: 1
 id: denny-manyfold
 name: Manyfold
-tagline: A powerful CalDAV and CardDAV server
-icon: https://i.imgur.com/pdRVD3B.png
-category: test
-version: "3.5.4.0"
+tagline: A digital asset manager for 3d print files
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-manyfold/logo.png
+category: Home & Automation
+version: "0.129.4"
 port: 3214
 description: >-
-  Radicale is a lightweight server application designed to manage and synchronize calendar and contact data using open standards such as CalDAV and CardDAV. It enables seamless sharing and synchronization of events, tasks, and contact information across multiple clients and devices.
+  🧩 Manyfold is an application designed to help people organise, explore and preserve their collections of 3D models in a clear and efficient way. It brings all files into a single private library and enriches them with previews, metadata and searchable attributes, so a scattered collection of models becomes a structured archive that is easy to navigate. The interface allows you to view models directly in the browser through an integrated 3D viewer that displays geometry, orientation and detail without needing external tools. Files can be tagged, grouped and filtered, allowing users to build a personal catalogue that grows naturally with their projects and interests.
 
 
-  By adhering to widely supported protocols, Radicale allows different calendar and address book applications to communicate with each other, ensuring that data stays consistent and up to date.
+  The application can also detect duplicates and problematic files, making it easier to clean up collections that have been accumulated over time. Manyfold keeps original source links and additional information about each model so that nothing important gets lost. It also offers flexible organisation through automated folder restructuring and custom naming rules, which helps maintain order even in very large libraries. Models can be kept private or shared with others, creating a controlled environment for distributing designs without relying on centralised platforms.
 
 
-  It is capable of handling both individual and shared collections of data, making it suitable for personal use as well as collaborative environments where multiple users need to access and update the same information.
-
-
-  Radicale focuses on simplicity and efficiency, providing a straightforward way to store and access calendar entries and contact details while maintaining compatibility with a broad range of software clients.
-developer: Radicale Project
-website: https://radicale.org/v3.html
+  At its core, Manyfold focuses on ownership, clarity and long term preservation of 3D assets. It transforms a collection of separate files into a well curated and visually rich archive that remains fully under the user’s control and evolves as new models are added.
+developer: Manyfold
+website: https://manyfold.app/
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
-repo: https://github.com/Kozea/Radicale
-support: https://github.com/tomsquest/docker-radicale/issues
+repo: https://github.com/manyfold3d/manyfold
+support: https://github.com/manyfold3d/manyfold/issues
 gallery:
-  - https://i.imgur.com/Rd2Iy7m.png
-  - https://i.imgur.com/Rd2Iy7m.png
-  - https://i.imgur.com/Rd2Iy7m.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-manyfold/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-manyfold/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-manyfold/3.jpg
 releaseNotes: >-
-  Version 3.5.4 improves the item filter by adding third-level support, including VALARM and TRIGGER (offset or absolute). It also introduces an example Caddy configuration file in the contrib directory.
+  This version delivers an urgent fix for a problem that broke OIDC logins in the previous release. The update restores proper handling of the authenticity token so that authentication works reliably again. No other functional changes were introduced.
 dependencies:
 path: ""
 defaultUsername: ""
