@@ -9,6 +9,8 @@ services:
   app:
     image: ghcr.io/manyfold3d/manyfold:0.129.4@sha256:f6a6ce77d12914e6ddbdd8a5457dc41f8f6445ff802cd1a486064b1b82da0746
     environment:
+      PUID: 1000
+      PGID: 1000
       DATABASE_ADAPTER: postgresql
       DATABASE_HOST: postgres-server
       DATABASE_PORT: 5432
