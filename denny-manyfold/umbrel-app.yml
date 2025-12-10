@@ -24,6 +24,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-manyfold/1.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-manyfold/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-manyfold/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-manyfold/4.jpg
 releaseNotes: >-
   This version delivers an urgent fix for a problem that broke OIDC logins in the previous release. The update restores proper handling of the authenticity token so that authentication works reliably again. No other functional changes were introduced.
 dependencies:
