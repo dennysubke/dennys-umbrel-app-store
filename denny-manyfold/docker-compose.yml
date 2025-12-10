@@ -7,7 +7,7 @@ services:
       APP_PORT: 3214
 
   app:
-    image: ghcr.io/manyfold3d/manyfold:latest
+    image: ghcr.io/manyfold3d/manyfold:0.129.4@sha256:f6a6ce77d12914e6ddbdd8a5457dc41f8f6445ff802cd1a486064b1b82da0746
     environment:
       DATABASE_ADAPTER: postgresql
       DATABASE_HOST: postgres-server
@@ -15,18 +15,13 @@ services:
       DATABASE_NAME: manyfold
       DATABASE_USER: manyfold
       DATABASE_PASSWORD: password
-
-      SECRET_KEY_BASE: a_nice_long_random_string
-
+      SECRET_KEY_BASE: ${APP_SEED}
       REDIS_URL: redis://redis-server:6379/1
-
-      PUID: 1000
-      PGID: 1000
     depends_on:
       - postgres-server
       - redis-server
     volumes:
-      - ${APP_DATA_DIR}/data/models:/models
+      - ${APP_DATA_DIR}/data/models:/models:rw
     security_opt:
       - no-new-privileges:true
     cap_drop:
@@ -38,7 +33,7 @@ services:
       - SETGID
 
   postgres-server:
-    image: postgres:15
+    image: postgres:15@sha256:0f34b3378f8982d16add539e7b11411ee8386d43a9e0c30dcfd63d25f2f3df26
     environment:
       POSTGRES_USER: manyfold
       POSTGRES_PASSWORD: password
@@ -46,6 +41,6 @@ services:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
 
   redis-server:
-    image: redis:7
+    image: redis:7@sha256:d665ad9dd15a25c100b77134516d4f9f46f06884983d86456f0a9c0434f3b49f
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
