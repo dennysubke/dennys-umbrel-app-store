@@ -4,7 +4,7 @@ name: AnonAddy
 tagline: An undercover inbox for your secret agent needs
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-addy/logo.png
 category: networking
-version: "1.3.1"
+version: "1.3.5"
 port: 8727
 description: >-
   🕶️ AnonAddy is an open-source email forwarding service that allows users to protect their privacy by creating anonymous email aliases. It helps users manage their online presence while avoiding spam, data breaches, and unwanted tracking. Instead of using a personal email address, users can generate unique aliases for different websites and services. Emails sent to these aliases are automatically forwarded to the user’s real inbox without revealing their actual email address.
@@ -33,7 +33,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-addy/4.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-addy/5.jpg
 releaseNotes: >-
-  Version 1.3.1 of AnonAddy introduces new environment variables for shared domains, Rspamd, Postfix relay host SSL, and DKIM selector. It also removes the sorbs.net blacklist filter due to its upcoming shutdown.
+  This version removes deprecated Postfix attributes to keep the configuration up to date and avoid warnings. It also includes minor internal adjustments.
 dependencies:
 path: ""
 defaultUsername: ""
