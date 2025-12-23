@@ -3,7 +3,7 @@ id: denny-homey
 name: Homey
 tagline: A unified smart home brain for automation and control
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homey/logo.png
-category: home & automatition
+category: home & automation
 version: "12.10.0"
 port: 4859
 description: >-
