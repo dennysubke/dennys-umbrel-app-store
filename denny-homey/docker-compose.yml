@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-homey_server_1
+      APP_PORT: 80
+
+  server:
+    image: ghcr.io/athombv/homey-shs:12.10.0@sha256:3826b8e160a0b94fc37ab8d16bd1dc5278379b41ef0cbb9a6f65ad553d717060
+    network_mode: host
+    privileged: true
+    volumes:
+      - ${APP_DATA_DIR}/data:/homey/user
