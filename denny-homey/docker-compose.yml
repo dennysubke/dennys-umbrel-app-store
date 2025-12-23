@@ -1,12 +1,12 @@
 version: "3.7"
 
 services:
-  app_proxy:
-    environment:
-      APP_HOST: denny-homey_server_1
-      APP_PORT: 4859
-
-  server:
+  homey-shs:
+    # Homey Self-Hosted exposes fixed ports (4859–4862) and relies on mDNS,
+    # WebSockets, and LAN discovery.
+    # For this reason, Umbrel's app_proxy does not apply here.
+    # Access and setup are done directly via the device IP and port 4859
+    # using the Homey mobile app.
     image: ghcr.io/athombv/homey-shs:12.10.0@sha256:3826b8e160a0b94fc37ab8d16bd1dc5278379b41ef0cbb9a6f65ad553d717060
     network_mode: host
     privileged: true
