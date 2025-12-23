@@ -1,36 +1,42 @@
 manifestVersion: 1
 id: denny-homey
 name: Homey
-tagline: A simple and elegant bookmark manager
-icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-shiori/logo.png
-category: test
-version: " 12.10.0"
+tagline: A unified smart home brain for automation and control
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homey/logo.png
+category: home & automatition
+version: "12.10.0"
 port: 4859
 description: >-
-  🔖 Shiori is a lightweight and elegant bookmark manager that helps you collect and organize your favorite websites in one place. It is designed for people who want to save useful articles, resources, and references without relying on external services. Every time you save a link, Shiori automatically fetches its title, description, and metadata to make your collection both structured and easy to browse.
+  Homey is a smart home automation platform that brings all connected devices together into one unified system and allows users to control, monitor, and automate their home in a simple and powerful way. The app connects devices from many different brands and ecosystems and presents them in a single interface, removing the need to switch between multiple manufacturer apps.
 
 
-  Beyond simple bookmarking, Shiori allows you to store readable versions of pages so you can revisit the content even when the original site is unavailable. This makes it perfect for research, long-term reference collections, or simply building your personal digital library. You can add tags, edit details, and search your saved content with fast, responsive filters that make finding information effortless.
+  Homey focuses strongly on automation through its visual flow system, which lets users create advanced logic based on triggers, conditions, and actions. Devices can react automatically to events such as time schedules, sensor changes, presence detection, or external data like weather and energy usage. These automations can range from simple actions such as turning lights on and off to complex scenarios that coordinate multiple devices across different rooms.
 
 
-  The interface is clean and distraction-free, focusing entirely on your saved content. Shiori aims to make managing bookmarks as natural and intuitive as possible while preserving the flexibility and control that power users appreciate. It turns your bookmarks into a personal archive that is searchable, reliable, and fully under your control.
-developer: Shiori
-website: https://github.com/go-shiori/shiori
+  The app also provides real time device status, dashboards, and detailed insights into energy consumption, making it easier to understand how devices behave and how energy is used in the household. Users can monitor power usage, identify patterns, and optimize automations to reduce consumption and increase efficiency. Voice assistant integrations and mobile notifications allow quick interaction and feedback, ensuring that users stay informed and in control at all times.
+
+
+  Overall, Homey acts as a central brain for the smart home, unifying device management, automation, and insights into one coherent experience that prioritizes flexibility, interoperability, and ease of use.
+developer: Athom B.V.
+website: https://homey.app/
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
-repo: https://github.com/go-shiori/shiori
-support: https://github.com/go-shiori/shiori/issues
+repo: https://github.com/athombv
+support: https://support.homey.app/hc/en-us
 gallery:
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-shiori/1.jpg
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-shiori/2.jpg
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-shiori/3.jpg
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-shiori/4.jpg
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-shiori/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homey/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homey/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homey/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homey/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-homey/5.jpg
 releaseNotes: >-
-  This version introduces major improvements to performance and usability, including new API features for tag management, better SQLite efficiency, and support for PWA functionality with link sharing. It also adds proxy authentication and several enhancements to API v1 for filtering and retrieving tag data.
+  This version introduces a new Flow action that allows users to reply with text directly to push notifications sent by Homey, making interactions more dynamic and responsive.
 
 
-  It resolves multiple issues related to authentication, cookies, and mobile display while refining the documentation for deployment and hosting. Additionally, the release updates dependencies, refactors key components, and enhances CI workflows for smoother delivery and maintenance.
+  Camera streaming has been improved, with the Virtual IP Camera now supporting all available video types except WebRTC. Several device and RF related fixes also improve accuracy, including corrected floating point behavior and more reliable RF signal handling.
+
+
+  Additionally, issues with Matter Flow cards not appearing correctly in the Web App have been resolved, and a Z Wave fix prevents excessive network traffic that could cause certain devices to become unavailable. The update is rounded out with general core improvements and updated translations.
 dependencies: []
 path: ""
 defaultUsername: ""
