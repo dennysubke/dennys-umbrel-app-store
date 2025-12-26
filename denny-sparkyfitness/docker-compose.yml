@@ -16,7 +16,7 @@ services:
       - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
 
   sparkyfitness-server:
-    image: codewithcj/sparkyfitness_server:v0.15.9.4@sha256:d49f6b20536ca946dd108fb9fde7f1a041c1ebadc73f55a8eec246eb16dd75c8
+    image: codewithcj/sparkyfitness_server:v0.16.1@sha256:5af5a38ccf2634f6b79b3423fefffe9cf0fe24385c8f8bec19f6128227c2b430
     depends_on:
       - sparkyfitness-db
     restart: on-failure
@@ -41,7 +41,7 @@ services:
       - ${APP_DATA_DIR}/data/backup:/app/SparkyFitnessServer/backup
 
   sparkyfitness-web:
-    image: codewithcj/sparkyfitness:v0.15.9.4@sha256:a7b4427a4317fd6b95a7b186094855fdc1a410fda5e648fb919028bec457c3f1
+    image: codewithcj/sparkyfitness:v0.16.1@sha256:f8fb91fec8cb82810a583caf9717237d2ca7fe1c5a48df62e180f3c4267ac4bf
     depends_on:
       - sparkyfitness-server
     environment:
