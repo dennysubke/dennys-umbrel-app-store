@@ -7,7 +7,7 @@ services:
       APP_PORT: 8080
 
   backend:
-    image: infisical/infisical:latest
+    image: infisical/infisical:v0.154.6@sha256:6336e25530ae22a081cde6327b8813e729f90b39363b5479fa6cc98098a02891
     environment:
       NODE_ENV: production
       ENCRYPTION_KEY: f40c9178624764ad85a6830b37ce239a
@@ -29,12 +29,12 @@ services:
       - redis
 
   redis:
-    image: redis:7.2.5
+    image: redis:7.2.5@sha256:3aaec283e6e593bde528077d60280ac1589887067a39273348860837c9346d7e
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
 
   db:
-    image: postgres:14-alpine
+    image: postgres:14-alpine@sha256:14f02666642586a64d6fae8ef42d479fd76456a77c73ae8a626b8fe323b76d22
     environment:
       POSTGRES_USER: infisical
       POSTGRES_PASSWORD: infisical
