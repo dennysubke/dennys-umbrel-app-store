@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-infisical_backend_1
+      APP_PORT: 8080
+
+  backend:
+    image: infisical/infisical:latest 
+    environment:
+      NODE_ENV: production
+      ENCRYPTION_KEY: f40c9178624764ad85a6830b37ce239a
+      AUTH_SECRET: q6LRi7c717a3DQ8JUxlWYkZpMhG4+RHLoFUVt3Bvo2U=
+      DB_CONNECTION_URI: <>
+      REDIS_URL: redis://redis:6379
+      SITE_URL: <>
+    volumes:
+      - ${APP_DATA_DIR}/data:/app/data
+    depends_on:
+      - db
+      - redis
+
+  redis:
+    image: redis:7.2.5
+    volumes:
+      - ${APP_DATA_DIR}/redis:/data
+
+  db:
+    image: postgres:14-alpine
+    environment:
+      POSTGRES_USER: <>
+      POSTGRES_PASSWORD: <>
+      POSTGRES_DB: <>
+    volumes:
+      - ${APP_DATA_DIR}/pg_data:/var/lib/postgresql/data
