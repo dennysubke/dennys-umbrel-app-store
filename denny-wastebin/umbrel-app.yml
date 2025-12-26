@@ -1,0 +1,44 @@
+manifestVersion: 1
+id: denny-wastebin
+name: Wastebin
+tagline: A minimal pastebin
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wastebin/logo.png
+category: files & productivity
+version: "3.4.0"
+port: 8087
+description: >-
+  🗑️ Wastebin is a simple web application designed for sharing text and code snippets in a fast and distraction free way. It allows users to paste content into a web interface and instantly receive a unique link that can be shared with others. The focus of the application is on simplicity and speed, making it ideal for quickly exchanging logs, configuration files, error messages, or small pieces of source code.
+
+
+  The application supports syntax highlighting for many programming languages, which improves readability when sharing code. Users can choose how their paste should behave, including options such as setting an expiration time or creating a paste that deletes itself after being viewed once. This makes it useful both for temporary collaboration and for sharing sensitive information that should not remain accessible indefinitely.
+
+
+  Wastebin stores pastes in a lightweight database and presents them through a clean and minimal user interface. It does not require user accounts or profiles, which lowers the barrier to use and keeps the workflow straightforward. In addition to the web interface, it exposes a simple API that allows pastes to be created programmatically, making it easy to integrate into scripts or developer workflows.
+
+
+  Overall, Wastebin is a focused paste sharing tool that prioritizes ease of use, readability, and optional privacy controls without adding unnecessary features or complexity.
+developer: Matthias Vogelgesang
+website: https://bin.bloerg.net/
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/matze/wastebin
+support: https://github.com/matze/wastebin/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wastebin/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wastebin/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wastebin/3.jpg
+releaseNotes: >-
+  This version introduces a new wastebin theme showcase tool that generates a static HTML page displaying all available themes in both light and dark variants, making it easier to preview and compare styles.
+
+
+  A new keyboard shortcut was added to toggle line wrapping, which improves readability when working with long lines of text.
+
+
+  The release also includes several internal improvements such as a reworked Docker build process with support for multiple architectures, stricter and more secure cookie handling, visual refinements to the language list scrollbar, and multiple memory optimizations.
+
+
+  Finally, an issue with the copy shortcut was fixed to avoid unexpected behavior on platforms where certain key combinations could be misinterpreted.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
