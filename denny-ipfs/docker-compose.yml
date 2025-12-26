@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-ipfs_web_1
+      APP_PORT: 5001
+
+  web:
+    image: ipfs/kubo:v0.39.0
+    environment:
+      - IPFS_PROFILE=server
+      - TZ=Europe/Berlin
+    volumes:
+      - ${APP_DATA_DIR}/data/ipfs:/data/ipfs
+      - ${APP_DATA_DIR}/data/export:/export
