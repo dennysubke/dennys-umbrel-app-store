@@ -1,30 +1,39 @@
 manifestVersion: 1
 id: denny-infisical
 name: Infisical
-tagline: A task manager that respects your privacy
+tagline: A platform for secrets, certificates, and privileged access management
 icon: icon.png
-category: test
-version: "0.2.0"
-port: 5012
+category: In Progress
+version: "0.154.6"
+port: 8311
 description: >-
-  TaskTrove is a modern task management application designed to help people organize their daily work and personal projects with clarity and efficiency. It provides a clean and intuitive interface where tasks can be quickly added, edited, and managed. The application supports natural language input so due dates, reminders, and scheduling details can be written in everyday language and immediately transformed into structured information. Tasks can be grouped into projects and further refined with labels, subtasks, and recurring patterns, making it easy to manage both simple to do lists and more complex workflows.
+  🔐 Infisical is an application designed to securely manage and distribute sensitive configuration data such as secrets environment variables API keys tokens and credentials. It provides a centralized system where secrets are stored in encrypted form and delivered to applications only when needed at runtime.
 
 
-  TaskTrove offers multiple ways to view and interact with tasks including a traditional list view, a compact view for dense overviews, and a Kanban style board that is especially useful for visual organization and progress tracking. Searching and filtering are central features, allowing users to focus only on what is relevant at a given moment without losing sight of the bigger picture. Upcoming additions such as calendar integration and analytical tools extend its ability to provide insights into productivity and time management.
+  The application focuses on keeping sensitive data out of source code repositories configuration files and other unsafe locations. Secrets are encrypted before storage and remain protected throughout their lifecycle ensuring that only authorized users and systems can access them. Access control is handled through fine grained permissions allowing teams to define who can view edit or use specific secrets.
 
 
-  The application is built with privacy in mind and avoids unnecessary tracking or telemetry. It encourages a personal and distraction free workflow where the user stays in full control of their information. Its flexibility makes it suitable for different styles of productivity whether that means a simple checklist for everyday errands or a structured system for managing multiple projects at once.
-developer: Mushroom Theory Inc.
-website: https://tasktrove.io/
+  Infisical organizes secrets by projects and environments so applications can receive the correct values depending on their context. It supports versioning which makes it possible to track changes roll back to previous values and audit how secrets evolve over time. This helps reduce the risk of accidental misconfiguration and simplifies secret rotation.
+
+
+  The application also provides mechanisms to inject secrets directly into running processes so applications can consume them as standard environment variables without exposing them in plaintext files. This approach improves security while keeping developer workflows simple and predictable.
+
+
+  Overall Infisical acts as a secure bridge between sensitive data and applications ensuring confidentiality integrity and controlled access while removing the need to hardcode secrets or manage them manually.
+developer: Infisical Inc.
+website: https://infisical.com/
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
-repo: https://github.com/dohsimpson/TaskTrove
-support: https://github.com/dohsimpson/TaskTrove/issues
+repo: https://github.com/Infisical/infisical
+support: https://github.com/Infisical/infisical/issues
 gallery:
   - 1.jpg
 releaseNotes: >-
-  This update adds new natural language shortcuts for today and tomorrow, introduces a comprehensive settings dialog with UI improvements, and enhances drag and drop with shadow effects and collapsed section support. It also fixes a bug affecting kanban board drag and drop between sections.
+  This version fixes several issues, including permission errors in the gateway Helm setup, improvements to the certificate request endpoint, and a bug affecting role management in project templates. 
+  
+  
+  It also introduces support for sub organization scoped access, improving flexibility and access control.
 dependencies: []
 path: ""
-defaultUsername: "admin"
-defaultPassword: "umbrel"
+defaultUsername: ""
+defaultPassword: ""
