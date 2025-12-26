@@ -7,14 +7,23 @@ services:
       APP_PORT: 8080
 
   backend:
-    image: infisical/infisical:latest 
+    image: infisical/infisical:latest
     environment:
       NODE_ENV: production
+
+      # REQUIRED SECRETS
       ENCRYPTION_KEY: f40c9178624764ad85a6830b37ce239a
       AUTH_SECRET: q6LRi7c717a3DQ8JUxlWYkZpMhG4+RHLoFUVt3Bvo2U=
-      DB_CONNECTION_URI: <>
+
+      # DATABASE
+      DB_CONNECTION_URI: postgresql://infisical:infisical@db:5432/infisical?sslmode=disable
+
+      # REDIS
       REDIS_URL: redis://redis:6379
-      SITE_URL: <>
+
+      # PUBLIC URL via Umbrel
+      SITE_URL: http://${DEVICE_DOMAIN_NAME}:5012
+
     volumes:
       - ${APP_DATA_DIR}/data:/app/data
     depends_on:
@@ -29,8 +38,8 @@ services:
   db:
     image: postgres:14-alpine
     environment:
-      POSTGRES_USER: <>
-      POSTGRES_PASSWORD: <>
-      POSTGRES_DB: <>
+      POSTGRES_USER: infisical
+      POSTGRES_PASSWORD: infisical
+      POSTGRES_DB: infisical
     volumes:
       - ${APP_DATA_DIR}/pg_data:/var/lib/postgresql/data
