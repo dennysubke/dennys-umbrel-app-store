@@ -2,8 +2,8 @@ manifestVersion: 1
 id: denny-infisical
 name: Infisical
 tagline: A platform for secrets, certificates, and privileged access management
-icon: icon.png
-category: In Progress
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-infisical/logo.png
+category: developer tools
 version: "0.154.6"
 port: 8311
 description: >-
@@ -27,7 +27,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/Infisical/infisical
 support: https://github.com/Infisical/infisical/issues
 gallery:
-  - 1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-infisical/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-infisical/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-infisical/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-infisical/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-infisical/5.jpg
 releaseNotes: >-
   This version fixes several issues, including permission errors in the gateway Helm setup, improvements to the certificate request endpoint, and a bug affecting role management in project templates. 
   
