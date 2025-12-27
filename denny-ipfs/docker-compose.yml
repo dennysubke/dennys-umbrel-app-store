@@ -7,12 +7,10 @@ services:
       APP_PORT: 5001
 
   kubo:
-    image: ipfs/kubo:v0.39.0
+    image: linuxserver/ipfs:2.14.0@sha256:d7a158a60f137990495308fd923385d6ff48177d0daaf392f6e1dfad699c8c1f
     environment:
-      IPFS_PROFILE: server
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/Berlin
     volumes:
-      - ${APP_DATA_DIR}/data/staging:/export
-      - ${APP_DATA_DIR}/data/ipfs:/data/ipfs
-    ports:
-      - 4091:4001
-      - 4090:8080
+      - ${APP_DATA_DIR}/data:/config
