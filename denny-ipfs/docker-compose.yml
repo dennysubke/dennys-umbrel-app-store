@@ -12,27 +12,26 @@ services:
       IPFS_PATH: /data/ipfs
     volumes:
       - ${APP_DATA_DIR}/data/ipfs:/data/ipfs
-    entrypoint: ["/bin/sh", "-lc"]
     command: >
-      '
-      set -e;
+      sh -lc '
+        set -e
 
-      # init repo on first run
-      if [ ! -f /data/ipfs/config ]; then
-        ipfs init;
-      fi;
+        # init repo on first run
+        if [ ! -f /data/ipfs/config ]; then
+          ipfs init
+        fi
 
-      # listen on all interfaces inside the container
-      ipfs config Addresses.API /ip4/0.0.0.0/tcp/5001;
-      ipfs config Addresses.Gateway /ip4/0.0.0.0/tcp/8080;
+        # listen on all interfaces inside the container
+        ipfs config Addresses.API /ip4/0.0.0.0/tcp/5001
+        ipfs config Addresses.Gateway /ip4/0.0.0.0/tcp/8080
 
-      # allow WebUI usage behind Umbrel proxy (CORS)
-      ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin
-        "[\"http://umbrel.local\",\"http://${DEVICE_DOMAIN_NAME}\",\"http://localhost\",\"http://127.0.0.1\"]";
-      ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods
-        "[\"PUT\",\"POST\",\"GET\"]";
-      ipfs config --json API.HTTPHeaders.Access-Control-Allow-Credentials
-        "[\"true\"]";
+        # allow WebUI usage behind Umbrel proxy (CORS)
+        ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin \
+          "[\"http://umbrel.local\",\"http://${DEVICE_DOMAIN_NAME}\",\"http://localhost\",\"http://127.0.0.1\"]"
+        ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods \
+          "[\"PUT\",\"POST\",\"GET\"]"
+        ipfs config --json API.HTTPHeaders.Access-Control-Allow-Credentials \
+          "[\"true\"]"
 
-      exec ipfs daemon --migrate=true;
+        exec ipfs daemon --migrate=true
       '
