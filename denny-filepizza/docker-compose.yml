@@ -1,0 +1,37 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-filepizza_filepizza_1
+      APP_PORT: 8080
+
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data
+
+  coturn:
+    image: coturn/coturn:latest
+    # TURN needs direct TCP/UDP ports; Umbrel app_proxy only handles HTTP(S)
+    ports:
+      - "3478:3478"
+      - "3478:3478/udp"
+      - "5349:5349"
+      - "5349:5349/udp"
+      # Relay Ports (recommended to open a smaller range instead of 49152-65535)
+      # - "49160-49200:49160-49200/udp"
+    environment:
+      DETECT_EXTERNAL_IP: "yes"
+      DETECT_RELAY_IP: "yes"
+    command: -n --log-file=stdout --redis-userdb="ip=redis connect_timeout=30"
+    depends_on:
+      - redis
+
+  filepizza:
+    image: kern/filepizza:latest
+    environment:
+      PORT: "8080"
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      - redis

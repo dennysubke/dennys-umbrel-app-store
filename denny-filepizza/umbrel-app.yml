@@ -1,0 +1,50 @@
+manifestVersion: 1
+id: denny-filepizza
+name: FilePizza
+tagline: A peer to peer file transfers in your browser
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-filepizza/logo.png
+category: files & productivity
+version: "2"
+port: 8089
+description: >-
+  🍕 FilePizza is a simple application that enables direct file sharing between people in real time. Its core purpose is to transfer files instantly without creating permanent copies or storing data beyond the duration of the transfer. The sender remains in full control of the shared content throughout the process.
+
+
+  The app establishes a temporary connection between participants and streams the file data directly from sender to receiver. Files only exist while the transfer is active and are not retained afterward. This makes it well suited for sharing sensitive information or large files that should not remain available once the exchange is complete.
+
+
+  Users can share single or multiple files by generating a unique access link for the recipient. As soon as the recipient connects, the transfer begins and progress is shown live. When the transfer finishes or the session ends, the shared data is no longer accessible.
+
+
+  FilePizza also offers optional access protection so that only intended recipients can download the files. This helps prevent unwanted access while keeping the overall experience simple and efficient.
+
+
+  Overall, FilePizza focuses on fast, temporary, and private file sharing. It removes unnecessary complexity and concentrates entirely on moving files directly from one person to another in a straightforward way.
+
+
+  ⚠️ This app currently does not run on the Raspberry Pi because it is only available for the amd64 architecture. ARM based systems like the Raspberry Pi are not supported at this time.
+developer: Alex Kern
+website: https://file.pizza/
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/kern/filepizza
+support: https://github.com/kern/filepizza/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-filepizza/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-filepizza/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-filepizza/3.jpg
+releaseNotes: >-
+  FilePizza v2 introduces a completely redesigned user interface with dark mode support, built using modern browser technologies. The new version also improves compatibility across devices and now works reliably on most mobile browsers, including Mobile Safari.
+
+
+  File transfers are now handled directly between the uploader and downloader using WebRTC without WebTorrent. This results in faster connection handshakes and a more efficient transfer process overall.
+
+
+  Uploaders can monitor the transfer progress in real time and stop a transfer whenever they choose. Security has been strengthened with password protection and reporting features to improve safety during file sharing.
+
+
+  The update also adds support for uploading multiple files at once, which are delivered to the downloader as a single zip file. Streaming downloads via a Service Worker and out of process server state storage using Redis further improve performance and reliability.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
