@@ -13,11 +13,10 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/ipfs:/data/ipfs
       - ${APP_DATA_DIR}/data/staging:/export
+    entrypoint: ["/bin/sh", "-lc"]
     command: >
-      sh -lc '
-        ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin "[\"http://${DEVICE_DOMAIN_NAME}:5011\",\"http://127.0.0.1:5011\",\"http://localhost:5011\",\"https://webui.ipfs.io\"]"
-        ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods "[\"PUT\",\"POST\"]"
-        ipfs config --json API.HTTPHeaders.Access-Control-Allow-Headers "[\"Authorization\",\"Content-Type\",\"X-Requested-With\",\"Range\",\"User-Agent\"]"
-        ipfs config --json API.HTTPHeaders.Access-Control-Expose-Headers "[\"Location\",\"Ipfs-Hash\"]"
-        exec ipfs daemon --migrate=true
-      '
+      ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin "[\"http://${DEVICE_DOMAIN_NAME}:5011\",\"http://127.0.0.1:5011\",\"http://localhost:5011\",\"https://webui.ipfs.io\"]" &&
+      ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods "[\"PUT\",\"POST\"]" &&
+      ipfs config --json API.HTTPHeaders.Access-Control-Allow-Headers "[\"Authorization\",\"Content-Type\",\"X-Requested-With\",\"Range\",\"User-Agent\"]" &&
+      ipfs config --json API.HTTPHeaders.Access-Control-Expose-Headers "[\"Location\",\"Ipfs-Hash\"]" &&
+      exec ipfs daemon --migrate=true
