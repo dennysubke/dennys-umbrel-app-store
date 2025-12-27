@@ -9,14 +9,10 @@ services:
   kubo:
     image: ipfs/kubo:v0.39.0
     environment:
-      IPFS_TELEMETRY: "off"
+      IPFS_PROFILE: server
     volumes:
-      - ${APP_DATA_DIR}/data/ipfs:/data/ipfs
       - ${APP_DATA_DIR}/data/staging:/export
-    entrypoint: ["/bin/sh", "-lc"]
-    command: >
-      ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin "[\"http://${DEVICE_DOMAIN_NAME}:5011\",\"http://127.0.0.1:5011\",\"http://localhost:5011\",\"https://webui.ipfs.io\"]" &&
-      ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods "[\"PUT\",\"POST\"]" &&
-      ipfs config --json API.HTTPHeaders.Access-Control-Allow-Headers "[\"Authorization\",\"Content-Type\",\"X-Requested-With\",\"Range\",\"User-Agent\"]" &&
-      ipfs config --json API.HTTPHeaders.Access-Control-Expose-Headers "[\"Location\",\"Ipfs-Hash\"]" &&
-      exec ipfs daemon --migrate=true
+      - ${APP_DATA_DIR}/data/ipfs:/data/ipfs
+    ports:
+      - 4091:4001
+      - 4090:8080
