@@ -3,34 +3,18 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: denny-ipfs_kubo_1
+      APP_HOST: denny-ipfs_web_1
       APP_PORT: 5001
 
-  kubo:
-    image: ipfs/kubo:latest
+  web:
+    image: lscr.io/linuxserver/ipfs:latest
     environment:
-      IPFS_PATH: /data/ipfs
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/Berlin
     volumes:
-      - ${APP_DATA_DIR}/data/ipfs:/data/ipfs
-    entrypoint: ["/bin/sh", "-lc"]
-    command: |
-      set -e
-
-      # init repo on first run
-      if [ ! -f /data/ipfs/config ]; then
-        ipfs init
-      fi
-
-      # listen on all interfaces inside the container
-      ipfs config Addresses.API /ip4/0.0.0.0/tcp/5001
-      ipfs config Addresses.Gateway /ip4/0.0.0.0/tcp/8080
-
-      # allow WebUI usage behind Umbrel proxy (CORS)
-      ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin \
-        "[\"http://umbrel.local\",\"http://${DEVICE_DOMAIN_NAME}\",\"http://localhost\",\"http://127.0.0.1\"]"
-      ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods \
-        "[\"PUT\",\"POST\",\"GET\"]"
-      ipfs config --json API.HTTPHeaders.Access-Control-Allow-Credentials \
-        "[\"true\"]"
-
-      exec ipfs daemon --migrate=true
+      - ${APP_DATA_DIR}/data:/config
+    ports:
+      - "10080:80"
+      - "14001:4001"
+      - "10080:8080"
