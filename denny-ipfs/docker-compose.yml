@@ -4,10 +4,12 @@ services:
   app_proxy:
     environment:
       APP_HOST: denny-ipfs_kubo_1
-      APP_PORT: 8080
+      APP_PORT: 5001
 
   kubo:
     image: ipfs/kubo:v0.39.0
+    environment:
+      IPFS_TELEMETRY: "off"
     volumes:
       - ${APP_DATA_DIR}/data/ipfs:/data/ipfs
       - ${APP_DATA_DIR}/data/staging:/export
