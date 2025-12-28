@@ -3,7 +3,7 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: smw_web_1
+      APP_HOST: denny-smw_web_1
       APP_PORT: 80
 
   web:
