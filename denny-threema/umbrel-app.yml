@@ -4,7 +4,7 @@ name: Threema Web
 tagline: An intuitive and secure web client for Threema users
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-threema/logo.png
 category: files & productivity
-version: "2.6.2"
+version: "2.6.3"
 port: 8855
 description: >-
   📱 Threema Web is a secure and convenient way to use the Threema messaging app directly from a web browser while maintaining full end-to-end encryption. By scanning a QR code with the Threema app, users establish a direct connection between their smartphone and computer, ensuring that no messages or metadata are stored on external servers. The communication is handled via WebRTC, which enables a private and encrypted peer-to-peer connection.
@@ -22,7 +22,13 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-threema/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-threema/3.jpg
 releaseNotes: >-
-  Version 2.6.2 fixes a bug in the message info section.
+  This update includes new features, bug fixes, and improvements.
+
+
+  Key highlights in this version:
+    - Added Finnish translation
+    - Sanitized the dialog title in the SendFileDialog
+    - Upgraded dependencies
 dependencies:
 path: ""
 defaultUsername: ""
