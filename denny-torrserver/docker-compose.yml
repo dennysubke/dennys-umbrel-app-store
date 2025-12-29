@@ -8,7 +8,7 @@ services:
       PROXY_AUTH_ADD: "false"
 
   app:
-    image: ghcr.io/yourok/torrserver:MatriX.136@sha256:e7663dce47e3977363f9f7ad07403bef219a386741ca626b9bf85afbc830baac
+    image: ghcr.io/yourok/torrserver:MatriX.137@sha256:cc019c7735bd717930c05cbc4e0c3a9f2a1e1dc4f83ddf72e9f4f01674b085d6
     #network_mode: host
     environment:
       TS_PORT: "5665"
@@ -19,5 +19,6 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/torrents:/opt/ts/torrents
       - ${APP_DATA_DIR}/data/config:/opt/ts/config
+
 
 
