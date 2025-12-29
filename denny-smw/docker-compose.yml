@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-smw_web_1
+      APP_PORT: 80
+
+  web:
+    image: dennysubke/supermariowar-web:2.0.0@sha256:19d899b979a30cb3301fc5bd06db573f85b6bfc1a585c9e3b7e5e7de40d69817
+    volumes:
+      - ${APP_DATA_DIR}/data:/data

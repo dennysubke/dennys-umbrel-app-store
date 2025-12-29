@@ -1,0 +1,41 @@
+manifestVersion: 1
+id: denny-smw
+name: Super Mario War
+tagline: A chaotic multiplayer party game
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-smw/logo.png
+category: gaming
+version: "2.0"
+port: 8791
+description: >-
+  🍄💥 Super Mario War turns your Umbrel into a tiny party console that accidentally started a friendship ending tournament. This app is all about chaotic multiplayer battles where the only goal is simple jump on your friends before they jump on you.
+
+
+  Players run, jump, wall jump, stomp, and panic across small arenas packed with platforms, traps, and pure nonsense. One well timed jump can knock out an opponent, while one bad move can send you straight back to the respawn screen questioning your life choices.
+
+
+  Power ups appear constantly and turn every match into beautiful chaos. Fireballs fly across the screen, shells bounce in every direction, bombs explode exactly where someone was standing a second ago, and no one is ever truly safe. Skill matters, but luck and betrayal matter just as much.
+
+
+  Different game modes keep things fresh and loud. Sometimes it is everyone against everyone. Sometimes it is teams that immediately forget they are teams. Sometimes it is about controlling areas or stealing objectives while being chased by angry plumbers. Every mode guarantees shouting, laughing, and at least one player claiming the controls are broken.
+
+
+  Rounds are short, intense, and perfect for quick breaks or long Umbrel powered game nights that were supposed to be productive. The rules are easy, the action is fast, and the chaos scales perfectly with the number of players.
+
+
+  Super Mario War is pure multiplayer madness with classic platforming mechanics, zero mercy, and maximum fun. A perfect reminder that your Umbrel is not only for serious self hosting but also for serious nonsense.
+developer: Florian Hufsky
+website: http://smwstuff.net/
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/mmatyas/supermariowar
+support: https://github.com/mmatyas/supermariowar/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-smw/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-smw/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-smw/3.jpg
+releaseNotes: >-
+  This release introduces upstream fixes along with a major input refactor that combines D Pad and left stick, updates default button mappings, and removes the Joycon split option in favor of system level controller remapping.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
