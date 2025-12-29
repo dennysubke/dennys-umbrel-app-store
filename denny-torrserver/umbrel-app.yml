@@ -4,7 +4,7 @@ name: TorrServer
 tagline: A torrent streaming server
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torrserver/logo.png
 category: networking
-version: "MatriX.136"
+version: "MatriX.137"
 port: 5665
 description: >-
   📡 TorrServer is an application that receives torrent sources and transforms them into a direct and continuous media stream. It accepts magnet links or torrent files, connects to the swarm, retrieves the necessary data segments and prepares them in a way that media players can access immediately without waiting for a complete download. The application manages buffering, caching and sequential reading so that playback begins as soon as the first pieces of the file are available. It keeps track of the torrent structure, selects the required pieces in the correct order, maintains connections to peers and ensures a stable data flow for smooth playback.
@@ -25,10 +25,16 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torrserver/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torrserver/3.jpg
 releaseNotes: >-
-  This version introduces several functional improvements, including new support for BBR configuration, a reworked Linux installer and enhanced reconfiguration options such as adjustable authentication credentials. It also adds a PWA Infuse action and improves overall documentation.
+  This version introduces several new features and improvements.
 
 
-  The update includes refinements to installation scripts, fixes for Windows path handling and corrections to service logic. It concludes with code cleanups and a broad set of dependency upgrades across both the server and web components.
+  It adds search, Infuse support on the web, a French web translation, and Torrfs (FuseFS/WebDAV).
+
+
+  DLNA has been updated, storage configuration has been enhanced, and DNS fallback support was added.
+
+
+  In addition, multiple bug fixes improve the preload process as well as database and cache handling.
 dependencies:
 path: ""
 defaultUsername: ""
