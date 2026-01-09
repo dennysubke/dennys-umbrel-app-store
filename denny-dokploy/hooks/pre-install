@@ -3,5 +3,5 @@
 docker swarm init
 echo "Swarm initialized"
 
-docker network create --driver overlay dokploy-network
+docker network create --driver overlay --attachable dokploy-network
 echo "Network created"
