@@ -4,7 +4,7 @@ name: Wally
 tagline: A lightweight expense tracker
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-wally/logo.png
 category: finance
-version: "1.6"
+version: "1.9"
 port: 3811
 description: >-
   👛 Wally is a personal finance management application designed to help users take control of their money and gain a clear understanding of their financial situation. It provides a platform where users can easily record their income and expenses, ensuring that every transaction is accounted for. By keeping a detailed history of financial activity, Wally enables users to track their spending patterns over time and identify areas where they can save or adjust their budget.
