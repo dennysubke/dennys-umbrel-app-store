@@ -4,7 +4,7 @@ name: Crafty Controller
 tagline: An intuitive way to automate and manage your Minecraft server with ease
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-crafty/logo.png
 category: gaming
-version: "4.5.4"
+version: "4.9.0"
 port: 18443
 description: >-
   ⛏️ Crafty Controller is an open-source, web-based interface designed to manage and control Crafty Bots, which are used for automating and managing Minecraft servers. Crafty itself is a bot framework that allows administrators to automate various tasks on Minecraft servers, from running tests to managing in-game events, controlling server settings, and much more. Crafty Controller provides a centralized platform where administrators can monitor and control these bots from one place.
@@ -39,7 +39,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-crafty/4.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-crafty/5.jpg
 releaseNotes: >-
-  Version 4.5.4 fixes bugs by refactoring the upload process to ensure asynchronous file operations. It also removes all third-party font requests.
+  Version 4.9.0 added support for Hytale servers.
 dependencies:
 path: "https://umbrel.local:18443"
 defaultUsername: "admin"
