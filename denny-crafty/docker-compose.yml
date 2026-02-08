@@ -3,7 +3,7 @@ version: '3.7'
 services:
   crafty:
     container_name: crafty_container
-    image: registry.gitlab.com/crafty-controller/crafty-4:4.9.0sha@256:ea04b6c57716c48f80039f7837417bde722b8fecaba2826846076f77675ab395
+    image: registry.gitlab.com/crafty-controller/crafty-4:4.9.0@sha256:ea04b6c57716c48f80039f7837417bde722b8fecaba2826846076f77675ab395
     ports:
       - "18443:8443" 
       - "18123:8123" 
@@ -16,6 +16,7 @@ services:
       - ${APP_DATA_DIR}/data/config:/crafty/app/config
       - ${APP_DATA_DIR}/data/import:/crafty/import
     restart: on-failure
+
 
 
 
