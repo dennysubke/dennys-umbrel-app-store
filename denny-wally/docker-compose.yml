@@ -7,7 +7,7 @@ services:
       APP_PORT: 80
 
   web:
-    image: poliuscorp/wally:1.6@sha256:76b8f997a444236d00007e2f2c291567e86beb2c2bce6accfc87760ffb90eebd
+    image: poliuscorp/wally:1.14@sha256:3de5384092e6515248d45a924c4df276cd34a0b4d6480509dc21f3024c655360
     restart: on-failure
     volumes:
       - ${APP_DATA_DIR}/data:/wally/data
