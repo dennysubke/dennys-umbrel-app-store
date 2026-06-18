@@ -4,7 +4,7 @@ name: Eigenfocus
 tagline: An all-in-one project management, planning and time tracking app
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-eigenfocus/logo.png
 category: files & productivity
-version: "1.3.0"
+version: "1.5.1"
 port: 3390
 description: >-
   ⏱️ Eigenfocus is a comprehensive application designed to bring together project management, task organization, time tracking and focus enhancing features in one unified environment. It is built to simplify the way projects are structured and followed through, while at the same time helping users stay concentrated and productive during their work sessions.
@@ -34,7 +34,9 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-eigenfocus/5.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-eigenfocus/6.jpg
 releaseNotes: >-
-  This update introduces alerts for running time logs to prevent forgotten timers and adds the ability to register time in minutes or hours with saved preferences. It also allows finishing issues directly from the list view for a faster and simpler workflow.
+  Eigenfocus has introduced significant improvements across versions 1.3.0 through 1.5.1, focusing on enhanced time tracking functionality, better issue management, and improved user experience. The releases bring time tracking alerts to prevent forgotten timers, flexible manual time entry in minutes or hours, easier issue completion workflows, global issue URLs for sharing, and improved draft saving for better collaboration.
+
+  Full release notes can be found at https://github.com/Eigenfocus/eigenfocus/releases
 dependencies: []
 path: ""
 defaultUsername: "admin"
