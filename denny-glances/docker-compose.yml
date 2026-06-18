@@ -6,7 +6,6 @@ services:
       APP_HOST: denny-glances_web_1
       APP_PORT: 61208
       PROXY_AUTH_ADD: 'false'
-    container_name: denny-glances-app_proxy-1
 
   web:
     image: nicolargo/glances:4.5.5@sha256:9ac5de7debffb1e5746654585daaf1d23179ea91fbdfd4c25a7a17945d9c74bf
@@ -23,4 +22,3 @@ services:
       timeout: 10s
       retries: 3
       start_period: 40s
-    container_name: denny-glances_web_1
