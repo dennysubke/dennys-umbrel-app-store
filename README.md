@@ -1,20 +1,22 @@
 # Dennys Umbrel App Store ☂️
 
-This repository contains my custom Umbrel App Store. Unlike the official store, this one is entirely community-driven and independently maintained. It offers apps created and shared by the community, but it is important to note that this store is not affiliated with or supported by the official Umbrel team. All updates, management, and content in this app store are handled independently. I run this App Store just for fun.
+## ⚠️ Project discontinued
 
+I maintained this Umbrel Community App Store for quite some time, and it was a project I genuinely enjoyed working on.
 
-🔀 I am open to app suggestions and will do my best to implement them. Additionally, I plan to occasionally submit pull requests to the official Umbrel App repository over time.
+Over time, however, I had to shift my focus to other projects and personal priorities. Because of that, I no longer have the time and capacity to keep this store updated in the way it deserves.
 
-&nbsp; 
+For that reason, this repository is now discontinued and archived.
 
-#### You enjoy my work? I enjoy a beer!
+I want to sincerely thank everyone who used the store, opened issues, requested app updates, submitted pull requests, or supported the project in any way. I truly appreciate the interest, feedback, and contributions this project received.
 
-[![Bitcoin](https://imgur.com/rNMrbPr.png)](#) &nbsp;
-[![Lightning](https://imgur.com/0QrGiUQ.png)](https://tip.md/dennysubke) &nbsp;
-[![PayNym](https://imgur.com/5PTx1Zz.png)](https://paynym.rs/+bulkypackage58) &nbsp;
-[![Buy Me a Coffee](https://imgur.com/kUp2xPe.png)](https://buymeacoffee.com/dennysubke) &nbsp;
-[![Ko-fi](https://imgur.com/0SP9FAN.png)](https://ko-fi.com/dennysubke)
+If someone wants to continue the work, you are very welcome to fork this repository and carry it forward independently.
 
+Please understand that I will no longer review pull requests, update apps, fix issues, or provide support for this store.
+
+A special thank you also goes to the Umbrel team for their work and support. Even though I will no longer maintain this Community App Store, I will still occasionally contribute to the official Umbrel App Store whenever time allows.
+
+Thank you for being part of this project. 💜
 
 ##
 
