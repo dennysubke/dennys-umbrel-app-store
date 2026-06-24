@@ -7,7 +7,7 @@ services:
       APP_PORT: 3000
 
   web:
-    image: eigenfocus/eigenfocus:1.3.0-free@sha256:fe9595fd1901c61ec997de8995bba2804c7b3005613d1391dfbbed6efde44021
+    image: eigenfocus/eigenfocus:1.5.1-free@sha256:744550736016a4b5fd7ce2ca649d885de9a9be03172b1b7d32a6fd68a6f481af
     restart: on-failure
     volumes:
       - ${APP_DATA_DIR}/data:/eigenfocus-app/app-data:rw
