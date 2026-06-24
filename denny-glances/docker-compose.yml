@@ -5,10 +5,10 @@ services:
     environment:
       APP_HOST: denny-glances_web_1
       APP_PORT: 61208
-      PROXY_AUTH_ADD: "false"
+      PROXY_AUTH_ADD: 'false'
 
   web:
-    image: nicolargo/glances:4.3.0.8@sha256:b701ae99ee6ea402f56a7a94f2f374c5cca896d6e4d0cd8506d41b4a1b5adfe3
+    image: nicolargo/glances:4.5.5@sha256:9ac5de7debffb1e5746654585daaf1d23179ea91fbdfd4c25a7a17945d9c74bf
     environment:
       - TZ=Europe/Berlin
       - GLANCES_OPT=-w
@@ -16,3 +16,9 @@ services:
     restart: on-failure
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:61208/api/4/status']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

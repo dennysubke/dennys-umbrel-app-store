@@ -4,7 +4,7 @@ name: Glances
 tagline: An eye on your system
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-glances/logo.png
 category: networking
-version: "4.3.0.8"
+version: "4.5.5"
 port: 61208
 description: >-
   Glances is a versatile, open-source system monitoring tool designed to provide real-time insights into various aspects of your system's performance. Written in Python, it works across multiple platforms, including Linux, macOS, and Windows. The main purpose of Glances is to offer a quick, comprehensive overview of critical system metrics such as CPU, memory, disk, network, and process usage.
@@ -34,7 +34,13 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-glances/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-glances/3.jpg
 releaseNotes: >-
-  The WebUI display has been improved for low screen resolutions, the IP plugin issue with Netifaces2 has been fixed, and a message has been added to verify Netifaces2.
+  This update includes:
+    - Code refactoring: Simplified plugin code across start(), mem, connections, containers, amps, and exports for better maintainability
+    - New monitoring features: Added VM statistics support, InfluxDB 3 Core compatibility, and SQL/TimeScaleDB export options
+    - Web UI & API improvements: Added memory caching for API calls, improved documentation, and fixed time display in WebUI
+    - Security updates: Fixed multiple vulnerabilities and upgraded dependencies
+
+  Full release notes can be found at https://github.com/nicolargo/glances/releases
 dependencies:
 path: ""
 defaultUsername: ""
