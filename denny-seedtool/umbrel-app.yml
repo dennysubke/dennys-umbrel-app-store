@@ -7,20 +7,18 @@ category: bitcoin
 version: "2.3.0"
 port: 8147
 description: >-
-  🔏 Bitcoin Seed Tool is an educational tool for exploring how Bitcoin seed phrases are created, validated and used.
-
-  It helps users experiment with entropy, BIP39 mnemonics, checksums, passphrases and other seed-related wallet concepts. The app is designed for learning, testing and understanding Bitcoin wallet generation in a clear and interactive way.
+  🔏 Bitcoin Seed Tool is an educational tool for exploring how Bitcoin seed phrases are created, validated and used. It helps users experiment with entropy, BIP39 mnemonics, checksums, passphrases and other seed-related wallet concepts. The app is designed for learning, testing and understanding Bitcoin wallet generation in a clear and interactive way.
 
 
   Features include:
 
-  - BIP39 seed phrase generation and validation
-  - Entropy experiments using different randomness sources
-  - Checksum inspection and verification
-  - Passphrase testing
-  - Seed and mnemonic conversion tools
-  - Address and wallet-related seed utilities
-  - Educational explanations for Bitcoin seed handling
+    - BIP39 seed phrase generation and validation
+    - Entropy experiments using different randomness sources
+    - Checksum inspection and verification
+    - Passphrase testing
+    - Seed and mnemonic conversion tools
+    - Address and wallet-related seed utilities
+    - Educational explanations for Bitcoin seed handling
 developer: BitcoinQnA
 website: https://bitcoiner.guide/seed/
 submitter: dennysubke
