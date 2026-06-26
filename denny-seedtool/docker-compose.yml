@@ -3,9 +3,9 @@ version: '3.7'
 services:
   app_proxy:
     environment:
-      APP_HOST: denny-bip47-verifier_web_1
-      APP_PORT: 80
+      APP_HOST: denny-seedtool_app_1
+      APP_PORT: 8080
 
-  web:
-    image: dennysubke/bip47-verifier:1.0.0@sha256:cb4099f9991927d1edc3bf444b34cff7352a815e513fdbad5044c68d76d698b2
+  app:
+    image: dennysubke/seedtool:2.3.0@sha256:3a0a79140f179230efdfb4f07c93a18ea171e4e5e3d573ccd9172998d8d93bf6
     restart: on-failure
