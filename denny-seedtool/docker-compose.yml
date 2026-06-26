@@ -8,5 +8,5 @@ services:
       PROXY_AUTH_ADD: "false"
 
   app:
-    image: dennysubke/seedtool:2.3.0@sha256:3a0a79140f179230efdfb4f07c93a18ea171e4e5e3d573ccd9172998d8d93bf6
+    image: dennysubke/seedtool:2.3.0@sha256:ab5a3bd42d7d4d0afc9c77ea9448e5d34244b66d7064eac75247601934fb90cc
     restart: on-failure
