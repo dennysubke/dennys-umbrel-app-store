@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-bip47-verifier_web_1
+      APP_PORT: 80
+
+  web:
+    image: dennysubke/bip47-verifier:1.0.0@sha256:cb4099f9991927d1edc3bf444b34cff7352a815e513fdbad5044c68d76d698b2
+    restart: on-failure

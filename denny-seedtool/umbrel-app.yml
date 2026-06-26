@@ -1,0 +1,35 @@
+manifestVersion: 1
+id: denny-bip47-verifier
+name: BIP47 Message Verifier
+tagline: An easy way to verify BIP47 signatures
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bip47-verifier/logo.png
+category: bitcoin
+version: "1.0.0"
+port: 8047
+description: >-
+  🔏 BIP47 Message Verifier is a lightweight tool for verifying messages signed with a BIP47 notification address. BIP47 is a Bitcoin standard for reusable yet private payment addresses. Instead of creating a new address for each transaction or reusing the same one BIP47 enables encrypted communication through a so called payment code.
+
+
+  The notification address is a technical part of this code and is used to establish initial contact between two wallets. With BIP47 Message Verifier you can check whether a message was truly signed with the notification address of a specific payment code. This is especially useful for PayNym users who want to prove their identity or sign messages without compromising their privacy.
+
+
+  In addition to Samourai Wallet which originally introduced BIP47 and PayNym newer projects like Ashigaru focus on an independent and minimalist use of these technologies. Ashigaru enables PayNym communication without centralized infrastructure and without requiring an Android device.
+
+
+  In this context BIP47 Message Verifier is a practical tool for verifying signed messages and establishing trust between PayNym users without the need for any middleman.
+developer: PavelTheCoder
+website: https://github.com/pajasevi/bip47-verifier/
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/dennysubke/bip47-verifier
+support: https://github.com/dennysubke/bip47-verifier/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bip47-verifier/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bip47-verifier/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bip47-verifier/3.jpg
+releaseNotes: >-
+  This project does not follow semantic versioning and does not maintain a changelog. Changes may occur at any time without formal version tags or release notes.
+dependencies:
+path: ""
+defaultUsername: ""
+defaultPassword: ""
