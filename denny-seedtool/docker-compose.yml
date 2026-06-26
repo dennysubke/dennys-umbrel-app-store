@@ -5,6 +5,7 @@ services:
     environment:
       APP_HOST: denny-seedtool_app_1
       APP_PORT: 8080
+      PROXY_AUTH_ADD: "false"
 
   app:
     image: dennysubke/seedtool:2.3.0@sha256:3a0a79140f179230efdfb4f07c93a18ea171e4e5e3d573ccd9172998d8d93bf6
