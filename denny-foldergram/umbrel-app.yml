@@ -1,0 +1,41 @@
+manifestVersion: 1
+id: denny-foldergram
+name: Foldergram
+tagline: An easy tool for exploring photo sets
+icon: 
+category: files & productivity
+version: "2025.08.22"
+port: 4141
+description: >-
+  📸 Liquid Photos is a clean and efficient photo viewer built to make exploring large image collections simple and intuitive. It displays your photos using the same folder structure you already have, allowing you to browse naturally without needing to reorganize anything. The interface focuses entirely on clarity and ease of use so your images remain the center of attention.
+
+
+  The app loads pictures quickly even in folders containing thousands of files, giving you immediate access to your entire archive. Smooth scrolling makes moving through long lists of images feel comfortable and responsive. Each photo opens instantly in a clear viewer that highlights the image without distractions or unnecessary controls.
+
+
+  Liquid Photos is designed for people who prefer browsing their pictures in an organized and structured way. It helps you navigate deep folder trees with confidence and makes it easy to revisit old memories without waiting for images to load. It works well with very large collections and keeps everything accessible through a simple navigation layout.
+
+
+  Overall it provides a calm straightforward way to view photos exactly as they are stored, making even very large archives feel light and manageable.
+
+
+  ℹ️ Photos must be placed inside the Photos folder in the Umbrel Files app.
+developer: Nikunj Singh
+website: https://github.com/nikunjsingh93/react-liquid-photos
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/nikunjsingh93/react-liquid-photos
+support: https://github.com/nikunjsingh93/react-liquid-photos/issues
+gallery:
+  - 
+  - 
+  - 
+releaseNotes: >-
+  The latest updates include numerous fixes for toast messages, sharing text, naming, responsiveness, mobile layout, and various UI elements such as icons, buttons, and dropdowns. 
+  
+  
+  Support for HEIC fallback and an additional ffmpeg fallback was added to improve image handling reliability. The README received extensive updates, including new screenshots, PWA information, favorites, share links, licensing details, and general documentation improvements.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
