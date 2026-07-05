@@ -3,7 +3,7 @@ id: denny-transmute
 name: Transmute
 tagline: An efficient tool for transforming files on your Umbrel
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-transmute/logo.png
-category: files
+category: files & productivity
 version: "2.0.0"
 port: 3313
 description: >-
