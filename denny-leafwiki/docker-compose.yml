@@ -12,7 +12,7 @@ services:
     restart: on-failure
     user: "1000:1000"
     environment:
-      JWT_SECRET: ${APP_SEED}
+      LEAFWIKI_JWT_SECRET: ${APP_SEED}
       LEAFWIKI_ADMIN_PASSWORD: ${APP_PASSWORD}
       LEAFWIKI_ALLOW_INSECURE: "true"
     volumes:
