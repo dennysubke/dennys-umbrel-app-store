@@ -1,32 +1,41 @@
 manifestVersion: 1
 id: denny-transmute
 name: Transmute
-tagline: A real wiki app without the heavy stack
+tagline: An efficient tool for transforming files on your Umbrel
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-transmute/logo.png
 category: files
 version: "2.0.0"
 port: 3313
 description: >-
-  🌿 LeafWiki gives you a focused space to create, structure, and maintain a personal or shared knowledge base. It helps you turn scattered notes, instructions, ideas, and reference material into clear wiki pages that are easy to read, update, and organize. You can use it to document processes, collect important information, write guides, preserve technical notes, and build a clean library of knowledge that grows naturally over time.
+  Transmute is a file conversion app for turning files into different formats through a clean and simple interface. It supports a wide range of file types, including images, videos, audio files, documents, structured data, spreadsheets, subtitles, fonts, and diagrams.
 
 
-  The app is designed to make writing and organizing documentation feel simple and practical. Pages can be arranged in a structured way, so related information stays together and important content does not get lost. This makes LeafWiki useful for keeping track of recurring tasks, project details, setup instructions, troubleshooting steps, internal procedures, research notes, and any other information that should be easy to find later.
+  The app is built for both manual conversions and automated workflows. Its API makes it possible to connect Transmute with other apps, scripts, or services, so files can be converted as part of a larger process without doing everything by hand.
 
 
-  LeafWiki focuses on clarity rather than unnecessary complexity. It provides a calm writing experience for creating useful documentation without distracting features. Whether you are writing a quick note, a detailed guide, or a complete knowledge base, the app helps keep everything organized, readable, and accessible. Its purpose is to make knowledge easier to capture, easier to maintain, and easier to navigate.
-developer: perber
-website: https://leafwiki.com/
+  Transmute helps simplify everyday format changes, from converting media files into more compatible formats to transforming documents, data files, and diagrams for further use. It brings many different conversion tasks together in one place and makes them easy to access.
+developer: Transmute
+website: https://transmute.sh/
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
-repo: https://github.com/perber/leafwiki
-support: https://github.com/perber/leafwiki/issues
+repo: https://github.com/transmute-app/transmute
+support: https://github.com/transmute-app/transmute/issues
 gallery:
   - 1.jpg
   - 2.jpg
   - 3.jpg
 releaseNotes: >-
-  This version removes deprecated Postfix attributes to keep the configuration up to date and avoid warnings. It also includes minor internal adjustments.
+  This update significantly expands Transmute beyond file conversion by introducing file compression for the first time.
+
+
+  Supported workflows now include images, PDFs, audio, video, and GIFs, with simple compression levels to balance quality and file size.
+
+
+  The release also adds many new conversion formats, including additional Inkscape formats and 3D formats such as STL, OBJ, GLB, and 3MF.
+
+
+  It also includes new language settings, Portuguese language support, video output fixes, and several dependency updates.
 dependencies: []
 path: ""
-defaultUsername: "admin"
-defaultPassword: "umbrel"
+defaultUsername: ""
+defaultPassword: ""
