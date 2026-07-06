@@ -8,7 +8,7 @@ services:
       PROXY_AUTH_ADD: "false"
 
   server:
-    image: gristlabs/grist:1.6.1@sha256:d9d35c82799bfa2e0438bb60385fb0b550465dabde2a6e0ceca8afec1aae3305
+    image: gristlabs/grist:1.7.16@sha256:d93db4640aeef1b2c3a1375b315798e72c591c98587a0a68c67286162a39a8ff
     restart: on-failure
     environment:
       TYPEORM_DATABASE: grist
