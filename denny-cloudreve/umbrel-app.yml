@@ -4,7 +4,7 @@ name: Cloudreve
 tagline: A self-hosted file management system with multi-cloud support
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cloudreve/logo.png
 category: files & productivity
-version: "5.4.0"
+version: "4.15.0"
 port: 5212
 description: >-
   ☁️ Cloudreve is an open-source cloud storage solution designed to provide users with a self-hosted alternative to traditional cloud services. It enables users to create a personalized storage system with extensive file management capabilities, allowing for secure file storage, sharing, and collaboration. The platform includes a modern web interface that supports file previews for images, videos, PDFs, and office documents, making it easy to access content without downloading it.
@@ -31,7 +31,8 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cloudreve/5.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cloudreve/6.jpg
 releaseNotes: >-
-  Cloudreve version 4.0.0-beta.9 addresses several issues, including incorrect handling of negative quantities for credit increase, OneDrive OAuth callback errors, and missing marker icons on maps. It also improves language settings in receipt emails and corrects the handling of # in file names. Additionally, the order of group storage policy options is now preserved.
+  Full release notes can be found at https://github.com/cloudreve/cloudreve/releases
+​
 dependencies:
 path: ""
 defaultUsername: ""
