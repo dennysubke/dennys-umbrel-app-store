@@ -4,7 +4,7 @@ name: Actual Budget
 tagline: A super fast privacy-focused app for managing your finances
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-actualbudget/logo.png
 category: finance
-version: "24.10.1"
+version: "26.7.0"
 port: 5006
 description: >-
   Actual Budget is a privacy-first personal finance tool designed for users to self-host their data and manage their budgets with complete control. It offers real-time budgeting, detailed tracking of expenses, and advanced reporting, empowering users to make informed financial decisions. The app supports encrypted syncing across multiple devices and features mobile apps for both iOS and Android, making financial management accessible on the go. With its clean and intuitive interface, Actual Budget simplifies complex finances while ensuring data remains secure and private.
@@ -65,7 +65,16 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-actualbudget/3.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-actualbudget/4.jpg
 releaseNotes: >-
-  The latest update for Actual Budget (version 24.10.0) includes enhancements like aligning the mobile budget table's column names and bug fixes that improve performance and user experience. Notable fixes address issues with syncing preferences, empty blocks in reports, and auto-selection of budget files on mobile.
+  Actual Budget 26.7.0 introduces a new experimental bank sync provider for New Zealand through Akahu and makes the Actual CLI officially stable.
+
+
+  The release also improves tag management with show/hide options, better bulk actions, and new tag filters. Reports have been enhanced with configurable average ranges, trend lines, and better Balance Forecast functionality.
+
+
+  Budget automations received further improvements as well, including mobile support, notes, and more reliable links to schedules.
+
+
+  In addition, this update includes many bug fixes across bank sync, reports, mobile views, imports, security, and overall performance.
 dependencies:
 path: ""
 defaultUsername: "none"
