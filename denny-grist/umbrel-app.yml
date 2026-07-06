@@ -4,7 +4,7 @@ name: Grist
 tagline: A modern, open source spreadsheet that goes beyond the grid
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-grist/logo.png
 category: files & productivity
-version: "1.6.1"
+version: "1.7.16"
 port: 8484
 description: >-
   Grist is a flexible, database-driven application that allows users to manage and analyze their data in a structured format. It combines the functionalities of a spreadsheet with those of a database, enabling users to create complex data models, establish relationships between data, and generate data visualizations.
@@ -40,10 +40,16 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-grist/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-grist/3.jpg
 releaseNotes: >-
-  Version 1.6.1 fully removes Python 2 support, requiring any existing Python 2 formulas to be migrated to Python 3. Grist now automatically checks for updates by default on the official Docker images. 
-  
-  
-  Additionally, proxy environment variables were updated, and various translations and bug fixes were made.
+  This update improves overall stability and setup experience. Large Airtable imports no longer time out, ACL condition editors now display correctly in Firefox, and the Quick Setup flow now includes a telemetry toggle and authentication recommendations.
+
+
+  Forms can now use {{ID}} in redirect URLs to send users directly to a page related to their submitted record. The Admin Panel also adds new boot checks for persistent data storage and outgoing request security.
+
+
+  Building grist-core from source now creates the Full Edition by default, while the previous Community Edition behavior can still be selected manually.
+
+
+  The Full Edition also gains OAuth Dynamic Client Registration, more precise webhook permissions, AI Assistant improvements, MCP enhancements, and small updates to Automations and Audit Logs.
 dependencies:
 path: ""
 defaultUsername: ""
