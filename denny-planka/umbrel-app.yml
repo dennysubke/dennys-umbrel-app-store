@@ -4,7 +4,7 @@ name: Planka
 tagline: A powerful and elegant open source tool for project tracking
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-planka/logo.png
 category: files & productivity
-version: "1.23.0"
+version: "2.1.1"
 port: 1338
 description: >-
    Planka is an open-source project management software that provides teams with an efficient way to organize tasks and track the progress of their projects. It is based on the Kanban board principle, visualizing tasks in columns like "To Do," "In Progress," and "Done." This method makes it easier for teams to keep track of their work and move tasks between stages as they progress.
@@ -51,7 +51,13 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-planka/3.jpg
 
 releaseNotes: >-
-   This release includes a Yemeni Arabic translation, configurable file storage locations, and the ability to configure OIDC claims source. Thank you to our new contributors for their valuable input!
+   This update adds a new Pro features discovery banner and improves administration by allowing admins to change user avatars.
+
+
+   It also includes several fixes, including better S3 compatibility, reduced memory usage in the Squid proxy, support for specifying a proxy target, and corrected handling of Unicode and emoji characters in avatar initials.
+
+
+   Additionally, the German translation was updated and many dependencies were bumped across the client and server to improve security, stability, and maintainability.
 dependencies: []
 path: ""
 defaultUsername: "umbrel@planka.login"
