@@ -17,15 +17,10 @@ description: >-
    
   
     -🔍 Version control: It provides built-in Git support, allowing code management directly within the platform.
-  
     -📦 CI/CD (Continuous Integration / Continuous Delivery): OneDev enables you to create build and deployment pipelines for continuously testing and delivering code changes.
-
     -🐞 Issue tracking: It offers a task management system to organize projects and track progress.
-
     -👩‍💻 Code review: Developers can perform code reviews directly on the platform to ensure quality.
-
     -📝 Kanban boards: OneDev includes flexible boards to help manage tasks and workflows.
-
     -🔗 Third-party integration: It supports the integration of external services and tools.
 
 
