@@ -8,7 +8,7 @@ services:
       PROXY_AUTH_ADD: "false"
 
   web:
-    image: actualbudget/actual-server:24.10.1@sha256:aefe3aa9d7c11a8dfe6d3a83d14ea611dd05a55eea1c22c857952655069e562f
+    image: ghcr.io/actualbudget/actual:26.7.0@sha256:e18b7fbfec6157a368fad4146563f397502e9da70a120aeaeac63b4977405d1c
     user: 1000:1000
     restart: on-failure
     environment:
