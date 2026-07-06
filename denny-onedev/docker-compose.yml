@@ -28,7 +28,7 @@ services:
       - ${APP_DATA_DIR}/data/docker:/data
 
   web:
-    image: 1dev/server:latest
+    image: 1dev/server:16.0.2@sha256:9db3c4bb9c2d2b549c9f61ac1f3ee2448a8691f032ed3c850f1e56dd9494d2a7
     restart: on-failure
     tty: true
     depends_on:
@@ -40,7 +40,7 @@ services:
       - ${APP_DATA_DIR}/data/onedev:/opt/onedev
       - ${APP_DATA_DIR}/data/docker:/var/run
     environment:
-      hibernate_connection_password: "changeit"
+      hibernate_connection_password: "password123"
       hibernate_dialect: io.onedev.server.persistence.PostgreSQLDialect
       hibernate_connection_driver_class: org.postgresql.Driver
       hibernate_connection_url: jdbc:postgresql://postgres:5432/onedev
@@ -48,10 +48,10 @@ services:
       DOCKER_HOST: unix:///var/run/docker.sock
 
   postgres:
-    image: postgres:17-alpine
+    image: postgres:17.10-alpine@sha256:dc17045ccfd343b49600570ea734b9c4991cf1c3f3302e67df51e3b402dd55c4
     restart: on-failure
     environment:
-      POSTGRES_PASSWORD: "changeit"
+      POSTGRES_PASSWORD: "password123"
       POSTGRES_USER: "postgres"
       POSTGRES_DB: "onedev"
     volumes:
