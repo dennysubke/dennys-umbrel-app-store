@@ -1,20 +1,22 @@
 manifestVersion: 1
 id: denny-opengist
 name: Opengist
-tagline: A self-hosted Pastebin powered by Git
+tagline: A Git-powered pastebin for code snippets and notes
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-opengist/logo.png
 category: developer tools
-version: "1.8.1"
+version: "1.13.1"
 port: 6157
 description: >-
-  OpenGist is a powerful, open-source alternative to GitHub Gist that lets users self-host and manage code snippets on their own servers. Unlike GitHub Gist, OpenGist gives users full control over their data, with each snippet stored as a Git repository, making it easy to handle through standard Git commands or a streamlined web interface. It’s designed with flexibility and ease of use in mind, allowing users to create public, unlisted, or private snippets and access them over HTTP or SSH.
+  Opengist is an open-source pastebin and code snippet platform powered by Git. It lets you create, edit, organize, version, and share code snippets, notes, Markdown files, scripts, configuration examples, and small file collections in a clean and lightweight interface.
 
 
-  Key features include syntax highlighting, Markdown and CSV support, and a responsive UI with light and dark modes. OpenGist also integrates OAuth2 for logging in through GitHub, GitLab, or OpenID, with avatar support via Gravatar or OAuth providers. The admin panel offers tools to manage users, delete snippets, and clean up the database by syncing gists, while users can download snippets as raw files or ZIP archives.
+  Each snippet is stored as its own Git repository, so changes can be tracked over time and managed through the web interface or with standard Git commands over HTTP or SSH. Snippets can be public, unlisted, or private, giving you control over what stays personal and what can be shared with others.
 
 
-  For added compatibility, OpenGist supports databases like SQLite, PostgreSQL, and MySQL and can run smoothly within Docker, making it suitable for diverse deployment needs. With functionality like a JSON API, snippet embedding, and Git revisions history, OpenGist provides a robust and versatile platform for developers who want a private, scalable, and feature-rich environment for code sharing and collaboration.
+  Opengist includes syntax highlighting, Markdown rendering, multiple files per snippet, drag-and-drop uploads, ZIP downloads, revision history, diffs, search, topics, likes, forks, embeds, and JSON access. It also supports different authentication options, making it flexible for personal use, small teams, and homelab setups.
 
+
+  It is a practical alternative to GitHub Gist for developers, self-hosters, administrators, and anyone who wants a simple place to store and share reusable code, commands, configuration examples, or technical notes.
 developer: Thomas Miceli
 website: https://opengist.io/
 submitter: dennysubke
@@ -26,8 +28,9 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-opengist/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-opengist/3.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-opengist/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-opengist/5.jpg
 releaseNotes: >-
-  In the latest Opengist update, the passkey login option is now hidden if the login form is disabled. Additionally, fixes were applied to the Markdown preview display and the behavior of confirm popup messages.
+  This update fixes issues with embedded gists, improving vertical scrolling and padding for a cleaner display. It also corrects the CSS URL handling for JSON embed URLs.
 dependencies:
 path: ""
 defaultUsername: ""
