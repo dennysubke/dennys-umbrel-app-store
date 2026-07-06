@@ -1,38 +1,40 @@
 manifestVersion: 1
 id: denny-onedev
-name: Onedev
-tagline: A powerful Git server with CI/CD, kanban, and packages
+name: OneDev
+tagline: A streamlined server for code, builds, and packages
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-onedev/logo.png
 category: developer tools
-version: "11.3.2"
+version: "16.0.2"
 port: 6610
 description: >-
   ⚠️ This app is RAM-intensive and can take 5 minutes to start after installation.
   
 
-  OneDev is a self-hosted DevOps tool that serves as a comprehensive platform for software development and project management. It combines several functions into a single tool, including:
+  OneDev is a Git and DevOps platform that combines repository hosting, CI/CD pipelines, Kanban boards, and package management in one clean workspace. It helps you manage code, automate builds, track tasks, and ship projects from a single interface.
+
+
+  It brings the core tools for modern software development together in one clean workspace, including:
+   
+  
+    🔍 Version control: It provides built-in Git support, allowing code management directly within the platform.
 
   
-  🔍 Version control: It provides built-in Git support, allowing code management directly within the platform.
+    📦 CI/CD (Continuous Integration / Continuous Delivery): OneDev enables you to create build and deployment pipelines for continuously testing and delivering code changes.
 
   
-  📦 CI/CD (Continuous Integration / Continuous Delivery): OneDev enables you to create build and deployment pipelines for continuously testing and delivering code changes.
+    🐞 Issue tracking: It offers a task management system to organize projects and track progress.
 
   
-  🐞 Issue tracking: It offers a task management system to organize projects and track progress.
+    👩‍💻 Code review: Developers can perform code reviews directly on the platform to ensure quality.
 
   
-  👩‍💻 Code review: Developers can perform code reviews directly on the platform to ensure quality.
+    📝 Kanban boards: OneDev includes flexible boards to help manage tasks and workflows.
 
   
-  📝 Kanban boards: OneDev includes flexible boards to help manage tasks and workflows.
-
-  
-  🔗 Third-party integration: It supports the integration of external services and tools.
+    🔗 Third-party integration: It supports the integration of external services and tools.
 
 
   The tool is especially appealing for teams that prefer a complete DevOps solution in a single, self-hosted system without relying on external cloud services.
-  
 developer: OneDev Pty
 website: https://onedev.io/
 submitter: dennysubke
@@ -46,7 +48,9 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-onedev/4.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-onedev/5.jpg
 releaseNotes: >-
-  The changelog includes the addition of functionality to reset a user's two-factor authentication (2FA) and improvements to the user experience during the 2FA reset process.
+  This update focuses on improving AI-powered development workflows, including better AI user handling, workspace automation, and support for driving issue and pull request work through dedicated workspaces.
+
+  It also includes version bumps, documentation updates, logo changes, security configuration adjustments, and smaller maintenance fixes such as board settings API validation improvements.
 dependencies:
 path: ""
 defaultUsername: ""
