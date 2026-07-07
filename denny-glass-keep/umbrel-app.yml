@@ -4,7 +4,7 @@ name: Glass Keep
 tagline: A fast and elegant note keeper
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-glass-keep/logo.png
 category: files & productivity
-version: "1.0.1"
+version: "1.0.8"
 port: 8153
 description: >-
   🗒️ Glass Keep is a beautifully designed note taking application that brings a calm and modern experience to organizing thoughts and ideas. It features a clean glassmorphic interface inspired by Google Keep, creating a smooth and elegant environment for writing and creativity.
@@ -32,7 +32,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-glass-keep/3.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-glass-keep/4.jpg
 releaseNotes: >-
-  This update improves stability and offline functionality. It fixes issues with default formatting, restores proper offline viewing, and ensures notes update correctly when working offline. Reordering of notes now behaves consistently and smoothly.
+  This update introduced Search & AI Assistance: experience a more powerful way to navigate your data with Deep Search, which now covers titles, Markdown text, tags, checklist items, and image names. You can now ask questions directly about your notes by pressing Enter in the search bar, leveraging Smart Grounding for accurate, private answers based on your content, and enjoy a streamlined experience with a one-click clear that resets your search query when closing the AI response box.
 dependencies: []
 path: ""
 defaultUsername: ""
