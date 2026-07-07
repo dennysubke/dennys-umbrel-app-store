@@ -1,5 +1,14 @@
 # Dennys Umbrel App Store ☂️
 
+---
+
+> **⚠️ Notice:** I will continue maintaining this Umbrel Community App Store for now.
+> I had originally planned to give up the project due to a lack of time for maintenance and updates. However, since a community member has kindly offered to help with updates, pull requests, and testing, I would like to give the App Store another chance.
+>
+> Thank you to everyone who uses, supports, or contributes to this project.
+
+---
+
 This repository contains my custom Umbrel App Store. Unlike the official store, this one is entirely community-driven and independently maintained. It offers apps created and shared by the community, but it is important to note that this store is not affiliated with or supported by the official Umbrel team. All updates, management, and content in this app store are handled independently. I run this App Store just for fun.
 
 
