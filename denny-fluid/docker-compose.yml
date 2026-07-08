@@ -8,14 +8,17 @@ services:
       PROXY_AUTH_ADD: "false"
 
   web:
-    image: eibrahim/fluid-calendar:1.2.3@sha256:460e40e8aa8d72812eb8b9c7ac02692f2e5ab3efbd88afb1512b20973bd92932
+    image: eibrahim/fluid-calendar:1.4.0@sha256:48097c0937c4c0528eaa89bf60aa889c74f15582b67da060af61f20589aedbb8
     container_name: denny-fluid_web_1
     environment:
+      PORT: 3000
+      HOSTNAME: 0.0.0.0
       NEXTAUTH_URL: http://${DEVICE_DOMAIN_NAME}:3411
-      NEXT_PUBLIC_BASE_URL: http://${DEVICE_DOMAIN_NAME}:3411
+      NEXT_PUBLIC_APP_URL: http://${DEVICE_DOMAIN_NAME}:3411
+      NEXT_PUBLIC_SITE_URL: http://${DEVICE_DOMAIN_NAME}:3411
       NEXTAUTH_SECRET: ${APP_SEED}
       DATABASE_URL: postgresql://fluidcalendaruser:fluidcalendarpass@fluidcalendar_db_1:5432/fluidcalendar
-      NEXT_PUBLIC_ENABLE_SAAS_FEATURES: false
+      NEXT_PUBLIC_ENABLE_SAAS_FEATURES: "false"
     depends_on:
       db:
         condition: service_healthy
