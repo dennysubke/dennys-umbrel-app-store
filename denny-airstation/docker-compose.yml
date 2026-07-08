@@ -7,11 +7,17 @@ services:
       APP_PORT: 7331
 
   web:
-    image: cheatsnake/airstation:1.0.0-beta.4@sha256:1201c88b3ca8982b4237473c0e2c438d7224585657eb64a72690f3549b982b1c
+    image: cheatsnake/airstation:1.4.1@sha256:03914d06060e10b12045fee6080fba5838aafe528abeef8e5907ccfb2bbfafb2
     restart: on-failure
     environment:
       AIRSTATION_SECRET_KEY: dOxZYTTZgXKMHkqLBIQVImayQXAVWdzGBPuFJKggzcgvgPJPXpWzqzKaUOIOGGIr
       AIRSTATION_JWT_SIGN: LWpPZTOilFGAxBHoaTRqRPAEKXpVLUTUCodRDSRpMDCkxFdAyCIiVhkXaKHZwEBc
+    healthcheck:
+      test: ['CMD', 'wget', '-q', '--spider', 'http://localhost:7331']
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
     volumes:
       - ${APP_DATA_DIR}/data/airstation_data:/app/storage:rw
       - ${APP_DATA_DIR}/data/airstation_static:/app/static:rw
