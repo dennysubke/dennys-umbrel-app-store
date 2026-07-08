@@ -1,31 +1,34 @@
 manifestVersion: 1
 id: denny-appwrite
 name: Appwrite
-tagline: An undercover inbox for your secret agent needs
+tagline: An all-in-one platform for app development
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-appwrite/logo.png
-category: test
-version: "1.3.5"
+category: developer tools
+version: "1.9.5"
 port: 8191
 description: >-
-  🕶️ AnonAddy is an open-source email forwarding service that allows users to protect their privacy by creating anonymous email aliases. It helps users manage their online presence while avoiding spam, data breaches, and unwanted tracking. Instead of using a personal email address, users can generate unique aliases for different websites and services. Emails sent to these aliases are automatically forwarded to the user’s real inbox without revealing their actual email address.
+  Appwrite is an open-source backend platform for developers who want to build modern web, mobile, and server applications without setting up every backend component from scratch.
 
 
-  The platform offers several features, including PGP encryption for secure email forwarding, the ability to reply anonymously to messages, and support for custom domains. Users can also deactivate or delete aliases at any time to prevent further communication. This makes AnonAddy a powerful tool for maintaining privacy and security while interacting online.
+  It provides a complete set of ready-to-use backend services in one place, including authentication, user management, databases, file storage, serverless functions, realtime updates, messaging, and web hosting. With Appwrite, developers can focus on building their application while Appwrite handles many of the core backend features that are usually required for production-ready projects.
 
 
-  The service operates on a subscription-based model with a free tier that includes limited aliases, while premium plans offer additional features like unlimited aliases, custom domains, and increased bandwidth. Self-hosting options are also available, allowing users to run their own instance of AnonAddy for complete control over their email forwarding.
+  The platform is especially useful for creating dashboards, mobile apps, SaaS products, internal tools, prototypes, and custom web applications. It offers SDKs and APIs that make it easy to connect frontend applications with a secure and structured backend. Features like role-based permissions, project management, database collections, file buckets, API keys, OAuth providers, and realtime subscriptions make Appwrite a powerful foundation for many different development workflows.
 
 
-  ⚠️ Note: It is recommended to set up a custom domain for sending emails. Additionally, SPF and DKIM TXT records must be properly configured in the DNS settings. Without these adjustments, email delivery issues may occur, especially with Gmail.
+  Appwrite can be seen as an open-source alternative to services like Firebase or Supabase, with a strong focus on self-hosting and control over your own infrastructure. This makes it a good choice for developers who want to keep their backend, user data, files, and application logic under their own management.
 
-  
-  📖 For more details on configuration, see: 'https://github.com/anonaddy/docker'
-developer: addy.io
-website: https://addy.io/
+
+  After installation, you can open the Appwrite console, create your first project, configure authentication methods, set up databases and storage buckets, and start connecting your applications through Appwrite’s APIs and SDKs.
+
+
+  ⚠️ Please note: Appwrite is primarily a developer platform, not a traditional end-user application. It is intended for users who want to build, host, or manage the backend of their own apps and services.
+developer: Appwrite Ltd.
+website: https://appwrite.io/
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
-repo: https://github.com/anonaddy/docker
-support: https://github.com/anonaddy/docker/issues
+repo: https://github.com/appwrite/appwrite
+support: https://github.com/appwrite/appwrite/issues
 gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-appwrite/1.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-appwrite/2.jpg
@@ -33,8 +36,20 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-appwrite/4.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-appwrite/5.jpg
 releaseNotes: >-
-  This version removes deprecated Postfix attributes to keep the configuration up to date and avoid warnings. It also includes minor internal adjustments.
-dependencies:
+  Appwrite 1.9.5 is a major maintenance and reliability release with many new public APIs for project settings, proxy management, authentication, SMTP, OAuth providers, services, platforms, and organization projects.
+
+
+  Database and migration support has been expanded with JSON import/export references, BigInt support, broader migration coverage, and several stability fixes for DocumentsDB, TablesDB, and VectorsDB.
+
+
+  Authentication and user management received new email and password policy options, X OAuth 2.0 support, impersonation improvements, better MFA handling, and multiple fixes for sessions, teams, memberships, and OAuth providers.
+
+
+  Realtime, messaging, storage, functions, and sites were improved with the new Presences API, better WebSocket reliability, Amazon SES support, more stable SMTP delivery, improved chunked uploads, longer build timeouts, new Bun/Deno runtimes, and better build caching.
+
+
+  Self-hosted installations also received important installer and Docker Compose fixes, including improved compose generation, corrected service wiring, host validation fixes, and updated base images with security patches.
+dependencies: []
 path: ""
 defaultUsername: ""
 defaultPassword: ""
