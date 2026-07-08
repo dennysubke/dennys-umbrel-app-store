@@ -4,7 +4,7 @@ name: Zipline
 tagline: An advanced solution for seamless and secure file sharing
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zipline/logo.png
 category: files & productivity
-version: "4.0.0"
+version: "4.6.4"
 port: 3472
 description: >-
   Zipline is an open-source, self-hosted file-sharing and upload server designed primarily for use with ShareX but also supports other upload methods. It allows users to upload and share files, screenshots, and text snippets via a custom domain while maintaining control over their data.
@@ -21,7 +21,7 @@ description: >-
 
   By offering a private, efficient, and highly customizable solution, Zipline ensures full control over uploaded data, making it an ideal alternative to centralized services.
 developer: diced
-website: https://www.mumble.info/
+website: https://zipline.diced.sh/
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/diced/zipline
@@ -31,7 +31,12 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zipline/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zipline/3.jpg
 releaseNotes: >-
-  Zipline v4.0.0 is a major update released after over two years of development. It features a revamped API, a new invitation system, improved file and user management, and numerous UI enhancements in the dashboard. Additionally, it introduces features like password-protected URLs, OIDC support, a new CLI tool, and improved upload options, while v3 will continue receiving critical bug fixes and security updates.
+  This update includes:
+    - Enhanced File Management: Introduced nested folders, a new full-screen file viewer with keyboard navigation, and batch uploading for up to 500 files.
+    - Advanced Security & Access: Implemented PKCE for OIDC OAuth, a 15-minute access token system for password-protected files, and a more robust, OpenAPI 3.x compatible API.
+    - Admin & Performance Tools: Added a new admin dashboard with system activity charts and significantly optimized the loading speed for large datasets and file counts.
+
+  Full release notes can be found at https://github.com/diced/zipline/releases
 dependencies:
 path: ""
 defaultUsername: ""
