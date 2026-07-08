@@ -4,7 +4,7 @@ name: FluidCalendar
 tagline: An open-source intelligent calendar for smarter scheduling
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fluid/logo.png
 category: files & productivity
-version: "1.2.3"
+version: "1.4.0"
 port: 3411
 description: >-
   📅 FluidCalendar is an open-source intelligent calendar designed to transform the way you manage your time, tasks, and schedule. It merges powerful automation with a clean, intuitive interface, allowing you to stay organized, productive, and in control of your day, whether you are handling personal tasks, managing a busy work calendar, or coordinating with a team.
@@ -35,7 +35,10 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fluid/6.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-fluid/7.jpg
 releaseNotes: >-
-  Version 1.2.3 of FluidCalendar introduces a new task start date feature, allowing tasks to be scheduled only when their start date arrives, along with improved sorting and filtering options. Calendar settings now allow for choosing the first day of the week, and expanded timezone options are available. Bug fixes include resolving all-day event display issues with Google Calendar and Outlook, along with other UI and technical improvements.
+  Version 1.4.0 mainly improves task management and calendar synchronization reliability. Externally synced tasks are now visually marked in the task list, future tasks are detected more accurately, and tasks that are already in progress are no longer automatically rescheduled.
+
+
+  Several calendar integration issues have also been fixed, including authentication problems when deleting Google Calendar events, recurring task sync issues with Outlook, and CalDAV syncToken handling. The user interface has been improved as well, especially for all-day event creation and the correct detection of overdue tasks.
 dependencies:
 path: ""
 defaultUsername: ""
