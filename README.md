@@ -6,6 +6,8 @@
 > I had originally planned to give up the project due to a lack of time for maintenance and updates. However, since a community member has kindly offered to help with updates, pull requests, and testing, I would like to give the App Store another chance.
 >
 > Thank you to everyone who uses, supports, or contributes to this project.
+>
+> A huge thank you to [@web-xaser](https://github.com/web-xaser) for helping breathe new life into this App Store.
 
 ---
 
