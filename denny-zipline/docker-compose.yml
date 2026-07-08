@@ -10,7 +10,7 @@ services:
   db:
     image: postgres:17.3@sha256:6e3358e46e34dae6c184f48fd06fe1b3dbf958ad5b83480031907e52b9ec2a7d
     volumes:
-      - ./data/db:/var/lib/postgresql/data:rw
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data:rw
     environment:
       POSTGRES_DB: zipline
       POSTGRES_USER: ziplineuser
@@ -25,16 +25,16 @@ services:
   web:
     image: ghcr.io/diced/zipline:4.6.4@sha256:3e3a57520e0bdf614b74676c4fe0f14c430215b6f659133ce108edc54a167a8c
     environment:
-      DATABASE_URL: postgresql://ziplineuser:ziplinepass@db:5432/zipline?schema=public
+      DATABASE_URL: postql://ziplineuser:ziplinepass@db:5432/zipline?schema=public
       CORE_SECRET: 3b449077187f1150082fb348796e97be22b57fefdbd4a7b18f575b51f65519b7
       CORE_PORT: 3000
       CORE_HOSTNAME: 0.0.0.0
       DATASOURCE_TYPE: local
       DATASOURCE_LOCAL_DIRECTORY: /data/files
     volumes:
-      - ./data/uploads:/zipline/uploads:rw
-      - ./data/public:/zipline/public:rw
-      - ./data/themes:/zipline/themes:rw
+      - ${APP_DATA_DIR}/data/uploads:/data/files:rw
+      - ${APP_DATA_DIR}/data/public:/zipline/public:rw
+      - ${APP_DATA_DIR}/data/themes:/zipline/themes:rw
     depends_on:
       - db
     healthcheck:
