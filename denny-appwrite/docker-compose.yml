@@ -135,9 +135,9 @@ services:
       PROXY_AUTH_ADD: "false"
 
   web:
-    image: nginx:alpine
+    image: nginx:alpine@sha256:54f2a904c251d5a34adf545a72d32515a15e08418dae0266e23be2e18c66fefa
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       - appwrite
       - console
@@ -197,9 +197,9 @@ services:
         nginx -g 'daemon off;'
 
   appwrite:
-    image: appwrite/appwrite:1.9.5
+    image: appwrite/appwrite:1.9.5@sha256:6ff3a9b006981911ba0190b364d4945f10c106d16f5916df5634c206462d2684
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       redis:
         condition: service_healthy
@@ -217,15 +217,15 @@ services:
     environment: *appwrite-env
 
   console:
-    image: appwrite/console:8.7.5
+    image: appwrite/console:8.7.5@sha256:71892d67498225ef2926b4333eb1c711074c25bdc4cebfff9b9ea346b35aa09b
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
 
   realtime:
-    image: appwrite/appwrite:1.9.5
+    image: appwrite/appwrite:1.9.5@sha256:6ff3a9b006981911ba0190b364d4945f10c106d16f5916df5634c206462d2684
     entrypoint: realtime
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       redis:
         condition: service_healthy
@@ -234,10 +234,10 @@ services:
     environment: *appwrite-env
 
   worker-audits:
-    image: appwrite/appwrite:1.9.5
+    image: appwrite/appwrite:1.9.5@sha256:6ff3a9b006981911ba0190b364d4945f10c106d16f5916df5634c206462d2684
     entrypoint: worker-audits
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       redis:
         condition: service_healthy
@@ -246,10 +246,10 @@ services:
     environment: *appwrite-env
 
   worker-webhooks:
-    image: appwrite/appwrite:1.9.5
+    image: appwrite/appwrite:1.9.5@sha256:6ff3a9b006981911ba0190b364d4945f10c106d16f5916df5634c206462d2684
     entrypoint: worker-webhooks
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       redis:
         condition: service_healthy
@@ -258,10 +258,10 @@ services:
     environment: *appwrite-env
 
   worker-deletes:
-    image: appwrite/appwrite:1.9.5
+    image: appwrite/appwrite:1.9.5@sha256:6ff3a9b006981911ba0190b364d4945f10c106d16f5916df5634c206462d2684
     entrypoint: worker-deletes
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       redis:
         condition: service_healthy
@@ -277,10 +277,10 @@ services:
     environment: *appwrite-env
 
   worker-databases:
-    image: appwrite/appwrite:1.9.5
+    image: appwrite/appwrite:1.9.5@sha256:6ff3a9b006981911ba0190b364d4945f10c106d16f5916df5634c206462d2684
     entrypoint: worker-databases
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       redis:
         condition: service_healthy
@@ -289,10 +289,10 @@ services:
     environment: *appwrite-env
 
   worker-builds:
-    image: appwrite/appwrite:1.9.5
+    image: appwrite/appwrite:1.9.5@sha256:6ff3a9b006981911ba0190b364d4945f10c106d16f5916df5634c206462d2684
     entrypoint: worker-builds
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       redis:
         condition: service_healthy
@@ -306,10 +306,10 @@ services:
     environment: *appwrite-env
 
   worker-screenshots:
-    image: appwrite/appwrite:1.9.5
+    image: appwrite/appwrite:1.9.5@sha256:6ff3a9b006981911ba0190b364d4945f10c106d16f5916df5634c206462d2684
     entrypoint: worker-screenshots
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       redis:
         condition: service_healthy
@@ -320,10 +320,10 @@ services:
     environment: *appwrite-env
 
   worker-certificates:
-    image: appwrite/appwrite:1.9.5
+    image: appwrite/appwrite:1.9.5@sha256:6ff3a9b006981911ba0190b364d4945f10c106d16f5916df5634c206462d2684
     entrypoint: worker-certificates
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       redis:
         condition: service_healthy
@@ -335,10 +335,10 @@ services:
     environment: *appwrite-env
 
   worker-executions:
-    image: appwrite/appwrite:1.9.5
+    image: appwrite/appwrite:1.9.5@sha256:6ff3a9b006981911ba0190b364d4945f10c106d16f5916df5634c206462d2684
     entrypoint: worker-executions
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       redis:
         condition: service_healthy
@@ -347,10 +347,10 @@ services:
     environment: *appwrite-env
 
   worker-functions:
-    image: appwrite/appwrite:1.9.5
+    image: appwrite/appwrite:1.9.5@sha256:6ff3a9b006981911ba0190b364d4945f10c106d16f5916df5634c206462d2684
     entrypoint: worker-functions
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       redis:
         condition: service_healthy
@@ -361,10 +361,10 @@ services:
     environment: *appwrite-env
 
   worker-mails:
-    image: appwrite/appwrite:1.9.5
+    image: appwrite/appwrite:1.9.5@sha256:6ff3a9b006981911ba0190b364d4945f10c106d16f5916df5634c206462d2684
     entrypoint: worker-mails
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       redis:
         condition: service_healthy
@@ -373,10 +373,10 @@ services:
     environment: *appwrite-env
 
   worker-messaging:
-    image: appwrite/appwrite:1.9.5
+    image: appwrite/appwrite:1.9.5@sha256:6ff3a9b006981911ba0190b364d4945f10c106d16f5916df5634c206462d2684
     entrypoint: worker-messaging
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       redis:
         condition: service_healthy
@@ -387,10 +387,10 @@ services:
     environment: *appwrite-env
 
   worker-migrations:
-    image: appwrite/appwrite:1.9.5
+    image: appwrite/appwrite:1.9.5@sha256:6ff3a9b006981911ba0190b364d4945f10c106d16f5916df5634c206462d2684
     entrypoint: worker-migrations
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       mongodb:
         condition: service_healthy
@@ -399,10 +399,10 @@ services:
     environment: *appwrite-env
 
   task-maintenance:
-    image: appwrite/appwrite:1.9.5
+    image: appwrite/appwrite:1.9.5@sha256:6ff3a9b006981911ba0190b364d4945f10c106d16f5916df5634c206462d2684
     entrypoint: maintenance
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       redis:
         condition: service_healthy
@@ -411,10 +411,10 @@ services:
     environment: *appwrite-env
 
   task-interval:
-    image: appwrite/appwrite:1.9.5
+    image: appwrite/appwrite:1.9.5@sha256:6ff3a9b006981911ba0190b364d4945f10c106d16f5916df5634c206462d2684
     entrypoint: interval
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       mongodb:
         condition: service_healthy
@@ -423,10 +423,10 @@ services:
     environment: *appwrite-env
 
   task-stats-resources:
-    image: appwrite/appwrite:1.9.5
+    image: appwrite/appwrite:1.9.5@sha256:6ff3a9b006981911ba0190b364d4945f10c106d16f5916df5634c206462d2684
     entrypoint: stats-resources
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       redis:
         condition: service_healthy
@@ -435,10 +435,10 @@ services:
     environment: *appwrite-env
 
   worker-stats-resources:
-    image: appwrite/appwrite:1.9.5
+    image: appwrite/appwrite:1.9.5@sha256:6ff3a9b006981911ba0190b364d4945f10c106d16f5916df5634c206462d2684
     entrypoint: worker-stats-resources
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       redis:
         condition: service_healthy
@@ -447,10 +447,10 @@ services:
     environment: *appwrite-env
 
   worker-stats-usage:
-    image: appwrite/appwrite:1.9.5
+    image: appwrite/appwrite:1.9.5@sha256:6ff3a9b006981911ba0190b364d4945f10c106d16f5916df5634c206462d2684
     entrypoint: worker-stats-usage
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       redis:
         condition: service_healthy
@@ -459,10 +459,10 @@ services:
     environment: *appwrite-env
 
   task-scheduler-functions:
-    image: appwrite/appwrite:1.9.5
+    image: appwrite/appwrite:1.9.5@sha256:6ff3a9b006981911ba0190b364d4945f10c106d16f5916df5634c206462d2684
     entrypoint: schedule-functions
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       mongodb:
         condition: service_healthy
@@ -471,10 +471,10 @@ services:
     environment: *appwrite-env
 
   task-scheduler-executions:
-    image: appwrite/appwrite:1.9.5
+    image: appwrite/appwrite:1.9.5@sha256:6ff3a9b006981911ba0190b364d4945f10c106d16f5916df5634c206462d2684
     entrypoint: schedule-executions
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       mongodb:
         condition: service_healthy
@@ -483,10 +483,10 @@ services:
     environment: *appwrite-env
 
   task-scheduler-messages:
-    image: appwrite/appwrite:1.9.5
+    image: appwrite/appwrite:1.9.5@sha256:6ff3a9b006981911ba0190b364d4945f10c106d16f5916df5634c206462d2684
     entrypoint: schedule-messages
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       mongodb:
         condition: service_healthy
@@ -495,22 +495,22 @@ services:
     environment: *appwrite-env
 
   assistant:
-    image: appwrite/assistant:0.8.4
+    image: appwrite/assistant:0.8.4@sha256:2678c49b73dca8a5dbe9b9d075c777ce684e6e33372b7a2d9eb0500ef53b5c45
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     environment:
       _APP_ASSISTANT_OPENAI_API_KEY: ""
 
   browser:
-    image: appwrite/browser:0.3.2
+    image: appwrite/browser:0.3.2@sha256:f289dcc5a6fce6da1334ae5f03755f2280910b1bfc40c4e9e85a80732c09c42b
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
 
   openruntimes-executor:
-    image: openruntimes/executor:0.25.1
+    image: openruntimes/executor:0.25.1@sha256:f638aacd3627b39b5c398480a0f72f8cefa1f1b0591cf4d7eabee924f492ce6a
     hostname: exc1
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     stop_signal: SIGINT
     networks:
       - default
@@ -536,9 +536,9 @@ services:
       OPR_EXECUTOR_STORAGE_DEVICE: "local"
 
   mongodb:
-    image: mongo:8.2.5
+    image: mongo:8.2.5@sha256:60aa240412f473f672ec8b282fd5651aa156dcc7a220f81f5381ce768ccc3167
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     volumes:
       - ${APP_DATA_DIR}/data/mongodb:/data/db
       - ${APP_DATA_DIR}/data/mongodb-keyfile:/data/keyfile
@@ -580,9 +580,9 @@ services:
       start_period: 60s
 
   redis:
-    image: redis:7.4.7-alpine
+    image: redis:7.4.7-alpine@sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf
     <<: *logging
-    restart: unless-stopped
+    restart: on-failure
     command: >
       redis-server
       --maxmemory 512mb
