@@ -35,6 +35,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-appwrite/3.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-appwrite/4.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-appwrite/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-appwrite/6.jpg
 releaseNotes: >-
   Appwrite 1.9.5 is a major maintenance and reliability release with many new public APIs for project settings, proxy management, authentication, SMTP, OAuth providers, services, platforms, and organization projects.
 
