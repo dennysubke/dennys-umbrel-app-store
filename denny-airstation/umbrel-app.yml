@@ -4,7 +4,7 @@ name: Airstation
 tagline: An instant radio station
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-airstation/logo.png
 category: media
-version: "1.0.0"
+version: "1.4.1"
 port: 7331
 description: >-
   📻 Airstation is an open-source, self-hosted web application designed to allow users to create and manage their own online radio station. It provides an intuitive and minimalist interface for streaming music over the internet, making it easy for anyone to broadcast their favorite tracks to listeners worldwide. The platform enables users to upload audio files, organize playlists, and control playback through a simple web-based player that listeners can access from any device.
@@ -28,7 +28,16 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-airstation/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-airstation/3.jpg
 releaseNotes: >-
-  The update adds an extra authentication check to improve security and fixes the caching scope issue in the PWA for better performance. Additionally, it refactors the database file path for clarity and removes unnecessary arguments from the multi-architecture CI setup.
+  This release includes new features & enhancements:
+
+    - Player page customization: added support for themes and hot reloading of station information (including themes) on the player page.
+    - Station management: introduced support for custom station information, including name, description, logo, favicon, and links.
+    - Media support: expanded audio format compatibility to include WAV and FLAC files.
+    - Track & queue management: implemented playlist support for improved track management and enhanced drag-and-drop functionality for the queue.
+    - Studio interface: added settings to customize the interface width of the studio.
+
+
+  Full release notes can be found at https://github.com/cheatsnake/airstation/releases
 dependencies:
 path: "/studio"
 defaultUsername: ""
