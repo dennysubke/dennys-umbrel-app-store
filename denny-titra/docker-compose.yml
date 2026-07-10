@@ -13,7 +13,7 @@ services:
     depends_on:
       - mongodb
     environment:
-      ROOT_URL: "http://${DEVICE_DOMAIN_NAME}:3000"
+      ROOT_URL: "http://${DEVICE_DOMAIN_NAME}:3473"
       MONGO_URL: "mongodb://mongodb:27017/titra?directConnection=true"
       PORT: "3000"
 
