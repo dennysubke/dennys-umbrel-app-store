@@ -4,66 +4,65 @@ name: Answer
 tagline: A Q&A platform software for teams at any scale
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-answer/logo.png
 category: social
-version: "1.4.0"
+version: "2.0.1"
 port: 9082
 description: >-
-  Apache Answer is an open-source business intelligence (BI) tool developed under the auspices of the Apache Software Foundation. It is designed to empower organizations to analyze and visualize their data effectively, facilitating better decision-making processes.
-
-  
-  Key Features:
-
-  
-  📊 Data Querying: Apache Answer provides robust querying capabilities, allowing users to interactively explore and manipulate data from various sources. Its query engine supports SQL-like syntax, making it accessible for users familiar with traditional database querying.
-
-  
-  🛠️ Dashboard Creation: Users can create custom dashboards that consolidate multiple data visualizations into a single interface. This feature enables stakeholders to monitor key performance indicators (KPIs) and other vital metrics at a glance.
-
-  
-  ✨ Data Visualization: Apache Answer offers a range of visualization options, including charts, graphs, tables, and more. Users can easily transform complex datasets into intuitive visual formats, making data insights more digestible.
-
-  
-  🔗 Integration with Data Sources: The tool is designed to integrate seamlessly with various data sources, including relational databases, cloud data warehouses, and flat files. This flexibility allows organizations to utilize existing data infrastructure without significant modifications.
-
-  
-  🖥️ User-Friendly Interface: One of Apache Answer's primary goals is to provide an intuitive user interface that minimizes the technical barrier for non-technical users. This accessibility ensures that employees across various departments can leverage data analytics without requiring extensive training.
-
-  
-  🤝 Collaboration and Sharing: Apache Answer supports collaboration among team members by allowing users to share dashboards and reports. This feature fosters a data-driven culture within organizations, where insights can be disseminated easily among stakeholders.
-
- 
-  🌐 Open-Source Community: Being an open-source project, Apache Answer benefits from contributions by a global community of developers and users. This collaborative approach ensures continuous improvement, feature enhancements, and security updates.
-
- 
-  Use Cases:
-
-
-  🔍 Performance Monitoring: Organizations can utilize Apache Answer to monitor business performance in real-time, helping them respond quickly to emerging trends or issues.
-  
-  
-  📈 Market Analysis: By integrating various data sources, businesses can analyze market conditions, customer behaviors, and competitor strategies, informing their strategic decisions.
-  
-  
-  ⚙️ Operational Efficiency: Apache Answer can identify inefficiencies in operations by analyzing workflow data, enabling businesses to streamline processes and reduce costs.
-
-
-  Apache Answer is a powerful tool for organizations looking to harness the potential of their data. Its user-friendly interface, robust querying capabilities, and comprehensive visualization options make it an invaluable asset in the quest for data-driven insights. As a product of the Apache Software Foundation, it continues to evolve, guided by the needs of its users and the ever-changing landscape of data analytics.
+  Apache Answer is a modern, open-source Q&A platform software designed for teams and communities of any scale. It enables organizations to deploy their own help centers, community forums, or knowledge management systems, facilitating structured knowledge sharing and efficient problem-solving for users.
 
 
   ⚠️ During the installation, you need to select the "SQLite database". Please make sure to specify the path "/data/answer.db" to store the data correctly and ensure the application runs smoothly.
+
+
+  🛠️ Key Features:
+
+
+    - Comprehensive Q&A System: Full-featured tools for posting questions, providing answers, adding comments, and voting on content to ensure the highest quality of shared knowledge.
+    - Knowledge Management & Discovery: An intuitive tagging system for efficient content categorization, allowing users to quickly locate relevant information and organize the knowledge base.
+    - Reputation System: A built-in gamification and reputation engine that rewards contributors for providing high-quality answers and valuable community contributions.
+    - Plugin Architecture: A robust plugin system that allows developers to extend the platform's functionality to meet specific requirements.
+    - API Support: RESTful APIs and webhooks for seamless integration with existing tools and automated workflows.
+    - Security & Access Control: Support for OAuth, Single Sign-On (SSO), fine-grained Role-Based Access Control (RBAC), and comprehensive moderation tools.
+    - Global Scalability: Built-in internationalization (i18n) and a scalable architecture designed to handle everything from small internal teams to high-traffic enterprise deployments.
+
+
+  🎯 Use Cases:
+
+
+  👥 Community Support Forum: Build a public-facing hub where your users can ask questions, share tips, and help each other. This reduces the load on your official support channels by creating a searchable, community-driven knowledge base.
+
+
+  🏢 Internal Corporate Knowledge Base: Create a private Q&A portal for your employees to document internal processes, technical specifications, and "how-to" guides. It prevents knowledge silos and helps onboard new team members faster.
+
+
+  🛠️ Product Help Center: Deploy a structured help center for a specific product or service. By using tags and categories, you can organize documentation and FAQs into a user-friendly format that guides users toward the right solutions.
+
+
+  💻 Technical Documentation Hub: Complement your static documentation with a dynamic Q&A layer. Developers can ask for clarification on specific API endpoints or library functions, and the official team can provide "verified" answers.
+
+
+  🎓 Educational & Academic Portal: Set up a platform for students and teachers to discuss course materials, clarify complex topics, and share academic resources in a structured, threaded conversation format.
 
 
 developer: Apache Software Foundation
 website: https://answer.apache.org/
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
-repo: https://github.com/answerdev
-support: https://github.com/apache/incubator-answer/issues
+repo: https://github.com/apache/answer
+support: https://github.com/apache/answer/issues
 gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-answer/1.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-answer/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-answer/3.jpg
 releaseNotes: >-
-  The latest update introduces several new features, including gamified badges for the Q&A platform, personalized question recommendations, a new search provider definition for browsers, support for Render type plugins, and a code highlighting plugin. Additionally, numerous bug fixes have been implemented, addressing issues such as incorrect mobile display reactions, extra characters in HTML source code, visibility of unanswered questions after an answer is deleted, and conflicts with embed plugin types.
+  This release includes several new features and many improvements:
+
+    - AI Workflow integration: introduced a comprehensive AI ecosystem, including a built-in AI Assistant, MCP server support, and API Key management.
+    - Advanced search capabilities: implemented semantic search and vector search plugins, enabling high-efficiency embeddings for questions and answers.
+    - Extensibility & customization: added support for editor plugins and introduced a revamped administrative navigation experience with flexible layout options.
+    - Enhanced security: strengthened the authorization framework through the implementation of API key scope checks and refined moderator visibility controls.
+
+
+  Full release notes can be found at https://github.com/apache/answer/releases/tag/v2.0.1
 dependencies:
 path: ""
 defaultUsername: ""
