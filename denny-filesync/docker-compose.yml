@@ -11,7 +11,7 @@ services:
     image: poliuscorp/filesync:latest
     restart: on-failure
     environment:
-      SECRET_KEY: "password-123"
+      SECRET_KEY: "password-123-filesync-umbrel-2026"
     depends_on:
       - peerjs
 
@@ -30,7 +30,7 @@ services:
       - --use-auth-secret
       - --no-multicast-peers
       - --realm=${DEVICE_DOMAIN_NAME}
-      - --static-auth-secret=password-123
+      - --static-auth-secret=password-123-filesync-umbrel-2026
     ports:
       - "3478:3478/tcp"
       - "3478:3478/udp"
