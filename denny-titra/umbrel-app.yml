@@ -5,7 +5,7 @@ tagline: An instant radio station
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-airstation/logo.png
 category: test
 version: "1.4.1"
-port: 3471
+port: 3473
 description: >-
   📻 Airstation is an open-source, self-hosted web application designed to allow users to create and manage their own online radio station. It provides an intuitive and minimalist interface for streaming music over the internet, making it easy for anyone to broadcast their favorite tracks to listeners worldwide. The platform enables users to upload audio files, organize playlists, and control playback through a simple web-based player that listeners can access from any device.
 
