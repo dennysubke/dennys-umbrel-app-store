@@ -1,4 +1,12 @@
-# Dennys Umbrel App Store ☂️
+# Denny´s Umbrel App Store ☂️
+
+<p align="center">
+  <img
+    src="https://github.com/user-attachments/assets/71b73efc-04fb-4fe2-9e72-b8f05909879b"
+    alt="Dennys Umbrel App Store Banner"
+    width="100%"
+  >
+</p>
 
 ---
 
