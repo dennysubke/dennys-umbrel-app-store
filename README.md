@@ -2,7 +2,7 @@
 
 <p align="center">
   <img
-    src="https://github.com/user-attachments/assets/71b73efc-04fb-4fe2-9e72-b8f05909879b"
+    src="https://github.com/user-attachments/assets/41725ef0-6886-4023-bcc9-f2274ffdbaab"
     alt="Dennys Umbrel App Store Banner"
     width="100%"
   >
