@@ -1,0 +1,53 @@
+version: '3.7'
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-vidbee_web_1
+      APP_PORT: 3000
+      PROXY_AUTH_ADD: "false"
+
+  web:
+    image: ghcr.io/nexmoe/vidbee-web:latest
+    restart: on-failure
+    environment:
+      VITE_API_URL: ""
+      VIDBEE_ALLOWED_HOSTS: "${DEVICE_DOMAIN_NAME},denny-vidbee_web_1"
+      __VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS: "${DEVICE_DOMAIN_NAME},denny-vidbee_web_1"
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "wget -qO- http://127.0.0.1:3000/ > /dev/null || exit 1"
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+
+  api:
+    image: ghcr.io/nexmoe/vidbee-api:latest
+    network_mode: "service:web"
+    depends_on:
+      web:
+        condition: service_healthy
+    restart: on-failure
+    environment:
+      VIDBEE_API_HOST: 0.0.0.0
+      VIDBEE_API_PORT: 3100
+      VIDBEE_DOWNLOAD_DIR: /data/downloads
+      VIDBEE_HISTORY_STORE_PATH: /data/vidbee/vidbee.db
+      VIDBEE_PERSIST_QUEUE: 1
+    volumes:
+      - ${APP_DATA_DIR}/data/downloads:/data/downloads
+      - ${APP_DATA_DIR}/data/vidbee:/data/vidbee
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "wget -qO- http://127.0.0.1:3100/health > /dev/null || exit 1"
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
