@@ -1,24 +1,29 @@
 manifestVersion: 1
 id: denny-zennotes
 name: ZenNotes
-tagline: A keyboard-first Markdown workspace for notes, tasks, diagrams, and ideas
+tagline: A keyboard-first Markdown workspace for notes
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zennotes/logo.png
-category: productivity
+category: files & productivity
 version: "2.13.1"
 port: 7878
 description: >-
-  📝 ZenNotes is a keyboard-first note-taking application for creating,
-  organizing, and managing notes as Markdown files. It provides a focused
-  writing environment with tabs, split views, live previews, customizable
-  themes, command palettes, and optional Vim-style keyboard controls.
+  📝 ZenNotes is a powerful note-taking application for creating, editing, and organizing Markdown notes. It helps users build structured knowledge collections, connect related ideas, and quickly find information through full-text search.
 
 
-  The application includes full-text search, tags, tasks, backlinks,
-  wiki-style links, daily and weekly notes, archives, and trash management.
-  Notes can contain tables, code blocks, mathematical formulas, footnotes,
-  callouts, Mermaid diagrams, Excalidraw drawings, images, PDFs, audio,
-  video, and other attachments.
-developer: Adib Hanna
+  Notes can be organized with tags, task lists, Wikilinks, and backlinks. Links in the [[Note Name]] format connect related notes, while backlinks show which other notes reference the currently opened page. Daily and weekly notes make it easy to record tasks, events, ideas, and recurring information.
+
+
+  ZenNotes provides extensive keyboard navigation with Vim commands, customizable shortcuts, macros, and registers. Multiple notes can be opened side by side in split views, while frequently used notes can be pinned and kept visible for quick reference.
+
+
+  The application supports mathematical formulas, diagrams, and graphical visualizations. KaTeX can be used to display equations, while Mermaid, TikZ, JSXGraph, and function plots allow users to create flowcharts, technical drawings, mathematical illustrations, and interactive graphics.
+
+
+  An integrated preview renders formatted text, tables, task lists, formulas, and diagrams directly within the application. Existing Markdown collections and Obsidian vaults can also be used, preserving current folder structures, Wikilinks, and connected notes.
+
+
+  ZenNotes also includes a command-line tool for searching, opening, creating, and processing notes. Its integrated MCP server allows compatible AI assistants to search, summarize, connect, and help edit information stored within the note collection.
+developer: ZenNotes
 website: https://zennotes.org/
 submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
@@ -29,6 +34,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zennotes/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zennotes/3.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zennotes/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zennotes/5.jpg
 releaseNotes: >-
   This release includes interface improvements, editor refinements, and bug
   fixes.
