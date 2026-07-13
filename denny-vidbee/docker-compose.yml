@@ -39,7 +39,7 @@ services:
       VIDBEE_HISTORY_STORE_PATH: /data/vidbee/vidbee.db
       VIDBEE_PERSIST_QUEUE: 1
     volumes:
-      - ${APP_DATA_DIR}/data/downloads:/data/downloads
+      - ${UMBREL_ROOT}/data/storage/downloads/vidbee:/data/downloads
       - ${APP_DATA_DIR}/data/vidbee:/data/vidbee
     healthcheck:
       test:
