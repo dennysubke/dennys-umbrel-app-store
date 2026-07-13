@@ -7,9 +7,30 @@ services:
       APP_PORT: 7878
       PROXY_AUTH_ADD: "false"
 
+  permissions:
+    image: busybox:1.37.0
+    user: "0:0"
+    restart: "no"
+    command:
+      - sh
+      - -c
+      - |
+        mkdir -p /workspace /data
+        chown -R 1000:1000 /workspace /data
+        chmod -R u+rwX /workspace /data
+    volumes:
+      - ${APP_DATA_DIR}/vault:/workspace
+      - ${APP_DATA_DIR}/data:/data
+
   web:
     image: adibhanna/zennotes:2.13.1
+    user: "1000:1000"
     restart: on-failure
+
+    depends_on:
+      permissions:
+        condition: service_completed_successfully
+
     read_only: true
 
     tmpfs:
