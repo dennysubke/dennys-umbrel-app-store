@@ -1,0 +1,47 @@
+manifestVersion: 1
+id: denny-zennotes
+name: ZenNotes
+tagline: A keyboard-first Markdown workspace for notes, tasks, diagrams, and ideas
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zennotes/logo.png
+category: productivity
+version: "2.13.1"
+port: 7878
+description: >-
+  📝 ZenNotes is a keyboard-first note-taking application for creating,
+  organizing, and managing notes as Markdown files. It provides a focused
+  writing environment with tabs, split views, live previews, customizable
+  themes, command palettes, and optional Vim-style keyboard controls.
+
+
+  The application includes full-text search, tags, tasks, backlinks,
+  wiki-style links, daily and weekly notes, archives, and trash management.
+  Notes can contain tables, code blocks, mathematical formulas, footnotes,
+  callouts, Mermaid diagrams, Excalidraw drawings, images, PDFs, audio,
+  video, and other attachments.
+developer: Adib Hanna
+website: https://zennotes.org/
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/ZenNotes/zennotes
+support: https://github.com/ZenNotes/zennotes/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zennotes/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zennotes/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zennotes/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zennotes/4.jpg
+releaseNotes: >-
+  This release includes interface improvements, editor refinements, and bug
+  fixes.
+
+
+  Key highlights in this version:
+    - Added inline rendering for Excalidraw drawings
+    - Added confirmation when exporting notes as PDF
+    - Reorganized and improved the settings interface
+    - Improved editor focus when opening periodic notes
+    - Fixed strikethrough rendering for mathematical formulas
+dependencies: []
+path: ""
+deterministicPassword: true
+defaultUsername: ""
+defaultPassword: ${APP_PASSWORD}
