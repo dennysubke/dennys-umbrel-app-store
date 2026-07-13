@@ -19,8 +19,8 @@ services:
         chown -R 1000:1000 /workspace /data
         chmod -R u+rwX /workspace /data
     volumes:
-      - ${APP_DATA_DIR}/vault:/workspace
-      - ${APP_DATA_DIR}/data:/data
+      - ${APP_DATA_DIR}/data/vault:/workspace
+      - ${APP_DATA_DIR}/data/app_data:/data
 
   web:
     image: adibhanna/zennotes:2.13.1@sha256:90d175efc9417bb882dabba5a3d13076ec7984b90215e562154a7f13b27b2616
@@ -52,5 +52,5 @@ services:
       ZENNOTES_PERSIST_SESSIONS: "1"
 
     volumes:
-      - ${APP_DATA_DIR}/vault:/workspace
-      - ${APP_DATA_DIR}/data:/data
+      - ${APP_DATA_DIR}/data/vault:/workspace
+      - ${APP_DATA_DIR}/data/app_data:/data
