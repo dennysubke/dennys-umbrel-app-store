@@ -8,7 +8,7 @@ services:
       PROXY_AUTH_ADD: "false"
 
   permissions:
-    image: busybox:1.37.0
+    image: busybox:1.38.0@sha256:fd8d9aa63ba2f0982b5304e1ee8d3b90a210bc1ffb5314d980eb6962f1a9715d
     user: "0:0"
     restart: "no"
     command:
@@ -23,7 +23,7 @@ services:
       - ${APP_DATA_DIR}/data:/data
 
   web:
-    image: adibhanna/zennotes:2.13.1
+    image: adibhanna/zennotes:2.13.1@sha256:90d175efc9417bb882dabba5a3d13076ec7984b90215e562154a7f13b27b2616
     user: "1000:1000"
     restart: on-failure
 
