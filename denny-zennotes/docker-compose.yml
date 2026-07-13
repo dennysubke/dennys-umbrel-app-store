@@ -9,7 +9,6 @@ services:
 
   web:
     image: adibhanna/zennotes:2.13.1
-    user: "1000:1000"
     restart: on-failure
     read_only: true
 
