@@ -1,0 +1,32 @@
+manifestVersion: 1
+id: denny-vidbee
+name: VidBee
+tagline: A modern, open-source video downloader
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-vidbee/logo.png
+category: media
+version: "1.3.14"
+port: 3779
+description: >-
+  🐝 VidBee is a versatile media downloader that lets you save videos and audio from more than 1,000 supported websites, including popular video platforms and social networks. Simply add a media link, choose the preferred output format, and follow the download progress through a clear and intuitive interface.
+
+
+  Downloads can be organized in a queue and individually paused, resumed, or restarted whenever needed. VidBee provides real-time progress information, making it easy to monitor multiple downloads and keep track of active tasks. Users can select between several output containers, including MP4, MKV, and WebM, or allow the application to choose a suitable format automatically.
+
+
+  VidBee also supports automatic downloads through RSS subscriptions. Feeds from favorite channels and creators can be added once, allowing newly published videos to be detected and downloaded automatically. This makes it easy to maintain a continuously updated personal collection of videos and audio without manually adding every new release.
+developer: Nexmoe
+website: https://vidbee.org/
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/nexmoe/VidBee
+support: https://github.com/nexmoe/VidBee/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-vidbee/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-vidbee/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-vidbee/3.jpg
+releaseNotes: >-
+  VidBee 1.3.14 updates the bundled yt-dlp runtime to version 2026.07.04. This keeps compatibility with supported websites current, without introducing additional user-facing changes.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
