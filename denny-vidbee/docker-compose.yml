@@ -40,7 +40,7 @@ services:
       VIDBEE_PERSIST_QUEUE: 1
     volumes:
       - ${UMBREL_ROOT}/data/storage/downloads/vidbee:/data/downloads
-      - ${APP_DATA_DIR}/data/vidbee:/data/vidbee
+      - ${APP_DATA_DIR}/data:/data/vidbee
     healthcheck:
       test:
         [
