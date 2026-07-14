@@ -4,7 +4,7 @@ name: Tududi
 tagline: A private task manager
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tududi/logo.png
 category: files & productivity
-version: "0.61"
+version: "1.2.4"
 port: 3382
 description: >-
   ✅ Tududi is a minimalist task and project management application designed to help users organize their work and personal life with a strong focus on privacy and flexibility. It offers a clean and intuitive interface that works smoothly across desktop, tablet, and mobile devices, enabling productivity anytime and anywhere. The application features intelligent recurring task management, allowing users to create tasks that repeat on daily, weekly, monthly, or more complex schedules, with support for parent-child task relationships to enhance organization and workflow.
@@ -27,7 +27,10 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tududi/4.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tududi/5.jpg
 releaseNotes: >-
-  Version 0.61 fixes issues with empty tags, inbox and project modals, and the disappearing plus icon. It also hides the calendar as a work in progress, resolves test problems, and improves the notes layout.
+  This update (v1.2.4) resolves various bugs across core features, including Kanban/Eisenhower boards, calendar display, project views, and CalDAV synchronization.
+
+
+  Additionally, it hardens database migrations for clean installs, optimizes SQLite and Docker volume configurations, and introduces new documentation for MCP integration.
 dependencies:
 path: ""
 defaultUsername: "login@tududi.admin"
