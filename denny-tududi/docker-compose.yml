@@ -7,7 +7,7 @@ services:
       APP_PORT: 3002
 
   app:
-    image: chrisvel/tududi:0.61@sha256:f9f20cdaf7704a83a83ef0bca7e12ba5e73993b2a7ff14ee5c14ba3cf1ad2226
+    image: chrisvel/tududi:1.2.4@sha256:4dd5842ab6065435fe70dad71fe23fcc261e8d15991fde13009c595f77726fca
     user: "0:0"
     restart: on-failure
     environment:
