@@ -7,7 +7,7 @@ category: files & productivity
 version: "1.2.4"
 port: 3382
 description: >-
-  ✅ Tududi is a minimalist task and project management application designed to help users organize their work and personal life with a strong focus on privacy and flexibility. It offers a clean and intuitive interface that works smoothly across desktop, tablet, and mobile devices, enabling productivity anytime and anywhere. The application features intelligent recurring task management, allowing users to create tasks that repeat on daily, weekly, monthly, or more complex schedules, with support for parent-child task relationships to enhance organization and workflow.
+  Tududi is a minimalist task and project management application designed to help users organize their work and personal life with a strong focus on privacy and flexibility. It offers a clean and intuitive interface that works smoothly across desktop, tablet, and mobile devices, enabling productivity anytime and anywhere. The application features intelligent recurring task management, allowing users to create tasks that repeat on daily, weekly, monthly, or more complex schedules, with support for parent-child task relationships to enhance organization and workflow.
 
 
   The project structure is hierarchical, dividing work into areas, projects, and tasks, which aligns well with popular productivity methods like Getting Things Done. Users can separate different life domains such as work, personal, health, or learning, providing clear focus and balance. Tasks can be enriched with priorities, due dates, and custom tags, and powerful filtering and sorting options help quickly find and manage important items.
