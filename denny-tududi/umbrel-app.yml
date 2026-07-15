@@ -1,7 +1,7 @@
 manifestVersion: 1
 id: denny-tududi
 name: Tududi
-tagline: A private task manager
+tagline: A thoughtful way to manage everything
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-tududi/logo.png
 category: files & productivity
 version: "1.2.4"
