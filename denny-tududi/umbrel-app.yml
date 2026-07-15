@@ -31,7 +31,8 @@ releaseNotes: >-
 
 
   Additionally, it hardens database migrations for clean installs, optimizes SQLite and Docker volume configurations, and introduces new documentation for MCP integration.
-dependencies:
+dependencies: []
 path: ""
-defaultUsername: "login@tududi.admin"
-defaultPassword: "umbrel"
+deterministicPassword: true
+defaultUsername: admin@umbrel.local
+defaultPassword: ${APP_PASSWORD}
