@@ -15,7 +15,7 @@ services:
       TUDUDI_USER_PASSWORD: "${APP_PASSWORD}"
       TUDUDI_SESSION_SECRET: "${APP_SEED}"
 
-      TUDUDI_ALLOWED_ORIGINS: "http://${DEVICE_DOMAIN_NAME}:3882"
+      TUDUDI_ALLOWED_ORIGINS: "http://${DEVICE_DOMAIN_NAME}:3382"
       TUDUDI_TRUST_PROXY: "1"
 
       DB_FILE: "/app/db/production.sqlite3"
