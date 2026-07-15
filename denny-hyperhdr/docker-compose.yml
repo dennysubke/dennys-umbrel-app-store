@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-hyperhdr_web_1
+      APP_PORT: 8090
+      PROXY_AUTH_ADD: "false"
+
+  web:
+    image: nocturno/hyper-hdr:21.0.0.0
+    restart: on-failure
+    environment:
+      TZ: Europe/Berlin
+      PUID: "1000"
+      PGID: "1000"
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config

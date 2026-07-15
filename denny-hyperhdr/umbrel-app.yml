@@ -1,0 +1,46 @@
+manifestVersion: 1
+id: denny-hyperhdr
+name: HyperHDR
+tagline: A high-performance ambient lighting system
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-hyperhdr/logo.png
+category: Home & Automation
+version: "21.0.0.0"
+port: 8098
+description: >-
+  HyperHDR is an advanced ambient lighting system that analyzes video and audio sources in real time and transforms their colors into dynamic lighting effects around a television, monitor, or entertainment setup.
+
+
+  The application captures visual content from compatible video grabbers, software capture clients, network streams, and supported external sources. It processes the incoming image, detects the dominant colors across configurable screen regions, and sends synchronized color information to connected LED strips and smart lights.
+
+
+  HyperHDR supports a wide range of LED controllers and lighting systems, including WLED, Philips Hue, Home Assistant lights, Zigbee2MQTT devices, Adalight-compatible controllers, and various network-based LED drivers. Multiple lighting instances can be configured independently for different screens, rooms, or LED layouts.
+
+
+  The integrated web interface provides tools for arranging LEDs around the screen, adjusting brightness, gamma, color balance, smoothing, refresh rates, and image processing settings. Users can preview captured video, test individual LEDs, create custom effects, manage priorities, and switch between different input sources.
+
+
+  HyperHDR includes automatic HDR tone mapping, LUT-based color calibration, HDR10 and P010 video support, image cropping, black-bar detection, and configurable color correction. These features help produce accurate and responsive ambient lighting across both SDR and HDR content.
+
+
+  Built-in APIs and network protocols allow external applications, media players, capture clients, and home automation systems to control lighting states, stream image data, trigger effects, and integrate HyperHDR into broader entertainment or smart home workflows.
+developer: Awawa
+website: https://www.hyperhdr.eu/
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/awawa-dev/HyperHDR
+support: https://github.com/awawa-dev/HyperHDR/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-hyperhdr/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-hyperhdr/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-hyperhdr/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-hyperhdr/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-hyperhdr/5.jpg
+releaseNotes: >-
+  HyperHDR 21 introduces automatic HDR tone mapping, P010 HDR10 video support, MP4-based LUT calibration, Home Assistant light integration, and experimental Zigbee2MQTT support.
+
+
+  This release also improves resource efficiency, expands supported capture formats, adds ZSTD-compressed LUT files, and includes numerous fixes and performance improvements.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
