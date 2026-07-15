@@ -7,7 +7,7 @@ category: Home & Automation
 version: "21.0.0.0"
 port: 8098
 description: >-
-  HyperHDR is an advanced ambient lighting system that analyzes video and audio sources in real time and transforms their colors into dynamic lighting effects around a television, monitor, or entertainment setup.
+  🌈 HyperHDR is an advanced ambient lighting system that analyzes video and audio sources in real time and transforms their colors into dynamic lighting effects around a television, monitor, or entertainment setup.
 
 
   The application captures visual content from compatible video grabbers, software capture clients, network streams, and supported external sources. It processes the incoming image, detects the dominant colors across configurable screen regions, and sends synchronized color information to connected LED strips and smart lights.
