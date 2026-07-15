@@ -1,17 +1,24 @@
 version: "3.7"
 
+# HyperHDR is intentionally exposed directly through Docker port mapping.
+#
+# Umbrel's app_proxy does not work reliably with HyperHDR's WebSocket
+# connection. The web interface loads through app_proxy, but the persistent
+# WebSocket connection is immediately disconnected, causing HyperHDR to show:
+# "Lost connection to HyperHDR service!"
+#
+# Therefore, do not add an app_proxy service. Port 8098 is mapped directly
+# to HyperHDR's internal web port 8090 so HTTP and WebSocket traffic reach
+# HyperHDR without an additional reverse proxy.
 services:
   web:
-    image: nocturno/hyper-hdr:21.0.0.0
+    image: nocturno/hyper-hdr:21.0.0.0@sha256:ea798b233327201ae49a8e002acb2c66284ae471fdf08bcf47f6d1bd0aea1c5b
     restart: on-failure
-
     environment:
-      TZ: Europe/Berlin
+      TZ: UTC
       PUID: "1000"
       PGID: "1000"
-
     volumes:
-      - ${APP_DATA_DIR}/data/config:/config
-
+      - ${APP_DATA_DIR}/data:/config
     ports:
       - "8098:8090"
