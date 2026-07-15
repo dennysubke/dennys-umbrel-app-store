@@ -3,18 +3,27 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: denny-tududi_app_1
+      APP_HOST: denny-tududi_web_1
       APP_PORT: 3002
+      PROXY_AUTH_ADD: "false"
 
-  app:
+  web:
     image: chrisvel/tududi:1.2.4@sha256:4dd5842ab6065435fe70dad71fe23fcc261e8d15991fde13009c595f77726fca
-    user: "0:0"
     restart: on-failure
     environment:
-      TUDUDI_USER_EMAIL: login@tududi.admin
-      TUDUDI_USER_PASSWORD: umbrel
-      TUDUDI_SESSION_SECRET: 2f1a8d6c3b9e2f6d4e8f9b1c7a3d0c2e6b4a1f9d8e7c3a6b0d5f1e3a7c2b6d1
-      TUDUDI_INTERNAL_SSL_ENABLED: "false"
-      TUDUDI_ALLOWED_ORIGINS: http://${DEVICE_DOMAIN_NAME}:3382
+      TUDUDI_USER_EMAIL: "admin@umbrel.local"
+      TUDUDI_USER_PASSWORD: "${APP_PASSWORD}"
+      TUDUDI_SESSION_SECRET: "${APP_SEED}"
+
+      TUDUDI_ALLOWED_ORIGINS: "http://${DEVICE_DOMAIN_NAME}:3882"
+      TUDUDI_TRUST_PROXY: "1"
+
+      DB_FILE: "/app/db/production.sqlite3"
+      TUDUDI_UPLOAD_PATH: "/app/uploads"
+
+      PUID: "1000"
+      PGID: "1000"
+
     volumes:
-      - ${APP_DATA_DIR}/data/db:/app/backend/db
+      - ${APP_DATA_DIR}/data/db:/app/db
+      - ${APP_DATA_DIR}/data/uploads:/app/uploads
