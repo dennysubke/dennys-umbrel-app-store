@@ -34,7 +34,7 @@ services:
         grep -q '^ServerName ' /etc/apache2/apache2.conf || printf '\nServerName localhost\n' >> /etc/apache2/apache2.conf
         exec /usr/local/bin/koel-entrypoint apache2-foreground
     volumes:
-      - ${APP_DATA_DIR}/music:/music
+      - ${UMBREL_ROOT}/data/storage/downloads/music:/music
       - ${APP_DATA_DIR}/data/images:/var/www/html/storage/app/public/images
       - ${APP_DATA_DIR}/data/search-indexes:/var/www/html/storage/search-indexes
     healthcheck:
@@ -54,7 +54,7 @@ services:
       POSTGRES_PASSWORD: ${APP_SEED}
       POSTGRES_INITDB_ARGS: "--auth-local=md5 --auth-host=md5"
     volumes:
-      - ${APP_DATA_DIR}/data/database:/var/lib/postgresql/data
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
     healthcheck:
       test:
         - CMD-SHELL
