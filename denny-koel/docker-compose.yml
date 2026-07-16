@@ -1,32 +1,88 @@
-version: '3.7'
+version: "3.7"
 
 services:
   app_proxy:
     environment:
-      APP_HOST: denny-koel_server_1
+      APP_HOST: denny-koel_web_1
       APP_PORT: 80
+      PROXY_AUTH_ADD: "false"
 
-  server:
-    image: phanan/koel:7.5.2@sha256:2c7d7548882d6c737a8d44909a36850b2715c40e6bdf202fd63e2fdeacb4a883
-    depends_on:
-      - database
-    environment:
-      - DB_CONNECTION=pgsql
-      - DB_HOST=database
-      - DB_PORT=5432
-      - DB_USERNAME=koel
-      - DB_PASSWORD=admin
-      - DB_DATABASE=koel
+  permissions:
+    image: busybox:1.38.0@sha256:fd8d9aa63ba2f0982b5304e1ee8d3b90a210bc1ffb5314d980eb6962f1a9715d
+    user: "0:0"
+    restart: "no"
+    command:
+      - sh
+      - -c
+      - |
+        mkdir -p /music /images /search-indexes /artifacts /database
+        chown -R 33:33 /music /images /search-indexes /artifacts
+        chown -R 999:999 /database
+        chmod -R u+rwX /music /images /search-indexes /artifacts /database
     volumes:
-      - ${APP_DATA_DIR}/music:/music:rw
-      - ${APP_DATA_DIR}/data/covers:/var/www/html/public/img/covers:rw
-      - ${APP_DATA_DIR}/data/search_index:/var/www/html/storage/search-indexes:rw
+      - ${APP_DATA_DIR}/data/music:/music
+      - ${APP_DATA_DIR}/data/images:/images
+      - ${APP_DATA_DIR}/data/search-indexes:/search-indexes
+      - ${APP_DATA_DIR}/data/artifacts:/artifacts
+      - ${APP_DATA_DIR}/data/database:/database
 
   database:
-    image: postgres:13@sha256:a4c9ad5add8a2e4c86e123bfdaf940d120c0541b782f317ab4e630ab3d391650
-    volumes:
-      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    image: mariadb:11
+    restart: on-failure
+    depends_on:
+      permissions:
+        condition: service_completed_successfully
     environment:
-      - POSTGRES_DB=koel
-      - POSTGRES_USER=koel
-      - POSTGRES_PASSWORD=admin
+      MARIADB_ROOT_PASSWORD: ${APP_SEED}
+      MARIADB_DATABASE: koel
+      MARIADB_USER: koel
+      MARIADB_PASSWORD: ${APP_SEED}
+    volumes:
+      - ${APP_DATA_DIR}/data/database:/var/lib/mysql
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - mariadb-admin ping --host=127.0.0.1 --user=root --password="$${MARIADB_ROOT_PASSWORD}" --silent
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  web:
+    image: phanan/koel:9.11.0
+    restart: on-failure
+    depends_on:
+      database:
+        condition: service_healthy
+    environment:
+      APP_SEED: ${APP_SEED}
+      APP_ENV: production
+      APP_DEBUG: "false"
+
+      DB_CONNECTION: mysql
+      DB_HOST: database
+      DB_PORT: 3306
+      DB_DATABASE: koel
+      DB_USERNAME: koel
+      DB_PASSWORD: ${APP_SEED}
+
+      STORAGE_DRIVER: local
+      MEDIA_PATH: /music
+      ARTIFACTS_PATH: /artifacts
+      STREAMING_METHOD: x-sendfile
+      SCOUT_DRIVER: tntsearch
+
+      FORCE_HTTPS: "false"
+      OPTIMIZE_CONFIG: "true"
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        touch /var/www/html/.env
+        export APP_KEY="$$(php -r 'echo "base64:".base64_encode(hash("sha256", getenv("APP_SEED"), true));')"
+        exec koel-entrypoint apache2-foreground
+    volumes:
+      - ${APP_DATA_DIR}/data/music:/music
+      - ${APP_DATA_DIR}/data/images:/var/www/html/storage/app/public/images
+      - ${APP_DATA_DIR}/data/search-indexes:/var/www/html/storage/search-indexes
+      - ${APP_DATA_DIR}/data/artifacts:/artifacts
