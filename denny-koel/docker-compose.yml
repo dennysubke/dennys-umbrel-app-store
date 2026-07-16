@@ -8,7 +8,7 @@ services:
       PROXY_AUTH_ADD: "false"
 
   web:
-    image: phanan/koel
+    image: phanan/koel:9.11.0
     restart: on-failure
     depends_on:
       - database
@@ -17,8 +17,9 @@ services:
       DB_HOST: database
       DB_PORT: 5432
       DB_USERNAME: koel
-      DB_PASSWORD: koelpassword
+      DB_PASSWORD: ${APP_SEED}
       DB_DATABASE: koel
+      APP_KEY: base64:Ni5+ZF4mJrGc6BQ1ErQ1s9QmpF0j/3e5LzhGkyz9fOE=
     volumes:
       - ${APP_DATA_DIR}/music:/music
       - ${APP_DATA_DIR}/data/images:/var/www/html/storage/app/public/images
@@ -30,6 +31,6 @@ services:
     environment:
       POSTGRES_DB: koel
       POSTGRES_USER: koel
-      POSTGRES_PASSWORD: koelpassword
+      POSTGRES_PASSWORD: ${APP_SEED}
     volumes:
       - ${APP_DATA_DIR}/data/database:/var/lib/postgresql/data
