@@ -1,12 +1,13 @@
 version: "3.7"
-
 services:
   app_proxy:
+    depends_on:
+      web:
+        condition: service_healthy
     environment:
       APP_HOST: denny-koel_web_1
       APP_PORT: 80
       PROXY_AUTH_ADD: "false"
-
   web:
     image: phanan/koel:9.11.0
     restart: on-failure
@@ -21,17 +22,29 @@ services:
       DB_PASSWORD: ${APP_SEED}
       DB_DATABASE: koel
       APP_KEY: base64:Ni5+ZF4mJrGc6BQ1ErQ1s9QmpF0j/3e5LzhGkyz9fOE=
+      APP_ENV: production
+      APP_DEBUG: "false"
+      OPTIMIZE_CONFIG: "true"
     entrypoint:
       - /bin/sh
       - -c
       - |
         touch /var/www/html/.env
+        sed -i '/LoadModule xsendfile_module/d' /etc/apache2/sites-available/000-default.conf
+        grep -q '^ServerName ' /etc/apache2/apache2.conf || printf '\nServerName localhost\n' >> /etc/apache2/apache2.conf
         exec /usr/local/bin/koel-entrypoint apache2-foreground
     volumes:
       - ${APP_DATA_DIR}/music:/music
       - ${APP_DATA_DIR}/data/images:/var/www/html/storage/app/public/images
       - ${APP_DATA_DIR}/data/search-indexes:/var/www/html/storage/search-indexes
-
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - test -s /var/run/apache2/apache2.pid
+      interval: 2s
+      timeout: 2s
+      retries: 30
+      start_period: 5s
   database:
     image: postgres:13
     restart: on-failure
@@ -39,13 +52,18 @@ services:
       POSTGRES_DB: koel
       POSTGRES_USER: koel
       POSTGRES_PASSWORD: ${APP_SEED}
+      POSTGRES_INITDB_ARGS: "--auth-local=md5 --auth-host=md5"
     volumes:
       - ${APP_DATA_DIR}/data/database:/var/lib/postgresql/data
     healthcheck:
       test:
         - CMD-SHELL
-        - pg_isready -U koel -d koel
+        - pg_isready --username=koel --dbname=koel
       interval: 5s
       timeout: 5s
       retries: 20
       start_period: 10s
+    command:
+      - postgres
+      - -c
+      - log_min_messages=warning
