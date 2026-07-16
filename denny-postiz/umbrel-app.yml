@@ -36,6 +36,6 @@ gallery:
 releaseNotes: >-
   In v1.37.3, overall dependencies were updated, a Telegram alt text fix and a Jenkins pipeline upgrade were implemented, and unit tests were added. Additionally, the maximum message length in Telegram and the maximum video length in Instagram were increased, a backend port environment setting was added, TikTok images were integrated, and a Docker fix was applied.
 dependencies:
-path: ""
+path: "/auth"
 defaultUsername: ""
 defaultPassword: ""
