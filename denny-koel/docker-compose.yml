@@ -11,7 +11,8 @@ services:
     image: phanan/koel:9.11.0
     restart: on-failure
     depends_on:
-      - database
+      database:
+        condition: service_healthy
     environment:
       DB_CONNECTION: pgsql
       DB_HOST: database
@@ -20,6 +21,12 @@ services:
       DB_PASSWORD: ${APP_SEED}
       DB_DATABASE: koel
       APP_KEY: base64:Ni5+ZF4mJrGc6BQ1ErQ1s9QmpF0j/3e5LzhGkyz9fOE=
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        touch /var/www/html/.env
+        exec /usr/local/bin/koel-entrypoint apache2-foreground
     volumes:
       - ${APP_DATA_DIR}/music:/music
       - ${APP_DATA_DIR}/data/images:/var/www/html/storage/app/public/images
@@ -34,3 +41,11 @@ services:
       POSTGRES_PASSWORD: ${APP_SEED}
     volumes:
       - ${APP_DATA_DIR}/data/database:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U koel -d koel
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
