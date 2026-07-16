@@ -1,19 +1,16 @@
 manifestVersion: 1
 id: denny-koel
 name: Koel
-tagline: A personal music streaming server that works
+tagline: An API-enabled audio server for private music streaming
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-koel/logo.png
-category: In Progress
-version: "7.5.2"
+category: media
+version: "9.11.0"
 port: 8333
 description: >-
-  🐦 Koel is an open-source, web-based music streaming server that empowers users to host and manage their personal music libraries with complete control. Designed to provide a seamless listening experience, Koel combines a powerful backend built with Laravel and a modern, responsive frontend using Vue.js, ensuring both performance and a polished user interface. It supports a wide range of audio formats, including high-fidelity options like FLAC, making it a solid choice for audiophiles who value sound quality. The interface mimics the familiarity of mainstream music streaming platforms while remaining lightweight and customizable, ensuring users can access their collections from any device - whether on desktop, tablet, or mobile browser - without sacrificing speed or usability. Koel offers essential features like playlist management, track favoriting, and playback history, alongside the ability to stream music seamlessly between devices without interruptions.
+  🎵 Koel is a personal music streaming application for organizing, browsing, searching, and playing a private music collection through a modern web interface. Music can be explored by artist, album, genre, or song, while playlists and favorites make it easy to create and revisit personal collections.
 
 
-  For those looking for even more functionality, Koel Plus expands on the core experience by introducing cloud storage integration, individual user libraries, and collaborative playlist creation, making it suitable for both personal use and small, private music-sharing setups among friends or family. By self-hosting Koel, users bypass the limitations and data privacy concerns of commercial streaming services, gaining the freedom to curate and enjoy their music collection on their own terms while maintaining full control over their server and data. Whether you’re someone who loves rediscovering old favorites, carefully curates themed playlists, or simply wants an independent, always-accessible music server, Koel provides a versatile, high-performance alternative that balances functionality with an elegant, user-friendly experience.
-
-
-  ⚠️ Please make sure to follow the installation instructions before setting up Koel: https://github.com/dennysubke/dennys-umbrel-app-store/blob/master/denny-koel/README.md
+  Koel includes queue management, album artwork, lyrics, listening history, music uploads, and a responsive interface that works across desktop and mobile devices. It also supports compatible third-party music clients through its Subsonic-compatible API.
 developer: Phan An
 website: https://koel.dev/
 submitter: dennysubke
@@ -24,8 +21,9 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-koel/1.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-koel/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-koel/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-koel/4.jpg
 releaseNotes: >-
-  Koel v7.5.2 includes several bug fixes and improvements. This version fixes the issue where track numbers were removed when editing multiple songs, and improves the koel:doctor command to better check database connections and storage types. It also updates dependencies, refactors some code, and resolves issues with playlists in Koel Plus.
+  This version adds faster AAC transcoding through FFmpeg and introduces nested playlist folders for improved organization. It also prevents smaller images from being unnecessarily upscaled.
 dependencies:
 path: ""
 defaultUsername: "admin@koel.dev"
