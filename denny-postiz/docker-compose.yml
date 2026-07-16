@@ -1,66 +1,304 @@
-version: '3.7'
+version: "3.7"
 
 services:
-  web:
-    image: ghcr.io/gitroomhq/postiz-app:latest
+  app_proxy:
+    environment:
+      APP_HOST: denny-postiz_postiz_1
+      APP_PORT: 5000
+      PROXY_AUTH_ADD: "false"
+
+  permissions:
+    image: busybox:1.38.0@sha256:fd8d9aa63ba2f0982b5304e1ee8d3b90a210bc1ffb5314d980eb6962f1a9715d
+    user: "0:0"
+    restart: "no"
+    command:
+      - sh
+      - -c
+      - |
+        mkdir -p \
+          /data/postiz/config \
+          /data/postiz/uploads \
+          /data/postgres \
+          /data/redis \
+          /data/temporal/postgres \
+          /data/temporal/elasticsearch \
+          /data/temporal/dynamicconfig
+
+        cat > /data/temporal/dynamicconfig/development-sql.yaml <<'EOF'
+        limit.maxIDLength:
+          - value: 255
+            constraints: {}
+        system.forceSearchAttributesCacheRefreshOnRead:
+          - value: true
+            constraints: {}
+        EOF
+
+        chown -R 1000:1000 \
+          /data/postiz \
+          /data/redis \
+          /data/temporal/elasticsearch \
+          /data/temporal/dynamicconfig
+
+        chmod -R u+rwX \
+          /data/postiz \
+          /data/redis \
+          /data/temporal/elasticsearch \
+          /data/temporal/dynamicconfig
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+
+  postiz:
+    image: ghcr.io/gitroomhq/postiz-app:v2.21.10@sha256:1d5a5dc6b896747d1483c01dc2562165bd313ad601b32f6cabb7f7dd08a911a9
     restart: on-failure
     environment:
-      MAIN_URL: "http://umbrel-2.local:4442"
-      FRONTEND_URL: "http://umbrel-2.local:4442"
-      NEXT_PUBLIC_BACKEND_URL: "http://umbrel-2.local:4442/api"
-      JWT_SECRET: "9vE2wB#xR7mN!qZpT4Js6fUaLcY0HdGh"
-      DATABASE_URL: "postgresql://postiz-user:postiz-password@postgres:5432/postiz-db-local"
-      REDIS_URL: "redis://redis:6379"
+      MAIN_URL: "http://${DEVICE_DOMAIN_NAME}:4007"
+      FRONTEND_URL: "http://${DEVICE_DOMAIN_NAME}:4007"
+      NEXT_PUBLIC_BACKEND_URL: "http://${DEVICE_DOMAIN_NAME}:4007/api"
       BACKEND_INTERNAL_URL: "http://localhost:3000"
+
+      JWT_SECRET: "${APP_SEED}"
+      DATABASE_URL: "postgresql://postiz:${APP_SEED}@postgres:5432/postiz"
+      REDIS_URL: "redis://redis:6379"
+
+      TEMPORAL_ADDRESS: "temporal:7233"
+      TEMPORAL_NAMESPACE: "default"
+
       IS_GENERAL: "true"
-      DISABLE_REGISTRATION: "true"
+      DISABLE_REGISTRATION: "false"
+      RUN_CRON: "true"
+      DISALLOW_PLUS: "true"
+      API_LIMIT: "90"
+
       STORAGE_PROVIDER: "local"
       UPLOAD_DIRECTORY: "/uploads"
       NEXT_PUBLIC_UPLOAD_DIRECTORY: "/uploads"
-      NOT_SECURED: "true"
+      NEXT_PUBLIC_UPLOAD_STATIC_DIRECTORY: "/uploads"
+
+      OPENAI_API_KEY: ""
+      NEXT_PUBLIC_POLOTNO: ""
+      NEXT_PUBLIC_DISCORD_SUPPORT: ""
+
+      X_API_KEY: ""
+      X_API_SECRET: ""
+      X_URL: "https://x.com"
+
+      LINKEDIN_CLIENT_ID: ""
+      LINKEDIN_CLIENT_SECRET: ""
+
+      FACEBOOK_APP_ID: ""
+      FACEBOOK_APP_SECRET: ""
+
+      INSTAGRAM_APP_ID: ""
+      INSTAGRAM_APP_SECRET: ""
+
+      THREADS_APP_ID: ""
+      THREADS_APP_SECRET: ""
+
+      YOUTUBE_CLIENT_ID: ""
+      YOUTUBE_CLIENT_SECRET: ""
+
+      GOOGLE_GMB_CLIENT_ID: ""
+      GOOGLE_GMB_CLIENT_SECRET: ""
+
+      TIKTOK_CLIENT_ID: ""
+      TIKTOK_CLIENT_SECRET: ""
+
+      REDDIT_CLIENT_ID: ""
+      REDDIT_CLIENT_SECRET: ""
+
+      PINTEREST_CLIENT_ID: ""
+      PINTEREST_CLIENT_SECRET: ""
+
+      DISCORD_CLIENT_ID: ""
+      DISCORD_CLIENT_SECRET: ""
+      DISCORD_BOT_TOKEN_ID: ""
+
+      SLACK_ID: ""
+      SLACK_SECRET: ""
+      SLACK_SIGNING_SECRET: ""
+
+      TELEGRAM_TOKEN: ""
+      TELEGRAM_BOT_NAME: ""
+
+      MASTODON_URL: "https://mastodon.social"
+      MASTODON_CLIENT_ID: ""
+      MASTODON_CLIENT_SECRET: ""
+
+      DRIBBBLE_CLIENT_ID: ""
+      DRIBBBLE_CLIENT_SECRET: ""
+
+      NEYNAR_CLIENT_ID: ""
+      NEYNAR_SECRET_KEY: ""
+      NEYNAR_LOGIN_URL: ""
+
+      MEWE_HOST: ""
+      MEWE_APP_ID: ""
+      MEWE_API_KEY: ""
+
+      TWITCH_CLIENT_ID: ""
+      TWITCH_CLIENT_SECRET: ""
+
+      KICK_CLIENT_ID: ""
+      KICK_SECRET: ""
+
+      VK_ID: ""
+      WHOP_CLIENT_ID: ""
+
+      GITHUB_CLIENT_ID: ""
+      GITHUB_CLIENT_SECRET: ""
+
+      BEEHIIVE_API_KEY: ""
+      BEEHIIVE_PUBLICATION_ID: ""
+
+      LISTMONK_DOMAIN: ""
+      LISTMONK_USER: ""
+      LISTMONK_API_KEY: ""
+      LISTMONK_LIST_ID: ""
+      LISTMONK_WELCOME_TEMPLATE_ID: ""
+
+      NX_ADD_PLUGINS: "false"
+
     volumes:
-      - ${APP_DATA_DIR}/data/config:/config
-      - ${APP_DATA_DIR}/data/uploads:/uploads
-    ports:
-      - 4442:5000
+      - ${APP_DATA_DIR}/data/postiz/config:/config
+      - ${APP_DATA_DIR}/data/postiz/uploads:/uploads
     depends_on:
+      permissions:
+        condition: service_completed_successfully
       postgres:
         condition: service_healthy
       redis:
         condition: service_healthy
-    networks:
-      - postiz-network
+      temporal:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - >-
+          const r=require('http').get('http://localhost:5000/',res=>process.exit(res.statusCode<500?0:1));
+          r.on('error',()=>process.exit(1));
+          r.setTimeout(4000,()=>{r.destroy();process.exit(1)});
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 120s
 
   postgres:
     image: postgres:17-alpine
     restart: on-failure
     environment:
-      POSTGRES_PASSWORD: postiz-password
-      POSTGRES_USER: postiz-user
-      POSTGRES_DB: postiz-db-local
+      POSTGRES_USER: postiz
+      POSTGRES_PASSWORD: "${APP_SEED}"
+      POSTGRES_DB: postiz
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    depends_on:
+      permissions:
+        condition: service_completed_successfully
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "postiz-user", "-d", "postiz-db-local"]
+      test: ["CMD-SHELL", "pg_isready -U postiz -d postiz"]
       interval: 10s
-      timeout: 3s
-      retries: 3
-    networks:
-      - postiz-network
+      timeout: 5s
+      retries: 10
+      start_period: 10s
 
   redis:
-    image: redis:7.2
+    image: redis:7.2-alpine
     restart: on-failure
+    command: redis-server --appendonly yes
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
+    depends_on:
+      permissions:
+        condition: service_completed_successfully
     healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
+      test: ["CMD-SHELL", "redis-cli ping | grep -q PONG"]
       interval: 10s
-      timeout: 3s
-      retries: 3
-    networks:
-      - postiz-network
+      timeout: 5s
+      retries: 10
+      start_period: 5s
 
-networks:
-  postiz-network:
-    external: false
+  temporal-elasticsearch:
+    image: elasticsearch:7.17.27
+    restart: on-failure
+    environment:
+      discovery.type: single-node
+      xpack.security.enabled: "false"
+      ES_JAVA_OPTS: "-Xms256m -Xmx256m"
+      cluster.routing.allocation.disk.threshold_enabled: "true"
+      cluster.routing.allocation.disk.watermark.low: "512mb"
+      cluster.routing.allocation.disk.watermark.high: "256mb"
+      cluster.routing.allocation.disk.watermark.flood_stage: "128mb"
+    volumes:
+      - ${APP_DATA_DIR}/data/temporal/elasticsearch:/usr/share/elasticsearch/data
+    depends_on:
+      permissions:
+        condition: service_completed_successfully
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - >-
+          curl -fsS "http://localhost:9200/_cluster/health?wait_for_status=yellow&timeout=5s" || exit 1
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: 60s
+
+  temporal-postgres:
+    image: postgres:16-alpine
+    restart: on-failure
+    environment:
+      POSTGRES_USER: temporal
+      POSTGRES_PASSWORD: "${APP_SEED}"
+    volumes:
+      - ${APP_DATA_DIR}/data/temporal/postgres:/var/lib/postgresql/data
+    depends_on:
+      permissions:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U temporal"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  temporal:
+    image: temporalio/auto-setup:1.28.1
+    restart: on-failure
+    environment:
+      DB: postgres12
+      DB_PORT: "5432"
+      POSTGRES_USER: temporal
+      POSTGRES_PWD: "${APP_SEED}"
+      POSTGRES_SEEDS: temporal-postgres
+
+      DYNAMIC_CONFIG_FILE_PATH: config/dynamicconfig/development-sql.yaml
+
+      ENABLE_ES: "true"
+      ES_SEEDS: temporal-elasticsearch
+      ES_VERSION: v7
+
+      TEMPORAL_NAMESPACE: default
+    volumes:
+      - ${APP_DATA_DIR}/data/temporal/dynamicconfig:/etc/temporal/config/dynamicconfig:ro
+    depends_on:
+      permissions:
+        condition: service_completed_successfully
+      temporal-postgres:
+        condition: service_healthy
+      temporal-elasticsearch:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - temporal
+        - operator
+        - cluster
+        - health
+        - --address
+        - temporal:7233
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
