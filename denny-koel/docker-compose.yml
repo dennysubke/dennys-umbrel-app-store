@@ -7,31 +7,59 @@ services:
       APP_PORT: 80
       PROXY_AUTH_ADD: "false"
 
-  permissions:
-    image: busybox:1.38.0@sha256:fd8d9aa63ba2f0982b5304e1ee8d3b90a210bc1ffb5314d980eb6962f1a9715d
-    user: "0:0"
-    restart: "no"
-    command:
-      - sh
-      - -c
-      - |
-        mkdir -p /music /images /search-indexes /artifacts /database
-        chown -R 33:33 /music /images /search-indexes /artifacts
-        chown -R 999:999 /database
-        chmod -R u+rwX /music /images /search-indexes /artifacts /database
-    volumes:
-      - ${APP_DATA_DIR}/data/music:/music
-      - ${APP_DATA_DIR}/data/images:/images
-      - ${APP_DATA_DIR}/data/search-indexes:/search-indexes
-      - ${APP_DATA_DIR}/data/artifacts:/artifacts
-      - ${APP_DATA_DIR}/data/database:/database
-
-  database:
-    image: mariadb:11
+  web:
+    image: phanan/koel:9.11.0
     restart: on-failure
     depends_on:
-      permissions:
-        condition: service_completed_successfully
+      database:
+        condition: service_healthy
+    environment:
+      APP_SEED: ${APP_SEED}
+
+      APP_ENV: production
+      APP_DEBUG: "false"
+      OPTIMIZE_CONFIG: "true"
+
+      DB_CONNECTION: mysql
+      DB_HOST: database
+      DB_PORT: 3306
+      DB_DATABASE: koel
+      DB_USERNAME: koel
+      DB_PASSWORD: ${APP_SEED}
+
+      MEDIA_PATH: /music
+      STREAMING_METHOD: x-sendfile
+
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        mkdir -p \
+          /music \
+          /var/www/html/storage/app/public/images \
+          /var/www/html/storage/search-indexes
+
+        touch /var/www/html/.env
+        chown www-data:www-data /var/www/html/.env
+        chmod 600 /var/www/html/.env
+
+        chown www-data:www-data /music
+
+        chown -R www-data:www-data \
+          /var/www/html/storage/app/public/images \
+          /var/www/html/storage/search-indexes
+
+        export APP_KEY="$$(php -r 'echo "base64:" . base64_encode(hash("sha256", getenv("APP_SEED"), true));')"
+
+        exec /usr/local/bin/koel-entrypoint apache2-foreground
+    volumes:
+      - ${APP_DATA_DIR}/data/music:/music:rw
+      - ${APP_DATA_DIR}/data/images:/var/www/html/storage/app/public/images:rw
+      - ${APP_DATA_DIR}/data/search-indexes:/var/www/html/storage/search-indexes:rw
+
+  database:
+    image: mariadb:11.8.8
+    restart: on-failure
     environment:
       MARIADB_ROOT_PASSWORD: ${APP_SEED}
       MARIADB_DATABASE: koel
@@ -47,42 +75,3 @@ services:
       timeout: 5s
       retries: 10
       start_period: 30s
-
-  web:
-    image: phanan/koel:9.11.0
-    restart: on-failure
-    depends_on:
-      database:
-        condition: service_healthy
-    environment:
-      APP_SEED: ${APP_SEED}
-      APP_ENV: production
-      APP_DEBUG: "false"
-
-      DB_CONNECTION: mysql
-      DB_HOST: database
-      DB_PORT: 3306
-      DB_DATABASE: koel
-      DB_USERNAME: koel
-      DB_PASSWORD: ${APP_SEED}
-
-      STORAGE_DRIVER: local
-      MEDIA_PATH: /music
-      ARTIFACTS_PATH: /artifacts
-      STREAMING_METHOD: x-sendfile
-      SCOUT_DRIVER: tntsearch
-
-      FORCE_HTTPS: "false"
-      OPTIMIZE_CONFIG: "true"
-    entrypoint:
-      - /bin/sh
-      - -c
-      - |
-        touch /var/www/html/.env
-        export APP_KEY="$$(php -r 'echo "base64:".base64_encode(hash("sha256", getenv("APP_SEED"), true));')"
-        exec koel-entrypoint apache2-foreground
-    volumes:
-      - ${APP_DATA_DIR}/data/music:/music
-      - ${APP_DATA_DIR}/data/images:/var/www/html/storage/app/public/images
-      - ${APP_DATA_DIR}/data/search-indexes:/var/www/html/storage/search-indexes
-      - ${APP_DATA_DIR}/data/artifacts:/artifacts
