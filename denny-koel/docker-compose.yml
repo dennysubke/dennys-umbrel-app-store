@@ -8,70 +8,28 @@ services:
       PROXY_AUTH_ADD: "false"
 
   web:
-    image: phanan/koel:9.11.0
+    image: phanan/koel
     restart: on-failure
     depends_on:
-      database:
-        condition: service_healthy
+      - database
     environment:
-      APP_SEED: ${APP_SEED}
-
-      APP_ENV: production
-      APP_DEBUG: "false"
-      OPTIMIZE_CONFIG: "true"
-
-      DB_CONNECTION: mysql
+      DB_CONNECTION: pgsql
       DB_HOST: database
-      DB_PORT: 3306
-      DB_DATABASE: koel
+      DB_PORT: 5432
       DB_USERNAME: koel
-      DB_PASSWORD: ${APP_SEED}
-
-      MEDIA_PATH: /music
-      STREAMING_METHOD: x-sendfile
-
-    entrypoint:
-      - /bin/sh
-      - -c
-      - |
-        mkdir -p \
-          /music \
-          /var/www/html/storage/app/public/images \
-          /var/www/html/storage/search-indexes
-
-        touch /var/www/html/.env
-        chown www-data:www-data /var/www/html/.env
-        chmod 600 /var/www/html/.env
-
-        chown www-data:www-data /music
-
-        chown -R www-data:www-data \
-          /var/www/html/storage/app/public/images \
-          /var/www/html/storage/search-indexes
-
-        export APP_KEY="$$(php -r 'echo "base64:" . base64_encode(hash("sha256", getenv("APP_SEED"), true));')"
-
-        exec /usr/local/bin/koel-entrypoint apache2-foreground
+      DB_PASSWORD: koelpassword
+      DB_DATABASE: koel
     volumes:
-      - ${APP_DATA_DIR}/data/music:/music:rw
-      - ${APP_DATA_DIR}/data/images:/var/www/html/storage/app/public/images:rw
-      - ${APP_DATA_DIR}/data/search-indexes:/var/www/html/storage/search-indexes:rw
+      - ${APP_DATA_DIR}/music:/music
+      - ${APP_DATA_DIR}/data/images:/var/www/html/storage/app/public/images
+      - ${APP_DATA_DIR}/data/search-indexes:/var/www/html/storage/search-indexes
 
   database:
-    image: mariadb:11.8.8
+    image: postgres:13
     restart: on-failure
     environment:
-      MARIADB_ROOT_PASSWORD: ${APP_SEED}
-      MARIADB_DATABASE: koel
-      MARIADB_USER: koel
-      MARIADB_PASSWORD: ${APP_SEED}
+      POSTGRES_DB: koel
+      POSTGRES_USER: koel
+      POSTGRES_PASSWORD: koelpassword
     volumes:
-      - ${APP_DATA_DIR}/data/database:/var/lib/mysql
-    healthcheck:
-      test:
-        - CMD-SHELL
-        - mariadb-admin ping --host=127.0.0.1 --user=root --password="$${MARIADB_ROOT_PASSWORD}" --silent
-      interval: 10s
-      timeout: 5s
-      retries: 10
-      start_period: 30s
+      - ${APP_DATA_DIR}/data/database:/var/lib/postgresql/data
