@@ -5,7 +5,7 @@ tagline: An intuitive tool for managing social media
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-postiz/logo.png
 category: In Progress
 version: "1.37.3"
-port: 4442
+port: 4007
 description: >-
   Postiz is a comprehensive social media management tool designed to streamline the process of content creation, scheduling, and publication across multiple social media platforms. It is targeted at content creators, businesses, and agencies looking to optimize their online presence. With Postiz, users can plan, create, and automatically publish content to various social media channels, including Instagram, YouTube, LinkedIn, and more, all from one unified interface.
 
