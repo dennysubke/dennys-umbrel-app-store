@@ -51,10 +51,19 @@ services:
     image: ghcr.io/gitroomhq/postiz-app:v2.21.10@sha256:1d5a5dc6b896747d1483c01dc2562165bd313ad601b32f6cabb7f7dd08a911a9
     restart: on-failure
     environment:
+      # Canonical Umbrel address used for links and OAuth callbacks.
       MAIN_URL: "http://${DEVICE_DOMAIN_NAME}:4007"
       FRONTEND_URL: "http://${DEVICE_DOMAIN_NAME}:4007"
       NEXT_PUBLIC_BACKEND_URL: "http://${DEVICE_DOMAIN_NAME}:4007/api"
+      BACKEND_URL: "http://${DEVICE_DOMAIN_NAME}:4007/api"
+
+      # Use the address currently open in the browser for normal API requests.
+      # This makes login work through the LAN IP, umbrel.local, and custom local names.
+      NEXT_PUBLIC_OVERRIDE_BACKEND_URL: "/api"
       BACKEND_INTERNAL_URL: "http://localhost:3000"
+
+      # Required because the normal Umbrel LAN connection uses HTTP.
+      NOT_SECURED: "true"
 
       JWT_SECRET: "${APP_SEED}"
       DATABASE_URL: "postgresql://postiz:${APP_SEED}@postgres:5432/postiz"
@@ -81,75 +90,53 @@ services:
       X_API_KEY: ""
       X_API_SECRET: ""
       X_URL: "https://x.com"
-
       LINKEDIN_CLIENT_ID: ""
       LINKEDIN_CLIENT_SECRET: ""
-
       FACEBOOK_APP_ID: ""
       FACEBOOK_APP_SECRET: ""
-
       INSTAGRAM_APP_ID: ""
       INSTAGRAM_APP_SECRET: ""
-
       THREADS_APP_ID: ""
       THREADS_APP_SECRET: ""
-
       YOUTUBE_CLIENT_ID: ""
       YOUTUBE_CLIENT_SECRET: ""
-
       GOOGLE_GMB_CLIENT_ID: ""
       GOOGLE_GMB_CLIENT_SECRET: ""
-
       TIKTOK_CLIENT_ID: ""
       TIKTOK_CLIENT_SECRET: ""
-
       REDDIT_CLIENT_ID: ""
       REDDIT_CLIENT_SECRET: ""
-
       PINTEREST_CLIENT_ID: ""
       PINTEREST_CLIENT_SECRET: ""
-
       DISCORD_CLIENT_ID: ""
       DISCORD_CLIENT_SECRET: ""
       DISCORD_BOT_TOKEN_ID: ""
-
       SLACK_ID: ""
       SLACK_SECRET: ""
       SLACK_SIGNING_SECRET: ""
-
       TELEGRAM_TOKEN: ""
       TELEGRAM_BOT_NAME: ""
-
       MASTODON_URL: "https://mastodon.social"
       MASTODON_CLIENT_ID: ""
       MASTODON_CLIENT_SECRET: ""
-
       DRIBBBLE_CLIENT_ID: ""
       DRIBBBLE_CLIENT_SECRET: ""
-
       NEYNAR_CLIENT_ID: ""
       NEYNAR_SECRET_KEY: ""
       NEYNAR_LOGIN_URL: ""
-
       MEWE_HOST: ""
       MEWE_APP_ID: ""
       MEWE_API_KEY: ""
-
       TWITCH_CLIENT_ID: ""
       TWITCH_CLIENT_SECRET: ""
-
       KICK_CLIENT_ID: ""
       KICK_SECRET: ""
-
       VK_ID: ""
       WHOP_CLIENT_ID: ""
-
       GITHUB_CLIENT_ID: ""
       GITHUB_CLIENT_SECRET: ""
-
       BEEHIIVE_API_KEY: ""
       BEEHIIVE_PUBLICATION_ID: ""
-
       LISTMONK_DOMAIN: ""
       LISTMONK_USER: ""
       LISTMONK_API_KEY: ""
@@ -272,13 +259,10 @@ services:
       POSTGRES_USER: temporal
       POSTGRES_PWD: "${APP_SEED}"
       POSTGRES_SEEDS: temporal-postgres
-
       DYNAMIC_CONFIG_FILE_PATH: config/dynamicconfig/development-sql.yaml
-
       ENABLE_ES: "true"
       ES_SEEDS: temporal-elasticsearch
       ES_VERSION: v7
-
       TEMPORAL_NAMESPACE: default
     volumes:
       - ${APP_DATA_DIR}/data/temporal/dynamicconfig:/etc/temporal/config/dynamicconfig:ro
