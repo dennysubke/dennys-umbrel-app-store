@@ -9,7 +9,7 @@ services:
       APP_PORT: 80
       PROXY_AUTH_ADD: "false"
   web:
-    image: phanan/koel:9.11.0
+    image: phanan/koel:9.11.0@sha256:4bbbd448cdca2d9bd9b9dcf7788a20073ebc3105c3c82ca91e3b499ddb590aa7
     restart: on-failure
     depends_on:
       database:
@@ -46,7 +46,7 @@ services:
       retries: 30
       start_period: 5s
   database:
-    image: postgres:13
+    image: postgres:14@sha256:a698d240380a51147281b62c2ad9daff51ae29c781d6d783c0adfd8e48ef4b1e
     restart: on-failure
     environment:
       POSTGRES_DB: koel
