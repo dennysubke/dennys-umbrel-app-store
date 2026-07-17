@@ -4,7 +4,7 @@ services:
   app_proxy:
     environment:
       APP_HOST: denny-pokerogue_web_1
-      APP_PORT: 8000
+      APP_PORT: 8080
       PROXY_AUTH_ADD: "false"
 
   web:
