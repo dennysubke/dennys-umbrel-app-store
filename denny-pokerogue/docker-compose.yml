@@ -8,5 +8,5 @@ services:
       PROXY_AUTH_ADD: "false"
 
   web:
-    image: dennysubke/pokerogue:1.12.0.8@sha256:e11a5a8039ffea015ee133b60bdbc74c4d6ecf9c1ff20746c00c62bff2a75df2
+    image: dennysubke/pokerogue:1.12.0.8@sha256:97ed372c618830cfae95c85579fe90f63f0d26155d9a93df5e0435f960fb641b
     restart: on-failure
