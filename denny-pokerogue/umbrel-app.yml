@@ -1,0 +1,37 @@
+manifestVersion: 1
+id: denny-pokerogue
+name: PokéRogue
+tagline: A roguelite journey through endless battles
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pokerogue/logo.png
+category: gaming
+version: "1.12.0.8"
+port: 8370
+description: >-
+  👾 PokéRogue is a browser-based monster-catching roguelite that combines turn-based battles with randomized runs, long-term progression, and strategic team building. Players choose their starters, encounter wild creatures, challenge trainers and bosses, and travel through changing biomes while collecting items and improving their team.
+
+
+  Each run offers different encounters, rewards, abilities, and tactical decisions. Players can catch additional creatures, unlock new starters, hatch eggs, discover rare variants, and experiment with different team combinations. Multiple game modes and persistent unlocks provide strong replay value while preserving the familiar rhythm of classic turn-based creature battles.
+
+
+  Dynamic difficulty and unexpected encounters encourage players to adapt their strategies throughout every run. A broad selection of creatures, moves, items, and passive abilities allows for countless tactical combinations, while every attempt offers new opportunities to improve and progress.
+developer: Pagefault Games
+website: https://pokerogue.net
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/pagefaultgames/pokerogue
+support: https://github.com/pagefaultgames/pokerogue/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pokerogue/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pokerogue/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pokerogue/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pokerogue/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-pokerogue/5.jpg
+releaseNotes: >-
+  This version fixes Pressure flyouts so they no longer trigger when a Pokémon attacks. 
+  
+  
+  It also restores shiny Daily Run starters and ensures event items are correctly awarded on wave 115.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
