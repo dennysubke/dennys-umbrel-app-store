@@ -2,6 +2,9 @@ version: "3.7"
 
 services:
   app_proxy:
+    depends_on:
+      postiz:
+        condition: service_healthy
     environment:
       APP_HOST: denny-postiz_postiz_1
       APP_PORT: 5000
@@ -166,9 +169,9 @@ services:
           const r=require('http').get('http://localhost:5000/',res=>process.exit(res.statusCode<500?0:1));
           r.on('error',()=>process.exit(1));
           r.setTimeout(4000,()=>{r.destroy();process.exit(1)});
-      interval: 30s
+      interval: 10s
       timeout: 10s
-      retries: 5
+      retries: 12
       start_period: 120s
 
   postgres:
