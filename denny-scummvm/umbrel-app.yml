@@ -1,0 +1,43 @@
+manifestVersion: 1
+id: denny-scummvm
+name: ScummVM
+tagline: A home for classic adventures
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-scummvm/logo.png
+category: gaming
+version: "2026.3.0"
+port: 8373
+description: >-
+  ScummVM brings decades of classic gaming history directly to your Umbrel. It allows you to play hundreds of supported point and click adventures, role playing games and interactive stories through a convenient browser based interface. Rediscover legendary titles from series such as Monkey Island, King’s Quest, Broken Sword, Simon the Sorcerer and many more, without needing the original operating systems or hardware they were designed for.
+
+
+  Instead of emulating an entire computer, ScummVM recreates the individual game engines used by supported titles. This approach provides improved compatibility on modern systems while preserving the original graphics, audio, gameplay and atmosphere. Games can be added to a central library, searched, grouped and launched through the built in ScummVM launcher.
+
+
+  ScummVM offers configurable graphics scaling, audio settings, subtitles, language selection, keyboard mappings and game specific options. Integrated save and load management makes it easy to continue an adventure, while autosaves help protect your progress. Many games also benefit from engine specific fixes, improved controls and quality of life enhancements that were not available in their original releases.
+
+
+  Running ScummVM on Umbrel gives you a personal retro gaming library that can be accessed from a web browser across your local network. Your game files, settings and saved games remain stored on your own Umbrel, giving you a private and centralized place for your classic adventure collection.
+
+
+  ⚠️ ScummVM does not include commercial games or copyrighted game data. To play a supported title, you must provide the required data files from a copy of the game that you legally own.
+developer: The ScummVM Team
+website: https://www.scummvm.org/
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/scummvm/scummvm
+support: https://github.com/scummvm/scummvm/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-scummvm/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-scummvm/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-scummvm/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-scummvm/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-scummvm/5.jpg
+releaseNotes: >-
+  This version expands ScummVM’s supported game library with several new titles, including two Nancy Drew adventures, Noctropolis, Cartoon Carnival, Alfred Pelrock, and multiple Pilot Brothers games.
+
+
+  It also improves the interface with kinetic scrolling and clearer visual feedback for clickable links. Additional fixes address window sizing when leaving fullscreen mode in 3D engines, while a lightweight NULL OPL driver has been added for lower-end systems.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""

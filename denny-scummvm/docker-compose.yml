@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-scummvm_web_1
+      APP_PORT: 3000
+      PROXY_AUTH_ADD: "false"
+
+  web:
+    image: dennysubke/scummvm:2026.3.0@sha256:1b57f90aae7385b064ce6d1d3dbdeb4dc9537ceae45e8d967bc9c3c8111ce5ae
+    restart: on-failure
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      PASSWORD: ""
+      START_DOCKER: "false"
+      CUSTOM_PORT: "3000"
+      TITLE: "ScummVM"
+      FM_HOME: "/config/games"
+      NO_DECOR: "true"
+    volumes:
+      - ${UMBREL_ROOT}/data/storage/scummvm:/config
+    shm_size: "1gb"
