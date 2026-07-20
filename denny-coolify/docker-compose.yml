@@ -11,7 +11,7 @@ services:
   # writable only by that account. Umbrel initially creates package data as
   # UID/GID 1000, so this one-shot service prepares the directories before the
   # application and realtime services start.
-  permissions:
+  coolify-permissions:
     image: ghcr.io/coollabsio/coolify:4.1.2@sha256:3a27ba5f7f98ff7763a0a4d6715ec36e564f9622eea8f492c46f90716ea2525f
     user: "0:0"
     entrypoint: ["/bin/sh", "-c"]
@@ -62,10 +62,10 @@ services:
 
   # A dedicated Docker daemon for workloads deployed by Coolify. Coolify never
   # receives Umbrel's host Docker socket.
-  docker:
+  coolify-docker:
     image: docker:28.0.4-dind@sha256:ddb0033088b4fab74881ade341a582e3c6c8021b82377703ba1a6106bd3ded44
     privileged: true
-    init: true
+    # The Docker image already provides its own process startup handling.
     restart: on-failure
     stop_grace_period: 1m
     environment:
@@ -97,9 +97,9 @@ services:
     init: true
     restart: on-failure
     depends_on:
-      permissions:
+      coolify-permissions:
         condition: service_completed_successfully
-      docker:
+      coolify-docker:
         condition: service_healthy
     entrypoint: ["/bin/sh", "-c"]
     command:
@@ -121,7 +121,7 @@ services:
       retries: 30
       start_period: 20s
 
-  postgres:
+  coolify-db:
     image: postgres:15@sha256:c189d272e4fcdd1ac419adee675d30be3d389c22ee770d593f15819d22a68a0d
     restart: on-failure
     environment:
@@ -137,7 +137,7 @@ services:
       retries: 30
       start_period: 10s
 
-  redis:
+  coolify-redis:
     image: redis:7.4.7-alpine3.21@sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf
     restart: on-failure
     environment:
@@ -160,11 +160,11 @@ services:
       retries: 30
       start_period: 5s
 
-  soketi:
+  coolify-realtime:
     image: ghcr.io/coollabsio/coolify-realtime:1.0.16@sha256:b5bb9d1c95d9b4ca59773b82d1e1a2bf4ccac5fbed33be19b9b3906574db3629
     restart: on-failure
     depends_on:
-      permissions:
+      coolify-permissions:
         condition: service_completed_successfully
     environment:
       APP_NAME: Coolify
@@ -187,7 +187,7 @@ services:
 
   web:
     image: ghcr.io/coollabsio/coolify:4.1.2@sha256:3a27ba5f7f98ff7763a0a4d6715ec36e564f9622eea8f492c46f90716ea2525f
-    init: true
+    # Do not add init: true here. Coolify's s6-overlay /init must remain PID 1.
     restart: on-failure
     working_dir: /var/www/html
     env_file:
@@ -209,13 +209,13 @@ services:
       - ${APP_DATA_DIR}/data/coolify/backups:/var/www/html/storage/app/backups
       - ${APP_DATA_DIR}/data/coolify/webhooks-during-maintenance:/var/www/html/storage/app/webhooks-during-maintenance
     depends_on:
-      permissions:
+      coolify-permissions:
         condition: service_completed_successfully
-      postgres:
+      coolify-db:
         condition: service_healthy
-      redis:
+      coolify-redis:
         condition: service_healthy
-      soketi:
+      coolify-realtime:
         condition: service_healthy
       coolify-testing-host:
         condition: service_healthy
