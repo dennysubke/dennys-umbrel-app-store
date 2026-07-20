@@ -32,8 +32,8 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-cloudreve/6.jpg
 releaseNotes: >-
   Full release notes can be found at https://github.com/cloudreve/cloudreve/releases
-​
-dependencies:
+
+dependencies: []
 path: ""
 defaultUsername: ""
 defaultPassword: ""
