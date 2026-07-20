@@ -16,7 +16,7 @@ For public applications, forward the required external ports to `8531` and `8532
 
 ## Architecture
 
-Coolify connects by SSH to the bundled `coolify-testing-host`. Its Docker CLI uses a Unix socket belonging only to the bundled Docker-in-Docker daemon. Persistent state is stored below `${APP_DATA_DIR}/data/`.
+Coolify connects by SSH to the bundled `coolify-testing-host`. Its Docker CLI uses a Unix socket belonging only to the bundled `coolify-docker` daemon. Database, cache, and realtime services use app-specific DNS names to prevent collisions with other Umbrel apps. Persistent state is stored below `${APP_DATA_DIR}/data/`.
 
 The Docker-in-Docker service needs privileged mode because it runs a complete Docker daemon. This is intentionally isolated from Umbrel's own Docker daemon.
 
