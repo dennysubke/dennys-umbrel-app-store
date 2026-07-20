@@ -4,7 +4,7 @@ services:
   app_proxy:
     depends_on:
       web:
-        condition: service_healthy
+        condition: service_started
     environment:
       APP_HOST: denny-dokploy_web_1
       APP_PORT: 3000
@@ -25,7 +25,7 @@ services:
       PORT: 3000
       DATABASE_URL: postgresql://dokploy:${APP_SEED}@postgres:5432/dokploy
       REDIS_HOST: redis
-      RELEASE_TAG: v0.25.5
+      RELEASE_TAG: v0.29.12
       BETTER_AUTH_SECRET: ${APP_SEED}
       TRAEFIK_PORT: "8529"
       TRAEFIK_SSL_PORT: "8530"
@@ -41,15 +41,7 @@ services:
         aliases:
           - dokploy
     healthcheck:
-      test:
-        - CMD-SHELL
-        - >-
-          node -e "fetch('http://127.0.0.1:3000').then(r =>
-          process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"
-      interval: 10s
-      timeout: 5s
-      retries: 30
-      start_period: 60s
+      disable: true
 
   postgres:
     image: postgres:16.14-alpine3.23@sha256:42b8b8b29c8a4e933d88943e5b03001a78794905cf786e6e7634e9f2abd5a0d3
@@ -86,14 +78,21 @@ services:
       - /bin/sh
       - -c
       - |
-        if PGPASSWORD="$${NEW_POSTGRES_PASSWORD}" psql -h postgres -U dokploy -d dokploy -c "SELECT 1" >/dev/null 2>&1; then
+        if PGPASSWORD="$${NEW_POSTGRES_PASSWORD}" \
+          psql -h postgres -U dokploy -d dokploy -c "SELECT 1" >/dev/null 2>&1; then
           echo "PostgreSQL already uses the current Umbrel app password."
           exit 0
         fi
 
         echo "Migrating the legacy Dokploy PostgreSQL password..."
 
-        PGPASSWORD="$${OLD_POSTGRES_PASSWORD}" psql -h postgres -U dokploy -d dokploy --set=new_password="$${NEW_POSTGRES_PASSWORD}" -c "ALTER ROLE dokploy PASSWORD :'new_password';"
+        PGPASSWORD="$${OLD_POSTGRES_PASSWORD}" \
+          psql \
+            -h postgres \
+            -U dokploy \
+            -d dokploy \
+            --set=new_password="$${NEW_POSTGRES_PASSWORD}" \
+            -c "ALTER ROLE dokploy PASSWORD :'new_password';"
     networks:
       backend:
 
@@ -121,7 +120,6 @@ services:
       start_period: 10s
 
   traefik:
-    # Dokploy expects its Traefik container to use this fixed name.
     container_name: dokploy-traefik
     image: traefik:v3.5.4@sha256:4df0a50fcf71b454c0d7ad17675776dc8d37359deae3291895bdaa008c1b9972
     restart: on-failure
@@ -151,6 +149,7 @@ services:
 networks:
   backend:
     internal: true
+
   dokploy-network:
     external: true
     name: dokploy-network
