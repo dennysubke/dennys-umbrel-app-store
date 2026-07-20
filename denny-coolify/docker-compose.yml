@@ -2,92 +2,173 @@ version: "3.7"
 
 services:
   app_proxy:
+    depends_on:
+      web:
+        condition: service_healthy
     environment:
       APP_HOST: denny-coolify_web_1
       APP_PORT: 8080
+      PROXY_AUTH_ADD: "false"
 
+  # A dedicated Docker daemon for workloads deployed by Coolify. Coolify never
+  # receives Umbrel's host Docker socket.
   docker:
     image: docker:28.0.4-dind@sha256:ddb0033088b4fab74881ade341a582e3c6c8021b82377703ba1a6106bd3ded44
     privileged: true
-    network_mode: host
+    init: true
+    restart: on-failure
     stop_grace_period: 1m
-    restart: on-failure
     environment:
-      DOCKER_ENSURE_BRIDGE: "dind0:10.32.0.1/16"
-    entrypoint: /entrypoint.sh
-    command: >
-      dockerd
-        --bridge dind0
-        --data-root /data/data
-        --exec-root /data/exec
-        --host unix:///data/docker.sock
-        --pidfile /data/docker.pid
+      DOCKER_TLS_CERTDIR: ""
+    command:
+      - --host=unix:///data/docker.sock
+      - --data-root=/data/engine
+      - --exec-root=/data/exec
+      - --pidfile=/data/docker.pid
+      - --storage-driver=overlay2
+    ports:
+      # Entry points for applications deployed inside Coolify.
+      - "8531:80/tcp"
+      - "8532:443/tcp"
+      - "8532:443/udp"
     volumes:
-      - ${APP_DATA_DIR}/entrypoint.sh:/entrypoint.sh
       - ${APP_DATA_DIR}/data/docker:/data
-
-  web:
-    image: coollabsio/coolify:4.0.0-beta.434@sha256:39db8373628c340747cf6199f5873322d5d0a9b6617bad0ce5cf6895369a3a83
-    restart: on-failure
-    environment:
-      COOLIFY_APP_ID: coolify
-      COOLIFY_SECRET_KEY: 401a49063b516a93ac62a5dfdae969dd9189cae019dd0b1d7d9d7e8fd5db9269
-      APP_KEY: base64:FLESjZzM6M2rd7T023CHSMGNQKegQBRUaZJY7wq4VCI=
-      DATABASE_URL: postgresql://coolify:coolifypass123@db:5432/coolify
-      COOLIFY_DATABASE_URL: postgresql://coolify:coolifypass123@db:5432/coolify
-      DB_CONNECTION: pgsql
-      DB_HOST: db
-      DB_PORT: 5432
-      DB_DATABASE: coolify
-      DB_USERNAME: coolify
-      DB_PASSWORD: coolifypass123
-      REDIS_HOST: redis
-      REDIS_PORT: 6379
-      COOLIFY_REDIS_URL: redis://redis:6379
-    extra_hosts:
-      - host.docker.internal:host-gateway
-      - ${APP_DOMAIN}:host-gateway
-    volumes:
-      # /var/run/docker.sock:/var/run/docker.sock
-      - ${APP_DATA_DIR}/data/docker:/var/run
-      - ${APP_DATA_DIR}/data/coolify_data:/data
-    depends_on:
-      db:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
+      - ${APP_DATA_DIR}/data/coolify:/data/coolify
     healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:8080 >/dev/null 2>&1 || exit 1"]
-      interval: 15s
+      test: ["CMD-SHELL", "docker -H unix:///data/docker.sock info >/dev/null 2>&1 || exit 1"]
+      interval: 10s
       timeout: 5s
-      retries: 12
+      retries: 30
       start_period: 20s
 
-  db:
+  # Coolify's supported Docker Desktop mode controls its local server through
+  # SSH. This bridge exposes only the isolated Docker daemon above.
+  coolify-testing-host:
+    # Upstream currently publishes this helper only as `latest`; the immutable
+    # multiarch manifest digest prevents it from moving underneath this package.
+    image: ghcr.io/coollabsio/coolify-testing-host:latest@sha256:88d0826eb8ae8cecb0c49eaaa9e321a7bf81931a48c8492366607eb211371d81
+    init: true
+    restart: on-failure
+    depends_on:
+      docker:
+        condition: service_healthy
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        while [ ! -S /docker-socket/docker.sock ]; do sleep 1; done
+        ln -sf /docker-socket/docker.sock /var/run/docker.sock
+        exec /usr/sbin/sshd -D -o ListenAddress=0.0.0.0 -o Port=22
+    volumes:
+      - ${APP_DATA_DIR}/data/docker:/docker-socket
+      - ${APP_DATA_DIR}/data/coolify:/data/coolify
+    networks:
+      default:
+        aliases:
+          # Coolify 4.1.2 may seed the local server with this hostname.
+          - host.docker.internal
+    healthcheck:
+      test: ["CMD-SHELL", "docker info >/dev/null 2>&1 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 20s
+
+  postgres:
     image: postgres:15@sha256:c189d272e4fcdd1ac419adee675d30be3d389c22ee770d593f15819d22a68a0d
     restart: on-failure
     environment:
       POSTGRES_USER: coolify
-      POSTGRES_PASSWORD: coolifypass123
+      POSTGRES_PASSWORD: ${APP_COOLIFY_DB_PASSWORD}
       POSTGRES_DB: coolify
     volumes:
-      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB -h 127.0.0.1"]
       interval: 10s
       timeout: 5s
-      retries: 12
+      retries: 30
       start_period: 10s
 
   redis:
-    image: redis:alpine@sha256:59b6e694653476de2c992937ebe1c64182af4728e54bb49e9b7a6c26614d8933
+    image: redis:7.4.7-alpine3.21@sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf
     restart: on-failure
+    environment:
+      REDIS_PASSWORD: ${APP_COOLIFY_REDIS_PASSWORD}
+    command:
+      - redis-server
+      - --save
+      - "20"
+      - "1"
+      - --loglevel
+      - warning
+      - --requirepass
+      - ${APP_COOLIFY_REDIS_PASSWORD}
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
-    command: ["redis-server", "--save", "60", "1", "--loglevel", "warning"]
     healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
+      test: ["CMD-SHELL", "redis-cli -a \"$${REDIS_PASSWORD}\" ping 2>/dev/null | grep -q PONG"]
       interval: 10s
       timeout: 5s
-      retries: 12
+      retries: 30
       start_period: 5s
+
+  soketi:
+    image: ghcr.io/coollabsio/coolify-realtime:1.0.16@sha256:b5bb9d1c95d9b4ca59773b82d1e1a2bf4ccac5fbed33be19b9b3906574db3629
+    restart: on-failure
+    environment:
+      APP_NAME: Coolify
+      SOKETI_DEBUG: "false"
+      SOKETI_DEFAULT_APP_ID: ${APP_COOLIFY_PUSHER_ID}
+      SOKETI_DEFAULT_APP_KEY: ${APP_COOLIFY_PUSHER_KEY}
+      SOKETI_DEFAULT_APP_SECRET: ${APP_COOLIFY_PUSHER_SECRET}
+      SOKETI_HOST: 0.0.0.0
+    ports:
+      - "6001:6001/tcp"
+      - "6002:6002/tcp"
+    volumes:
+      - ${APP_DATA_DIR}/data/coolify/ssh:/var/www/html/storage/app/ssh
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:6001/ready >/dev/null && wget -qO- http://127.0.0.1:6002/ready >/dev/null || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 10s
+
+  web:
+    image: ghcr.io/coollabsio/coolify:4.1.2@sha256:3a27ba5f7f98ff7763a0a4d6715ec36e564f9622eea8f492c46f90716ea2525f
+    init: true
+    restart: on-failure
+    working_dir: /var/www/html
+    env_file:
+      - ${APP_DATA_DIR}/coolify.env
+    environment:
+      APP_ENV: production
+      PHP_MEMORY_LIMIT: 512M
+      PHP_FPM_PM_CONTROL: dynamic
+      PHP_FPM_PM_START_SERVERS: 1
+      PHP_FPM_PM_MIN_SPARE_SERVERS: 1
+      PHP_FPM_PM_MAX_SPARE_SERVERS: 10
+    volumes:
+      - ${APP_DATA_DIR}/coolify.env:/var/www/html/.env:ro
+      - ${APP_DATA_DIR}/data/coolify:/data/coolify
+      - ${APP_DATA_DIR}/data/coolify/ssh:/var/www/html/storage/app/ssh
+      - ${APP_DATA_DIR}/data/coolify/applications:/var/www/html/storage/app/applications
+      - ${APP_DATA_DIR}/data/coolify/databases:/var/www/html/storage/app/databases
+      - ${APP_DATA_DIR}/data/coolify/services:/var/www/html/storage/app/services
+      - ${APP_DATA_DIR}/data/coolify/backups:/var/www/html/storage/app/backups
+      - ${APP_DATA_DIR}/data/coolify/webhooks-during-maintenance:/var/www/html/storage/app/webhooks-during-maintenance
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      soketi:
+        condition: service_healthy
+      coolify-testing-host:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://127.0.0.1:8080/api/health >/dev/null 2>&1 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
