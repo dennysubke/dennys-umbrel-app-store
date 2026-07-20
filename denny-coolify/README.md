@@ -20,6 +20,10 @@ Coolify connects by SSH to the bundled `coolify-testing-host`. Its Docker CLI us
 
 The Docker-in-Docker service needs privileged mode because it runs a complete Docker daemon. This is intentionally isolated from Umbrel's own Docker daemon.
 
+## Permissions
+
+No manual `chmod` or `chown` command is required. A one-shot initialization service creates Coolify's required directories and assigns them to Coolify's runtime UID `9999` before the dashboard and realtime containers start.
+
 ## First start
 
 Open Coolify from the Umbrel dashboard and create the initial administrator account. The local server created during onboarding points to the isolated deployment environment supplied by this package.
