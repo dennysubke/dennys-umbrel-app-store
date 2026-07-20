@@ -20,6 +20,9 @@ description: >-
 
 
   Overall, Dokploy turns what used to be a complicated process into an accessible and enjoyable experience. It provides the power and flexibility of modern DevOps tools while keeping the interface simple and approachable. By combining automation, observability, and intelligent resource management, Dokploy empowers developers and teams to deploy with confidence and focus entirely on creating great software.
+
+
+  ⚠️ Before installing, please read https://github.com/dennysubke/dennys-umbrel-app-store/tree/master/denny-dokploy carefully for important setup instructions, port information, limitations, and security considerations.
 developer: Dokploy
 website: https://dokploy.com/
 submitter: dennysubke
@@ -30,6 +33,8 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dokploy/1.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dokploy/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dokploy/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dokploy/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dokploy/5.jpg
 releaseNotes: >-
   Version 0.29.12 fixes layout issues on the two-factor authentication screen by preventing button overflow.
 
