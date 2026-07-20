@@ -11,7 +11,7 @@ services:
       PROXY_AUTH_ADD: "false"
 
   web:
-    image: dokploy/dokploy:v0.25.5@sha256:a3edbde94576e57939581ae197fffc1d53d05c50970d2504213942421fd47b8b
+    image: dokploy/dokploy:v0.29.12@sha256:a90e16e34eb3373c472e3303956155f4436202473efeaeb8aea6dfa703a87dbb
     restart: on-failure
     depends_on:
       postgres-password-migration:
