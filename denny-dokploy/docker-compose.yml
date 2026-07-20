@@ -23,8 +23,8 @@ services:
     environment:
       NODE_ENV: production
       PORT: 3000
-      DATABASE_URL: postgresql://dokploy:${APP_SEED}@postgres:5432/dokploy
-      REDIS_HOST: redis
+      DATABASE_URL: postgresql://dokploy:amukds4wi9001583845717ad2@dokploy-postgres:5432/dokploy
+      REDIS_HOST: dokploy-redis
       RELEASE_TAG: v0.29.12
       BETTER_AUTH_SECRET: ${APP_SEED}
       TRAEFIK_PORT: "8529"
@@ -44,11 +44,13 @@ services:
       disable: true
 
   postgres:
+    # Dokploy expects its internal database to be named dokploy-postgres.
+    container_name: dokploy-postgres
     image: postgres:16.14-alpine3.23@sha256:42b8b8b29c8a4e933d88943e5b03001a78794905cf786e6e7634e9f2abd5a0d3
     restart: on-failure
     environment:
       POSTGRES_USER: dokploy
-      POSTGRES_PASSWORD: ${APP_SEED}
+      POSTGRES_PASSWORD: amukds4wi9001583845717ad2
       POSTGRES_DB: dokploy
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
@@ -72,33 +74,74 @@ services:
       postgres:
         condition: service_healthy
     environment:
-      NEW_POSTGRES_PASSWORD: ${APP_SEED}
-      OLD_POSTGRES_PASSWORD: supersecurepass
+      DEFAULT_POSTGRES_PASSWORD: amukds4wi9001583845717ad2
+      UMBREL_POSTGRES_PASSWORD: ${APP_SEED}
+      LEGACY_POSTGRES_PASSWORD: supersecurepass
     command:
       - /bin/sh
       - -c
       - |
-        if PGPASSWORD="$${NEW_POSTGRES_PASSWORD}" \
-          psql -h postgres -U dokploy -d dokploy -c "SELECT 1" >/dev/null 2>&1; then
-          echo "PostgreSQL already uses the current Umbrel app password."
+        set -eu
+
+        if PGPASSWORD="$${DEFAULT_POSTGRES_PASSWORD}" \
+          psql -h dokploy-postgres -U dokploy -d dokploy \
+          -c "SELECT 1" >/dev/null 2>&1; then
+          echo "PostgreSQL already uses the password expected by Dokploy."
           exit 0
         fi
 
-        echo "Migrating the legacy Dokploy PostgreSQL password..."
+        if PGPASSWORD="$${UMBREL_POSTGRES_PASSWORD}" \
+          psql -h dokploy-postgres -U dokploy -d dokploy \
+          -c "SELECT 1" >/dev/null 2>&1; then
+          CURRENT_POSTGRES_PASSWORD="$${UMBREL_POSTGRES_PASSWORD}"
+          echo "Migrating PostgreSQL password from the previous Umbrel app password..."
+        elif PGPASSWORD="$${LEGACY_POSTGRES_PASSWORD}" \
+          psql -h dokploy-postgres -U dokploy -d dokploy \
+          -c "SELECT 1" >/dev/null 2>&1; then
+          CURRENT_POSTGRES_PASSWORD="$${LEGACY_POSTGRES_PASSWORD}"
+          echo "Migrating PostgreSQL password from the legacy package password..."
+        else
+          echo "Unable to authenticate to the existing Dokploy database." >&2
+          exit 1
+        fi
 
-        PGPASSWORD="$${OLD_POSTGRES_PASSWORD}" \
+        PGPASSWORD="$${CURRENT_POSTGRES_PASSWORD}" \
           psql \
-            -h postgres \
+            -h dokploy-postgres \
             -U dokploy \
             -d dokploy \
-            --set=new_password="$${NEW_POSTGRES_PASSWORD}" \
+            --set=new_password="$${DEFAULT_POSTGRES_PASSWORD}" \
             -c "ALTER ROLE dokploy PASSWORD :'new_password';"
+
+        PGPASSWORD="$${DEFAULT_POSTGRES_PASSWORD}" \
+          psql -h dokploy-postgres -U dokploy -d dokploy \
+          -c "SELECT 1" >/dev/null
+
+        echo "PostgreSQL password migration completed."
     networks:
       backend:
 
-  redis:
+  redis-permissions:
     image: redis:7.4.7-alpine3.21@sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf
+    user: "0:0"
+    command:
+      - /bin/sh
+      - -c
+      - |
+        chown -R 1000:1000 /data
+        chmod -R u+rwX,g+rwX /data
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data
+
+  redis:
+    # Dokploy expects its internal cache to be named dokploy-redis.
+    container_name: dokploy-redis
+    image: redis:7.4.7-alpine3.21@sha256:02f2cc4882f8bf87c79a220ac958f58c700bdec0dfb9b9ea61b62fb0e8f1bfcf
+    user: "1000:1000"
     restart: on-failure
+    depends_on:
+      redis-permissions:
+        condition: service_completed_successfully
     command:
       - redis-server
       - --appendonly
@@ -120,6 +163,7 @@ services:
       start_period: 10s
 
   traefik:
+    # Dokploy expects its Traefik container to use this fixed name.
     container_name: dokploy-traefik
     image: traefik:v3.5.4@sha256:4df0a50fcf71b454c0d7ad17675776dc8d37359deae3291895bdaa008c1b9972
     restart: on-failure
