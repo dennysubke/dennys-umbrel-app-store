@@ -1,0 +1,125 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+APP_DIR="${APP_DATA_DIR:-$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")}"
+DATA_DIR="${APP_DIR}/data"
+TRAEFIK_DIR="${DATA_DIR}/etc/traefik"
+TRAEFIK_DYNAMIC_DIR="${TRAEFIK_DIR}/dynamic"
+TRAEFIK_CONFIG="${TRAEFIK_DIR}/traefik.yml"
+ACME_STORAGE="${TRAEFIK_DYNAMIC_DIR}/acme.json"
+
+mkdir -p \
+  "${DATA_DIR}/docker" \
+  "${DATA_DIR}/postgres" \
+  "${DATA_DIR}/redis" \
+  "${TRAEFIK_DYNAMIC_DIR}"
+
+SWARM_STATE="$(docker info --format '{{.Swarm.LocalNodeState}}' 2>/dev/null || true)"
+
+if [[ "${SWARM_STATE}" == "inactive" || -z "${SWARM_STATE}" ]]; then
+  ADVERTISE_ADDR="${ADVERTISE_ADDR:-}"
+
+  if [[ -z "${ADVERTISE_ADDR}" ]] && command -v ip >/dev/null 2>&1; then
+    ADVERTISE_ADDR="$(
+      ip -4 route get 1.1.1.1 2>/dev/null |
+        awk '{for (i = 1; i <= NF; i++) if ($i == "src") {print $(i + 1); exit}}'
+    )"
+  fi
+
+  if [[ -z "${ADVERTISE_ADDR}" ]]; then
+    ADVERTISE_ADDR="$(hostname -I 2>/dev/null | awk '{print $1}')"
+  fi
+
+  if [[ -z "${ADVERTISE_ADDR}" ]]; then
+    echo "Dokploy: no IPv4 address could be determined for Docker Swarm." >&2
+    exit 1
+  fi
+
+  echo "Dokploy: initializing Docker Swarm with ${ADVERTISE_ADDR}..."
+  docker swarm init --advertise-addr "${ADVERTISE_ADDR}"
+elif [[ "${SWARM_STATE}" != "active" ]]; then
+  echo "Dokploy: unsupported Docker Swarm state: ${SWARM_STATE}" >&2
+  exit 1
+fi
+
+CONTROL_AVAILABLE="$(
+  docker info --format '{{.Swarm.ControlAvailable}}' 2>/dev/null || true
+)"
+
+if [[ "${CONTROL_AVAILABLE}" != "true" ]]; then
+  echo "Dokploy: this Docker node is not an active Swarm manager." >&2
+  exit 1
+fi
+
+if docker network inspect dokploy-network >/dev/null 2>&1; then
+  NETWORK_DRIVER="$(
+    docker network inspect --format '{{.Driver}}' dokploy-network
+  )"
+  NETWORK_SCOPE="$(
+    docker network inspect --format '{{.Scope}}' dokploy-network
+  )"
+  NETWORK_ATTACHABLE="$(
+    docker network inspect --format '{{.Attachable}}' dokploy-network
+  )"
+
+  if [[ "${NETWORK_DRIVER}" != "overlay" ||
+        "${NETWORK_SCOPE}" != "swarm" ||
+        "${NETWORK_ATTACHABLE}" != "true" ]]; then
+    echo "Dokploy: the existing dokploy-network is not an attachable Swarm overlay network." >&2
+    exit 1
+  fi
+else
+  echo "Dokploy: creating attachable Swarm overlay network..."
+  docker network create \
+    --driver overlay \
+    --attachable \
+    dokploy-network
+fi
+
+if [[ ! -f "${TRAEFIK_CONFIG}" ]]; then
+  cat > "${TRAEFIK_CONFIG}" <<'TRAEFIK_YAML'
+global:
+  sendAnonymousUsage: false
+
+providers:
+  swarm:
+    exposedByDefault: false
+    watch: true
+  docker:
+    exposedByDefault: false
+    watch: true
+    network: dokploy-network
+  file:
+    directory: /etc/dokploy/traefik/dynamic
+    watch: true
+
+entryPoints:
+  web:
+    address: ":80"
+  websecure:
+    address: ":443"
+    http3:
+      advertisedPort: 443
+
+api:
+  insecure: true
+
+ping: {}
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      storage: /etc/dokploy/traefik/dynamic/acme.json
+      httpChallenge:
+        entryPoint: web
+TRAEFIK_YAML
+fi
+
+if [[ ! -f "${ACME_STORAGE}" ]]; then
+  touch "${ACME_STORAGE}"
+fi
+
+chmod 600 "${ACME_STORAGE}"
+
+echo "Dokploy: Docker Swarm, overlay network, data directories, and Traefik configuration are ready."
