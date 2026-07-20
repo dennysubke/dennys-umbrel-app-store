@@ -4,7 +4,7 @@ name: Dokploy
 tagline: A seamless platform for effortless deployments
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dokploy/logo.png
 category: In Progress
-version: "0.25.5"
+version: "0.29.12"
 port: 8528
 description: >-
   🐳 Dokploy is an advanced deployment and management platform designed to make the entire lifecycle of web applications simple, reliable, and efficient. It brings together all essential tools for deploying and managing applications in one intuitive interface, allowing developers to focus on building rather than configuring. With Dokploy, the process of launching, updating, and maintaining applications becomes a seamless experience that requires minimal manual intervention.
@@ -31,10 +31,10 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dokploy/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-dokploy/3.jpg
 releaseNotes: >-
-  This update introduces new permission controls for creating and deleting environments, adds support for uploading custom profile pictures, and improves Docker terminal handling for Compose applications. 
-  
-  
-  It also updates dependencies, enhances brand styling with Gotify and Ntfy icons, and fixes several minor bugs and configuration issues.
+  Version 0.29.12 fixes layout issues on the two-factor authentication screen by preventing button overflow.
+
+
+  It also improves security by encrypting environment variables at rest with AES-256-GCM and exporting the complete keyring with backup encryption keys.
 dependencies: []
 path: ""
 defaultUsername: ""
