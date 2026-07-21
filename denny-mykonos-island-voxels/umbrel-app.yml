@@ -17,7 +17,7 @@ website: https://mykonos-island-voxels.netlify.app/
 dependencies: []
 repo: https://github.com/boona13/mykonos-island-voxels
 support: https://github.com/boona13/mykonos-island-voxels/issues
-port: 8380
+port: 8389
 gallery: []
 path: ""
 defaultUsername: ""
