@@ -5,7 +5,6 @@ services:
     environment:
       APP_HOST: denny-mykonos-island-voxels_web_1
       APP_PORT: 8080
-      PROXY_AUTH_ADD: "false"
 
   web:
     image: dennysubke/mykonos-island-voxels:ca5faee@sha256:ab7416a1a37ad3f92865b93533c2b7aa3ec46f08598dfe55f6c29b1af73e12b3
