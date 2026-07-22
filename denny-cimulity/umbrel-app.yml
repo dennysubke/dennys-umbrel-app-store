@@ -1,0 +1,30 @@
+manifestVersion: 1
+id: denny-cimulity
+name: Cimulity
+tagline: A tiny city builder with big ambitions
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-store/master/denny-cimulity/icon.svg
+category: gaming
+version: "0.1.0"
+port: 8374
+description: >-
+  🏙️ Cimulity is a charming browser-based city-building simulation inspired by classic strategy games. Start with an empty isometric landscape and gradually transform it into a lively city filled with roads, homes, businesses, industry, parks, and public services. Every decision influences how your city grows, how efficiently traffic moves, and how attractive each neighborhood becomes.
+
+
+  ⚡ Build essential infrastructure such as power and water networks while providing police, fire protection, healthcare, schools, and recreational areas for your citizens. Keep an eye on population, employment, land value, traffic flow, demand, and city finances as new districts develop around your planning choices.
+
+
+  🌳 Shape the terrain, expand into new areas, improve struggling neighborhoods, and balance residential, commercial, and industrial growth. Multiple simulation speeds let you plan carefully or watch your city evolve in real time. Progress is saved automatically in your browser, allowing you to return to your city whenever you like.
+developer: Zeikar
+website: https://zeikar.dev/cimulity/
+submitter: dennysubke
+submission: https://github.com/dennysubke/dennys-umbrel-app-store
+repo: https://github.com/zeikar/cimulity
+support: https://github.com/zeikar/cimulity/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-store/master/denny-cimulity/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-store/master/denny-cimulity/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-store/master/denny-cimulity/3.jpg
+dependencies: []
+path: ""
+releaseNotes: >-
+  Initial Umbrel release of Cimulity.

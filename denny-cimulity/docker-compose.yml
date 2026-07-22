@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-cimulity_web_1
+      APP_PORT: 8080
+
+  web:
+    image: dennysubke/cimulity:0.1.0@sha256:5c4e09b5f6bafb75274aac276b7dc56363b048c762ff4162e055af18e89f9872
+    user: "1000:1000"
+    restart: on-failure
+    stop_grace_period: 10s
+    read_only: true
+    tmpfs:
+      - /tmp
