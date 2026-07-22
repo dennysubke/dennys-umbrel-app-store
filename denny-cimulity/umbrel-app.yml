@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-cimulity
 name: Cimulity
 tagline: A tiny city builder with big ambitions
-icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-store/master/denny-cimulity/icon.svg
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-cimulity/icon.svg
 category: gaming
 version: "0.1.0"
 port: 8374
@@ -21,9 +21,9 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store
 repo: https://github.com/zeikar/cimulity
 support: https://github.com/zeikar/cimulity/issues
 gallery:
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-store/master/denny-cimulity/1.jpg
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-store/master/denny-cimulity/2.jpg
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-store/master/denny-cimulity/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-cimulity/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-cimulity/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-cimulity/3.jpg
 dependencies: []
 path: ""
 releaseNotes: >-
