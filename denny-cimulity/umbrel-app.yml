@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-cimulity
 name: Cimulity
 tagline: A tiny city builder with big ambitions
-icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-cimulity/icon.svg
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-cimulity/logo.png
 category: gaming
 version: "0.1.0"
 port: 8374
