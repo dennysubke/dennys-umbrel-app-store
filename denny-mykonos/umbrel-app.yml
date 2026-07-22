@@ -1,0 +1,35 @@
+manifestVersion: 1
+id: denny-mykonos
+name: Mykonos Island Voxels
+tagline: Build a sunlit island, one voxel at a time
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mykonos/logo.png
+category: gaming
+version: "ca5faee"
+port: 8371
+description: >-
+  🏝️ Mykonos Island Voxels is a relaxing browser-based island builder that lets you create a small Mediterranean world on an isometric grid. Arrange whitewashed houses, blue-domed chapels, windmills, trees, gardens, paths, bridges, water, and decorative objects to design your own sunlit Greek island.
+
+
+  More than 75 detailed assets are divided into terrain, nature, props, water, and building categories. Objects can be placed individually or painted across several tiles, while zooming, panning, flipping, grid controls, and erase tools make it easy to reshape the island from desktop or mobile devices.
+
+
+  There are no resources to collect, scores to chase, or objectives to complete. The experience focuses entirely on experimenting, decorating, and building at your own pace.
+
+
+  Your current island is saved automatically in the local storage of the browser and restored when you return. Saved islands are therefore tied to the browser and device being used and are not synchronized between different devices.
+developer: boona13
+website: https://mykonos-island-voxels.netlify.app/
+submitter: dennysubke
+submission: https://github.com/dennysubke/dennys-umbrel-app-store
+repo: https://github.com/boona13/mykonos-island-voxels
+support: https://github.com/boona13/mykonos-island-voxels/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mykonos/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mykonos/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mykonos/3.jpg
+releaseNotes: >-
+  Initial release of Mykonos Island Voxels for Umbrel.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
