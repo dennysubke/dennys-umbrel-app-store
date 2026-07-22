@@ -1,7 +1,7 @@
 manifestVersion: 1
 id: denny-mykonos
 name: Mykonos Island Voxels
-tagline: Build a sunlit island, one voxel at a time
+tagline: A Mediterranean playground made of voxels
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-mykonos/logo.png
 category: gaming
 version: "ca5faee"
