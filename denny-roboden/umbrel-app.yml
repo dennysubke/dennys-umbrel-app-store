@@ -1,0 +1,34 @@
+manifestVersion: 1
+id: denny-roboden
+name: Roboden
+tagline: An autonomous robotic strategy game
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/roboden/icon.png
+category: gaming
+version: "9a5d355"
+port: 8375
+description: >-
+  🤖 Roboden is an indirect-control real-time strategy game where autonomous robotic colonies compete for resources, territory, and survival. Instead of commanding every unit individually, you define priorities and strategies while your drones independently gather materials, construct buildings, evolve, defend the colony, and attack opposing forces.
+
+
+  Each match develops differently depending on the selected game mode, map, colony configuration, available resources, and the decisions you make. Experiment with different colony cores, unit combinations, upgrades, and tactical approaches to build an efficient robotic ecosystem capable of adapting to changing battlefield conditions.
+
+
+  Roboden includes several game modes, procedurally generated scenarios, multiple difficulty levels, colony customization, achievements, and support for keyboard, touch, and compatible game controllers. The minimalist visual style keeps the battlefield readable even when large numbers of units are active at the same time.
+
+
+  💡 This Umbrel package runs the official WebAssembly version locally through your browser. Game progress and settings are stored in the browser profile rather than on the Umbrel device. Clearing browser data or opening the game from another browser may therefore result in a separate save. A Chromium-based browser is recommended for the best performance.
+
+developer: quasilyte
+website: https://quasilyte.itch.io/roboden
+submitter: dennysubke
+submission: https://github.com/dennysubke/dennys-umbrel-app-store/tree/master/denny-roboden
+repo: https://github.com/quasilyte/roboden-game
+support: https://github.com/quasilyte/roboden-game/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/roboden/1.png
+releaseNotes: >-
+  Initial Umbrel release based on upstream commit 9a5d355.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""

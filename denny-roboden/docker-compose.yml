@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-roboden_web_1
+      APP_PORT: 8080
+
+  web:
+    image: dennysubke/roboden:9a5d355@sha256:573c23c69a6739f97b8a90fec4b5be35c31737ea1adff9771700ebe0e4e5a567
+    user: "1000:1000"
+    init: true
+    restart: on-failure
