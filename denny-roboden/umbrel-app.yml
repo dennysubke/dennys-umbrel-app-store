@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-roboden
 name: Roboden
 tagline: An autonomous robotic strategy game
-icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/roboden/icon.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/roboden/logo.png
 category: gaming
 version: "9a5d355"
 port: 8375
@@ -17,7 +17,6 @@ description: >-
 
 
   💡 This Umbrel package runs the official WebAssembly version locally through your browser. Game progress and settings are stored in the browser profile rather than on the Umbrel device. Clearing browser data or opening the game from another browser may therefore result in a separate save. A Chromium-based browser is recommended for the best performance.
-
 developer: quasilyte
 website: https://quasilyte.itch.io/roboden
 submitter: dennysubke
@@ -25,7 +24,10 @@ submission: https://github.com/dennysubke/dennys-umbrel-app-store/tree/master/de
 repo: https://github.com/quasilyte/roboden-game
 support: https://github.com/quasilyte/roboden-game/issues
 gallery:
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/roboden/1.png
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/roboden/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/roboden/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/roboden/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/roboden/4.jpg
 releaseNotes: >-
   Initial Umbrel release based on upstream commit 9a5d355.
 dependencies: []
