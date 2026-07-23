@@ -70,11 +70,4 @@ exampleaddress.onion:8333
 
 Bisq includes a hot wallet. Back up the seed and application data before funding it. Carefully verify payment details and trade information before confirming transactions.
 
-## App details
-
-- App ID: `denny-bisq`
-- Version: `1.10.3`
-- Umbrel port: `8376`
-- Internal browser port: `5800`
-- Architecture: `linux/amd64`
-- Image: `dennysubke/bisq:1.10.3`
+---
