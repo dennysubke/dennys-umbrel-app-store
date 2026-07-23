@@ -8,7 +8,7 @@ services:
       PROXY_AUTH_ADD: "true"
 
   web:
-    image: dennysubke/bisq:1.10.3@sha256:4bd7840f883bfb55778dd7732677448b652ce24db59302e0d44ce12d52d80b60
+    image: dennysubke/bisq:1.10.3@sha256:b92e729655f25b731b33ace159fb6c89411d5dbfd6fffcf6033059be5a54dbb7
     platform: linux/amd64
     restart: on-failure
     stop_grace_period: 2m
