@@ -1,0 +1,41 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-bisq_web_1
+      APP_PORT: 5800
+      PROXY_AUTH_ADD: "true"
+
+  web:
+    image: dennysubke/bisq:1.10.3@sha256:4bd7840f883bfb55778dd7732677448b652ce24db59302e0d44ce12d52d80b60
+    platform: linux/amd64
+    restart: on-failure
+    stop_grace_period: 2m
+    shm_size: "1gb"
+    environment:
+      USER_ID: "1000"
+      GROUP_ID: "1000"
+      TZ: Europe/Berlin
+      DISPLAY_WIDTH: "1600"
+      DISPLAY_HEIGHT: "1000"
+      KEEP_APP_RUNNING: "1"
+      SECURE_CONNECTION: "0"
+      VNC_LISTENING_PORT: "-1"
+      WEB_AUDIO: "0"
+      WEB_FILE_MANAGER: "0"
+      WEB_TERMINAL: "0"
+      WEB_NOTIFICATION: "0"
+      LIBGL_ALWAYS_SOFTWARE: "1"
+      JAVA_TOOL_OPTIONS: "-Dprism.order=sw"
+      BISQ_DATA_DIR: /config/Bisq
+    volumes:
+      - ${APP_DATA_DIR}/data:/config
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - curl --fail --silent --show-error http://127.0.0.1:5800/ >/dev/null || exit 1
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: 3m

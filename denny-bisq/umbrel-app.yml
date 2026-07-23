@@ -1,0 +1,38 @@
+manifestVersion: 1
+id: denny-bisq
+name: Bisq
+tagline: A private peer-to-peer Bitcoin exchange on Umbrel
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-bisq/icon.svg
+category: bitcoin
+version: "1.10.3"
+port: 8399
+description: >-
+  🛡️ Bisq is a decentralized peer-to-peer exchange that lets you buy and sell
+  Bitcoin directly with other people without giving custody of your funds to a
+  centralized exchange.
+
+  🌐 The complete Bisq desktop interface runs continuously on your Umbrel and
+  is displayed in your browser. Offers, trade communication, Tor connectivity,
+  the integrated Bitcoin wallet, dispute handling, and payment account
+  management remain available even when your personal computer is turned off.
+
+  🔐 Bisq stores its wallet, payment account information, trade history, and
+  application settings locally on your Umbrel. The browser session is protected
+  by Umbrel authentication, and no VNC port is exposed directly.
+
+  ⚠️ Bisq contains a hot wallet and should only hold the amount required for
+  active trades. Back up the wallet seed and Bisq data before funding it.
+developer: Bisq Network
+website: https://bisq.network/
+submitter: dennysubke
+submission: https://github.com/dennysubke/dennys-umbrel-app-store
+repo: https://github.com/bisq-network/bisq
+support: https://bisq.wiki/
+gallery: []
+releaseNotes: >-
+  Initial Umbrel package for Bisq 1.10.3. The complete desktop client is
+  available through a browser session, with persistent local data storage and
+  Umbrel authentication. This release supports amd64 and x86-64 systems only.
+path: ""
+defaultUsername: ""
+defaultPassword: ""
