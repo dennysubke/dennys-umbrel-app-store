@@ -12,6 +12,35 @@ services:
     image: ipfs/kubo:v0.42.0@sha256:8907cb0cc1ad5798f6bb1bb1341a800990c268e021cedfa317e8aa1a33864214
     restart: on-failure
     stop_grace_period: 2m
+    entrypoint:
+      - /sbin/tini
+      - --
+      - /bin/sh
+      - -c
+    command:
+      - |
+        set -eu
+
+        # The official Kubo image normally initializes the repository in its
+        # entrypoint. We do it here first so the WebUI CORS settings can be
+        # applied before the daemon starts.
+        if [ "$(id -u)" -eq 0 ]; then
+          chown -R ipfs:users "$${IPFS_PATH}"
+        fi
+
+        if [ ! -f "$${IPFS_PATH}/config" ]; then
+          /sbin/gosu ipfs ipfs init
+          /sbin/gosu ipfs ipfs config Addresses.API /ip4/0.0.0.0/tcp/5001
+          /sbin/gosu ipfs ipfs config Addresses.Gateway /ip4/0.0.0.0/tcp/8080
+        fi
+
+        # Kubo rejects browser RPC requests carrying an Origin header unless
+        # the origin and methods are explicitly allowed. The API itself stays
+        # protected behind Umbrel's authenticated app proxy.
+        /sbin/gosu ipfs ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
+        /sbin/gosu ipfs ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT","POST"]'
+
+        exec /usr/local/bin/start_ipfs daemon --migrate=true --agent-version-suffix=umbrel
     ports:
       - "4001:4001/tcp"
       - "4001:4001/udp"
