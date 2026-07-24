@@ -3,26 +3,12 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: denny-npmplus_web_1
-      APP_PORT: 8080
+      APP_HOST: denny-npmplus_npmplus_1
+      APP_PORT: "81"
+      APP_PROTOCOL: https
+      PROXY_TRUST_UPSTREAM: "true"
       PROXY_AUTH_ADD: "false"
-
-  web:
-    image: caddy:2.11.4-alpine@sha256:5f5c8640aae01df9654968d946d8f1a56c497f1dd5c5cda4cf95ab7c14d58648
-    hostname: denny-npmplus_web_1
-    restart: on-failure
-    command:
-      - /bin/sh
-      - -c
-      - |
-        cat > /tmp/Caddyfile <<'EOF'
-        :8080 {
-          redir https://{http.request.host}:8531{uri} 302
-        }
-        EOF
-        exec caddy run --config /tmp/Caddyfile --adapter caddyfile
-    depends_on:
-      - npmplus
+      NODE_TLS_REJECT_UNAUTHORIZED: "0"
 
   npmplus:
     image: zoeyvid/npmplus:2026-07-23-r1@sha256:94df2ff90c25f08763db50f1465c1ffff69c5e0620108e32462b8959f137b0bc
@@ -34,10 +20,9 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/npmplus:/data
     ports:
-      - "8531:81/tcp"
-      - "40080:80/tcp"
-      - "40443:443/tcp"
-      - "40443:443/udp"
+      - "50080:80/tcp"
+      - "50443:443/tcp"
+      - "50443:443/udp"
     cap_drop:
       - ALL
     cap_add:
