@@ -8,7 +8,6 @@
 
 Bisq is a decentralized peer-to-peer exchange for buying and selling Bitcoin directly with other people. This Umbrel package runs the complete Bisq 1 desktop application continuously on your server and makes the original graphical interface available through your browser.
 
-Version 1.10.4 includes important security improvements and is required for continued trading. Existing users should create a backup before updating and should not downgrade to an older Bisq version after opening their data with version 1.10.4.
 
 ## Features
 
