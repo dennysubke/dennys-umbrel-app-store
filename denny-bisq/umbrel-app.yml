@@ -1,38 +1,48 @@
 manifestVersion: 1
 id: denny-bisq
 name: Bisq
-tagline: A private peer-to-peer Bitcoin exchange on Umbrel
+tagline: A private peer-to-peer Bitcoin exchange
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-bisq/logo.png
 category: bitcoin
-version: "1.10.3"
+version: "1.10.4"
 port: 8399
 description: >-
-  🛡️ Bisq is a decentralized peer-to-peer exchange that lets you buy and sell
-  Bitcoin directly with other people without giving custody of your funds to a
-  centralized exchange.
+  🛡️ Bisq is a decentralized peer-to-peer exchange that lets you buy and sell Bitcoin directly with other people without handing custody of your funds to a centralized exchange.
 
-  🌐 The complete Bisq desktop interface runs continuously on your Umbrel and
-  is displayed in your browser. Offers, trade communication, Tor connectivity,
-  the integrated Bitcoin wallet, dispute handling, and payment account
-  management remain available even when your personal computer is turned off.
 
-  🔐 Bisq stores its wallet, payment account information, trade history, and
-  application settings locally on your Umbrel. The browser session is protected
-  by Umbrel authentication, and no VNC port is exposed directly.
+  🌐 The full Bisq desktop interface runs continuously on your Umbrel and is available through your browser. Offers, trade communication, Tor connectivity, the integrated wallet, payment accounts, and dispute handling remain accessible even when your computer is turned off.
 
-  ⚠️ Bisq contains a hot wallet and should only hold the amount required for
-  active trades. Back up the wallet seed and Bisq data before funding it.
+
+  🔐 Wallet data, payment account information, trade history, and settings are stored locally on your Umbrel. The browser interface is protected by Umbrel authentication, and no VNC port is exposed directly.
+
+
+  ⚠️ Bisq contains a hot wallet. Only store the amount required for active trades and security deposits, and back up your wallet seed and Bisq data before funding it.
+
+
+  💻 This app is available only for amd64/x86-64 systems and is not compatible with Raspberry Pi or other ARM64 devices. Bisq is resource-intensive because it runs Java, a full desktop environment, Tor, wallet services, and large network datasets. At least 8 GB of RAM and 4 CPU cores are recommended, especially for the initial startup and DAO data import.
+
+
+  📖 For installation notes, system requirements, and additional information, please read the README: https://github.com/dennysubke/dennys-umbrel-app-store/blob/master/denny-bisq/README.md
 developer: Bisq Network
 website: https://bisq.network/
 submitter: dennysubke
 submission: https://github.com/dennysubke/dennys-umbrel-app-store
 repo: https://github.com/bisq-network/bisq
 support: https://bisq.wiki/
-gallery: []
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bisq/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bisq/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bisq/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bisq/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-bisq/5.jpg
 releaseNotes: >-
-  Initial Umbrel package for Bisq 1.10.3. The complete desktop client is
-  available through a browser session, with persistent local data storage and
-  Umbrel authentication. This release supports amd64 and x86-64 systems only.
+  Bisq 1.10.4 is an important security update that fixes several vulnerabilities identified during a recent security audit. Updating is required to continue trading, and BSQ Swaps have also been re-enabled.
+
+
+  The release improves signature verification for DAO blocks, blind votes, dispute cases, and arbitrator witness data, while also strengthening the filtering of trusted network sources. Offers with a price of zero are now rejected, trusted seed nodes are preferred during startup, and BTC fees are routed correctly to the Burning Man distribution addresses.
+
+
+  In addition, alert authors can now remove all alerts they created, and legacy arbitrator data has been removed from trade and deposit workflows.
 path: ""
 defaultUsername: ""
 defaultPassword: ""
