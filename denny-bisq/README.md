@@ -1,12 +1,14 @@
 # Bisq for Umbrel
 
+Bisq is a decentralized peer-to-peer exchange for buying and selling Bitcoin directly with other people. This Umbrel package runs the complete Bisq 1 desktop application continuously on your server and makes the original graphical interface available through your browser.
+
+##
+
 > [!WARNING]
 > **This app supports only `amd64` / `x86_64` systems.** It is not compatible with Raspberry Pi devices or other `arm64` hardware. It is intended for Umbrel Home and other x86-64 Umbrel installations.
 
 > [!IMPORTANT]
 > Bisq is a resource-intensive desktop application. The graphical interface, Java runtime, Bitcoin network synchronization, and Tor services run continuously inside the container. Systems with limited available memory may become slow or unresponsive while Bisq is running.
-
-Bisq is a decentralized peer-to-peer exchange for buying and selling Bitcoin directly with other people. This Umbrel package runs the complete Bisq 1 desktop application continuously on your server and makes the original graphical interface available through your browser.
 
 
 ## Features
