@@ -1,0 +1,58 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-npmplus_web_1
+      APP_PORT: 8080
+      PROXY_AUTH_ADD: "false"
+
+  web:
+    image: caddy:2.11.4-alpine@sha256:5f5c8640aae01df9654968d946d8f1a56c497f1dd5c5cda4cf95ab7c14d58648
+    hostname: denny-npmplus_web_1
+    restart: on-failure
+    command:
+      - caddy
+      - reverse-proxy
+      - --from
+      - :8080
+      - --to
+      - https://npmplus:81
+      - --insecure
+    depends_on:
+      - npmplus
+
+  npmplus:
+    image: zoeyvid/npmplus:2026-07-23-r1@sha256:94df2ff90c25f08763db50f1465c1ffff69c5e0620108e32462b8959f137b0bc
+    restart: on-failure
+    environment:
+      TZ: Europe/Berlin
+      PUID: "1000"
+      PGID: "1000"
+    volumes:
+      - ${APP_DATA_DIR}/data/npmplus:/data
+    ports:
+      - "40080:80/tcp"
+      - "40443:443/tcp"
+      - "40443:443/udp"
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+      - SETGID
+      - SETUID
+      - CHOWN
+      - FOWNER
+      - DAC_OVERRIDE
+    security_opt:
+      - no-new-privileges:true
+    depends_on:
+      - docker-host
+
+  docker-host:
+    image: qoomon/docker-host:3.3.1@sha256:ec9d214d7fa88932e9186ca2f4419d44661376929931248525b08e7fa9e270f7
+    hostname: ${DEVICE_DOMAIN_NAME}
+    restart: on-failure
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW

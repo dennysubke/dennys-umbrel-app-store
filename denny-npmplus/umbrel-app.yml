@@ -1,0 +1,34 @@
+manifestVersion: 1
+id: denny-npmplus
+name: NPMplus
+tagline: A secure reverse proxy with advanced traffic control
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-npmplus/logo.png
+category: networking
+version: "2026.7.23"
+port: 8530
+description: >-
+  NPMplus is an enhanced reverse proxy manager with a modern web interface for publishing self-hosted services securely. It provides proxy hosts, automatic SSL certificates, access lists, redirects, TCP and UDP streams, custom NGINX configuration, and detailed traffic controls in one place.
+
+
+  The application extends the familiar Nginx Proxy Manager workflow with additional security, privacy, performance, and usability features. It supports HTTP/3, modern TLS settings, integrated certificate management, local authentication, and persistent SQLite storage while keeping administration accessible from the Umbrel dashboard.
+
+
+  For installation notes, router configuration, initial login details, and important security information, please read the README: https://github.com/dennysubke/dennys-umbrel-app-store/blob/master/denny-npmplus/README.md
+developer: ZoeyVid
+website: https://github.com/ZoeyVid/NPMplus
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/ZoeyVid/NPMplus
+support: https://github.com/ZoeyVid/NPMplus/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/npmplus/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/npmplus/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/npmplus/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/npmplus/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/npmplus/5.jpg
+releaseNotes: >-
+  Initial Umbrel release based on NPMplus 2026-07-23-r1. This urgent upstream security release fixes GHSA-wj85-328x-ww6r and strengthens authorization checks for locally authenticated users. The Umbrel package includes dedicated HTTP, HTTPS, and HTTP/3 ports, an internal dashboard bridge, and persistent SQLite storage.
+dependencies: []
+path: ""
+defaultUsername: "login@umbrel.admin"
+defaultPassword: ""
