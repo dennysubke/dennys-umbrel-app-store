@@ -33,6 +33,7 @@ services:
 
       LIBGL_ALWAYS_SOFTWARE: "1"
       JAVA_TOOL_OPTIONS: "-Dprism.order=sw"
+      MALLOC_ARENA_MAX: "4"
 
       BISQ_DATA_DIR: /config/Bisq
 
