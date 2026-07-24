@@ -1,5 +1,9 @@
 # Bisq 2 Node for Umbrel
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-bisq2/logo.png" alt="Bisq logo" width="100">
+</p>
+
 Bisq 2 Node is a self-hosted backend for the **Bisq Connect** mobile app. It runs continuously on Umbrel, communicates with the Bisq peer-to-peer network through its bundled Tor service, and exposes a small local dashboard for status information and mobile pairing.
 
 ## Important distinction
