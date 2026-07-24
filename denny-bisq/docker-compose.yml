@@ -8,7 +8,7 @@ services:
       PROXY_AUTH_ADD: "false"
 
   web:
-    image: dennysubke/bisq:1.10.3@sha256:b92e729655f25b731b33ace159fb6c89411d5dbfd6fffcf6033059be5a54dbb7
+    image: dennysubke/bisq:1.10.4@sha256:4fac416e7d1b7cb7f6168b653755261fcdfb308b48f841563b26b5224409b680
     platform: linux/amd64
     restart: on-failure
     stop_grace_period: 2m
@@ -17,7 +17,7 @@ services:
     environment:
       USER_ID: "1000"
       GROUP_ID: "1000"
-      TZ: Europe/Berlin
+      TZ: UTC
 
       DISPLAY_WIDTH: "1600"
       DISPLAY_HEIGHT: "900"
