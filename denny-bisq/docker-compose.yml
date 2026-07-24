@@ -19,8 +19,8 @@ services:
       GROUP_ID: "1000"
       TZ: Europe/Berlin
 
-      DISPLAY_WIDTH: "1280"
-      DISPLAY_HEIGHT: "800"
+      DISPLAY_WIDTH: "1600"
+      DISPLAY_HEIGHT: "900"
 
       KEEP_APP_RUNNING: "1"
       SECURE_CONNECTION: "0"
