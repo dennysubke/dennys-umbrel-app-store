@@ -22,7 +22,7 @@ description: >-
   💻 This app is available only for amd64/x86-64 systems and is not compatible with Raspberry Pi or other ARM64 devices. Bisq is resource-intensive because it runs Java, a full desktop environment, Tor, wallet services, and large network datasets. At least 8 GB of RAM and 4 CPU cores are recommended, especially for the initial startup and DAO data import.
 
 
-  📖 For installation notes, system requirements, and additional information, please read the README: 
+  📖 For detailed installation guidance, system requirements, and further information, please refer to the README: 
   
   
   https://github.com/dennysubke/dennys-umbrel-app-store/blob/master/denny-bisq/README.md
