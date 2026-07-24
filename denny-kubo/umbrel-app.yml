@@ -1,0 +1,31 @@
+manifestVersion: 1
+id: denny-kubo
+name: Kubo
+tagline: A private gateway to the distributed web
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kubo/logo.png
+category: files
+version: "0.42.0"
+port: 8396
+description: >-
+  Kubo is the most widely used implementation of the InterPlanetary File System, a peer-to-peer protocol for storing, addressing, sharing, and retrieving data across a distributed network.
+  Its integrated web interface provides a clear overview of the node, connected peers, bandwidth activity, repository usage, and pinned content. Files and folders can be imported directly through the browser, assigned content identifiers, organized inside the mutable file system, and pinned locally so that they remain available from this node.
+  Kubo also includes a local HTTP gateway for retrieving IPFS and IPNS content, a full RPC interface for node administration, peer-to-peer connectivity over TCP and QUIC, content routing through the distributed hash table, and tools for managing keys, pins, peers, and repository data.
+  All node data, including the generated peer identity, configuration, imported blocks, pins, and mutable file system, is stored persistently on the Umbrel device.
+developer: IPFS Project
+website: https://ipfs.tech/
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/ipfs/kubo
+support: https://github.com/ipfs/kubo/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kubo/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kubo/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kubo/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kubo/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kubo/5.jpg
+releaseNotes: >-
+  Initial Umbrel release based on Kubo 0.42.0. This version adds more precise content-providing controls, partial CAR import and export options, a built-in update command, improved repository migrations, cleaner shutdown behavior, and a dedicated daemon health check.
+dependencies: []
+path: "/webui"
+defaultUsername: ""
+defaultPassword: ""

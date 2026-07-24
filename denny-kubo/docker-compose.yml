@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-kubo_web_1
+      APP_PORT: 5001
+      # The Kubo RPC API provides full administrative control over the node.
+      # Umbrel authentication must therefore remain enabled.
+
+  web:
+    image: ipfs/kubo:v0.42.0@sha256:8907cb0cc1ad5798f6bb1bb1341a800990c268e021cedfa317e8aa1a33864214
+    restart: on-failure
+    stop_grace_period: 2m
+    ports:
+      - "4001:4001/tcp"
+      - "4001:4001/udp"
+      - "8395:8080/tcp"
+    volumes:
+      - ${APP_DATA_DIR}/data:/data/ipfs
+      - ${APP_DATA_DIR}/export:/export
