@@ -12,19 +12,15 @@ services:
     hostname: denny-npmplus_web_1
     restart: on-failure
     command:
-      - caddy
-      - reverse-proxy
-      - --from
-      - :8080
-      - --to
-      - https://npmplus:81
-      - --header-up
-      - "Host: {http.request.hostport}"
-      - --header-up
-      - "X-Forwarded-Host: {http.request.hostport}"
-      - --header-up
-      - "X-Forwarded-Proto: https"
-      - --insecure
+      - /bin/sh
+      - -c
+      - |
+        cat > /tmp/Caddyfile <<'EOF'
+        :8080 {
+          redir https://{http.request.host}:8531{uri} 302
+        }
+        EOF
+        exec caddy run --config /tmp/Caddyfile --adapter caddyfile
     depends_on:
       - npmplus
 
@@ -38,6 +34,7 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/npmplus:/data
     ports:
+      - "8531:81/tcp"
       - "40080:80/tcp"
       - "40443:443/tcp"
       - "40443:443/udp"
