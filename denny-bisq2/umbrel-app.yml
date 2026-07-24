@@ -1,0 +1,36 @@
+manifestVersion: 1
+id: denny-bisq2
+name: Bisq 2 Node
+tagline: A private Bisq 2 node for mobile trading
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-bisq2/logo.png
+category: bitcoin
+version: "2.1.11.1"
+port: 8376
+description: >-
+  🟢 Bisq 2 Node runs a private, continuously available Bisq 2 backend for the Bisq Connect mobile app. Instead of connecting the mobile client to a node operated by someone else, you can pair it with a node running locally on your own Umbrel.
+
+
+  The node connects to the Bisq peer-to-peer network through its bundled Tor service and provides a compact browser dashboard showing the node status, Tor connectivity, onion address, current software version, and a QR code for pairing Bisq Connect.
+
+
+  Trading, offers, messages, and account activity are managed through the Bisq Connect mobile app. This package does not provide the full Bisq 2 desktop interface in the browser. Node identity, configuration, pairing information, and application data are stored persistently on your Umbrel.
+
+
+  ⚠️ The pairing code grants control over the Bisq 2 node and must be treated like a password. The browser dashboard remains protected by Umbrel authentication and should never be exposed through an unauthenticated public proxy.
+developer: Bisq
+website: https://bisq.network/
+submitter: dennysubke
+submission: https://github.com/dennysubke/dennys-umbrel-app-store/tree/master/denny-bisq2
+repo: https://github.com/bisq-network/bisq2-umbrel
+support: https://github.com/bisq-network/bisq2-umbrel/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-bisq2/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-bisq2/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-bisq2/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-bisq2/4.jpg
+releaseNotes: >-
+  Initial Umbrel release of Bisq 2 Node 2.1.11.1 using the official multiarch Bisq API and browser dashboard images. The node communicates through its bundled Tor service and can be paired with Bisq Connect using the protected QR code shown in the dashboard.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
