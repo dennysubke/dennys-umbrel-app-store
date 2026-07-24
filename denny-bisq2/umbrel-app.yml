@@ -14,6 +14,12 @@ description: >-
 
 
   Your trading data and communication remain stored locally on your Umbrel instead of being controlled by a centralized exchange. Bisq does not take custody of your funds and enables users to trade directly with one another. The decentralized architecture removes the need for accounts with a central operator and helps preserve your privacy. Bisq 2 Node is ideal for users who want convenient mobile access while keeping their trading infrastructure private, decentralized, and self-hosted at home.
+
+  
+  📖 For setup instructions, usage details, and additional information, please visit:
+  
+  
+  https://github.com/dennysubke/dennys-umbrel-app-store/blob/master/denny-bisq2/README.md
 developer: Bisq
 website: https://bisq.network/
 submitter: dennysubke
