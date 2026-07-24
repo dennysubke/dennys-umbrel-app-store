@@ -18,6 +18,12 @@ services:
       - :8080
       - --to
       - https://npmplus:81
+      - --header-up
+      - "Host: {http.request.hostport}"
+      - --header-up
+      - "X-Forwarded-Host: {http.request.hostport}"
+      - --header-up
+      - "X-Forwarded-Proto: https"
       - --insecure
     depends_on:
       - npmplus
