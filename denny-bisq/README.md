@@ -1,5 +1,9 @@
 # Bisq for Umbrel
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-bisq/logo.png" alt="Bisq logo" width="100">
+</p>
+
 Bisq is a decentralized peer-to-peer exchange for buying and selling Bitcoin directly with other people. This Umbrel package runs the complete Bisq 1 desktop application continuously on your server and makes the original graphical interface available through your browser.
 
 ##
