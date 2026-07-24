@@ -5,7 +5,7 @@ tagline: A secure reverse proxy with advanced traffic control
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-npmplus/logo.png
 category: networking
 version: "2026.7.23"
-port: 8530
+port: 5181
 description: >-
   NPMplus is an enhanced reverse proxy manager with a modern web interface for publishing self-hosted services securely. It provides proxy hosts, automatic SSL certificates, access lists, redirects, TCP and UDP streams, custom NGINX configuration, and detailed traffic controls in one place.
 
