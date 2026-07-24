@@ -2,7 +2,7 @@ manifestVersion: 1
 id: denny-bisq
 name: Bisq
 tagline: A private peer-to-peer Bitcoin exchange on Umbrel
-icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-bisq/icon.svg
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-bisq/logo.png
 category: bitcoin
 version: "1.10.3"
 port: 8399
