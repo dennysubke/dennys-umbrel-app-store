@@ -5,18 +5,15 @@ tagline: A private Bisq 2 node for mobile trading
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-bisq2/logo.png
 category: bitcoin
 version: "2.1.11.1"
-port: 8376
+port: 8398
 description: >-
-  🟢 Bisq 2 Node runs a private, continuously available Bisq 2 backend for the Bisq Connect mobile app. Instead of connecting the mobile client to a node operated by someone else, you can pair it with a node running locally on your own Umbrel.
+  🟢 Bisq 2 Node runs a private and continuously available Bisq 2 backend directly on your Umbrel. The application connects to the decentralized Bisq network through its integrated Tor service and allows secure access using the Bisq Connect mobile app.
 
 
-  The node connects to the Bisq peer-to-peer network through its bundled Tor service and provides a compact browser dashboard showing the node status, Tor connectivity, onion address, current software version, and a QR code for pairing Bisq Connect.
+  The included web interface shows the current node status and provides a pairing QR code for connecting your smartphone. After pairing, you can browse offers, communicate with other traders, manage trades, and use Bisq Easy from your mobile device. Since the node runs continuously on your Umbrel, it remains connected to the Bisq network even when the mobile app is closed.
 
 
-  Trading, offers, messages, and account activity are managed through the Bisq Connect mobile app. This package does not provide the full Bisq 2 desktop interface in the browser. Node identity, configuration, pairing information, and application data are stored persistently on your Umbrel.
-
-
-  ⚠️ The pairing code grants control over the Bisq 2 node and must be treated like a password. The browser dashboard remains protected by Umbrel authentication and should never be exposed through an unauthenticated public proxy.
+  Your trading data and communication remain stored locally on your Umbrel instead of being controlled by a centralized exchange. Bisq does not take custody of your funds and enables users to trade directly with one another. The decentralized architecture removes the need for accounts with a central operator and helps preserve your privacy. Bisq 2 Node is ideal for users who want convenient mobile access while keeping their trading infrastructure private, decentralized, and self-hosted at home.
 developer: Bisq
 website: https://bisq.network/
 submitter: dennysubke
@@ -29,7 +26,10 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-bisq2/3.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-bisq2/4.jpg
 releaseNotes: >-
-  Initial Umbrel release of Bisq 2 Node 2.1.11.1 using the official multiarch Bisq API and browser dashboard images. The node communicates through its bundled Tor service and can be paired with Bisq Connect using the protected QR code shown in the dashboard.
+  Initial Umbrel release of Bisq 2 Node 2.1.11.1 using the official multiarch Bisq API and browser dashboard images. 
+  
+  
+  The node communicates through its bundled Tor service and can be paired with Bisq Connect using the protected QR code shown in the dashboard.
 dependencies: []
 path: ""
 defaultUsername: ""
