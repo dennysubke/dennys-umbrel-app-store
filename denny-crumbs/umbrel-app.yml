@@ -1,0 +1,32 @@
+manifestVersion: 1
+id: denny-crumbs
+name: Crumbs
+tagline: An offline-first note-taking app
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-crumbs/logo.png
+category: files & productivity
+version: "0.30.1"
+port: 8776
+description: >-
+  🥨 Crumbs turns scattered thoughts into a calm and organized personal knowledge space. Capture quick ideas, detailed notes, tasks, checklists, reference material, and everything in between without losing track of what matters.
+
+
+  A flexible editor combines Markdown, rich text, tables, code blocks, links, and image attachments, while tags, colors, pinning, search, archives, and version history keep growing collections easy to navigate. Notes can be shared privately or published through read-only links, and the responsive offline-first interface works smoothly across desktop and mobile devices.
+
+
+  With support for multiple users, secure authentication, API keys, and optional integrations with OAuth, OpenID Connect, email services, and compatible AI assistants, Crumbs is built to grow from a simple notebook into a powerful personal workspace.
+developer: Bretzel
+website: https://crumbs.bretzel.app/
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/bretzel-app/crumbs
+support: https://github.com/bretzel-app/crumbs/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-crumbs/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-crumbs/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-crumbs/3.jpg
+releaseNotes: >-
+  Initial Umbrel release based on Crumbs 0.30.1. Includes offline-first note synchronization, rich text and Markdown editing, checklists, image attachments, tags, sharing, version history, multi-user authentication, progressive web app support, API keys, and the built-in MCP endpoint.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""

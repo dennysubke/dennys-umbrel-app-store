@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    depends_on:
+      web:
+        condition: service_healthy
+    environment:
+      APP_HOST: denny-crumbs_web_1
+      APP_PORT: 3000
+      PROXY_AUTH_ADD: "false"
+
+  web:
+    image: ghcr.io/bretzel-app/crumbs:0.30.1@sha256:0559ace1bbf9bc60091b5f698db832b4282806842809cb2a51f119e65379e569
+    user: "1000:1000"
+    init: true
+    restart: on-failure
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    environment:
+      NODE_ENV: production
+      HOST: "0.0.0.0"
+      PORT: "3000"
+      DATA_DIR: "/data"
+      DATABASE_URL: "/data/crumbs.db"
+      ORIGIN: "http://${DEVICE_DOMAIN_NAME}:8776"
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
