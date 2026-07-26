@@ -3,11 +3,20 @@ id: denny-pages
 name: Pages
 tagline: A beautiful home for static websites
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/logo.png
-category: in progress
+category: In Progress
 version: "0.1.0"
 port: 8377
 description: >-
-  Pages is a polished static website host for your Umbrel. Browse a dedicated library of nine responsive templates with live previews, create websites in one click, and keep them as private drafts until they are ready to publish. Manage multiple sites from an Umbrel-style overview, upload complete folders or ZIP archives, edit HTML, CSS, JavaScript, JSON, Markdown, and other text files directly in the browser, and preview every change instantly. A dedicated Sharing view provides local, Onion, and custom-domain addresses with open, copy, and locally generated QR-code actions. Each website also includes configurable CORS access, single-page application fallback, directory listings, browser caching, local page-view statistics, ZIP exports, and restorable backups. Pages stores everything locally and serves only pre-built static files without executing uploaded server-side code.
+  Pages turns your Umbrel into a private, beautifully designed platform for publishing static websites. Start with a professionally crafted template, import an existing project as a ZIP archive, or build a site from scratch by uploading and editing HTML, CSS, JavaScript, JSON, Markdown, and other text-based files directly in your browser. Every change can be reviewed instantly through the integrated live preview.
+
+
+  A clean dashboard keeps all of your websites organized in one place. Prepare new projects privately as drafts, publish them when they are ready, and share them through your local network, a custom domain, Umbrel’s shared Onion service, or a dedicated persistent Onion address created exclusively for an individual site.
+
+
+  Pages also includes file management, ZIP exports, restorable backups, page-view statistics, storage insights, QR-code sharing, CORS controls, caching options, and SPA fallback. Whether you are hosting a personal portfolio, documentation, a landing page, a blog, or a Nostr profile, Pages provides everything needed to publish and manage it directly from your Umbrel.
+
+
+  Your websites, settings, backups, and Onion identities remain stored locally on your Umbrel. Pages serves pre-built static content only and never executes uploaded server-side code.
 developer: dennysubke
 website: https://github.com/dennysubke/pages
 submitter: dennysubke
@@ -18,6 +27,8 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/1.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/3.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/4.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/5.jpg
 path: ""
 defaultUsername: ""
 defaultPassword: ""
