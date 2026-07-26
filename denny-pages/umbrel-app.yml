@@ -3,7 +3,7 @@ id: denny-pages
 name: Pages
 tagline: A beautiful home for static websites
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/logo.png
-category: developer
+category: in progress
 version: "0.1.0"
 port: 8377
 description: >-
