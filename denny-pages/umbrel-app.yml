@@ -1,0 +1,24 @@
+manifestVersion: 1
+id: denny-pages
+name: Pages
+tagline: A beautiful home for static websites
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/logo.png
+category: developer
+version: "0.1.0"
+port: 8377
+description: >-
+  Pages is a polished static website host for your Umbrel. Create multiple websites from modern templates, upload complete folders or ZIP archives, edit HTML, CSS, JavaScript, JSON, Markdown, and other text files directly in the browser, and preview every change instantly. A dedicated Sharing view provides local, Onion, and custom-domain addresses with open, copy, and locally generated QR-code actions. Each website also includes configurable CORS access, single-page application fallback, directory listings, browser caching, local page-view statistics, ZIP exports, and restorable backups. Pages stores everything locally and serves only pre-built static files without executing uploaded server-side code.
+developer: dennysubke
+website: https://github.com/dennysubke/pages
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/dennysubke/pages
+support: https://github.com/dennysubke/pages/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/3.jpg
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+deterministicPassword: true
