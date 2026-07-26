@@ -8,7 +8,7 @@ services:
       PROXY_AUTH_ADD: "false"
 
   web:
-    image: dennysubke/pages:0.1.0@sha256:fa1325c9ede5c94c1e40a285a04927842bd6e38d0b02fefd2bb846683ae777fc
+    image: dennysubke/pages:0.1.0@sha256:e513a6121555ab089bf0a7b2cacc9a399b321853c78c44de06f35ce071b662c7
     restart: on-failure
     stop_grace_period: 1m
     environment:
