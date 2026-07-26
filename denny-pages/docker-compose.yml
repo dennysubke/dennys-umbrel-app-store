@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-pages_web_1
+      APP_PORT: 3000
+      PROXY_AUTH_ADD: "false"
+
+  web:
+    image: dennysubke/pages:0.1.0@sha256:50001181f3bf3e511295170814ebaa59fb4566861f231e67a11a557a72411361
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      PORT: "3000"
+      DATA_DIR: "/data"
+      PUID: "1000"
+      PGID: "1000"
+      PAGES_ADMIN_PASSWORD: "${APP_PASSWORD}"
+      APP_HIDDEN_SERVICE: "${APP_HIDDEN_SERVICE}"
+      DEVICE_DOMAIN_NAME: "${DEVICE_DOMAIN_NAME}"
+      PAGES_PUBLIC_PORT: "8377"
+      MAX_UPLOAD_BYTES: "104857600"
+      MAX_EXTRACTED_BYTES: "524288000"
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/health').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
