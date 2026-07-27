@@ -1,0 +1,20 @@
+manifestVersion: 1
+id: denny-oniondrop
+name: OnionDrop
+tagline: A private doorway for receiving files over Tor
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-oniondrop/logo.png
+category: test
+version: "0.1.0"
+port: 8397
+description: >-
+  OnionDrop creates persistent private inboxes that receive files and anonymous messages directly through Tor. Each inbox uses the official OnionShare receive engine and provides a native onion address with an optional private access key. Create multiple services, display QR codes, copy complete invitations, browse received files, configure expiration or storage limits, and import or export persistent OnionShare configurations from a dedicated Umbrel interface. All received content and onion identities remain stored locally on your Umbrel.
+developer: dennysubke
+website: https://github.com/dennysubke/oniondrop
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/dennysubke/oniondrop
+support: https://github.com/dennysubke/oniondrop/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-oniondrop/1.webp
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-oniondrop/2.webp
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-oniondrop/3.webp 
