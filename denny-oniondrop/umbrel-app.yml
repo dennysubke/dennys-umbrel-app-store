@@ -1,13 +1,22 @@
 manifestVersion: 1
 id: denny-oniondrop
 name: OnionDrop
-tagline: A private doorway for receiving files over Tor
+tagline: A private file drop powered by OnionShare
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-oniondrop/logo.png
-category: test
+category: files & productivity
 version: "0.1.0"
 port: 8397
 description: >-
-  OnionDrop creates persistent private inboxes that receive files and anonymous messages directly through Tor. Each inbox uses the official OnionShare receive engine and provides a native onion address with an optional private access key. Create multiple services, display QR codes, copy complete invitations, browse received files, configure expiration or storage limits, and import or export persistent OnionShare configurations from a dedicated Umbrel interface. All received content and onion identities remain stored locally on your Umbrel.
+  OnionDrop is a private file-receiving app designed specifically for Umbrel. It uses the official OnionShare engine to create persistent onion inboxes that can be accessed through Tor Browser. Trusted people can upload files or send anonymous text messages without creating an account, revealing their IP address, or relying on a third-party cloud service.
+
+
+  Each inbox can be configured separately. You can decide whether it accepts files, messages, or both, and optionally protect it with a private access key. Inboxes can also be given an expiration time, a storage limit, and automatic startup so they return online after OnionDrop or Umbrel restarts.
+
+
+  All received content is stored locally on your own Umbrel. OnionDrop provides a clear interface for managing inboxes, copying invitation details, displaying QR codes, reviewing received files, downloading them, deleting them, and checking the OnionShare service logs.
+
+
+  Persistent OnionShare receive configurations can also be imported and exported. This allows an existing onion identity to be moved between compatible OnionShare installations and OnionDrop without changing the onion address. OnionDrop combines OnionShare compatibility with a simple, always-available Umbrel interface for private file intake.
 developer: dennysubke
 website: https://github.com/dennysubke/oniondrop
 submitter: dennysubke
@@ -18,3 +27,15 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-oniondrop/1.webp
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-oniondrop/2.webp
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-oniondrop/3.webp 
+releaseNotes: >-
+  This first version of OnionDrop brings persistent OnionShare-compatible inboxes to Umbrel for receiving files and anonymous messages through Tor.
+
+
+  Each inbox can use a private access key, expiration time, storage limit, and automatic startup after an app restart. The interface includes onion addresses, QR codes, invitation details, received files, downloads, deletion controls, and service logs.
+
+
+  OnionDrop also supports importing and exporting persistent OnionShare receive configurations while preserving their onion identity. All received content and service data remain stored locally on your Umbrel.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
