@@ -3,7 +3,7 @@ id: denny-kubo
 name: Kubo
 tagline: A private gateway to the distributed web
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-kubo/logo.png
-category: files
+category: files & productivity
 version: "0.42.0"
 port: 8396
 description: >-
