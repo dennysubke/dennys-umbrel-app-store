@@ -19,7 +19,7 @@ description: >-
   Your websites, settings, backups, and Onion identities remain stored locally on your Umbrel. Pages serves pre-built static content only and never executes uploaded server-side code.
 
 
-  ⚠️ Remote Tor access must be enabled in your Umbrel settings for Pages to use Umbrel’s shared Onion address.
+  ⚙️ Remote Tor access must be enabled in your Umbrel settings for Pages to use Umbrel’s shared Onion address.
 developer: dennysubke
 website: https://github.com/dennysubke/pages
 submitter: dennysubke
