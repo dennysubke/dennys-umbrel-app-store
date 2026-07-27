@@ -8,7 +8,7 @@ services:
       PROXY_AUTH_ADD: "false"
 
   tor:
-    image: dennysubke/pages-tor:0.1.0@sha256:2bf2deffa0dfc31e817afd7e96642fa774d699342b21af88b6bf1dbe0763e915
+    image: dennysubke/pages:0.1.1@sha256:b60170c8a2209aa2e558730239651579aac6a839aeca4956d066bd239080e4b9
     restart: on-failure
     stop_grace_period: 1m
     environment:
@@ -26,7 +26,7 @@ services:
       start_period: 30s
 
   web:
-    image: dennysubke/pages:0.1.0@sha256:0f25f242b1bd862cf5f8cbae743d3f3150a42949401a92d6fb2f24dda7feb97a
+    image: dennysubke/pages-tor:0.1.1@sha256:133ffa929fe593abb63bdd6a080808a6e6d7d64de36811e9cd56323d15785abd
     restart: on-failure
     stop_grace_period: 1m
     depends_on:
