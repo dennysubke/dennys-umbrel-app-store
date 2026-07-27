@@ -4,7 +4,7 @@ name: Pages
 tagline: A beautiful home for static websites
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/logo.png
 category: In Progress
-version: "0.1.1"
+version: "0.1.2"
 port: 8377
 description: >-
   Pages turns your Umbrel into a private, beautifully designed platform for publishing static websites. Start with a professionally crafted template, import an existing project as a ZIP archive, or build a site from scratch by uploading and editing HTML, CSS, JavaScript, JSON, Markdown, and other text-based files directly in your browser. Every change can be reviewed instantly through the integrated live preview.
@@ -27,10 +27,10 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/dennysubke/pages
 support: https://github.com/dennysubke/pages/issues
 releaseNotes: >-
-  This update removes the unintended vertical scrollbar controls that appeared beside the site navigation tabs on some systems.
+  Pages 0.1.2 introduces a complete global settings area for publishing defaults, Onion services, backups, statistics, privacy, and editor preferences. New sites can now inherit configurable defaults such as templates, publishing state, SPA fallback, CORS, directory listings, and cache duration.
 
 
-  The tab bar now allows horizontal scrolling on smaller screens while keeping native scrollbars and arrow buttons hidden.
+  Automatic backups, retention limits, storage controls, statistics privacy options, and editor auto-save settings have also been added. The Overview layout has been refined for cleaner alignment, consistent spacing, and improved responsiveness.
 gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/1.webp
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/2.webp
