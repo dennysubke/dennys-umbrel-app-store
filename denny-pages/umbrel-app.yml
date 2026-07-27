@@ -4,7 +4,7 @@ name: Pages
 tagline: A beautiful home for static websites
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/logo.png
 category: In Progress
-version: "0.1.0"
+version: "0.1.1"
 port: 8377
 description: >-
   Pages turns your Umbrel into a private, beautifully designed platform for publishing static websites. Start with a professionally crafted template, import an existing project as a ZIP archive, or build a site from scratch by uploading and editing HTML, CSS, JavaScript, JSON, Markdown, and other text-based files directly in your browser. Every change can be reviewed instantly through the integrated live preview.
@@ -26,6 +26,11 @@ submitter: dennysubke
 submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/dennysubke/pages
 support: https://github.com/dennysubke/pages/issues
+releaseNotes: >-
+  This update removes the unintended vertical scrollbar controls that appeared beside the site navigation tabs on some systems.
+
+
+  The tab bar now allows horizontal scrolling on smaller screens while keeping native scrollbars and arrow buttons hidden.
 gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/1.webp
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/2.webp
