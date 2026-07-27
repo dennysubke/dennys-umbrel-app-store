@@ -24,11 +24,11 @@ submission: https://github.com/getumbrel/umbrel-apps/pull/
 repo: https://github.com/dennysubke/pages
 support: https://github.com/dennysubke/pages/issues
 gallery:
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/1.jpg
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/2.jpg
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/3.jpg
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/4.jpg
-  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/5.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/1.webp
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/2.webp
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/3.webp
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/4.webp
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-pages/5.webp
 path: ""
 defaultUsername: ""
 defaultPassword: ""
