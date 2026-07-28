@@ -46,5 +46,5 @@ services:
       - "4001:4001/udp"
       - "8395:8080/tcp"
     volumes:
-      - ${UMBREL_ROOT}/data/storage/kubo_data:/data/ipfs
+      - ${UMBREL_ROOT}/home/Kubo IPFS:/data/ipfs
       - ${UMBREL_ROOT}/data/storage/kubo_export:/export
