@@ -8,7 +8,7 @@ services:
       PROXY_AUTH_ADD: "false"
 
   web:
-    image: dennysubke/oniondrop:0.1.0@sha256:7120c4413da319830f15df3e5201f59623b9e85022157e2cb683bb4cb81a506a
+    image: dennysubke/oniondrop:0.2.0@sha256:e85eec9847ae9333f4fa109284af9059d5aff08631f74158bb8c6fabe314df0f
     restart: on-failure
     stop_grace_period: 30s
     environment:
@@ -16,6 +16,8 @@ services:
       PGID: "1000"
       ONIONDROP_DATA_DIR: /data
       ONIONDROP_PORT: "8080"
+      ONIONDROP_AUTH_MODE: setup
+      ONIONDROP_DEFAULT_LANGUAGE: en
       ONIONSHARE_VERSION: "2.6.4"
     volumes:
       - ${APP_DATA_DIR}/data:/data
