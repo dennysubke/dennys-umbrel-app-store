@@ -8,7 +8,7 @@ services:
       PROXY_AUTH_ADD: "false"
 
   web:
-    image: dennysubke/oniondrop:0.2.0@sha256:498ad346e1f78d86c6d61385455c896a2101342abadab871e86f4cebe8a99caa
+    image: dennysubke/oniondrop:0.2.0@sha256:9b58a7c56fb116f7617f81ea90251e4afa833e14d650997e9de00ca9746253d8
     restart: on-failure
     stop_grace_period: 30s
     environment:
