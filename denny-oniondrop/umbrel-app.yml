@@ -28,10 +28,10 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-oniondrop/2.webp
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-oniondrop/3.webp 
 releaseNotes: >-
-  OnionDrop 0.2.0 is now fully independent from Umbrel and can run on any compatible Docker host, while still offering optional Umbrel integration. The release also adds eight interface languages, an optional built-in login, and an animated Tor connection status display.
+  OnionDrop 0.2.0 is now a fully independent Docker application with support for eight languages, subtle country flags, and an optional built-in login. The release adds an animated Tor connection status, SHA-256 checksums, downloadable QR codes, multi-file ZIP downloads, and previews for a wide range of file formats.
 
 
-  Received files now include SHA-256 checksums, downloadable QR codes, multi-file ZIP downloads, and previews for a wide range of formats. Existing inboxes and persistent OnionShare identities remain compatible and can be migrated from version 0.1.0.
+  Clipboard handling has been improved to work reliably in both secure and standard HTTP environments, including private keys and invitation links. Existing inboxes and persistent OnionShare identities remain compatible with the updated version.
 dependencies: []
 path: ""
 defaultUsername: ""
