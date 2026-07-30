@@ -3,9 +3,12 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: denny-alexandrie_web_1
+      APP_HOST: web
       APP_PORT: 8200
       PROXY_AUTH_ADD: "false"
+    networks:
+      - default
+      - alexandrie_network
 
   web:
     image: nginx:1.30.0-alpine@sha256:0272e4604ed93c1792f03695a033a6e8546840f86e0de20a884bb17d2c924883
@@ -151,7 +154,11 @@ services:
     networks:
       - alexandrie_network
     healthcheck:
-      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p$$MYSQL_ROOT_PASSWORD --silent"]
+      test:
+        [
+          "CMD-SHELL",
+          "mysqladmin ping -h localhost -u root -p$$MYSQL_ROOT_PASSWORD --silent",
+        ]
       interval: 30s
       timeout: 10s
       retries: 10
@@ -196,7 +203,11 @@ services:
     networks:
       - alexandrie_network
     healthcheck:
-      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:9000/health >/dev/null || exit 1"]
+      test:
+        [
+          "CMD-SHELL",
+          "curl -fsS http://127.0.0.1:9000/health >/dev/null || exit 1",
+        ]
       interval: 15s
       timeout: 10s
       retries: 10
