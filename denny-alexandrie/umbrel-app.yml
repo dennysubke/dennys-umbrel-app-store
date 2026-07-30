@@ -1,0 +1,22 @@
+manifestVersion: 1
+id: denny-alexandrie
+name: Alexandrie
+tagline: A private workspace for notes and knowledge
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-alexandrie/logo.png
+category: files
+version: "8.11.0"
+port: 8394
+description: >-
+  Alexandrie is a self-hosted knowledge base and note-taking platform built around an advanced Markdown editor. Organize information across teams, workspaces, categories, and nested documents while keeping your data on your own server.
+
+  Create rich technical notes with LaTeX, diagrams, reusable snippets, interactive elements, file attachments, and synchronized previews. Full-text search, command navigation, Kanban boards, granular permissions, sharing tools, offline support, and ZIP import and export make Alexandrie suitable for both personal knowledge management and collaborative documentation.
+developer: Smaug6739
+website: https://alexandrie-hub.fr
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/Smaug6739/Alexandrie
+support: https://github.com/Smaug6739/Alexandrie/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-alexandrie/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-alexandrie/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-alexandrie/3.jpg

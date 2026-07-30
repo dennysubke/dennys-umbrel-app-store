@@ -1,0 +1,207 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-alexandrie_web_1
+      APP_PORT: 8200
+      PROXY_AUTH_ADD: "false"
+
+  web:
+    image: nginx:1.30.0-alpine@sha256:0272e4604ed93c1792f03695a033a6e8546840f86e0de20a884bb17d2c924883
+    restart: on-failure
+    command:
+      - /bin/sh
+      - -c
+      - |
+        cat > /etc/nginx/conf.d/default.conf <<'EOF'
+        server {
+          listen 8200;
+          server_name _;
+
+          client_max_body_size 0;
+          proxy_http_version 1.1;
+          proxy_read_timeout 3600s;
+          proxy_send_timeout 3600s;
+
+          location = /api {
+            proxy_pass http://backend:8201;
+            proxy_set_header Host $$http_host;
+            proxy_set_header X-Real-IP $$remote_addr;
+            proxy_set_header X-Forwarded-For $$proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Host $$http_host;
+            proxy_set_header X-Forwarded-Proto $$scheme;
+            proxy_set_header Upgrade $$http_upgrade;
+            proxy_set_header Connection "upgrade";
+          }
+
+          location /api/ {
+            proxy_pass http://backend:8201;
+            proxy_set_header Host $$http_host;
+            proxy_set_header X-Real-IP $$remote_addr;
+            proxy_set_header X-Forwarded-For $$proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Host $$http_host;
+            proxy_set_header X-Forwarded-Proto $$scheme;
+            proxy_set_header Upgrade $$http_upgrade;
+            proxy_set_header Connection "upgrade";
+            proxy_request_buffering off;
+          }
+
+          location /alexandrie/ {
+            proxy_pass http://rustfs:9000;
+            proxy_set_header Host $$http_host;
+            proxy_set_header X-Real-IP $$remote_addr;
+            proxy_set_header X-Forwarded-For $$proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Host $$http_host;
+            proxy_set_header X-Forwarded-Proto $$scheme;
+            proxy_request_buffering off;
+            proxy_buffering off;
+          }
+
+          location / {
+            proxy_pass http://frontend:8200;
+            proxy_set_header Host $$http_host;
+            proxy_set_header X-Real-IP $$remote_addr;
+            proxy_set_header X-Forwarded-For $$proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Host $$http_host;
+            proxy_set_header X-Forwarded-Proto $$scheme;
+            proxy_set_header Upgrade $$http_upgrade;
+            proxy_set_header Connection "upgrade";
+          }
+        }
+        EOF
+        exec nginx -g 'daemon off;'
+    depends_on:
+      - frontend
+      - backend
+      - rustfs
+    networks:
+      - alexandrie_network
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8200/ >/dev/null || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  frontend:
+    image: ghcr.io/smaug6739/alexandrie-frontend:v8.11.0@sha256:cc9ddc643e1e5387308a126c567efecbbf062bc23ce4d0cc3a25ee9772e3103c
+    restart: on-failure
+    environment:
+      PORT: "8200"
+      NUXT_PUBLIC_CONFIG_DISABLE_SIGNUP_PAGE: "false"
+      NUXT_PUBLIC_CONFIG_DISABLE_LANDING_PAGE: "false"
+      NUXT_PUBLIC_BASE_API: http://${DEVICE_DOMAIN_NAME}:8394
+      NUXT_PUBLIC_BASE_CDN: http://${DEVICE_DOMAIN_NAME}:8394
+      NUXT_PUBLIC_CDN_ENDPOINT: /alexandrie/
+      NUXT_PUBLIC_BASE_URL: http://${DEVICE_DOMAIN_NAME}:8394
+    depends_on:
+      - backend
+    networks:
+      - alexandrie_network
+
+  backend:
+    image: ghcr.io/smaug6739/alexandrie-backend:v8.11.0@sha256:78e888994e3b1e24c1a2c800b6b9ea2585077d68b802c7d6201c39793a2bac6e
+    restart: on-failure
+    environment:
+      BACKEND_PORT: "8201"
+      GIN_MODE: release
+      JWT_SECRET: 7a06c2e9d80f7a0d819c951357e59ac47747ad61a7ba750684fb66c2a5d13db3
+      COOKIE_DOMAIN: ${DEVICE_DOMAIN_NAME}
+      FRONTEND_URL: http://${DEVICE_DOMAIN_NAME}:8394
+      ALLOW_UNSECURE: "true"
+      CONFIG_DISABLE_SIGNUP: "false"
+      CONFIG_DISABLE_NATIVE_LOGIN: "false"
+      DATABASE_HOST: mysql
+      DATABASE_PORT: "3306"
+      DATABASE_NAME: alexandrie
+      DATABASE_USER: alexandrie
+      DATABASE_PASSWORD: 8dE6rQ5nY2pK7sT4vW9xB3mH
+      MINIO_ENDPOINT: rustfs:9000
+      MINIO_PUBLIC_URL: http://${DEVICE_DOMAIN_NAME}:8394
+      MINIO_SECURE: "false"
+      MINIO_ACCESSKEY: alexandrie-key
+      MINIO_SECRETKEY: 6fR9pT2vX8mQ4kL7sN5wC3dH
+      MINIO_BUCKET: alexandrie
+      SMTP_HOST: ""
+      SMTP_MAIL: ""
+      SMTP_MAIL_FROM: ""
+      SMTP_PASSWORD: ""
+    depends_on:
+      mysql:
+        condition: service_healthy
+      rustfs:
+        condition: service_healthy
+    networks:
+      - alexandrie_network
+
+  mysql:
+    image: mysql:8.0@sha256:7dcddc01f13bab2f15cde676d44d01f61fc9f99fe7785e86196dfc07d358ae2b
+    restart: on-failure
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: 4xN8qV2cP7mR5tK9wL3sH6dF
+      MYSQL_DATABASE: alexandrie
+      MYSQL_USER: alexandrie
+      MYSQL_PASSWORD: 8dE6rQ5nY2pK7sT4vW9xB3mH
+    volumes:
+      - ${APP_DATA_DIR}/data/mysql:/var/lib/mysql
+    networks:
+      - alexandrie_network
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: 60s
+
+  rustfs_init:
+    image: rustfs/rustfs:latest@sha256:84ce557a0245a06a9aae5516f55ee0f007fca78d41df356f419306fdc0cb168c
+    user: "0:0"
+    entrypoint:
+      - /bin/sh
+      - -c
+    command:
+      - |
+        mkdir -p /data /logs
+        chown -R 10001:10001 /data /logs
+    volumes:
+      - ${APP_DATA_DIR}/data/rustfs:/data
+      - ${APP_DATA_DIR}/logs/rustfs:/logs
+    networks:
+      - alexandrie_network
+    restart: "no"
+
+  rustfs:
+    image: rustfs/rustfs:latest@sha256:84ce557a0245a06a9aae5516f55ee0f007fca78d41df356f419306fdc0cb168c
+    restart: on-failure
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      RUSTFS_VOLUMES: /data
+      RUSTFS_ADDRESS: 0.0.0.0:9000
+      RUSTFS_ACCESS_KEY: alexandrie-key
+      RUSTFS_SECRET_KEY: 6fR9pT2vX8mQ4kL7sN5wC3dH
+      RUSTFS_CONSOLE_ENABLE: "false"
+      RUSTFS_OBS_LOGGER_LEVEL: error
+      RUSTFS_OBS_LOG_DIRECTORY: /logs
+    volumes:
+      - ${APP_DATA_DIR}/data/rustfs:/data
+      - ${APP_DATA_DIR}/logs/rustfs:/logs
+    depends_on:
+      rustfs_init:
+        condition: service_completed_successfully
+    networks:
+      - alexandrie_network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:9000/health >/dev/null || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 60s
+
+networks:
+  alexandrie_network:
+    driver: bridge
