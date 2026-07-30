@@ -8,6 +8,10 @@
   >
 </p>
 
+<p align="center">
+<a href="https://appstore.subke.cloud/"><img src="https://img.shields.io/badge/Open%20App%20Store-appstore.subke.cloud-5B3FD8?style=for-the-badge&logo=umbrel&logoColor=white" alt="Open Denny's Umbrel App Store"></a>&nbsp;<a href="http://jskvc7syjc7t2uzzhyddchyeylnzjpx3xk6cvpzsl5db2twiohqtanid.onion/"><img src="https://img.shields.io/badge/Open%20via%20Tor-.onion-7D4698?style=for-the-badge&logo=torproject&logoColor=white" alt="Open Denny's Umbrel App Store via Tor"></a>
+</p>
+
 ---
 
 > **⚠️ Notice:** I will continue maintaining this Umbrel Community App Store for now.
