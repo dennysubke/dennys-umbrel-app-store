@@ -94,10 +94,10 @@ services:
       PORT: "8200"
       NUXT_PUBLIC_CONFIG_DISABLE_SIGNUP_PAGE: "false"
       NUXT_PUBLIC_CONFIG_DISABLE_LANDING_PAGE: "false"
-      NUXT_PUBLIC_BASE_API: http://${DEVICE_DOMAIN_NAME}:8394
-      NUXT_PUBLIC_BASE_CDN: http://${DEVICE_DOMAIN_NAME}:8394
+      NUXT_PUBLIC_BASE_API: ""
+      NUXT_PUBLIC_BASE_CDN: ""
       NUXT_PUBLIC_CDN_ENDPOINT: /alexandrie/
-      NUXT_PUBLIC_BASE_URL: http://${DEVICE_DOMAIN_NAME}:8394
+      NUXT_PUBLIC_BASE_URL: ""
     depends_on:
       - backend
     networks:
@@ -111,7 +111,7 @@ services:
       GIN_MODE: release
       JWT_SECRET: 7a06c2e9d80f7a0d819c951357e59ac47747ad61a7ba750684fb66c2a5d13db3
       COOKIE_DOMAIN: ${DEVICE_DOMAIN_NAME}
-      FRONTEND_URL: http://${DEVICE_DOMAIN_NAME}:8394
+      FRONTEND_URL: http://${DEVICE_DOMAIN_NAME}:8294
       ALLOW_UNSECURE: "true"
       CONFIG_DISABLE_SIGNUP: "false"
       CONFIG_DISABLE_NATIVE_LOGIN: "false"
@@ -121,7 +121,7 @@ services:
       DATABASE_USER: alexandrie
       DATABASE_PASSWORD: 8dE6rQ5nY2pK7sT4vW9xB3mH
       MINIO_ENDPOINT: rustfs:9000
-      MINIO_PUBLIC_URL: http://${DEVICE_DOMAIN_NAME}:8394
+      MINIO_PUBLIC_URL: http://${DEVICE_DOMAIN_NAME}:8294
       MINIO_SECURE: "false"
       MINIO_ACCESSKEY: alexandrie-key
       MINIO_SECRETKEY: 6fR9pT2vX8mQ4kL7sN5wC3dH
@@ -154,11 +154,7 @@ services:
     networks:
       - alexandrie_network
     healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "mysqladmin ping -h localhost -u root -p$$MYSQL_ROOT_PASSWORD --silent",
-        ]
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p$$MYSQL_ROOT_PASSWORD --silent"]
       interval: 30s
       timeout: 10s
       retries: 10
@@ -203,11 +199,7 @@ services:
     networks:
       - alexandrie_network
     healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "curl -fsS http://127.0.0.1:9000/health >/dev/null || exit 1",
-        ]
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:9000/health >/dev/null || exit 1"]
       interval: 15s
       timeout: 10s
       retries: 10
