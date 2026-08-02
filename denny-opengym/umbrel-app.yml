@@ -1,0 +1,32 @@
+manifestVersion: 1.1
+id: denny-opengym
+name: openGym
+tagline: A private workout and body weight tracker
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-openGym/logo.png
+category: files
+version: "1.2.3"
+port: 8395
+description: >-
+  🏋️ openGym is a modern, self-hosted workout and body-weight tracker that keeps your fitness data on your own Umbrel. Plan routines for each weekday, run guided workouts, record every set, track personal records and follow your body-weight progress over time.
+
+  The app includes more than 1,300 exercises with animated demonstrations, progression rules, supersets, cardio and timed exercises. It also provides activity heatmaps, muscle-balance views, estimated one-repetition maximum charts, workout history, plan sharing and imports from FitNotes, Strong, Hevy and Apple Health exports.
+
+  Multiple profiles can synchronize their data across devices using passkeys. openGym also supports push notifications, an optional administrator dashboard, invite-only registration, twelve interface languages, dark and light themes and complete JSON data exports without telemetry or subscriptions.
+
+  Important: Passkey login and push notifications require openGym to be opened through HTTPS with a hostname that exactly matches the RP_ID and ORIGIN settings. When opened through the default local HTTP Umbrel address, guest mode remains available, but synchronized profiles and passkeys may not work until an HTTPS domain is configured.
+developer: Duarte Santos
+website: https://opengym.duarte-santos.ch/
+submitter: dennysubke
+submission: https://github.com/getumbrel/umbrel-apps/pull/
+repo: https://github.com/DuarteSantos8/openGym
+support: https://github.com/DuarteSantos8/openGym/issues
+gallery:
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-openGym/1.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-openGym/2.jpg
+  - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/master/denny-openGym/3.jpg
+releaseNotes: >-
+  Version 1.2.3 adds optional effort ratings for weighted sets using either RIR or RPE. Imported Strong and Hevy workouts can now retain existing effort ratings, while blank or invalid values are handled safely. Existing profiles using the earlier RIR option are migrated automatically without rewriting historical workouts.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
