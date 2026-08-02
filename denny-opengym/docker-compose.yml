@@ -35,7 +35,7 @@ services:
       PORT: "3000"
       DATA_DIR: /data
       RP_ID: ${DEVICE_DOMAIN_NAME}
-      ORIGIN: http://${DEVICE_DOMAIN_NAME}:8471
+      ORIGIN: http://${DEVICE_DOMAIN_NAME}:8451
       RP_NAME: openGym
       ADMIN_UIDS: ""
       INVITE_ONLY: "false"
