@@ -9,7 +9,6 @@ services:
 
   media:
     image: alpine/git:latest
-    user: "1000:1000"
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
@@ -32,12 +31,11 @@ services:
 
   api:
     image: ghcr.io/duartesantos8/opengym-api:1.2.3
-    user: "1000:1000"
     environment:
       PORT: "3000"
       DATA_DIR: /data
       RP_ID: ${DEVICE_DOMAIN_NAME}
-      ORIGIN: http://${DEVICE_DOMAIN_NAME}:8395
+      ORIGIN: http://${DEVICE_DOMAIN_NAME}:8471
       RP_NAME: openGym
       ADMIN_UIDS: ""
       INVITE_ONLY: "false"
