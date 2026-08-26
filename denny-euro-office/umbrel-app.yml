@@ -5,7 +5,7 @@ tagline: A sovereign office suite for your documents
 icon: https://avatars.githubusercontent.com/u/230963316?s=512&v=4
 category: files
 version: "9.3.3"
-port: 8395
+port: 8470
 description: >-
   Euro-Office is a self-hosted document server for editing text documents,
   spreadsheets, presentations, PDFs and forms in the browser. This Umbrel
