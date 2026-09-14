@@ -4,7 +4,7 @@ name: TorrServer
 tagline: A torrent streaming server
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torrserver/logo.png
 category: networking
-version: "MatriX.137"
+version: "MatriX.144.5"
 port: 5665
 description: >-
   📡 TorrServer is an application that receives torrent sources and transforms them into a direct and continuous media stream. It accepts magnet links or torrent files, connects to the swarm, retrieves the necessary data segments and prepares them in a way that media players can access immediately without waiting for a complete download. The application manages buffering, caching and sequential reading so that playback begins as soon as the first pieces of the file are available. It keeps track of the torrent structure, selects the required pieces in the correct order, maintains connections to peers and ensures a stable data flow for smooth playback.
@@ -25,16 +25,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torrserver/2.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-torrserver/3.jpg
 releaseNotes: >-
-  This version introduces several new features and improvements.
-
-
-  It adds search, Infuse support on the web, a French web translation, and Torrfs (FuseFS/WebDAV).
-
-
-  DLNA has been updated, storage configuration has been enhanced, and DNS fallback support was added.
-
-
-  In addition, multiple bug fixes improve the preload process as well as database and cache handling.
+  This version adds a MergeAllM3U setting that combines all torrent playlists into a single all.m3u playlist.
 dependencies:
 path: ""
 defaultUsername: ""
