@@ -4,7 +4,7 @@ name: Crafty Controller
 tagline: An intuitive way to automate and manage your Minecraft server with ease
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-crafty/logo.png
 category: gaming
-version: "4.5.4"
+version: "4.11.0"
 port: 18443
 description: >-
   ⛏️ Crafty Controller is an open-source, web-based interface designed to manage and control Crafty Bots, which are used for automating and managing Minecraft servers. Crafty itself is a bot framework that allows administrators to automate various tasks on Minecraft servers, from running tests to managing in-game events, controlling server settings, and much more. Crafty Controller provides a centralized platform where administrators can monitor and control these bots from one place.
@@ -19,10 +19,7 @@ description: >-
   Ultimately, Crafty Controller is a powerful tool for automating and managing Minecraft servers, providing a central hub that simplifies bot management and enables more efficient administration of server tasks.
 
 
-  ⚠️ Crafty Controller uses HTTPS to protect your personal data. When accessing Crafty Controller, you must explicitly type "https" in the address, for example, https://umbrel.local:18443.
-
-
-  ℹ️ Crafty Controller uses a self-signed certificate, which may trigger a browser warning like "Your connection is not private." You can safely proceed by clicking "Advanced" and then "Proceed to umbrel.local (unsafe)" or a similar option, depending on your browser.
+  ℹ️ Open Crafty Controller from your Umbrel dashboard and sign in with your Crafty account. On umbrelOS 2.0, HTTPS access is handled by Umbrel; you no longer need to accept Crafty's self-signed certificate separately.
 
 
   🔑 The default username for Crafty Controller is 'admin', and the password is randomly generated. You can find the password in the file located at: /umbrel/app-data/denny-crafty/data/config/default-creds.txt. It is highly recommended to change the password immediately after logging in for security purposes.
@@ -39,8 +36,11 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-crafty/4.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-crafty/5.jpg
 releaseNotes: >-
-  Version 4.5.4 fixes bugs by refactoring the upload process to ensure asynchronous file operations. It also removes all third-party font requests.
+  Updated Crafty Controller to 4.11.0 with a pinned multi-architecture image digest. This release adds custom branding improvements and historical log viewing, and includes upstream bug and security fixes.
+
+
+  Fixed access on umbrelOS 2.0 by routing the web interface through an internal Nginx proxy. The update handles Crafty's self-signed certificate and supports the console's WebSocket connection over both HTTP and HTTPS, along with large file uploads. Existing Minecraft ports and data locations are preserved.
 dependencies:
-path: "https://umbrel.local:18443"
+path: ""
 defaultUsername: "admin"
 defaultPassword: ""
