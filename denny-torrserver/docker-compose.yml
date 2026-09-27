@@ -8,7 +8,7 @@ services:
       PROXY_AUTH_ADD: "false"
 
   app:
-    image: ghcr.io/yourok/torrserver:MatriX.137@sha256:cc019c7735bd717930c05cbc4e0c3a9f2a1e1dc4f83ddf72e9f4f01674b085d6
+    image: ghcr.io/yourok/torrserver:MatriX.144.5@sha256:0db8e8eae5ad80ef0ad1da5f0a3fb95989fdb376bb32337d6872aba1a23c2380
     #network_mode: host
     environment:
       TS_PORT: "5665"
