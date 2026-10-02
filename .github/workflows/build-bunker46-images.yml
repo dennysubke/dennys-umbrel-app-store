@@ -7,11 +7,11 @@ on:
       - feature/bunker46
     paths:
       - ".github/workflows/build-bunker46-images.yml"
-  pull_request:
-    paths:
-      - ".github/workflows/build-bunker46-images.yml"
-      - "denny-bunker46/**"
   workflow_dispatch:
+
+concurrency:
+  group: bunker46-images
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -24,7 +24,6 @@ env:
 
 jobs:
   build:
-    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
