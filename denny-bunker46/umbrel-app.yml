@@ -1,0 +1,44 @@
+manifestVersion: 1
+id: denny-bunker46
+storage:
+  dataRoot: data
+category: bitcoin
+name: Bunker46
+version: "0.1.0"
+tagline: Keep your Nostr keys in your own bunker
+icon: https://raw.githubusercontent.com/dsbaars/bunker46/36a3386b12b306016a07dfc1a44fbeb1e2be0cb1/apps/web/public/logo.webp
+description: >-
+  🔐 Bunker46 is a self-hosted NIP-46 remote signer for Nostr. It keeps your nsec private keys encrypted on your Umbrel and lets compatible Nostr apps request signatures without receiving the private key itself.
+
+
+  The first user account can be created when you open the app for the first time. Public registration stays disabled after the initial account is created.
+
+
+  Bunker46 supports bunker:// and nostrconnect:// connection flows, fine-grained permissions for signing methods and event kinds, encrypted NIP-44 communication, signing logs, session management, TOTP two-factor authentication, and WebAuthn/passkeys.
+
+
+  Private keys are encrypted at rest with AES-256-GCM. The encryption key and authentication secrets are generated deterministically for this Umbrel installation, so they remain stable across app restarts and updates. Keep normal Umbrel backups enabled because the PostgreSQL database contains the encrypted key material and application state.
+
+
+  For WebAuthn/passkeys, use the normal Umbrel local address shown when launching the app. Password and TOTP authentication continue to work when Bunker46 is accessed through other hostnames or reverse proxies.
+releaseNotes: ""
+
+developer: Djuri Baars
+website: https://bunker46.github.io/
+dependencies: []
+repo: https://github.com/dsbaars/bunker46
+support: https://github.com/dsbaars/bunker46/issues
+
+port: 8466
+gallery:
+  - https://raw.githubusercontent.com/dsbaars/bunker46/36a3386b12b306016a07dfc1a44fbeb1e2be0cb1/docs/screenshots/login.webp
+  - https://raw.githubusercontent.com/dsbaars/bunker46/36a3386b12b306016a07dfc1a44fbeb1e2be0cb1/docs/screenshots/dashboard.webp
+  - https://raw.githubusercontent.com/dsbaars/bunker46/36a3386b12b306016a07dfc1a44fbeb1e2be0cb1/docs/screenshots/connections.webp
+  - https://raw.githubusercontent.com/dsbaars/bunker46/36a3386b12b306016a07dfc1a44fbeb1e2be0cb1/docs/screenshots/keys.webp
+path: ""
+
+defaultUsername: ""
+defaultPassword: ""
+
+submitter: dennysubke
+submission: https://github.com/dennysubke/dennys-umbrel-app-store/pull/84

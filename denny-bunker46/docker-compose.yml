@@ -1,0 +1,67 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-bunker46_web_1
+      APP_PORT: 8080
+
+  web:
+    image: ghcr.io/dennysubke/bunker46-web:0.1.0-36a3386@sha256:1081122c4f1ba406d81db6964bf29a293f07eca212cf6cf5faf515e3e1af20fb
+    restart: on-failure
+    depends_on:
+      - server
+
+  server:
+    image: ghcr.io/dennysubke/bunker46-server:0.1.0-36a3386@sha256:37202ad191fc11fe14aebe58ec4153798a47ba1a712d2d50c3e2ae6f5b6e4cab
+    restart: on-failure
+    stop_grace_period: 30s
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      HOST: 0.0.0.0
+      DATABASE_URL: postgresql://bunker46:${APP_BUNKER46_DB_PASSWORD}@db:5432/bunker46
+      JWT_SECRET: ${APP_BUNKER46_JWT_SECRET}
+      JWT_EXPIRES_IN: 15m
+      JWT_REFRESH_SECRET: ${APP_BUNKER46_JWT_REFRESH_SECRET}
+      JWT_REFRESH_EXPIRES_IN: 7d
+      ENCRYPTION_KEY: ${APP_BUNKER46_ENCRYPTION_KEY}
+      CORS_ORIGINS: "http://${DEVICE_DOMAIN_NAME}:${APP_BUNKER46_PORT},https://${DEVICE_DOMAIN_NAME}:${APP_BUNKER46_PORT},http://${DEVICE_HOSTNAME}:${APP_BUNKER46_PORT},https://${DEVICE_HOSTNAME}:${APP_BUNKER46_PORT},${APP_BUNKER46_LOCAL_ORIGINS}"
+      COOKIE_SECURE: "false"
+      REDIS_URL: redis://redis:6379
+      TRUST_PROXY: "true"
+      WEBAUTHN_RP_NAME: Bunker46
+      WEBAUTHN_RP_ID: ${DEVICE_DOMAIN_NAME}
+      WEBAUTHN_ORIGIN: "http://${DEVICE_DOMAIN_NAME}:${APP_BUNKER46_PORT}"
+      LOG_LEVEL: info
+      ALLOW_REGISTRATION: "false"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  db:
+    image: postgres:17-alpine
+    restart: on-failure
+    environment:
+      POSTGRES_USER: bunker46
+      POSTGRES_PASSWORD: ${APP_BUNKER46_DB_PASSWORD}
+      POSTGRES_DB: bunker46
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bunker46 -d bunker46"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  redis:
+    image: redis:8-alpine
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
