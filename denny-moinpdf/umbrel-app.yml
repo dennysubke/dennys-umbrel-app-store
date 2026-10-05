@@ -37,6 +37,6 @@ defaultUsername: ""
 defaultPassword: ""
 
 submitter: dennysubke
-submission: https://github.com/dennysubke/dennys-umbrel-app-store
+submission: https://github.com/dennysubke/dennys-umbrel-app-store/pull/85
 backupIgnore:
   - data/translation-cache/*
