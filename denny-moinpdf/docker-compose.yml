@@ -34,7 +34,7 @@ services:
     logging: *logging
 
   documents:
-    image: ghcr.io/dennysubke/moinpdf-documents:0.1.0-e82c50b8676d
+    image: ghcr.io/dennysubke/moinpdf-documents:0.1.0-e82c50b8676d@sha256:9b481d5f3d11dc6b299740d9402cbd62932082b7ad1835b7d371637248fd7962
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 1m
