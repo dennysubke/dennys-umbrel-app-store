@@ -1,0 +1,42 @@
+manifestVersion: 1
+id: denny-moinpdf
+storage:
+  dataRoot: data
+category: files
+name: MoinPDF
+version: "0.1.0"
+tagline: Your complete PDF workspace with local document processing
+description: >-
+  MoinPDF brings a complete PDF workspace to your Umbrel, including its document server and local translation service. The interface is in German. No external API account or separate document-server setup is required.
+
+
+  First start: translation models for German, English, French, Spanish, Italian, Dutch, and Polish download automatically. This can take several minutes and requires Internet access. The other tools are available while translation is being prepared. Plan for at least 8 GB of available RAM and 20 GB of free disk space as a starting point.
+
+
+  Merge, split, rotate, reorder, compress, annotate, and edit PDFs. Extract text with German and English OCR, work with forms, add QR codes, convert Office documents and emails, create PDF/A files, and use XRechnung, ZUGFeRD, and certificate-signature tools. Individual tools have document and format limitations; scanned PDFs need OCR before text translation.
+
+
+  Browser tools process files on your device. Server tools send files to your own Umbrel after you confirm the transfer. Temporary document jobs are removed when processing finishes. Translation runs on your own server; downloaded language models are retained across restarts and updates.
+
+
+  Umbrel login protects the app by default. To publish your own instance through Cloudflare Tunnel, configure the app's access setting deliberately and forward your domain to the Umbrel app port. The bundled imprint and privacy notice describe Denny Wenke's own deployment; other operators must adapt these details before public use. Camera capture requires HTTPS. Long synchronous server jobs may exceed Cloudflare's request timeout.
+releaseNotes: ""
+
+developer: Denny Wenke
+website: https://appstore.subke.cloud
+dependencies: []
+repo: https://github.com/dennysubke/moinpdf
+support: https://github.com/dennysubke/dennys-umbrel-app-store/issues
+
+port: 8785
+gallery: []
+path: ""
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/logo.png
+
+defaultUsername: ""
+defaultPassword: ""
+
+submitter: dennysubke
+submission: https://github.com/dennysubke/dennys-umbrel-app-store/pull/85
+backupIgnore:
+  - data/translation-cache/*
