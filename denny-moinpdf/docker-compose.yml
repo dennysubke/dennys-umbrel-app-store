@@ -1,0 +1,117 @@
+version: "3.7"
+
+x-logging: &logging
+  driver: local
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-moinpdf_web_1
+      APP_PORT: 8080
+
+  web:
+    image: ghcr.io/dennysubke/moinpdf-web:0.1.0-e82c50b8676d
+    user: "1000:1000"
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      MOINPDF_SITE_ADDRESS: ":8080"
+      MOINPDF_API_KEY: "${APP_DENNY_MOINPDF_API_KEY}"
+    volumes:
+      - ${APP_DATA_DIR}/data/caddy-data:/data
+      - ${APP_DATA_DIR}/data/caddy-config:/config
+    read_only: true
+    tmpfs:
+      - /tmp:mode=1777,size=64m
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 256m
+    pids_limit: 64
+    networks: [default, documents]
+    logging: *logging
+
+  documents:
+    image: ghcr.io/dennysubke/moinpdf-documents:0.1.0-e82c50b8676d
+    user: "1000:1000"
+    restart: on-failure
+    stop_grace_period: 1m
+    init: true
+    environment:
+      MOINPDF_API_KEY: "${APP_DENNY_MOINPDF_API_KEY}"
+      MOINPDF_TRANSLATE_URL: http://translation:5000
+      MOINPDF_TRANSLATE_LANGUAGES: de,en,fr,es,it,nl,pl
+    volumes:
+      - ${APP_DATA_DIR}/data/trust:/trust:ro
+    read_only: true
+    tmpfs:
+      - /tmp:mode=1777,size=1g
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 2g
+    cpus: 2
+    pids_limit: 256
+    networks: [documents]
+    logging: *logging
+
+  translation-models:
+    image: ghcr.io/dennysubke/moinpdf-translation:0.1.0-e82c50b8676d
+    user: "1000:1000"
+    restart: on-failure
+    stop_grace_period: 1m
+    init: true
+    entrypoint: [/app/venv/bin/python, /opt/moinpdf/ensure_models.py]
+    environment:
+      LT_LOAD_ONLY: de,en,fr,es,it,nl,pl
+      ARGOS_CHUNK_TYPE: MINISBD
+    volumes:
+      - ${APP_DATA_DIR}/data/translation-models:/home/libretranslate/.local
+      - ${APP_DATA_DIR}/data/translation-cache:/home/libretranslate/.cache
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    cpus: 2
+    pids_limit: 256
+    healthcheck:
+      disable: true
+    logging: *logging
+
+  translation:
+    image: ghcr.io/dennysubke/moinpdf-translation:0.1.0-e82c50b8676d
+    user: "1000:1000"
+    restart: on-failure
+    stop_grace_period: 1m
+    init: true
+    entrypoint: [/opt/moinpdf/start-translation.sh]
+    environment:
+      LT_LOAD_ONLY: de,en,fr,es,it,nl,pl
+      LT_HOST: 0.0.0.0
+      LT_PORT: "5000"
+      LT_THREADS: "2"
+      LT_DISABLE_WEB_UI: "true"
+      LT_CHAR_LIMIT: "2000"
+      ARGOS_CHUNK_TYPE: MINISBD
+    volumes:
+      - ${APP_DATA_DIR}/data/translation-models:/home/libretranslate/.local
+      - ${APP_DATA_DIR}/data/translation-cache:/home/libretranslate/.cache
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 4g
+    cpus: 2
+    pids_limit: 256
+    networks: [documents]
+    healthcheck:
+      test: [CMD, /app/venv/bin/python, /opt/moinpdf/healthcheck.py]
+      interval: 15s
+      timeout: 6s
+      retries: 20
+      start_period: 1800s
+    logging: *logging
+
+# This additional network is intentional: document contents and running
+# translation models must have no Internet route or shared Umbrel-network peer.
+# Umbrel still injects its usual external default network for web/app_proxy.
+networks:
+  documents:
+    internal: true
