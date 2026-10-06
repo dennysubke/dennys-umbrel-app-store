@@ -13,7 +13,7 @@ services:
       APP_PORT: 8080
 
   web:
-    image: ghcr.io/dennysubke/moinpdf-web:0.2.0-0343dc6176be@sha256:a86af546bf64422b1a5d8047b67803eb0973ccac21574d00b75886dde3c88f9e
+    image: ghcr.io/dennysubke/moinpdf-web:0.2.1-a20ddb6b0048@sha256:d22fc2490762b31014f7580f8e7906f53f5623c7967ef915b19b42d2640c33c9
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 1m

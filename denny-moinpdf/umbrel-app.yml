@@ -4,7 +4,7 @@ storage:
   dataRoot: data
 category: files
 name: MoinPDF
-version: "0.2.0"
+version: "0.2.1"
 tagline: Your complete PDF workspace with local document processing
 description: >-
   MoinPDF brings a complete PDF workspace to your Umbrel, including its document server and local translation service. The interface is in German. No external API account or separate document-server setup is required.
@@ -21,10 +21,10 @@ description: >-
 
   Umbrel login protects the app by default. To publish your own instance through Cloudflare Tunnel, configure the app's access setting deliberately and forward your domain to the Umbrel app port. The bundled imprint and privacy notice describe Denny Wenke's own deployment; other operators must adapt these details before public use. Camera capture requires HTTPS. Long synchronous server jobs may exceed Cloudflare's request timeout.
 releaseNotes: >-
-  Simplified file-to-file conversion: choose Word, Excel, PowerPoint, images, or text directly after importing a PDF. Office documents, emails, and HTML files now open their matching converter from the main upload area.
+  All tools are now shown directly below the search field, without separate quick-conversion buttons or category filters.
 
 
-  Removed technical server settings and the separate server category. Mobile footer links are centered with a visible app version. Improved file selection, download labels, and connection timeouts. Emails export directly as PDF, with attachments optionally included in a ZIP.
+  Removed the browser-processing notice and shield icon below the tools. Long tool names wrap within their tiles on narrow screens. Version 0.2.1 is shown in the footer.
 
 developer: Denny Wenke
 website: https://appstore.subke.cloud
