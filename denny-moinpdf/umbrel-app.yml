@@ -4,7 +4,7 @@ storage:
   dataRoot: data
 category: files
 name: MoinPDF
-version: "0.2.5"
+version: "0.2.6"
 tagline: Your complete PDF workspace with local document processing
 description: >-
   MoinPDF brings a complete PDF workspace to your Umbrel, including its document server and local translation service. The interface is in German. No external API account or separate document-server setup is required.
@@ -21,10 +21,10 @@ description: >-
 
   Umbrel login protects the app by default. To publish your own instance through Cloudflare Tunnel, configure the app's access setting deliberately and forward your domain to the Umbrel app port. The bundled imprint and privacy notice describe Denny Wenke's own deployment; other operators must adapt these details before public use. Camera capture requires HTTPS. Long synchronous server jobs may exceed Cloudflare's request timeout.
 releaseNotes: >-
-  Made the sailor mascot in the footer smaller, reducing it from 48 to 32 pixels.
+  Reduced the sailor mascot in the footer to a discreet 24 pixels and made the footer more compact.
 
 
-  The mascot and version number are now centered together beneath the legal links on both mobile and desktop screens.
+  The mascot and version number remain centered together beneath the legal links on both mobile and desktop screens.
 
 developer: Denny Wenke
 website: https://appstore.subke.cloud
