@@ -4,10 +4,10 @@ storage:
   dataRoot: data
 category: files
 name: MoinPDF
-version: "0.2.8"
+version: "0.5.1"
 tagline: Your complete PDF workspace with local document processing
 description: >-
-  MoinPDF brings a complete PDF workspace to your Umbrel, including its document server and local translation service. The interface is in German. No external API account or separate document-server setup is required.
+  MoinPDF brings 100 PDF tools to your Umbrel, including its document server and local translation service. The interface is in German. No external API account or separate document-server setup is required.
 
 
   First start: translation models for German, English, French, Spanish, Italian, Dutch, and Polish download automatically. This can take several minutes and requires Internet access. The other tools are available while translation is being prepared. Plan for at least 8 GB of available RAM and 20 GB of free disk space as a starting point.
@@ -21,10 +21,13 @@ description: >-
 
   Umbrel login protects the app by default. To publish your own instance through Cloudflare Tunnel, configure the app's access setting deliberately and forward your domain to the Umbrel app port. The bundled imprint and privacy notice describe Denny Wenke's own deployment; other operators must adapt these details before public use. Camera capture requires HTTPS. Long synchronous server jobs may exceed Cloudflare's request timeout.
 releaseNotes: >-
-  Restored tool categories below the search field: All, Check, Convert, Pages, Edit, and Batch. All 76 tools are shown by default.
+  MoinPDF now includes 100 tools. New additions include document review with source evidence, form-response analysis, chronological document bundles, exact arithmetic checks, active-content removal, PDF layers, and calibrated measurements.
 
 
-  Category filters apply to the tool overview and search suggestions. The category buttons wrap on mobile screens and support keyboard navigation.
+  Create local audiobooks with two installed German Piper voices. Review the extracted text, choose the speaking speed, and download WAV audio or a chapter ZIP. The voices work offline on your Umbrel.
+
+
+  PDF repair, target-size optimization, scan splitting, and Markdown, HTML, and EPUB exports are included. Interrupted document downloads can now be cancelled reliably, and time limits cover the complete download. EPUB exports and manual review entries also support direct local HTTP access.
 
 developer: Denny Wenke
 website: https://appstore.subke.cloud
