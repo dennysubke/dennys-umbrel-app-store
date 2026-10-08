@@ -13,7 +13,7 @@ services:
       APP_PORT: 8080
 
   web:
-    image: ghcr.io/dennysubke/moinpdf-web:0.5.4-9ce734817d4a@sha256:892e09dc5795bf6824f8abfbd7f6861c9ddc03004c5a3357ce6e430ec05deac7
+    image: ghcr.io/dennysubke/moinpdf-web:0.5.5-52dc69e43f0b@sha256:e3f333029f9e47487010bd784b6d969630a95970e0f42fd88e0db227a6b18531
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 1m
@@ -34,7 +34,7 @@ services:
     logging: *logging
 
   documents:
-    image: ghcr.io/dennysubke/moinpdf-documents:0.5.4-9ce734817d4a@sha256:60eef5a0ed19679ea82a3e16b370a703f050075e956cc89227d91c15f0f2478f
+    image: ghcr.io/dennysubke/moinpdf-documents:0.5.5-52dc69e43f0b@sha256:cb39c1c11d668f3bdd1759b22263eadd729ef1269854adb2f629d4b0a2600b32
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 1m
@@ -57,7 +57,7 @@ services:
     logging: *logging
 
   translation-models:
-    image: ghcr.io/dennysubke/moinpdf-translation:0.5.4-9ce734817d4a@sha256:691a80707fdcd44916034326657dd6575c675444fe43e0763970d6cdbe86b161
+    image: ghcr.io/dennysubke/moinpdf-translation:0.5.5-52dc69e43f0b@sha256:f9231f72bc6db085dc7772bf7b7ea433b39489e39b00171982dda63733cbc9aa
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 1m
@@ -78,7 +78,7 @@ services:
     logging: *logging
 
   translation:
-    image: ghcr.io/dennysubke/moinpdf-translation:0.5.4-9ce734817d4a@sha256:691a80707fdcd44916034326657dd6575c675444fe43e0763970d6cdbe86b161
+    image: ghcr.io/dennysubke/moinpdf-translation:0.5.5-52dc69e43f0b@sha256:f9231f72bc6db085dc7772bf7b7ea433b39489e39b00171982dda63733cbc9aa
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 1m
