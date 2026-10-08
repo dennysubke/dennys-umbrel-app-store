@@ -4,7 +4,7 @@ storage:
   dataRoot: data
 category: files
 name: MoinPDF
-version: "0.5.3"
+version: "0.5.4"
 tagline: Your complete PDF workspace with local document processing
 description: >-
   MoinPDF brings 100 PDF tools to your Umbrel, including its document server and local translation service. The interface is in German. No external API account or separate document-server setup is required.
@@ -21,13 +21,13 @@ description: >-
 
   Umbrel login protects the app by default. To publish your own instance through Cloudflare Tunnel, configure the app's access setting deliberately and forward your domain to the Umbrel app port. The bundled imprint and privacy notice describe Denny Wenke's own deployment; other operators must adapt these details before public use. Camera capture requires HTTPS. Long synchronous server jobs may exceed Cloudflare's request timeout.
 releaseNotes: >-
-  The new Medienbereich is available from the footer, between Documentation and the legal pages. It opens in a separate tab to keep working documents in place.
+  The Medienbereich now includes the original MoinPDF logo, with a preview and an individual JPG download. The logo is also included in the complete media kit alongside the six original banners, the SVG wordmark, and usage notes.
 
 
-  Download six original MoinPDF banners individually or get the complete media kit as a ZIP. The kit also includes the scalable SVG wordmark, short descriptions, and usage notes for press, magazines, websites, and newsletters.
+  The press descriptions no longer include a fixed tool count. The media page and all downloads work without JavaScript.
 
 
-  The responsive gallery displays actual image dimensions and download sizes. All media and text downloads work without JavaScript. Original banner checksums and the media package are verified during production builds.
+  Desktop and mobile layout, original image downloads, and media ZIP contents have been verified.
 
 developer: Denny Wenke
 website: https://appstore.subke.cloud
