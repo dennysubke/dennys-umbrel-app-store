@@ -50,9 +50,6 @@ description: >-
 
 
   Temporary document jobs are removed when processing finishes. Downloaded language models are retained across restarts and updates. Individual tools have document and format limitations; review important results against the original.
-
-
-  Umbrel login protects the app by default. To publish your own instance through Cloudflare Tunnel, configure the app's access setting deliberately and forward your domain to the app port. The bundled imprint and privacy notice describe Denny Wenke's own deployment; other operators must adapt these details before public use. Camera capture requires HTTPS. Long synchronous server jobs may exceed Cloudflare's request timeout.
 developer: dennysubke
 website: https://moinpdf.de
 submitter: dennysubke
