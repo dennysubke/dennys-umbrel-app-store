@@ -1,7 +1,7 @@
 manifestVersion: 1
 id: denny-moinpdf
 name: MoinPDF
-tagline: Your complete PDF workspace with local document processing
+tagline: A complete PDF workspace with local document processing
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/logo.png
 category: files
 version: "0.5.8"
