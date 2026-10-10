@@ -1,0 +1,90 @@
+name: Verify MoinPDF installation
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'denny-moinpdf/**'
+      - '.github/tests/moinpdf/**'
+      - '.github/workflows/moinpdf.yml'
+  pull_request:
+    paths:
+      - 'denny-moinpdf/**'
+      - '.github/tests/moinpdf/**'
+      - '.github/workflows/moinpdf.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: moinpdf-install-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  installation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - name: Verify pinned public images for both architectures
+        run: python .github/tests/moinpdf/verify-images.py
+      - name: Free disposable runner disk space
+        timeout-minutes: 15
+        run: |
+          # This runner is disposable. Free only preinstalled SDKs not used here.
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc \
+            /opt/hostedtoolcache/CodeQL /usr/local/.ghcup /usr/share/swift \
+            /usr/local/share/powershell /home/runner/.rustup
+          docker image prune --all --force
+          df -h /
+      - name: Install browser test dependencies
+        timeout-minutes: 10
+        run: |
+          python -m pip install playwright==1.55.0 pymupdf==1.28.2 requests==2.34.2
+          python -m playwright install --with-deps chromium
+      - name: Boot disposable Umbrel test host
+        timeout-minutes: 10
+        run: |
+          # Privilege is limited to the disposable OS test harness. No MoinPDF
+          # app container is privileged or has access to a Docker socket.
+          docker run -d --name moinpdf-umbrel-test --privileged --network host \
+            --cgroupns host --tmpfs /run --tmpfs /run/lock \
+            --volume /sys/fs/cgroup:/sys/fs/cgroup:rw \
+            --volume moinpdf-umbrel-test:/home/umbrel/umbrel \
+            --volume moinpdf-umbrel-docker:/var/lib/docker \
+            --volume moinpdf-umbrel-containerd:/var/lib/containerd \
+            ghcr.io/getumbrel/umbrelos:2.0.0 /sbin/init
+      - name: Install through Umbrel
+        run: bash .github/tests/moinpdf/umbrel-install.sh
+      - name: Browser, protected app route, real translation and restart persistence
+        run: python .github/tests/moinpdf/umbrel-smoke.py
+      - name: Evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: umbrel-verification-amd64
+          path: umbrel-evidence/
+          if-no-files-found: ignore
+          retention-days: 14
+      - name: Diagnostics
+        if: failure()
+        run: |
+          cat "$RUNNER_TEMP/moinpdf-umbrel-ci-store/server.log" || true
+          docker logs --tail 100 moinpdf-umbrel-test || true
+          df -h /
+          docker system df || true
+          docker exec moinpdf-umbrel-test docker info --format 'driver={{.Driver}} root={{.DockerRootDir}}' || true
+          docker exec moinpdf-umbrel-test docker system df || true
+          docker exec moinpdf-umbrel-test df -h /var/lib/docker /var/lib/containerd /home/umbrel/umbrel || true
+          docker exec moinpdf-umbrel-test journalctl -u umbrel --no-pager -n 100 || true
+          docker exec moinpdf-umbrel-test docker ps -a || true
+          docker exec moinpdf-umbrel-test docker logs --tail 80 denny-moinpdf_web_1 || true
+          docker exec moinpdf-umbrel-test docker logs --tail 80 denny-moinpdf_translation-models_1 || true
+          docker exec moinpdf-umbrel-test docker logs --tail 80 denny-moinpdf_translation_1 || true
+      - name: Remove disposable test host
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/moinpdf-umbrel-ci-store/server.pid" ]; then
+            kill "$(cat "$RUNNER_TEMP/moinpdf-umbrel-ci-store/server.pid")" || true
+          fi
+          docker rm -f moinpdf-umbrel-test || true
+          docker volume rm moinpdf-umbrel-test || true
+          docker volume rm moinpdf-umbrel-docker moinpdf-umbrel-containerd || true
