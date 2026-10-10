@@ -15,7 +15,7 @@ MoinPDF ist als **`denny-moinpdf`** in [dem Umbrel Community Store](https://gith
 4. Datei auswählen, Werkzeug oder Zielformat wählen und die Verarbeitung starten. Bei „PDF übersetzen“ kann nach der Erstinstallation kurz „Wird vorbereitet“ erscheinen; die übrigen Werkzeuge sind bereits nutzbar.
 5. Eine Test-PDF öffnen, eine DOCX in PDF konvertieren und nach abgeschlossener Einrichtung ein kurzes Text-PDF übersetzen.
 
-Die im Store fest hinterlegten Container-Pakete unter `ghcr.io/dennysubke/` sind öffentlich und ohne GitHub-Anmeldung abrufbar. Der Store verwendet feste Image-Versionen mit Prüfsummen für Intel/AMD (`amd64`) und ARM (`arm64`).
+Die im Store fest hinterlegten Container-Pakete unter `ghcr.io/moinpdf/` sind öffentlich und ohne GitHub-Anmeldung abrufbar. Der Store verwendet feste Image-Versionen mit Prüfsummen für Intel/AMD (`amd64`) und ARM (`arm64`).
 
 ## Zugriff und HTTPS
 
@@ -72,7 +72,7 @@ Nach einem erfolgreichen vollständigen Docker-Prüflauf auf `main` baut `.githu
 
 Der Quellcode liegt öffentlich unter [MoinPDF/moinpdf](https://github.com/MoinPDF/moinpdf). Neue Images werden unter `ghcr.io/moinpdf/` veröffentlicht. Die Sichtbarkeit des Quellcode-Repositorys und der Container-Pakete wird getrennt verwaltet: Neu angelegte GHCR-Pakete benötigen beim ersten Publish die Freigabe unter **Package settings → Change visibility → Public**.
 
-Die aktuelle Store-Version verwendet weiterhin die öffentlich abrufbaren Images unter `ghcr.io/dennysubke/`. Beim Wechsel zu `ghcr.io/moinpdf/` zuerst alle drei Pakete `moinpdf-web`, `moinpdf-documents` und `moinpdf-translation` öffentlich freigeben, dann die anonyme Abrufbarkeit und beide Plattformen prüfen. Anschließend Image-Referenzen samt Digest, den erwarteten Registry-Namensraum in `.github/tests/moinpdf/verify-images.py` und den Quell-Commit in `.github/tests/moinpdf/asset-checksums.json` gemeinsam aktualisieren und den nativen Umbrel-Test erfolgreich abschließen, bevor die Änderung in `master` übernommen wird.
+Der Store verwendet die Pakete `moinpdf-web`, `moinpdf-documents` und `moinpdf-translation` unter `ghcr.io/moinpdf/`. Vor jeder Übernahme in `master` die anonyme Abrufbarkeit und beide Plattformen prüfen und den nativen Umbrel-Test erfolgreich abschließen. Image-Referenzen samt Digest und den Quell-Commit in `.github/tests/moinpdf/asset-checksums.json` gemeinsam pflegen; beim Wechsel des Registry-Namensraums zusätzlich `.github/tests/moinpdf/verify-images.py` anpassen. Die bisherigen Images unter `ghcr.io/dennysubke/` bleiben für bestehende Installationen und ältere Store-Stände erforderlich und sollten weiterhin öffentlich verfügbar bleiben.
 
 Quellen: [Umbrel-Paketierung](https://github.com/getumbrel/umbrel-apps/blob/master/.agents/skills/umbrel-package-app/SKILL.md), [GHCR-Paketsichtbarkeit](https://docs.github.com/en/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility), [Cloudflare 524](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-524/).
 
