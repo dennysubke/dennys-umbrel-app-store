@@ -4,7 +4,7 @@ name: MoinPDF
 tagline: A complete PDF workspace with local document processing
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/logo.png
 category: files & productivity
-version: "0.5.10"
+version: "0.5.11"
 port: 8785
 description: >-
   ⚓ MoinPDF brings PDF editing, conversion, OCR, and document checks together in one workspace. Merge files, make scans searchable, edit pages, and prepare documents for everyday tasks through a German-language interface. Drag your files into the app, search for what you want to do, and choose the matching tool.
@@ -50,7 +50,10 @@ description: >-
 
 
   Temporary document jobs are removed when processing finishes. Downloaded language models are retained across restarts and updates. Individual tools have document and format limitations; review important results against the original.
-developer: dennysubke
+
+
+  Umbrel login protects the app by default. To publish your own instance through Cloudflare Tunnel, configure the app's access setting deliberately and forward your domain to the app port. The bundled imprint and privacy notice describe the original MoinPDF deployment; other operators must adapt these details before public use. Camera capture requires HTTPS. Long synchronous server jobs may exceed Cloudflare's request timeout.
+developer: MoinPDF
 website: https://moinpdf.de
 submitter: dennysubke
 submission: https://github.com/dennysubke/dennys-umbrel-app-store/pull/85
@@ -61,7 +64,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/2.webp
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/3.webp
 releaseNotes: >-
-  Synchronizes the Umbrel app with the current web version. Updates the contact and privacy email addresses, simplifies the media contact card, and restores the compact legal-page layout with green text and clearer address spacing. Includes the promotional video, official favicon, and current documentation.
+  Improves maintenance and release verification, updates documentation and contact guidance, and adds mobile checks for the legal pages. Removes obsolete hosting integration from the standalone source distribution. Includes the current web application and document services.
 dependencies: []
 path: ""
 defaultUsername: ""
