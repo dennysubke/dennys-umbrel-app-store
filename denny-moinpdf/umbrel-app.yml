@@ -4,7 +4,7 @@ name: MoinPDF
 tagline: A complete PDF workspace with local document processing
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/logo.png
 category: files & productivity
-version: "0.5.9"
+version: "0.5.10"
 port: 8785
 description: >-
   ⚓ MoinPDF brings PDF editing, conversion, OCR, and document checks together in one workspace. Merge files, make scans searchable, edit pages, and prepare documents for everyday tasks through a German-language interface. Drag your files into the app, search for what you want to do, and choose the matching tool.
@@ -61,7 +61,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/2.webp
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/3.webp
 releaseNotes: >-
-  Includes the promotional video and official favicon, the latest documentation updates, and a cleaner desktop media page. HTML pages and icons are revalidated after updates.
+  Synchronizes the Umbrel app with the current web version. Updates the contact and privacy email addresses, simplifies the media contact card, and restores the compact legal-page layout with green text and clearer address spacing. Includes the promotional video, official favicon, and current documentation.
 dependencies: []
 path: ""
 defaultUsername: ""
