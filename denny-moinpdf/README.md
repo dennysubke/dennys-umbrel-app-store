@@ -15,7 +15,7 @@ MoinPDF ist als **`denny-moinpdf`** in [dem Umbrel Community Store](https://gith
 4. Datei auswählen, Werkzeug oder Zielformat wählen und die Verarbeitung starten. Bei „PDF übersetzen“ kann nach der Erstinstallation kurz „Wird vorbereitet“ erscheinen; die übrigen Werkzeuge sind bereits nutzbar.
 5. Eine Test-PDF öffnen, eine DOCX in PDF konvertieren und nach abgeschlossener Einrichtung ein kurzes Text-PDF übersetzen.
 
-Die drei Container-Pakete sind öffentlich und ohne GitHub-Anmeldung abrufbar. Der Store verwendet feste Image-Versionen mit Prüfsummen für Intel/AMD (`amd64`) und ARM (`arm64`).
+Die im Store fest hinterlegten Container-Pakete unter `ghcr.io/dennysubke/` sind öffentlich und ohne GitHub-Anmeldung abrufbar. Der Store verwendet feste Image-Versionen mit Prüfsummen für Intel/AMD (`amd64`) und ARM (`arm64`).
 
 ## Zugriff und HTTPS
 
@@ -62,7 +62,7 @@ Die eingebundenen Seiten beschreiben **die ursprüngliche MoinPDF-Instanz mit ei
 
 Updates über den Umbrel App Store installieren. Die Paketversion verweist auf geprüfte, mit Manifest-Digests festgelegte Images für `linux/amd64` und `linux/arm64`. Ein normales Update behält die App-Daten; eine Deinstallation kann sie löschen.
 
-Der aktuelle Prüfstand wird in [MoinPDF-Prüfstand](https://github.com/dennysubke/moinpdf/blob/main/VALIDATION.md) beschrieben. Die [GitHub-Actions-Läufe](https://github.com/dennysubke/dennys-umbrel-app-store/actions/workflows/moinpdf.yml) zeigen jeweils den geprüften Commit. Der native Installationstest verwendet eine frische, temporäre **umbrelOS-2.0.0-Umgebung auf amd64** und prüft Login, HTTP/HTTPS, PDF-Vorschau, Office-Konvertierung, Übersetzung und Neustart.
+Der aktuelle Prüfstand wird in [MoinPDF-Prüfstand](https://github.com/MoinPDF/moinpdf/blob/main/VALIDATION.md) beschrieben. Die [GitHub-Actions-Läufe](https://github.com/dennysubke/dennys-umbrel-app-store/actions/workflows/moinpdf.yml) zeigen jeweils den geprüften Commit. Der native Installationstest verwendet eine frische, temporäre **umbrelOS-2.0.0-Umgebung auf amd64** und prüft Login, HTTP/HTTPS, PDF-Vorschau, Office-Konvertierung, Übersetzung und Neustart.
 
 Für `arm64` wurden die veröffentlichten Image-Manifeste geprüft; ein nativer ARM-Lauf steht noch aus. Der physische Umbrel und die öffentliche Cloudflare-Verbindung des Betreibers waren nicht Teil des Tests. Vor der öffentlichen Nutzung auf dem eigenen Gerät einmal App-Start, Office-Konvertierung, Übersetzung und Neustart prüfen; danach dieselben Aufträge über die öffentliche Domain testen.
 
@@ -70,7 +70,9 @@ Für `arm64` wurden die veröffentlichten Image-Manifeste geprüft; ein nativer 
 
 Nach einem erfolgreichen vollständigen Docker-Prüflauf auf `main` baut `.github/workflows/publish-images.yml` die drei Images aus demselben Quellstand für beide Architekturen und veröffentlicht sie mit dem integrierten GitHub-Actions-Token. Zusätzliche Registry-Passwörter im Repository sind nicht nötig. Tags enthalten App-Version und Quell-Commit; die Workflow-Artefakte enthalten die zugehörigen Multiarch-Index-Digests.
 
-Die Pakete `moinpdf-web`, `moinpdf-documents` und `moinpdf-translation` sind bereits öffentlich freigegeben. Das Quellcode-Repository bleibt privat. Für neue Versionen die anonyme Abrufbarkeit und beide Plattformen mit dem Umbrel-Linter prüfen, den nativen Umbrel-Test ausführen und die Referenzen samt Digest im Store aktualisieren. Neu angelegte GHCR-Pakete benötigen beim ersten Publish weiterhin die Freigabe unter **Package settings → Change visibility → Public**.
+Der Quellcode liegt öffentlich unter [MoinPDF/moinpdf](https://github.com/MoinPDF/moinpdf). Neue Images werden unter `ghcr.io/moinpdf/` veröffentlicht. Die Sichtbarkeit des Quellcode-Repositorys und der Container-Pakete wird getrennt verwaltet: Neu angelegte GHCR-Pakete benötigen beim ersten Publish die Freigabe unter **Package settings → Change visibility → Public**.
+
+Die aktuelle Store-Version verwendet weiterhin die öffentlich abrufbaren Images unter `ghcr.io/dennysubke/`. Beim Wechsel zu `ghcr.io/moinpdf/` zuerst alle drei Pakete `moinpdf-web`, `moinpdf-documents` und `moinpdf-translation` öffentlich freigeben, dann die anonyme Abrufbarkeit und beide Plattformen prüfen. Anschließend Image-Referenzen samt Digest, den erwarteten Registry-Namensraum in `.github/tests/moinpdf/verify-images.py` und den Quell-Commit in `.github/tests/moinpdf/asset-checksums.json` gemeinsam aktualisieren und den nativen Umbrel-Test erfolgreich abschließen, bevor die Änderung in `master` übernommen wird.
 
 Quellen: [Umbrel-Paketierung](https://github.com/getumbrel/umbrel-apps/blob/master/.agents/skills/umbrel-package-app/SKILL.md), [GHCR-Paketsichtbarkeit](https://docs.github.com/en/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility), [Cloudflare 524](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-524/).
 
@@ -83,7 +85,8 @@ dem allgemeinen Docker-Release des Projekts.
 Der Workflow **Verify MoinPDF installation** prüft die Image-Digests und beide
 Plattform-Indizes, installiert das Paket in einer frischen umbrelOS-2.0.0-Umgebung
 und testet Anmeldung, PDF-Vorschau, Office-Konvertierung, Übersetzung, Sprachausgabe
-und Neustart. Er benötigt keinen Zugriff auf das private Quellcode-Repository.
+und Neustart. Er verwendet die veröffentlichten Images und benötigt keine Zugangsdaten
+zum Quellcode-Repository.
 Er startet bei Änderungen am Paket oder den zugehörigen Tests und lässt sich
 zusätzlich über Actions manuell ausführen.
 
