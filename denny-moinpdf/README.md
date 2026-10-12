@@ -23,6 +23,8 @@ Standardmäßig schützt der **Umbrel-Login** die gesamte App. Es gibt kein zus�
 
 Kameraaufnahmen erfordern einen sicheren Browserkontext. Auf umbrelOS 2.0 kann der App-Port auch über HTTPS geöffnet werden; über die öffentliche Domain übernimmt Cloudflare HTTPS. Der normale Datei-Upload funktioniert auch im lokalen HTTP-Zugang.
 
+Die Office-Konvertierung kann zusätzlich vollständig im Browser laufen. Dieser lokale Modus benötigt HTTPS oder localhost, einen Browser mit isoliertem Arbeitsspeicher und ausreichend freien RAM; die Eingabegrenze beträgt 40 MB. Bei einem normalen HTTP-Aufruf über die LAN-IP im Office-Werkzeug ausdrücklich den **eigenen Dokumentenserver** wählen. Der mitgelieferte Dokumentenserver bleibt dafür verfügbar.
+
 ## Direkt mit Cloudflare Tunnel veröffentlichen
 
 Eine eigene Domain oder Subdomain verwenden, zum Beispiel `pdf.example.org`. Im bestehenden Cloudflare Tunnel **eine Published-application-Route** anlegen:
