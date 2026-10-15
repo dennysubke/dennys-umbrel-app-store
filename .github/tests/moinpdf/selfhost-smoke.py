@@ -92,7 +92,9 @@ with pymupdf.open(stream=website.content, filetype='pdf') as rendered:
     assert len(rendered) >= 1
     website_text = ''.join(page.get_text() for page in rendered)
     (website_evidence / 'website-render.txt').write_text(website_text)
-    assert 'Example Domain' in website_text, repr(website_text)
+    # The HTML title is not printed; check the visible paragraph and allow
+    # line wrapping introduced by the PDF's A4 layout.
+    assert 'This domain is for use in documentation examples' in ' '.join(website_text.split()), repr(website_text)
 print('PASS: website capability, request isolation, private-URL rejection and real public HTTPS page rendered to PDF.', flush=True)
 
 pdf = pymupdf.open()
