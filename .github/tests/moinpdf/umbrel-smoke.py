@@ -21,6 +21,21 @@ def umbrel(*args):
     return subprocess.check_output(['docker', 'exec', 'moinpdf-umbrel-test', 'umbreld', 'client', *args], text=True)
 
 
+def switch_language(page, label, code):
+    trigger = page.locator('.language-trigger')
+    # Wait for the animated menu to unmount before opening it again.
+    expect(page.locator('.language-menu')).to_have_count(0)
+    expect(trigger).to_be_enabled()
+    trigger.click()
+    menu = page.locator('.language-menu')
+    expect(menu).to_be_visible()
+    menu.get_by_role('menuitemradio', name=label, exact=True).click()
+    expect(page.locator('html')).to_have_attribute('lang', code)
+    expect(trigger).to_have_attribute('aria-expanded', 'false')
+    expect(trigger).to_have_attribute('aria-busy', 'false')
+    expect(menu).to_have_count(0)
+
+
 def expect_home(page):
     try:
         logo = page.get_by_role('img', name='MoinPDF', exact=True)
@@ -68,12 +83,10 @@ with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporar
     uploaded_file = page.locator('.chooser-file')
     expect(uploaded_file).to_have_count(1)
     expect(uploaded_file.get_by_text('umbrel-test.pdf', exact=True)).to_be_visible()
-    page.locator('.language-trigger').click()
-    page.get_by_role('menuitemradio', name='English', exact=True).click()
+    switch_language(page, 'English', 'en')
     expect(page.locator('.chooser-document-count')).to_contain_text('1 file')
     expect(page.locator('.chooser-file')).to_contain_text('umbrel-test.pdf')
-    page.locator('.language-trigger').click()
-    page.get_by_role('menuitemradio', name='Deutsch', exact=True).click()
+    switch_language(page, 'Deutsch', 'de')
     expect(page.locator('.chooser-document-count')).to_have_text('1 Datei·1 Seite')
     page.screenshot(path=str(evidence / 'moinpdf-tools.png'), full_page=True)
     page.get_by_role('button', name='Seiten organisieren', exact=True).click()
