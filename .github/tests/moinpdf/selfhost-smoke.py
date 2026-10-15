@@ -85,9 +85,14 @@ website.raise_for_status()
 assert website.headers['content-type'].startswith('application/pdf')
 assert website.headers['cache-control'] == 'no-store'
 assert 'content-disposition' in website.headers
+website_evidence = Path('umbrel-evidence')
+website_evidence.mkdir(exist_ok=True)
+(website_evidence / 'website-render.pdf').write_bytes(website.content)
 with pymupdf.open(stream=website.content, filetype='pdf') as rendered:
     assert len(rendered) >= 1
-    assert 'Example Domain' in ''.join(page.get_text() for page in rendered)
+    website_text = ''.join(page.get_text() for page in rendered)
+    (website_evidence / 'website-render.txt').write_text(website_text)
+    assert 'Example Domain' in website_text, repr(website_text)
 print('PASS: website capability, request isolation, private-URL rejection and real public HTTPS page rendered to PDF.', flush=True)
 
 pdf = pymupdf.open()
