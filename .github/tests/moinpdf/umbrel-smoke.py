@@ -21,15 +21,33 @@ def umbrel(*args):
     return subprocess.check_output(['docker', 'exec', 'moinpdf-umbrel-test', 'umbreld', 'client', *args], text=True)
 
 
+def switch_language(page, label, code):
+    trigger = page.locator('.language-trigger')
+    # Wait for the animated menu to unmount before opening it again.
+    expect(page.locator('.language-menu')).to_have_count(0)
+    expect(trigger).to_be_enabled()
+    trigger.click()
+    menu = page.locator('.language-menu')
+    expect(menu).to_be_visible()
+    menu.get_by_role('menuitemradio', name=label, exact=True).click()
+    expect(page.locator('html')).to_have_attribute('lang', code)
+    expect(trigger).to_have_attribute('aria-expanded', 'false')
+    expect(trigger).to_have_attribute('aria-busy', 'false')
+    expect(menu).to_have_count(0)
+
+
 def expect_home(page):
     try:
         logo = page.get_by_role('img', name='MoinPDF', exact=True)
         expect(logo).to_be_visible(timeout=60000)
         expect(logo).to_have_js_property('complete', True)
         assert logo.evaluate('(image) => image.naturalWidth > 0'), 'App logo did not render'
-        expect(page.locator('.upload-tagline')).to_have_text('Papierkram. Läuft.')
+        expect(page.locator('.harbor-wordmark > span')).to_have_text('Papierkram. Läuft.')
         expect(page.get_by_role('button', name='PDF oder andere Datei auswählen', exact=True)).to_be_enabled()
         expect(page.locator('.moinpdf-version')).to_have_text(f'MoinPDF v{version}')
+        expect(page.locator('.tool-mosaic-card')).to_have_count(6)
+        expect(page.locator('.harbor-photo img')).to_have_js_property('complete', True)
+        assert page.locator('.harbor-photo img').evaluate('(image) => image.naturalWidth > 0'), 'Harbour image did not render'
     except Exception:
         page.screenshot(path=str(evidence / 'moinpdf-failure.png'), full_page=True)
         (evidence / 'moinpdf-failure.html').write_text(page.content())
@@ -39,9 +57,10 @@ def expect_home(page):
 with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporary:
     browser = browser_api.chromium.launch()
     context = browser.new_context(ignore_https_errors=True, viewport={'width': 1440, 'height': 1000})
-    rejected = context.request.get(origin + '/api/documents/v1/capabilities',
-                                   headers={'X-MoinPDF-Client': 'web'}, max_redirects=0)
-    assert 'MoinPDF Dokumentenserver' not in rejected.text(), 'App API is accessible without Umbrel login'
+    for api, service in (('documents', 'MoinPDF Dokumentenserver'), ('website', 'MoinPDF Web-Konverter')):
+        rejected = context.request.get(origin + f'/api/{api}/v1/capabilities',
+                                       headers={'X-MoinPDF-Client': 'web'}, max_redirects=0)
+        assert service not in rejected.text(), f'{api} API is accessible without Umbrel login'
 
     login = context.request.post('http://localhost/trpc/user.login',
                                  data={'password': 'synthetic-umbrel-ci-password'},
@@ -61,10 +80,17 @@ with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporar
     page.locator('input[type="file"]').first.set_input_files(str(pdf_path))
     page.get_by_role('heading', name='Was möchtest du tun?', exact=True).wait_for(timeout=30000)
     expect(page.locator('.chooser-document-count')).to_have_text('1 Datei·1 Seite')
-    page.get_by_text('umbrel-test.pdf', exact=True).wait_for()
+    uploaded_file = page.locator('.chooser-file')
+    expect(uploaded_file).to_have_count(1)
+    expect(uploaded_file.get_by_text('umbrel-test.pdf', exact=True)).to_be_visible()
+    switch_language(page, 'English', 'en')
+    expect(page.locator('.chooser-document-count')).to_contain_text('1 file')
+    expect(page.locator('.chooser-file')).to_contain_text('umbrel-test.pdf')
+    switch_language(page, 'Deutsch', 'de')
+    expect(page.locator('.chooser-document-count')).to_have_text('1 Datei·1 Seite')
     page.screenshot(path=str(evidence / 'moinpdf-tools.png'), full_page=True)
     page.get_by_role('button', name='Seiten organisieren', exact=True).click()
-    page.get_by_role('tab', name='Dokument', exact=True).click()
+    page.get_by_role('tab', name='Vorschau', exact=True).click()
     preview = page.get_by_role('img', name='umbrel-test.pdf, Seite 1', exact=True)
     preview.wait_for(timeout=30000)
     expect(preview).to_have_js_property('complete', True)
@@ -124,5 +150,5 @@ with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporar
     expect_home(page)
     browser.close()
 
-(evidence / 'result.txt').write_text('PASS: umbrelOS 2.0.0 on amd64; fresh install through Umbrel, protected app gateway, signed-in browser, PDF upload, HTTP and HTTPS app routes, real Office and DE/EN translation, restart and persisted models. ARM runtime was not tested.\n')
+(evidence / 'result.txt').write_text('PASS: umbrelOS 2.0.0 on amd64; fresh install through Umbrel, protected app gateway, signed-in browser, PDF upload and DE/EN switching, HTTP and HTTPS app routes, real Office, website conversion, DE/EN translation and speech, restart and persisted models. ARM runtime was not tested.\n')
 print((evidence / 'result.txt').read_text())
