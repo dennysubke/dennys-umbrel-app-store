@@ -50,6 +50,10 @@ for path in ['/vendor/pdf/pdf.worker.min.mjs', '/vendor/ocr/worker.min.js',
     assert len(response.content) > 1000, path
 
 api = base + '/api/documents'
+website_api = base + '/api/website'
+assert session.get(website_api + '/v1/capabilities', timeout=10).status_code == 403
+assert session.options(website_api + '/v1/website', headers={'Origin': 'https://foreign.example',
+    'Access-Control-Request-Headers': 'X-MoinPDF-Client'}, timeout=10).status_code == 403
 assert session.get(api + '/v1/capabilities', timeout=10).status_code == 403
 assert session.options(api + '/v1/office', headers={'Origin': 'https://foreign.example',
     'Access-Control-Request-Headers': 'X-MoinPDF-Client'}, timeout=10).status_code == 403
@@ -62,6 +66,29 @@ assert session.get(api + '/v1/capabilities', headers={'Sec-Fetch-Site': 'cross-s
 # A supplied credential never replaces the internal proxy credential.
 assert session.get(api + '/v1/capabilities', headers={'Authorization': 'Bearer invalid'}, timeout=10).status_code == 200
 assert session.get(base + '/v1/capabilities', timeout=10).status_code == 404
+
+# Exercise the new service through Umbrel and the app's authenticated proxy.
+website_capabilities = session.get(website_api + '/v1/capabilities', timeout=10)
+website_capabilities.raise_for_status()
+assert website_capabilities.json()['capabilities']['website'] is True
+assert website_capabilities.headers['cache-control'] == 'no-store'
+assert session.get(website_api + '/v1/capabilities',
+    headers={'Sec-Fetch-Site': 'cross-site'}, timeout=10).status_code == 403
+for blocked in ('http://127.0.0.1/', 'file:///etc/passwd', 'https://user:password@example.com/'):
+    rejected = session.post(website_api + '/v1/website', data={'url': blocked}, timeout=15)
+    assert rejected.status_code == 422, (blocked, rejected.status_code)
+website = session.post(website_api + '/v1/website', data={
+    'url': 'https://example.com/',
+    'options': json.dumps({'paper': 'A4', 'landscape': False, 'background': True, 'media': 'print'})
+}, timeout=90)
+website.raise_for_status()
+assert website.headers['content-type'].startswith('application/pdf')
+assert website.headers['cache-control'] == 'no-store'
+assert 'content-disposition' in website.headers
+with pymupdf.open(stream=website.content, filetype='pdf') as rendered:
+    assert len(rendered) >= 1
+    assert 'Example Domain' in ''.join(page.get_text() for page in rendered)
+print('PASS: website capability, request isolation, private-URL rejection and real public HTTPS page rendered to PDF.', flush=True)
 
 pdf = pymupdf.open()
 page = pdf.new_page()
@@ -99,4 +126,4 @@ assert audio.headers['cache-control'] == 'no-store'
 with wave.open(io.BytesIO(audio.content), 'rb') as wav:
     assert wav.getframerate() == 22050 and wav.getnchannels() == 1
     assert wav.getnframes() > 22050
-print('PASS: app, local assets, all server capabilities, request isolation, real German/English PDF translation, Office conversion and local speech through the authenticated HTTP proxy.')
+print('PASS: app, local assets, all server capabilities, request isolation, real website PDF, German/English PDF translation, Office conversion and local speech through the authenticated HTTP proxy.')

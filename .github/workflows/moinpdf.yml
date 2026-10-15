@@ -54,7 +54,7 @@ jobs:
             ghcr.io/getumbrel/umbrelos:2.0.0 /sbin/init
       - name: Install through Umbrel
         run: bash .github/tests/moinpdf/umbrel-install.sh
-      - name: Browser, protected app route, real translation and restart persistence
+      - name: Browser, protected routes, website conversion, translation and restart persistence
         run: python .github/tests/moinpdf/umbrel-smoke.py
       - name: Evidence
         if: always()
@@ -77,6 +77,7 @@ jobs:
           docker exec moinpdf-umbrel-test journalctl -u umbrel --no-pager -n 100 || true
           docker exec moinpdf-umbrel-test docker ps -a || true
           docker exec moinpdf-umbrel-test docker logs --tail 80 denny-moinpdf_web_1 || true
+          docker exec moinpdf-umbrel-test docker logs --tail 80 denny-moinpdf_website_1 || true
           docker exec moinpdf-umbrel-test docker logs --tail 80 denny-moinpdf_translation-models_1 || true
           docker exec moinpdf-umbrel-test docker logs --tail 80 denny-moinpdf_translation_1 || true
       - name: Remove disposable test host

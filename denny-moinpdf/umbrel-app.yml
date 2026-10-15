@@ -4,7 +4,7 @@ name: MoinPDF
 tagline: A complete PDF workspace with local document processing
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/logo.png
 category: files & productivity
-version: "0.12.2"
+version: "0.13.25"
 port: 8785
 description: >-
   ⚓ MoinPDF brings PDF editing, conversion, OCR, and document checks together in one workspace. Merge files, make scans searchable, edit pages, and prepare documents for everyday tasks through a German or English interface. Drag your files into the app, search for what you want to do, and choose the matching tool.
@@ -22,7 +22,7 @@ description: >-
   🔍 OCR & Scans – Recognize text in multiple languages, create searchable PDFs, improve scans, compress documents, and import images from your camera.
 
 
-  🔄 File Conversion – Convert supported Office documents locally in your browser or with the included document server. Convert emails, export images, text, and tables, and create PDF/A files with the document server.
+  🔄 File Conversion – Convert supported Office documents locally in your browser or with the included document server. Convert emails, export images, text, and tables, and create PDF/A files with the document server. Save public website links as PDFs with images, fonts, CSS, and page-layout options using the included website converter.
 
 
   🧮 Document Checks – Compare text, images, numbers, and invoice details, check calculations, and review matching passages in the original document.
@@ -52,7 +52,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/2.webp
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/3.webp
 releaseNotes: >-
-  Updates MoinPDF from 0.5.11 to 0.12.2 with light and dark themes, German and English interfaces, compact shortcuts, and improved mobile spacing. Adds browser-local Office conversion with reliable cleanup and restart, expanded paragraph editing and complex-script support, improved project archives and workflows, and security and dependency updates. The included document and translation services are updated together. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.12.2/CHANGELOG.md
+  Updates MoinPDF from 0.12.2 to 0.13.25. Adds public website-link conversion with images, fonts, CSS, and print options through a separate, restricted Chromium service. Includes the current harbour interface, six shortcuts, a mobile action bar, a white-and-green project button, a smaller desktop header, and reliable undo after removing the last page. German and English translations now cover tool messages, reports, exports, and sample documents. Browser-local Office conversion improves thread readiness and repeated cancellation/restart. The web, document, translation, and website images are updated together and pinned for amd64 and arm64. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.13.25/CHANGELOG.md
 dependencies: []
 path: ""
 defaultUsername: ""

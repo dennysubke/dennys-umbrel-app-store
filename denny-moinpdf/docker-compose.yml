@@ -13,7 +13,7 @@ services:
       APP_PORT: 8080
 
   web:
-    image: ghcr.io/moinpdf/moinpdf-web:0.12.2-5f3e71c7d397@sha256:582c9c37ec166c7480b6b12a2651905d065fa8c6487552f1acfd44c777738ccf
+    image: ghcr.io/moinpdf/moinpdf-web:0.13.25-daa2dd3250d3@sha256:4372cff849ad6b7b3e39c0a0b6255636c2107b01cf1373e5ff0fb65ebd7f1fab
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 1m
@@ -30,11 +30,11 @@ services:
     security_opt: [no-new-privileges:true]
     mem_limit: 256m
     pids_limit: 64
-    networks: [default, documents]
+    networks: [default, documents, website]
     logging: *logging
 
   documents:
-    image: ghcr.io/moinpdf/moinpdf-documents:0.12.2-5f3e71c7d397@sha256:6e057307fe8b021d485cdccf930596e4fa5bbe16616cb133cf745839d28a866e
+    image: ghcr.io/moinpdf/moinpdf-documents:0.13.25-daa2dd3250d3@sha256:5515ef417728cef30ac56134ec7eca4629aee5a6eb636a5a32dca5d216dfbfe9
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 1m
@@ -56,8 +56,27 @@ services:
     networks: [documents]
     logging: *logging
 
+  website:
+    image: ghcr.io/moinpdf/moinpdf-website:0.13.25-daa2dd3250d3@sha256:44a70969e1fe2bde183f3f5f6df22d109bd0aa9a93a181bf98b18d21d86ee1d9
+    user: "1000:1000"
+    restart: on-failure
+    stop_grace_period: 1m
+    init: true
+    environment:
+      MOINPDF_API_KEY: "${APP_DENNY_MOINPDF_API_KEY}"
+    read_only: true
+    tmpfs:
+      - /tmp:mode=1777,size=512m
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 1g
+    cpus: 2
+    pids_limit: 256
+    networks: [website]
+    logging: *logging
+
   translation-models:
-    image: ghcr.io/moinpdf/moinpdf-translation:0.12.2-5f3e71c7d397@sha256:1698746320d584b16c990aa9381c1c4ccdbbf32a0e8c7b63c267bb809dda1e08
+    image: ghcr.io/moinpdf/moinpdf-translation:0.13.25-daa2dd3250d3@sha256:dad64ed9cacc0098ab25e44278c180a76634e907394cce16ae915fa17ef9c107
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 1m
@@ -78,7 +97,7 @@ services:
     logging: *logging
 
   translation:
-    image: ghcr.io/moinpdf/moinpdf-translation:0.12.2-5f3e71c7d397@sha256:1698746320d584b16c990aa9381c1c4ccdbbf32a0e8c7b63c267bb809dda1e08
+    image: ghcr.io/moinpdf/moinpdf-translation:0.13.25-daa2dd3250d3@sha256:dad64ed9cacc0098ab25e44278c180a76634e907394cce16ae915fa17ef9c107
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 1m
@@ -109,9 +128,11 @@ services:
       start_period: 1800s
     logging: *logging
 
-# This additional network is intentional: document contents and running
-# translation models must have no Internet route or shared Umbrel-network peer.
+# These additional networks are intentional. Document converters and running
+# translation models have no Internet route or shared Umbrel-network peer.
+# Only web and the public-URL converter join website, which has Internet access.
 # Umbrel still injects its usual external default network for web/app_proxy.
 networks:
   documents:
     internal: true
+  website: {}

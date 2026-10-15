@@ -10,7 +10,7 @@ manifest = (package / 'umbrel-app.yml').read_text()
 version = re.search(r'^version: "?(\d+\.\d+\.\d+)"?$', manifest, re.M).group(1)
 compose = (package / 'docker-compose.yml').read_text()
 sources = set()
-for name in ('web', 'documents', 'translation'):
+for name in ('web', 'documents', 'translation', 'website'):
     references = set(re.findall(rf'ghcr\.io/moinpdf/moinpdf-{name}:[^\s]+', compose))
     assert len(references) == 1, f'{name}: expected one unique image reference'
     reference = references.pop()
@@ -23,4 +23,5 @@ for name in ('web', 'documents', 'translation'):
                  for entry in index.get('manifests', []) if 'platform' in entry}
     assert {('linux', 'amd64'), ('linux', 'arm64')} <= platforms, f'{name}: missing platform'
     print(f'PASS: {name}, version {version}, public digest and both platform manifests.', flush=True)
-assert len(sources) == 1, 'The three images must come from the same source commit'
+source = json.loads((Path(__file__).parent / 'asset-checksums.json').read_text())['source']
+assert sources == {source[:12]}, 'All four images and asset checks must come from the released source commit'
