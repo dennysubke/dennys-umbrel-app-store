@@ -143,7 +143,7 @@ with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporar
     try:
         mobile_search(page)
         page.get_by_role('button', name='Neues Dokument', exact=True).click()
-        page.get_by_label('Dokumenttitel', exact=True).fill('Umbrel 0.14.4')
+        page.get_by_label('Dokumenttitel', exact=True).fill(f'Umbrel {version}')
         page.get_by_role('textbox', name='Dokumentinhalt', exact=True).fill('A document created on Umbrel. Umlauts: ÄÖÜ.')
         page.get_by_role('button', name='Entwurf speichern', exact=True).click()
         expect(page.locator('.writer-save-state')).to_have_attribute('data-state', 'saved')

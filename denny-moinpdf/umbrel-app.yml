@@ -4,7 +4,7 @@ name: MoinPDF
 tagline: A complete PDF workspace with local document processing
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/logo.png
 category: files & productivity
-version: "0.14.4"
+version: "0.14.5"
 port: 8785
 description: >-
   ⚓ MoinPDF brings PDF editing, conversion, OCR, and document checks together in one workspace. Merge files, make scans searchable, edit pages, and prepare documents for everyday tasks through a German or English interface. Drag your files into the app, search for what you want to do, and choose the matching tool.
@@ -55,7 +55,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/2.webp
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/3.webp
 releaseNotes: >-
-  Updates MoinPDF from 0.13.25 to 0.14.4. Adds a five-button mobile glass navigation bar with quick tool search and project access. The search field stays inside the visible screen; desktop keeps All tools beside search and Projects in the header. Fixes project controls disappearing or becoming blocked when reopening the project list quickly. Includes the local document editor, portable drafts, improved result filenames and file sharing, retained tool selection, duplicate detection, and browser text compatibility fixes. Full application type checks now gate Docker builds. All four service images are updated together and pinned for amd64 and arm64. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.14.4/CHANGELOG.md
+  Updates MoinPDF from 0.14.4 to 0.14.5. Fixes browser-local Office conversion cleanup by terminating the complete worker tree through its owning worker after conversion or cancellation. This prevents native Chromium threads from remaining active and improves repeated conversion and cancellation/restart. Document cleanup, bounded cancellation waits, and local PDF validation are retained. All four service images are updated together and pinned for amd64 and arm64. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.14.5/CHANGELOG.en.md
 dependencies: []
 path: ""
 defaultUsername: ""
