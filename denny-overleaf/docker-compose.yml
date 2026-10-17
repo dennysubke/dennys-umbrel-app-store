@@ -14,7 +14,7 @@ services:
       PROXY_AUTH_ADD: "false"
 
   web:
-    image: sharelatex/sharelatex:4.2.8@sha256:904776b0e0722ba4f44e5397cba33bfe9584488c74c0aa7accce96a2477b2761
+    image: sharelatex/sharelatex:4.2.9@sha256:d6f75a80484ecb44cfcc7b38c34d0259d8cc49eed9f767b6caf8588e7a53fc1a
     depends_on:
       mongo:
         condition: service_healthy
