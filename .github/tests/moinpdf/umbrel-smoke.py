@@ -115,6 +115,15 @@ def mobile_search(page):
 
 def create_persistent_job(context):
     """Use the real queue through Umbrel, then retain its exact result over restart."""
+    subprocess.run([
+        'docker', 'exec', 'moinpdf-umbrel-test', 'docker', 'exec',
+        'denny-moinpdf_documents_1', 'python', '-c',
+        'import os,stat; p=os.environ["MOINPDF_JOB_DIR"]; s=os.stat(p); '
+        'assert (s.st_uid,s.st_gid)==(1000,1000), (s.st_uid,s.st_gid); '
+        'assert stat.S_IMODE(s.st_mode)==0o700, oct(s.st_mode); '
+        'assert os.access(p,os.W_OK), p; '
+        'print("PASS: private persistent job directory is writable by the unprivileged document service.")',
+    ], check=True)
     ticket = secrets.token_hex(32)
     headers = {'X-MoinPDF-Client': 'web', 'X-MoinPDF-Job-Ticket': ticket}
     api = origin + '/api/documents/v1/jobs'

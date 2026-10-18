@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Umbrel copies data/ on first install, but its update whitelist excludes it.
+# Prepare only this directory before Docker can create a root-owned bind mount.
+# APP_DATA_ROOT also follows Umbrel's optional persistent-storage relocation.
+data_root="${APP_DATA_ROOT:-${APP_DATA_DIR:?APP_DATA_DIR is required}/data}"
+jobs_dir="${data_root}/document-jobs"
+
+if [[ -L "${jobs_dir}" ]]; then
+  echo 'MoinPDF: refusing a symbolic link for background-job storage.' >&2
+  exit 1
+fi
+
+install -d -o 1000 -g 1000 -m 0700 -- "${jobs_dir}"
+echo 'MoinPDF: persistent background-job storage is ready.'
