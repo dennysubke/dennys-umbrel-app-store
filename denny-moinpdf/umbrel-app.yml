@@ -4,7 +4,7 @@ name: MoinPDF
 tagline: A complete PDF workspace with local document processing
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/logo.png
 category: files & productivity
-version: "0.14.5"
+version: "0.15.4"
 port: 8785
 description: >-
   ⚓ MoinPDF brings PDF editing, conversion, OCR, and document checks together in one workspace. Merge files, make scans searchable, edit pages, and prepare documents for everyday tasks through a German or English interface. Drag your files into the app, search for what you want to do, and choose the matching tool.
@@ -37,6 +37,9 @@ description: >-
   📦 Batch Workflows – Process multiple documents, reuse saved workflows, collect receipt fields, and evaluate returned forms.
 
 
+  💾 Recovery & Background Jobs – Restore your recent workspace and results from local browser storage. Supported server conversions continue in a persistent queue; jobs and results remain available for 24 hours, including after an app restart.
+
+
   🌍 Local Translation – Translate documents on your own server. Scanned PDFs need OCR before text translation.
 
 
@@ -55,7 +58,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/2.webp
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/3.webp
 releaseNotes: >-
-  Updates MoinPDF from 0.14.4 to 0.14.5. Fixes browser-local Office conversion cleanup by terminating the complete worker tree through its owning worker after conversion or cancellation. This prevents native Chromium threads from remaining active and improves repeated conversion and cancellation/restart. Document cleanup, bounded cancellation waits, and local PDF validation are retained. All four service images are updated together and pinned for amd64 and arm64. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.14.5/CHANGELOG.en.md
+  Updates MoinPDF from 0.14.5 to 0.15.4. Adds automatic local workspace recovery, a recent-results shelf, persistent server conversion jobs, multi-page table export to Excel, and automatic OCR for scanned PDF-to-Word documents. Improves direct PDF paragraph editing, original-font handling and font substitution notices. Fixes screen-reader names, keyboard access, tool-search state and light-theme contrast; updates German and English documentation and dependencies. The Umbrel package now persists background jobs across app restarts. All four service images are updated together and pinned for amd64 and arm64. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.15.4/CHANGELOG.en.md
 dependencies: []
 path: ""
 defaultUsername: ""

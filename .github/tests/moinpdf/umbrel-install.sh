@@ -31,7 +31,7 @@ docker exec "$test_container" umbreld client user.register.mutate \
 ci_store="${RUNNER_TEMP:-/tmp}/moinpdf-umbrel-ci-store"
 repository="$ci_store/repositories/umbrel-apps.git"
 mkdir -p "$repository"
-cp -R denny-moinpdf "$repository/"
+cp -R "${MOINPDF_UPGRADE_FROM:-denny-moinpdf}" "$repository/denny-moinpdf"
 printf 'id: denny\nname: MoinPDF CI\n' > "$repository/umbrel-app-store.yml"
 git -C "$repository" init --initial-branch=main --quiet
 git -C "$repository" add .
@@ -89,6 +89,9 @@ for attempt in $(seq 1 240); do
     docker exec "$test_container" umbreld client apps.state.query --appId denny-moinpdf > /tmp/umbrel-ci-state.json
     if python -c 'import json; assert json.load(open("/tmp/umbrel-ci-state.json"))["state"] == "ready"' 2>/dev/null; then
         echo 'Umbrel reports MoinPDF ready; browser and document workflows are checked next.'
+        if [ -n "${MOINPDF_UPGRADE_FROM:-}" ]; then
+            bash .github/tests/moinpdf/umbrel-upgrade.sh "$repository"
+        fi
         exit 0
     fi
     if [ "$((attempt % 6))" -eq 0 ]; then
