@@ -19,11 +19,37 @@ concurrency:
   cancel-in-progress: true
 jobs:
   installation:
-    runs-on: ubuntu-24.04
+    name: Umbrel ${{ matrix.installation }} (${{ matrix.architecture }})
+    runs-on: ${{ matrix.runner }}
     timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      matrix:
+        installation: [fresh, upgrade-from-0.14.5]
+        architecture: [amd64, arm64]
+        include:
+          - architecture: amd64
+            runner: ubuntu-24.04
+          - architecture: arm64
+            runner: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@v4
+      - name: Check out the previously published store package
+        if: matrix.installation == 'upgrade-from-0.14.5'
+        uses: actions/checkout@v4
+        with:
+          ref: 7e591f730aa1e620665367fb5a1aa89f84d6f0da
+          path: upgrade-baseline
+          sparse-checkout: denny-moinpdf
       - uses: docker/setup-buildx-action@v3
+      - name: Validate installation and browser test syntax
+        run: |
+          bash -n .github/tests/moinpdf/umbrel-install.sh
+          bash -n .github/tests/moinpdf/umbrel-upgrade.sh
+          bash -n denny-moinpdf/hooks/pre-start
+          python -m py_compile .github/tests/moinpdf/*.py
+      - name: Verify job storage setup and existing-file preservation
+        run: sudo python .github/tests/moinpdf/job-storage-hook.py
       - name: Verify pinned public images for both architectures
         run: python .github/tests/moinpdf/verify-images.py
       - name: Free disposable runner disk space
@@ -53,14 +79,19 @@ jobs:
             --volume moinpdf-umbrel-containerd:/var/lib/containerd \
             ghcr.io/getumbrel/umbrelos:2.0.0 /sbin/init
       - name: Install through Umbrel
+        env:
+          MOINPDF_UPGRADE_FROM: ${{ matrix.installation == 'upgrade-from-0.14.5' && 'upgrade-baseline/denny-moinpdf' || '' }}
         run: bash .github/tests/moinpdf/umbrel-install.sh
       - name: Browser, protected routes, website conversion, translation and restart persistence
+        env:
+          MOINPDF_TEST_INSTALLATION: ${{ matrix.installation }}
+          MOINPDF_TEST_ARCHITECTURE: ${{ matrix.architecture }}
         run: python .github/tests/moinpdf/umbrel-smoke.py
       - name: Evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: umbrel-verification-amd64
+          name: umbrel-verification-${{ matrix.installation }}-${{ matrix.architecture }}
           path: umbrel-evidence/
           if-no-files-found: ignore
           retention-days: 14
@@ -77,6 +108,7 @@ jobs:
           docker exec moinpdf-umbrel-test journalctl -u umbrel --no-pager -n 100 || true
           docker exec moinpdf-umbrel-test docker ps -a || true
           docker exec moinpdf-umbrel-test docker logs --tail 80 denny-moinpdf_web_1 || true
+          docker exec moinpdf-umbrel-test docker logs --tail 160 denny-moinpdf_documents_1 || true
           docker exec moinpdf-umbrel-test docker logs --tail 80 denny-moinpdf_website_1 || true
           docker exec moinpdf-umbrel-test docker logs --tail 80 denny-moinpdf_translation-models_1 || true
           docker exec moinpdf-umbrel-test docker logs --tail 80 denny-moinpdf_translation_1 || true

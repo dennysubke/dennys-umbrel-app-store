@@ -13,7 +13,7 @@ services:
       APP_PORT: 8080
 
   web:
-    image: ghcr.io/moinpdf/moinpdf-web:0.14.5-b74f35088ac7@sha256:680e2e92eba78f32302035d022af1d756c3fafca59df97168312693d82aa4423
+    image: ghcr.io/moinpdf/moinpdf-web:0.15.4-6a9224dcaa54@sha256:9742ae21ce1a6f26a09a8832951c923cb4b625e4c0a9a810da0a9d45c98876d0
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 1m
@@ -34,7 +34,7 @@ services:
     logging: *logging
 
   documents:
-    image: ghcr.io/moinpdf/moinpdf-documents:0.14.5-b74f35088ac7@sha256:a410a0632068733f00ac1231c81ca8c10595997ed5be4cd7f32253338c383afb
+    image: ghcr.io/moinpdf/moinpdf-documents:0.15.4-6a9224dcaa54@sha256:42f93b14e94c78e5c2ebeda6f2bc7b10896ebd1d05837dc9c005619f8abffe34
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 1m
@@ -43,8 +43,10 @@ services:
       MOINPDF_API_KEY: "${APP_DENNY_MOINPDF_API_KEY}"
       MOINPDF_TRANSLATE_URL: http://translation:5000
       MOINPDF_TRANSLATE_LANGUAGES: de,en,fr,es,it,nl,pl
+      MOINPDF_JOB_DIR: /var/lib/moinpdf-jobs
     volumes:
       - ${APP_DATA_DIR}/data/trust:/trust:ro
+      - ${APP_DATA_DIR}/data/document-jobs:/var/lib/moinpdf-jobs
     read_only: true
     tmpfs:
       - /tmp:mode=1777,size=1g
@@ -57,7 +59,7 @@ services:
     logging: *logging
 
   website:
-    image: ghcr.io/moinpdf/moinpdf-website:0.14.5-b74f35088ac7@sha256:a969c763ed23c5547c26f1a561d0825e2cd5c7982299b597f335cda56bbd7547
+    image: ghcr.io/moinpdf/moinpdf-website:0.15.4-6a9224dcaa54@sha256:6596423259d42ee70adcd2dcb6e8378aaad284508a345ebfebbcc3fc402871b7
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 1m
@@ -76,7 +78,7 @@ services:
     logging: *logging
 
   translation-models:
-    image: ghcr.io/moinpdf/moinpdf-translation:0.14.5-b74f35088ac7@sha256:b8b03593e94054459af54a628c0b8f4f93da1efe0e8e5b2f5199a8e60a30d2e5
+    image: ghcr.io/moinpdf/moinpdf-translation:0.15.4-6a9224dcaa54@sha256:4d95e6f24fd40dd3667fe98c71caa2ba5bd3f88cee03800f3cfc89f644770a56
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 1m
@@ -97,7 +99,7 @@ services:
     logging: *logging
 
   translation:
-    image: ghcr.io/moinpdf/moinpdf-translation:0.14.5-b74f35088ac7@sha256:b8b03593e94054459af54a628c0b8f4f93da1efe0e8e5b2f5199a8e60a30d2e5
+    image: ghcr.io/moinpdf/moinpdf-translation:0.15.4-6a9224dcaa54@sha256:4d95e6f24fd40dd3667fe98c71caa2ba5bd3f88cee03800f3cfc89f644770a56
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 1m

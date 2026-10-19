@@ -1,16 +1,27 @@
-"""Real Umbrel app gateway, browser, documents, and restart persistence (amd64)."""
+"""Real Umbrel gateway, browser, documents and persistence on native runners."""
 import json
+import hashlib
+import io
 import os
+import platform
 import re
+import secrets
 from pathlib import Path
 import subprocess
 import tempfile
 import time
+import zipfile
 
 import pymupdf
 from playwright.sync_api import expect, sync_playwright
 
 origin = 'http://localhost:8785'
+installation = os.environ.get('MOINPDF_TEST_INSTALLATION', 'fresh')
+architecture = {'x86_64': 'amd64', 'aarch64': 'arm64'}.get(platform.machine())
+assert architecture == os.environ.get('MOINPDF_TEST_ARCHITECTURE', 'amd64'), platform.machine()
+container_architecture = subprocess.check_output([
+    'docker', 'exec', 'moinpdf-umbrel-test', 'uname', '-m'], text=True).strip()
+assert container_architecture == platform.machine(), container_architecture
 evidence = Path('umbrel-evidence')
 evidence.mkdir(exist_ok=True)
 version = re.search(r'^version: "([^\"]+)"$',
@@ -45,7 +56,11 @@ def expect_home(page):
         expect(page.locator('.harbor-wordmark > span')).to_have_text('Papierkram. Läuft.')
         expect(page.get_by_role('button', name='PDF oder andere Datei auswählen', exact=True)).to_be_enabled()
         expect(page.locator('.moinpdf-version')).to_have_text(f'MoinPDF v{version}')
-        expect(page.locator('.tool-mosaic-card')).to_have_count(6)
+        expect(page.locator('.tool-mosaic-card')).to_have_count(9)
+        assert page.locator('.tool-mosaic-card').evaluate_all(
+            '(cards) => cards.map(card => card.dataset.toolId)') == [
+                'merge', 'pdf-word', 'ocr', 'organize', 'sign', 'batch',
+                'numbers', 'office-pdf', 'edit-text']
         expect(page.locator('.harbor-photo img')).to_have_js_property('complete', True)
         assert page.locator('.harbor-photo img').evaluate('(image) => image.naturalWidth > 0'), 'Harbour image did not render'
     except Exception:
@@ -96,6 +111,81 @@ def mobile_search(page):
     page.locator('.harbor-desktop-nav').get_by_role('button', name='Start', exact=True).click()
     expect(page.locator('.home-all-tools')).to_be_visible()
     print('PASS: DE/EN mobile search, projects, focus and PDF retention through Umbrel.', flush=True)
+
+
+def create_persistent_job(context):
+    """Use the real queue through Umbrel, then retain its exact result over restart."""
+    subprocess.run([
+        'docker', 'exec', 'moinpdf-umbrel-test', 'docker', 'exec',
+        'denny-moinpdf_documents_1', 'python', '-c',
+        'import os,stat; p=os.environ["MOINPDF_JOB_DIR"]; s=os.stat(p); '
+        'assert (s.st_uid,s.st_gid)==(1000,1000), (s.st_uid,s.st_gid); '
+        'assert stat.S_IMODE(s.st_mode)==0o700, oct(s.st_mode); '
+        'assert os.access(p,os.W_OK), p; '
+        'print("PASS: private persistent job directory is writable by the unprivileged document service.")',
+    ], check=True)
+    ticket = secrets.token_hex(32)
+    headers = {'X-MoinPDF-Client': 'web', 'X-MoinPDF-Job-Ticket': ticket}
+    api = origin + '/api/documents/v1/jobs'
+    office = io.BytesIO()
+    with zipfile.ZipFile(office, 'w', zipfile.ZIP_DEFLATED) as document:
+        document.writestr('[Content_Types].xml', '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>')
+        document.writestr('_rels/.rels', '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>')
+        document.writestr('word/document.xml', '<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body><w:p><w:r><w:t>MoinPDF persistent Umbrel job: survives an app restart.</w:t></w:r></w:p><w:sectPr/></w:body></w:document>')
+    submitted = context.request.post(api, headers=headers, multipart={
+        'operation': '/v1/office',
+        'file': {'name': 'restart.docx',
+                 'mimeType': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                 'buffer': office.getvalue()},
+    })
+    assert submitted.ok, f'Queue submission failed: {submitted.status} {submitted.text()}'
+    job_id = submitted.json()['id']
+    url = api + '/' + job_id
+    for attempt in range(120):
+        status = context.request.get(url, headers=headers)
+        assert status.ok, status.text()
+        state = status.json()
+        if state['status'] == 'completed':
+            break
+        assert state['status'] in ('queued', 'running'), state
+        time.sleep(1)
+    else:
+        raise AssertionError('Persistent conversion did not complete within two minutes')
+    result = context.request.get(url + '/result', headers=headers)
+    assert result.ok, result.text()
+    with pymupdf.open(stream=result.body(), filetype='pdf') as document:
+        assert 'persistent Umbrel job' in ''.join(page.get_text() for page in document)
+    wrong = {**headers, 'X-MoinPDF-Job-Ticket': secrets.token_hex(32)}
+    for suffix in ('', '/result'):
+        assert context.request.get(url + suffix, headers=wrong).status == 404
+        assert context.request.get(url + suffix, headers={'X-MoinPDF-Client': 'web'}).status == 404
+    # Confirm the result is on the persistent bind mount, not the container's tmpfs.
+    mounts = json.loads(subprocess.check_output([
+        'docker', 'exec', 'moinpdf-umbrel-test', 'docker', 'inspect',
+        'denny-moinpdf_documents_1', '--format', '{{json .Mounts}}'], text=True))
+    assert any(m['Type'] == 'bind' and m['RW'] and
+               m['Destination'] == '/var/lib/moinpdf-jobs' and
+               m['Source'].endswith('/data/document-jobs') for m in mounts), mounts
+    digest = hashlib.sha256(result.body()).hexdigest()
+    print('PASS: real background conversion, private job ticket and persistent Umbrel mount.', flush=True)
+    return url, headers, digest
+
+
+def verify_persistent_job(context, job):
+    url, headers, digest = job
+    status = context.request.get(url, headers=headers)
+    assert status.ok and status.json()['status'] == 'completed', status.text()
+    result = context.request.get(url + '/result', headers=headers)
+    assert result.ok and hashlib.sha256(result.body()).hexdigest() == digest
+    deleted = context.request.post(url + '/delete', headers=headers)
+    assert deleted.ok, deleted.text()
+    assert context.request.get(url, headers=headers).status == 404
+    (evidence / 'background-job.json').write_text(json.dumps({
+        'status': 'passed', 'resultSha256': digest,
+        'checks': ['conversion', 'ticket-isolation', 'persistent-bind-mount',
+                   'byte-identical-result-after-umbrel-restart', 'explicit-delete'],
+    }, indent=2) + '\n')
+    print('PASS: background job result survives Umbrel restart byte-for-byte and can be deleted.', flush=True)
 
 
 with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporary:
@@ -189,6 +279,7 @@ with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporar
     expect_home(page)
     print('PASS: signed-in HTTPS app page; checking restart persistence.', flush=True)
 
+    persistent_job = create_persistent_job(context)
     umbrel('apps.restart.mutate', '--appId', 'denny-moinpdf')
     for attempt in range(60):
         state = json.loads(umbrel('apps.state.query', '--appId', 'denny-moinpdf'))
@@ -208,10 +299,11 @@ with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporar
         time.sleep(5)
     else:
         raise AssertionError('Translation did not recover from the persisted models')
+    verify_persistent_job(context, persistent_job)
     subprocess.run(['python', '.github/tests/moinpdf/selfhost-smoke.py'], env=environment, check=True)
     page.goto(origin)
     expect_home(page)
     browser.close()
 
-(evidence / 'result.txt').write_text('PASS: umbrelOS 2.0.0 on amd64; fresh install through Umbrel, protected app gateway, signed-in browser, PDF upload and DE/EN switching, mobile search/projects/document retention, document creation/drafts/PDF export, HTTP and HTTPS app routes, real Office, website conversion, DE/EN translation and speech, restart and persisted models. ARM runtime was not tested.\n')
+(evidence / 'result.txt').write_text(f'PASS: umbrelOS 2.0.0 on native {architecture}; installation path: {installation}; native Umbrel installation, protected app gateway, signed-in browser, PDF upload and DE/EN switching, mobile search/projects/document retention, document creation/drafts/PDF export, HTTP and HTTPS app routes, real Office, website conversion, DE/EN translation and speech, restart, persisted models and byte-identical background-job results with ticket isolation and deletion. Physical NAS devices and camera/printer hardware were not tested.\n')
 print((evidence / 'result.txt').read_text())
