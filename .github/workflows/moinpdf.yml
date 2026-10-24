@@ -87,8 +87,17 @@ jobs:
         run: |
           # Trust only this disposable host's public CA. Chromium can exhaust
           # certificate retries on parallel assets when errors are just ignored.
-          docker cp moinpdf-umbrel-test:/home/umbrel/umbrel/lan-ingress/ca.pem \
-            "$RUNNER_TEMP/moinpdf-umbrel-ca.pem"
+          docker exec moinpdf-umbrel-test sh -ec \
+            'umbreld client lanIngress.getCertificateStatus.query > /tmp/moinpdf-ci-ca.json; cat /tmp/moinpdf-ci-ca.json' \
+            > "$RUNNER_TEMP/moinpdf-umbrel-ca.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          temporary = Path(os.environ['RUNNER_TEMP'])
+          certificate = json.loads((temporary / 'moinpdf-umbrel-ca.json').read_text())['caCertificate']
+          assert certificate.startswith('-----BEGIN CERTIFICATE-----')
+          (temporary / 'moinpdf-umbrel-ca.pem').write_text(certificate)
+          PY
           mkdir -p "$HOME/.pki/nssdb"
           if [ ! -f "$HOME/.pki/nssdb/cert9.db" ]; then
             certutil -N -d "sql:$HOME/.pki/nssdb" --empty-password
