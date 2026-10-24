@@ -72,9 +72,14 @@ with sync_playwright() as api:
                     assert result[0].get_pixmap(clip=clip).samples == before[0].get_pixmap(clip=clip).samples
                 print('PASS: Umbrel original-text edit, undo/redo, real PDF download, removed old text and unchanged image.', flush=True)
             else:
+                expect(page.get_by_role('heading', name='PDF zu Word', exact=True)).to_be_visible()
                 processing = page.get_by_label('Verarbeitung', exact=True)
-                if processing.count():
-                    processing.select_option('local')
+                # Umbrel intentionally defaults to its included document server.
+                # Wait for the tool to mount before selecting browser conversion;
+                # an immediate count() can skip the asynchronously rendered field.
+                expect(processing).to_have_value('server')
+                processing.select_option('local')
+                expect(processing).to_have_value('local')
                 expect(page.get_by_label('Word-Ausgabe', exact=True)).to_have_value('layout')
                 page.get_by_role('button', name='Word-Datei erstellen', exact=True).click()
                 link = page.get_by_role('link', name='Word herunterladen', exact=True)
