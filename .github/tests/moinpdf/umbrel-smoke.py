@@ -115,7 +115,11 @@ def mobile_search(page):
     switch_language(page, 'Deutsch', 'de')
     page.set_viewport_size({'width': 1440, 'height': 1000})
     page.locator('.harbor-desktop-nav').get_by_role('button', name='Start', exact=True).click()
-    expect(page.locator('.home-all-tools')).to_be_visible()
+    expect(page.locator('.mosaic-all-tools')).to_be_visible()
+    page.locator('.mosaic-all-tools').click()
+    expect(page.locator('.chooser-tool')).to_have_count(112)
+    expect(page.locator('.chooser-file')).to_contain_text('umbrel-test.pdf')
+    page.locator('.harbor-desktop-nav').get_by_role('button', name='Start', exact=True).click()
     print('PASS: DE/EN mobile search, projects, focus and PDF retention through Umbrel.', flush=True)
 
 
