@@ -305,18 +305,25 @@ with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporar
                                        data={'password': 'synthetic-umbrel-ci-password'},
                                        headers={'Origin': 'https://localhost'})
     assert https_login.ok, 'Synthetic Umbrel user could not sign in over HTTPS'
-    stylesheet_path = page.locator('link[rel="stylesheet"]').get_attribute('href')
-    assert stylesheet_path.startswith('/assets/') and stylesheet_path.endswith('.css')
-    css_http = context.request.get(origin + stylesheet_path)
-    css_https = context.request.get('https://localhost:8785' + stylesheet_path)
-    for response in (css_http, css_https):
-        assert response.status == 200 and response.headers.get('content-type', '').startswith('text/css')
-        assert b'.harbor-brand' in response.body()
-    assert css_http.body() == css_https.body(), 'HTTP and HTTPS must serve the same released stylesheet'
-    (evidence / 'stylesheet.json').write_text(json.dumps({
-        'path': stylesheet_path, 'sha256': hashlib.sha256(css_https.body()).hexdigest(),
-        'httpStatus': css_http.status, 'httpsStatus': css_https.status, 'byteIdentical': True,
-    }, indent=2) + '\n')
+    stylesheet_paths = page.locator('link[rel="stylesheet"]').evaluate_all(
+        '(links) => [...new Set(links.map(link => new URL(link.href).pathname))]')
+    assert stylesheet_paths
+    stylesheets = []
+    brand_styles = False
+    for stylesheet_path in stylesheet_paths:
+        assert stylesheet_path.startswith('/assets/') and stylesheet_path.endswith('.css')
+        css_http = context.request.get(origin + stylesheet_path)
+        css_https = context.request.get('https://localhost:8785' + stylesheet_path)
+        for response in (css_http, css_https):
+            assert response.status == 200 and response.headers.get('content-type', '').startswith('text/css')
+        assert css_http.body() == css_https.body(), 'HTTP and HTTPS must serve the same released stylesheet'
+        brand_styles = brand_styles or b'.harbor-brand' in css_https.body()
+        stylesheets.append({
+            'path': stylesheet_path, 'sha256': hashlib.sha256(css_https.body()).hexdigest(),
+            'httpStatus': css_http.status, 'httpsStatus': css_https.status, 'byteIdentical': True,
+        })
+    assert brand_styles, 'The main stylesheet must contain the responsive brand rules'
+    (evidence / 'stylesheet.json').write_text(json.dumps(stylesheets, indent=2) + '\n')
     print('PASS: authenticated HTTP/HTTPS stylesheet routes, CSS MIME type and identical released bytes.', flush=True)
     # Validate the HTTPS app route using the disposable OS-generated certificate.
     page.goto('https://localhost:8785')
