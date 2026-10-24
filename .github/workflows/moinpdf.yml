@@ -25,7 +25,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        installation: [fresh, upgrade-from-0.14.5]
+        installation: [fresh, upgrade-from-0.15.4]
         architecture: [amd64, arm64]
         include:
           - architecture: amd64
@@ -35,10 +35,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Check out the previously published store package
-        if: matrix.installation == 'upgrade-from-0.14.5'
+        if: matrix.installation == 'upgrade-from-0.15.4'
         uses: actions/checkout@v4
         with:
-          ref: 7e591f730aa1e620665367fb5a1aa89f84d6f0da
+          ref: 5e7fbf6a0924f53008f71f19ddb5cdb3ae206399
           path: upgrade-baseline
           sparse-checkout: denny-moinpdf
       - uses: docker/setup-buildx-action@v3
@@ -66,6 +66,7 @@ jobs:
         run: |
           python -m pip install playwright==1.55.0 pymupdf==1.28.2 requests==2.34.2
           python -m playwright install --with-deps chromium
+          sudo apt-get install --yes --no-install-recommends libnss3-tools
       - name: Boot disposable Umbrel test host
         timeout-minutes: 10
         run: |
@@ -80,8 +81,30 @@ jobs:
             ghcr.io/getumbrel/umbrelos:2.0.0 /sbin/init
       - name: Install through Umbrel
         env:
-          MOINPDF_UPGRADE_FROM: ${{ matrix.installation == 'upgrade-from-0.14.5' && 'upgrade-baseline/denny-moinpdf' || '' }}
+          MOINPDF_UPGRADE_FROM: ${{ matrix.installation == 'upgrade-from-0.15.4' && 'upgrade-baseline/denny-moinpdf' || '' }}
         run: bash .github/tests/moinpdf/umbrel-install.sh
+      - name: Trust the disposable Umbrel host certificate
+        run: |
+          # Trust only this disposable host's public CA. Chromium can exhaust
+          # certificate retries on parallel assets when errors are just ignored.
+          docker exec moinpdf-umbrel-test sh -ec \
+            'umbreld client lanIngress.getCertificateStatus.query > /tmp/moinpdf-ci-ca.json; cat /tmp/moinpdf-ci-ca.json' \
+            > "$RUNNER_TEMP/moinpdf-umbrel-ca.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          temporary = Path(os.environ['RUNNER_TEMP'])
+          certificate = json.loads((temporary / 'moinpdf-umbrel-ca.json').read_text())['caCertificate']
+          assert certificate.startswith('-----BEGIN CERTIFICATE-----')
+          (temporary / 'moinpdf-umbrel-ca.pem').write_text(certificate)
+          PY
+          mkdir -p "$HOME/.pki/nssdb"
+          if [ ! -f "$HOME/.pki/nssdb/cert9.db" ]; then
+            certutil -N -d "sql:$HOME/.pki/nssdb" --empty-password
+          fi
+          certutil -A -d "sql:$HOME/.pki/nssdb" -n moinpdf-disposable-umbrel \
+            -t 'C,,' -i "$RUNNER_TEMP/moinpdf-umbrel-ca.pem"
+          printf 'NODE_EXTRA_CA_CERTS=%s\n' "$RUNNER_TEMP/moinpdf-umbrel-ca.pem" >> "$GITHUB_ENV"
       - name: Browser, protected routes, website conversion, translation and restart persistence
         env:
           MOINPDF_TEST_INSTALLATION: ${{ matrix.installation }}

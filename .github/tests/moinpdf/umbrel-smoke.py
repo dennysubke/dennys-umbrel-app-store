@@ -24,6 +24,7 @@ container_architecture = subprocess.check_output([
 assert container_architecture == platform.machine(), container_architecture
 evidence = Path('umbrel-evidence')
 evidence.mkdir(exist_ok=True)
+stylesheet_events = []
 version = re.search(r'^version: "([^\"]+)"$',
                     Path('denny-moinpdf/umbrel-app.yml').read_text(), re.M).group(1)
 
@@ -49,23 +50,38 @@ def switch_language(page, label, code):
 
 def expect_home(page):
     try:
+        page.wait_for_function('''() => {
+            const styles = [...document.querySelectorAll('link[rel="stylesheet"]')];
+            return styles.length > 0 && styles.every(link => link.sheet?.cssRules.length > 0);
+        }''', timeout=60000)
         logo = page.get_by_role('img', name='MoinPDF', exact=True)
+        expect(logo).to_have_count(1, timeout=60000)
         expect(logo).to_be_visible(timeout=60000)
         expect(logo).to_have_js_property('complete', True)
         assert logo.evaluate('(image) => image.naturalWidth > 0'), 'App logo did not render'
         expect(page.locator('.harbor-wordmark > span')).to_have_text('Papierkram. Läuft.')
         expect(page.get_by_role('button', name='PDF oder andere Datei auswählen', exact=True)).to_be_enabled()
         expect(page.locator('.moinpdf-version')).to_have_text(f'MoinPDF v{version}')
-        expect(page.locator('.tool-mosaic-card')).to_have_count(9)
+        expect(page.locator('.tool-mosaic-card')).to_have_count(6)
         assert page.locator('.tool-mosaic-card').evaluate_all(
             '(cards) => cards.map(card => card.dataset.toolId)') == [
-                'merge', 'pdf-word', 'ocr', 'organize', 'sign', 'batch',
-                'numbers', 'office-pdf', 'edit-text']
+                'edit-text', 'merge', 'compress', 'ocr', 'sign', 'pdf-word']
+        expect(page.locator('.quick-access-settings')).to_be_visible()
+        expect(page.locator('.harbor-photo')).to_be_hidden()
+        expect(page.locator('.desktop-command-trigger')).to_be_visible()
+        assert page.locator('.desktop-command-trigger').evaluate('''el =>
+            el.getBoundingClientRect().top >= document.querySelector('.app-toolbar').getBoundingClientRect().bottom - 1
+        '''), 'Desktop search must have its own row below the toolbar'
         expect(page.locator('.harbor-photo img')).to_have_js_property('complete', True)
         assert page.locator('.harbor-photo img').evaluate('(image) => image.naturalWidth > 0'), 'Harbour image did not render'
     except Exception:
         page.screenshot(path=str(evidence / 'moinpdf-failure.png'), full_page=True)
         (evidence / 'moinpdf-failure.html').write_text(page.content())
+        (evidence / 'stylesheet-diagnostics.json').write_text(json.dumps({
+            'requests': stylesheet_events,
+            'links': page.locator('link[rel="stylesheet"]').evaluate_all(
+                '(links) => links.map(link => ({url: link.href, rules: link.sheet?.cssRules.length ?? 0}))'),
+        }, indent=2) + '\n')
         raise
 
 
@@ -79,6 +95,7 @@ def mobile_search(page):
         switch_language(page, label, language)
         en = language == 'en'
         nav.get_by_role('button', name='Home' if en else 'Start', exact=True).click()
+        expect(page.locator('.harbor-photo')).to_be_visible()
         search = nav.get_by_role('button', name='Search' if en else 'Suche', exact=True)
         search.click()
         dialog = page.locator('.mobile-tool-search')
@@ -109,7 +126,11 @@ def mobile_search(page):
     switch_language(page, 'Deutsch', 'de')
     page.set_viewport_size({'width': 1440, 'height': 1000})
     page.locator('.harbor-desktop-nav').get_by_role('button', name='Start', exact=True).click()
-    expect(page.locator('.home-all-tools')).to_be_visible()
+    expect(page.locator('.mosaic-all-tools')).to_be_visible()
+    page.locator('.mosaic-all-tools').click()
+    expect(page.locator('.chooser-tool')).to_have_count(112)
+    expect(page.locator('.chooser-file')).to_contain_text('umbrel-test.pdf')
+    page.locator('.harbor-desktop-nav').get_by_role('button', name='Start', exact=True).click()
     print('PASS: DE/EN mobile search, projects, focus and PDF retention through Umbrel.', flush=True)
 
 
@@ -190,7 +211,9 @@ def verify_persistent_job(context, job):
 
 with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporary:
     browser = browser_api.chromium.launch()
-    context = browser.new_context(ignore_https_errors=True, viewport={'width': 1440, 'height': 1000})
+    # CI imports the disposable Umbrel CA before launching this browser and the
+    # Playwright Node driver. Keep real certificate validation enabled.
+    context = browser.new_context(ignore_https_errors=False, viewport={'width': 1440, 'height': 1000})
     for api, service in (('documents', 'MoinPDF Dokumentenserver'), ('website', 'MoinPDF Web-Konverter')):
         rejected = context.request.get(origin + f'/api/{api}/v1/capabilities',
                                        headers={'X-MoinPDF-Client': 'web'}, max_redirects=0)
@@ -201,6 +224,13 @@ with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporar
                                  headers={'Origin': 'http://localhost'})
     assert login.ok, 'Synthetic Umbrel user could not sign in'
     page = context.new_page()
+    page.on('response', lambda response: stylesheet_events.append({
+        'url': response.url, 'status': response.status,
+        'contentType': response.headers.get('content-type'),
+    }) if response.request.resource_type == 'stylesheet' else None)
+    page.on('requestfailed', lambda request: stylesheet_events.append({
+        'url': request.url, 'failure': request.failure,
+    }) if request.resource_type == 'stylesheet' else None)
     page.goto(origin)
     expect_home(page)
     page.screenshot(path=str(evidence / 'moinpdf-home.png'), full_page=True)
@@ -268,13 +298,36 @@ with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporar
                        MOINPDF_TEST_REPO=str(Path.cwd()))
     subprocess.run(['python', '.github/tests/moinpdf/selfhost-smoke.py'], env=environment, check=True)
 
+    # Exercise the main 0.20.1 exports through Umbrel's authenticated app route.
+    subprocess.run(['python', '.github/tests/moinpdf/core-export-smoke.py'], env=environment, check=True)
+
     # Umbrel deliberately uses distinct HTTP and __Host- HTTPS session cookies.
     # Authenticate the HTTPS session through the real login endpoint as well.
     https_login = context.request.post('https://localhost/trpc/user.login',
                                        data={'password': 'synthetic-umbrel-ci-password'},
                                        headers={'Origin': 'https://localhost'})
     assert https_login.ok, 'Synthetic Umbrel user could not sign in over HTTPS'
-    # Validate the HTTPS app route using the disposable OS-generated certificate.
+    stylesheet_paths = page.locator('link[rel="stylesheet"]').evaluate_all(
+        '(links) => [...new Set(links.map(link => new URL(link.href).pathname))]')
+    assert stylesheet_paths
+    stylesheets = []
+    brand_styles = False
+    for stylesheet_path in stylesheet_paths:
+        assert stylesheet_path.startswith('/assets/') and stylesheet_path.endswith('.css')
+        css_http = context.request.get(origin + stylesheet_path)
+        css_https = context.request.get('https://localhost:8785' + stylesheet_path)
+        for response in (css_http, css_https):
+            assert response.status == 200 and response.headers.get('content-type', '').startswith('text/css')
+        assert css_http.body() == css_https.body(), 'HTTP and HTTPS must serve the same released stylesheet'
+        brand_styles = brand_styles or b'.harbor-brand' in css_https.body()
+        stylesheets.append({
+            'path': stylesheet_path, 'sha256': hashlib.sha256(css_https.body()).hexdigest(),
+            'httpStatus': css_http.status, 'httpsStatus': css_https.status, 'byteIdentical': True,
+        })
+    assert brand_styles, 'The main stylesheet must contain the responsive brand rules'
+    (evidence / 'stylesheet.json').write_text(json.dumps(stylesheets, indent=2) + '\n')
+    print('PASS: authenticated HTTP/HTTPS stylesheet routes, CSS MIME type and identical released bytes.', flush=True)
+    # Validate the HTTPS app route with the explicitly trusted OS-generated CA.
     page.goto('https://localhost:8785')
     expect_home(page)
     print('PASS: signed-in HTTPS app page; checking restart persistence.', flush=True)
