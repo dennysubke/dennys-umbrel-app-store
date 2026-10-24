@@ -33,7 +33,7 @@ with pymupdf.open() as document:
 with sync_playwright() as api:
     browser = api.chromium.launch()
     for operation in ('edit-text', 'pdf-word'):
-        context = browser.new_context(ignore_https_errors=True, viewport={'width': 1440, 'height': 1000},
+        context = browser.new_context(ignore_https_errors=False, viewport={'width': 1440, 'height': 1000},
                                       reduced_motion='reduce', accept_downloads=True)
         context.add_cookies(cookies)
         page = context.new_page()

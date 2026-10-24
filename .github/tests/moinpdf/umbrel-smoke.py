@@ -52,7 +52,7 @@ def expect_home(page):
     try:
         page.wait_for_function('''() => {
             const styles = [...document.querySelectorAll('link[rel="stylesheet"]')];
-            return styles.length > 0 && styles.every(link => link.sheet !== null);
+            return styles.length > 0 && styles.every(link => link.sheet?.cssRules.length > 0);
         }''', timeout=60000)
         logo = page.get_by_role('img', name='MoinPDF', exact=True)
         expect(logo).to_have_count(1, timeout=60000)
@@ -80,7 +80,7 @@ def expect_home(page):
         (evidence / 'stylesheet-diagnostics.json').write_text(json.dumps({
             'requests': stylesheet_events,
             'links': page.locator('link[rel="stylesheet"]').evaluate_all(
-                '(links) => links.map(link => ({url: link.href, loaded: link.sheet !== null}))'),
+                '(links) => links.map(link => ({url: link.href, rules: link.sheet?.cssRules.length ?? 0}))'),
         }, indent=2) + '\n')
         raise
 
@@ -211,7 +211,9 @@ def verify_persistent_job(context, job):
 
 with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporary:
     browser = browser_api.chromium.launch()
-    context = browser.new_context(ignore_https_errors=True, viewport={'width': 1440, 'height': 1000})
+    # CI imports the disposable Umbrel CA before launching this browser and the
+    # Playwright Node driver. Keep real certificate validation enabled.
+    context = browser.new_context(ignore_https_errors=False, viewport={'width': 1440, 'height': 1000})
     for api, service in (('documents', 'MoinPDF Dokumentenserver'), ('website', 'MoinPDF Web-Konverter')):
         rejected = context.request.get(origin + f'/api/{api}/v1/capabilities',
                                        headers={'X-MoinPDF-Client': 'web'}, max_redirects=0)
@@ -325,7 +327,7 @@ with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporar
     assert brand_styles, 'The main stylesheet must contain the responsive brand rules'
     (evidence / 'stylesheet.json').write_text(json.dumps(stylesheets, indent=2) + '\n')
     print('PASS: authenticated HTTP/HTTPS stylesheet routes, CSS MIME type and identical released bytes.', flush=True)
-    # Validate the HTTPS app route using the disposable OS-generated certificate.
+    # Validate the HTTPS app route with the explicitly trusted OS-generated CA.
     page.goto('https://localhost:8785')
     expect_home(page)
     print('PASS: signed-in HTTPS app page; checking restart persistence.', flush=True)
