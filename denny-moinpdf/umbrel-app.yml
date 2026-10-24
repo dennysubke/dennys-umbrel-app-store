@@ -4,7 +4,7 @@ name: MoinPDF
 tagline: A complete PDF workspace with local document processing
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/logo.png
 category: files & productivity
-version: "0.15.4"
+version: "0.20.1"
 port: 8785
 description: >-
   ⚓ MoinPDF brings PDF editing, conversion, OCR, and document checks together in one workspace. Merge files, make scans searchable, edit pages, and prepare documents for everyday tasks through a German or English interface. Drag your files into the app, search for what you want to do, and choose the matching tool.
@@ -19,13 +19,13 @@ description: >-
   📄 Page Management – Merge, split, rotate, reorder, crop, number, and bookmark PDF pages.
 
 
-  ✏️ PDF Editing – Replace text, remove content, add images and annotations, highlight passages, redact information, and work with forms.
+  ✏️ PDF Editing – Edit original text in place, compare fonts and the saved result, work with supported images and vector tables, and correct OCR text. Add annotations, highlight passages, redact information, and work with forms. Scan fonts are approximations; unsupported layouts receive explicit notices.
 
 
   🔍 OCR & Scans – Recognize text in multiple languages, create searchable PDFs, improve scans, compress documents, and import images from your camera.
 
 
-  🔄 File Conversion – Convert supported Office documents locally in your browser or with the included document server. Convert emails, export images, text, and tables, and create PDF/A files with the document server. Save public website links as PDFs with images, fonts, CSS, and page-layout options using the included website converter.
+  🔄 File Conversion – Convert supported Office documents locally in your browser or with the included document server. Export PDFs to Word with page sizes, images, and editable text boxes; scans use local OCR, with notices for graphical fallbacks. Convert emails, export images, text, and tables, and create PDF/A files with the document server. Save public website links as PDFs with images, fonts, CSS, and page-layout options using the included website converter.
 
 
   🧮 Document Checks – Compare text, images, numbers, and invoice details, check calculations, and review matching passages in the original document.
@@ -58,7 +58,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/2.webp
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/3.webp
 releaseNotes: >-
-  Updates MoinPDF from 0.14.5 to 0.15.4. Adds automatic local workspace recovery, a recent-results shelf, persistent server conversion jobs, multi-page table export to Excel, and automatic OCR for scanned PDF-to-Word documents. Improves direct PDF paragraph editing, original-font handling and font substitution notices. Fixes screen-reader names, keyboard access, tool-search state and light-theme contrast; updates German and English documentation and dependencies. The Umbrel package now persists background jobs across app restarts. All four service images are updated together and pinned for amd64 and arm64. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.15.4/CHANGELOG.en.md
+  Updates MoinPDF from 0.15.4 to 0.20.1. Adds direct original-text editing with font comparison, local scan correction, linked text fields, supported image and vector-table editing, and independent export checks. PDF-to-Word now preserves page layouts and images with editable text boxes; scans use OCR and unsupported regions remain graphics with explicit notices. Adds customizable favorites, recent tools, Ctrl/Cmd+K search, mobile editor controls, compression presets, and separate recovery snapshots. Includes Office-worker cleanup and dependency fixes. The approved light appearance is retained, including the mobile sailor. All four services use the published 0.20.1 images pinned by digest for amd64 and arm64. Existing Umbrel data, background jobs, credentials, and port 8785 are preserved. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.20.1/CHANGELOG.en.md
 dependencies: []
 path: ""
 defaultUsername: ""

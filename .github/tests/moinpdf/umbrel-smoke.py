@@ -56,11 +56,16 @@ def expect_home(page):
         expect(page.locator('.harbor-wordmark > span')).to_have_text('Papierkram. Läuft.')
         expect(page.get_by_role('button', name='PDF oder andere Datei auswählen', exact=True)).to_be_enabled()
         expect(page.locator('.moinpdf-version')).to_have_text(f'MoinPDF v{version}')
-        expect(page.locator('.tool-mosaic-card')).to_have_count(9)
+        expect(page.locator('.tool-mosaic-card')).to_have_count(6)
         assert page.locator('.tool-mosaic-card').evaluate_all(
             '(cards) => cards.map(card => card.dataset.toolId)') == [
-                'merge', 'pdf-word', 'ocr', 'organize', 'sign', 'batch',
-                'numbers', 'office-pdf', 'edit-text']
+                'edit-text', 'merge', 'compress', 'ocr', 'sign', 'pdf-word']
+        expect(page.locator('.quick-access-settings')).to_be_visible()
+        expect(page.locator('.harbor-photo')).to_be_hidden()
+        expect(page.locator('.desktop-command-trigger')).to_be_visible()
+        assert page.locator('.desktop-command-trigger').evaluate('''el =>
+            el.getBoundingClientRect().top >= document.querySelector('.app-toolbar').getBoundingClientRect().bottom - 1
+        '''), 'Desktop search must have its own row below the toolbar'
         expect(page.locator('.harbor-photo img')).to_have_js_property('complete', True)
         assert page.locator('.harbor-photo img').evaluate('(image) => image.naturalWidth > 0'), 'Harbour image did not render'
     except Exception:
@@ -79,6 +84,7 @@ def mobile_search(page):
         switch_language(page, label, language)
         en = language == 'en'
         nav.get_by_role('button', name='Home' if en else 'Start', exact=True).click()
+        expect(page.locator('.harbor-photo')).to_be_visible()
         search = nav.get_by_role('button', name='Search' if en else 'Suche', exact=True)
         search.click()
         dialog = page.locator('.mobile-tool-search')
@@ -267,6 +273,9 @@ with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporar
     environment = dict(os.environ, MOINPDF_TEST_URL=origin, MOINPDF_TEST_COOKIES=str(cookies),
                        MOINPDF_TEST_REPO=str(Path.cwd()))
     subprocess.run(['python', '.github/tests/moinpdf/selfhost-smoke.py'], env=environment, check=True)
+
+    # Exercise the main 0.20.1 exports through Umbrel's authenticated app route.
+    subprocess.run(['python', '.github/tests/moinpdf/core-export-smoke.py'], env=environment, check=True)
 
     # Umbrel deliberately uses distinct HTTP and __Host- HTTPS session cookies.
     # Authenticate the HTTPS session through the real login endpoint as well.
