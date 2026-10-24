@@ -24,6 +24,7 @@ container_architecture = subprocess.check_output([
 assert container_architecture == platform.machine(), container_architecture
 evidence = Path('umbrel-evidence')
 evidence.mkdir(exist_ok=True)
+stylesheet_events = []
 version = re.search(r'^version: "([^\"]+)"$',
                     Path('denny-moinpdf/umbrel-app.yml').read_text(), re.M).group(1)
 
@@ -49,7 +50,12 @@ def switch_language(page, label, code):
 
 def expect_home(page):
     try:
+        page.wait_for_function('''() => {
+            const styles = [...document.querySelectorAll('link[rel="stylesheet"]')];
+            return styles.length > 0 && styles.every(link => link.sheet !== null);
+        }''', timeout=60000)
         logo = page.get_by_role('img', name='MoinPDF', exact=True)
+        expect(logo).to_have_count(1, timeout=60000)
         expect(logo).to_be_visible(timeout=60000)
         expect(logo).to_have_js_property('complete', True)
         assert logo.evaluate('(image) => image.naturalWidth > 0'), 'App logo did not render'
@@ -71,6 +77,11 @@ def expect_home(page):
     except Exception:
         page.screenshot(path=str(evidence / 'moinpdf-failure.png'), full_page=True)
         (evidence / 'moinpdf-failure.html').write_text(page.content())
+        (evidence / 'stylesheet-diagnostics.json').write_text(json.dumps({
+            'requests': stylesheet_events,
+            'links': page.locator('link[rel="stylesheet"]').evaluate_all(
+                '(links) => links.map(link => ({url: link.href, loaded: link.sheet !== null}))'),
+        }, indent=2) + '\n')
         raise
 
 
@@ -211,6 +222,13 @@ with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporar
                                  headers={'Origin': 'http://localhost'})
     assert login.ok, 'Synthetic Umbrel user could not sign in'
     page = context.new_page()
+    page.on('response', lambda response: stylesheet_events.append({
+        'url': response.url, 'status': response.status,
+        'contentType': response.headers.get('content-type'),
+    }) if response.request.resource_type == 'stylesheet' else None)
+    page.on('requestfailed', lambda request: stylesheet_events.append({
+        'url': request.url, 'failure': request.failure,
+    }) if request.resource_type == 'stylesheet' else None)
     page.goto(origin)
     expect_home(page)
     page.screenshot(path=str(evidence / 'moinpdf-home.png'), full_page=True)
@@ -287,6 +305,19 @@ with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporar
                                        data={'password': 'synthetic-umbrel-ci-password'},
                                        headers={'Origin': 'https://localhost'})
     assert https_login.ok, 'Synthetic Umbrel user could not sign in over HTTPS'
+    stylesheet_path = page.locator('link[rel="stylesheet"]').get_attribute('href')
+    assert stylesheet_path.startswith('/assets/') and stylesheet_path.endswith('.css')
+    css_http = context.request.get(origin + stylesheet_path)
+    css_https = context.request.get('https://localhost:8785' + stylesheet_path)
+    for response in (css_http, css_https):
+        assert response.status == 200 and response.headers.get('content-type', '').startswith('text/css')
+        assert b'.harbor-brand' in response.body()
+    assert css_http.body() == css_https.body(), 'HTTP and HTTPS must serve the same released stylesheet'
+    (evidence / 'stylesheet.json').write_text(json.dumps({
+        'path': stylesheet_path, 'sha256': hashlib.sha256(css_https.body()).hexdigest(),
+        'httpStatus': css_http.status, 'httpsStatus': css_https.status, 'byteIdentical': True,
+    }, indent=2) + '\n')
+    print('PASS: authenticated HTTP/HTTPS stylesheet routes, CSS MIME type and identical released bytes.', flush=True)
     # Validate the HTTPS app route using the disposable OS-generated certificate.
     page.goto('https://localhost:8785')
     expect_home(page)
