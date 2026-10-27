@@ -128,7 +128,14 @@ def mobile_search(page):
     page.locator('.harbor-desktop-nav').get_by_role('button', name='Start', exact=True).click()
     expect(page.locator('.mosaic-all-tools')).to_be_visible()
     page.locator('.mosaic-all-tools').click()
-    expect(page.locator('.chooser-tool')).to_have_count(116)
+    expect(page.locator('.chooser-tool')).to_have_count(118)
+    expected_tools = json.loads((Path(__file__).parent / 'asset-checksums.json').read_text())['toolIds']
+    actual_tools = page.locator('.chooser-tool').evaluate_all(
+        '(buttons) => buttons.map(button => button.dataset.toolId)')
+    assert len(set(actual_tools)) == 118 and sorted(actual_tools) == sorted(expected_tools), 'Deployed tool catalog differs from the released source'
+    for tool_id in ('document-colors', 'large-document'):
+        expect(page.locator(f'.chooser-tool[data-tool-id="{tool_id}"]')).to_be_visible()
+    print('PASS: all 118 tool IDs match the released source, including document colors and large PDFs.', flush=True)
     expect(page.locator('.chooser-file')).to_contain_text('umbrel-test.pdf')
     page.locator('.harbor-desktop-nav').get_by_role('button', name='Start', exact=True).click()
     print('PASS: DE/EN mobile search, projects, focus and PDF retention through Umbrel.', flush=True)
