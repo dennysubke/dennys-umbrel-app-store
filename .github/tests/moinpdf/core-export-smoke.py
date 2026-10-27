@@ -73,14 +73,11 @@ with sync_playwright() as api:
                 print('PASS: Umbrel original-text edit, undo/redo, real PDF download, removed old text and unchanged image.', flush=True)
             else:
                 expect(page.get_by_role('heading', name='PDF zu Word', exact=True)).to_be_visible()
-                processing = page.get_by_label('Verarbeitung', exact=True)
-                # Umbrel intentionally defaults to its included document server.
-                # Wait for the tool to mount before selecting browser conversion;
-                # an immediate count() can skip the asynchronously rendered field.
-                expect(processing).to_have_value('server')
-                processing.select_option('local')
-                expect(processing).to_have_value('local')
-                expect(page.get_by_label('Word-Ausgabe', exact=True)).to_have_value('layout')
+                # Version 0.23.0 starts Word export locally, even with a server.
+                expect(page.get_by_role('radio', name='Aussehen möglichst erhalten', exact=True)).to_be_checked()
+                expect(page.get_by_role('radio', name='Text und Tabellen bearbeiten', exact=True)).to_be_visible()
+                expect(page.locator('.word-export-options')).to_contain_text('Die Word-Datei wird auf deinem Gerät erstellt.')
+                expect(page.locator('.word-export-options details')).not_to_have_attribute('open', '')
                 page.get_by_role('button', name='Word-Datei erstellen', exact=True).click()
                 link = page.get_by_role('link', name='Word herunterladen', exact=True)
                 expect(link).to_be_visible(timeout=180000)

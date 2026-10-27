@@ -128,7 +128,7 @@ def mobile_search(page):
     page.locator('.harbor-desktop-nav').get_by_role('button', name='Start', exact=True).click()
     expect(page.locator('.mosaic-all-tools')).to_be_visible()
     page.locator('.mosaic-all-tools').click()
-    expect(page.locator('.chooser-tool')).to_have_count(112)
+    expect(page.locator('.chooser-tool')).to_have_count(116)
     expect(page.locator('.chooser-file')).to_contain_text('umbrel-test.pdf')
     page.locator('.harbor-desktop-nav').get_by_role('button', name='Start', exact=True).click()
     print('PASS: DE/EN mobile search, projects, focus and PDF retention through Umbrel.', flush=True)
@@ -298,7 +298,7 @@ with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporar
                        MOINPDF_TEST_REPO=str(Path.cwd()))
     subprocess.run(['python', '.github/tests/moinpdf/selfhost-smoke.py'], env=environment, check=True)
 
-    # Exercise the main 0.20.1 exports through Umbrel's authenticated app route.
+    # Exercise the released editor and Word exports through Umbrel's authenticated app route.
     subprocess.run(['python', '.github/tests/moinpdf/core-export-smoke.py'], env=environment, check=True)
 
     # Umbrel deliberately uses distinct HTTP and __Host- HTTPS session cookies.

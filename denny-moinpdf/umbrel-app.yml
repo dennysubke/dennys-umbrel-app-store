@@ -4,7 +4,7 @@ name: MoinPDF
 tagline: A complete PDF workspace with local document processing
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/logo.png
 category: files & productivity
-version: "0.20.1"
+version: "0.23.0"
 port: 8785
 description: >-
   ⚓ MoinPDF brings PDF editing, conversion, OCR, and document checks together in one workspace. Merge files, make scans searchable, edit pages, and prepare documents for everyday tasks through a German or English interface. Drag your files into the app, search for what you want to do, and choose the matching tool.
@@ -34,7 +34,10 @@ description: >-
   🧾 E-Invoices – Read UBL/CII invoice data, compare invoice PDFs with embedded XML, validate XRechnung files, and use the ZUGFeRD assistant.
 
 
-  📦 Batch Workflows – Process multiple documents, reuse saved workflows, collect receipt fields, and evaluate returned forms.
+  📦 Batch Workflows – Process multiple documents, resume saved workflows, collect receipt fields, and evaluate returned forms. Clear Deck recognizes and groups mixed document piles locally; review assignments, duplicates, and missing pages before exporting individual PDFs or a linked bundle.
+
+
+  🧰 Everyday Documents – Remove recurring headers and footers with reviewable matches, fill forms using explicitly saved local profiles, and arrange cropped receipts on A4 sheets for printing.
 
 
   💾 Recovery & Background Jobs – Restore your recent workspace and results from local browser storage. Supported server conversions continue in a persistent queue; jobs and results remain available for 24 hours, including after an app restart.
@@ -43,7 +46,10 @@ description: >-
   🌍 Local Translation – Translate documents on your own server. Scanned PDFs need OCR before text translation.
 
 
-  🔐 Signatures & Forms – Work with PDF forms, add QR codes, and use certificate-signature tools. Editing a PDF can invalidate existing digital signatures.
+  🔐 Signatures & Forms – Work with PDF forms, add QR codes, and use certificate-signature tools. Optionally password-encrypt saved projects and archives. Editing a PDF can invalidate existing digital signatures.
+
+
+  🔊 Read Aloud – Create local narration with German or US-English voices; choose the reading language independently of the interface.
 
 
   📖 Built-in Documentation – Find searchable instructions, typical workflows, and guidance for individual tools directly in the app.
@@ -58,7 +64,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/2.webp
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/3.webp
 releaseNotes: >-
-  Updates MoinPDF from 0.15.4 to 0.20.1. Adds direct original-text editing with font comparison, local scan correction, linked text fields, supported image and vector-table editing, and independent export checks. PDF-to-Word now preserves page layouts and images with editable text boxes; scans use OCR and unsupported regions remain graphics with explicit notices. Adds customizable favorites, recent tools, Ctrl/Cmd+K search, mobile editor controls, compression presets, and separate recovery snapshots. Includes Office-worker cleanup and dependency fixes. The approved light appearance is retained, including the mobile sailor. All four services use the published 0.20.1 images pinned by digest for amd64 and arm64. Existing Umbrel data, background jobs, credentials, and port 8785 are preserved. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.20.1/CHANGELOG.en.md
+  Updates MoinPDF from 0.20.1 to 0.23.0. Adds Clear Deck for locally recognizing, reviewing, organizing, and exporting mixed document piles; header/footer cleanup; a form helper with saved local profiles; and receipt collection on A4 sheets. Local narration now offers US-English alongside German, independently of the interface language. PDF-to-Word starts locally with separate goals for preserving appearance or editing text and tables. Includes shared export checks, optional encrypted projects, resumable batches, improved compression and OCR corrections, and more responsive previews and mobile text editing. All four services use the published 0.23.0 images pinned by digest for amd64 and arm64. Existing Umbrel data, background jobs, credentials, and port 8785 are preserved. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.23.0/CHANGELOG.en.md
 dependencies: []
 path: ""
 defaultUsername: ""
