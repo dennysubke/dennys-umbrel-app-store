@@ -85,6 +85,50 @@ def expect_home(page):
         raise
 
 
+def desktop_layout(page):
+    """Check the released desktop layout through Umbrel's real app gateway."""
+    results = []
+    initial_dark = page.locator('html').evaluate('(el) => el.classList.contains("dark")')
+    try:
+        for theme in ('light', 'dark'):
+            dark = page.locator('html').evaluate('(el) => el.classList.contains("dark")')
+            if dark != (theme == 'dark'):
+                page.locator('.theme-toggle').click()
+            expected_color = 'rgb(200, 234, 217)' if theme == 'light' else 'rgb(25, 31, 34)'
+            expect(page.locator('.moinpdf-shell')).to_have_css('background-color', expected_color)
+            for width in (1600, 1920, 2560):
+                page.set_viewport_size({'width': width, 'height': 1000})
+                expected = min(1760, max(1180, width * 0.84), width - 60)
+                settled = page.wait_for_function('''({width, expected}) => {
+                    if (innerWidth !== width) return false;
+                    const rect = selector => document.querySelector(selector).getBoundingClientRect().toJSON();
+                    const home = rect('.harbor-home');
+                    if (Math.abs(home.width - expected) > 2) return false;
+                    return {home, header: rect('.app-toolbar'), search: rect('.desktop-search-row'),
+                        upload: rect('.harbor-upload'),
+                        card: rect('.tool-mosaic-grid[data-mosaic-kind="quick"] .tool-mosaic-card'),
+                        overflow: document.documentElement.scrollWidth > innerWidth + 1};
+                }''', arg={'width': width, 'expected': expected}, timeout=15000)
+                try:
+                    sizes = settled.json_value()
+                finally:
+                    settled.dispose()
+                assert abs(sizes['header']['width'] - expected) <= 2, sizes
+                assert abs(sizes['search']['width'] - expected) <= 2, sizes
+                assert sizes['upload']['height'] >= 212 and sizes['card']['height'] >= 136, sizes
+                assert not sizes['overflow'], sizes
+                results.append({'theme': theme, 'viewport': width, 'contentWidth': sizes['home']['width'],
+                                'background': expected_color})
+                if width == 1920:
+                    page.screenshot(path=str(evidence / f'moinpdf-desktop-{theme}.png'), full_page=True)
+    finally:
+        if page.locator('html').evaluate('(el) => el.classList.contains("dark")') != initial_dark:
+            page.locator('.theme-toggle').click()
+        page.set_viewport_size({'width': 1440, 'height': 1000})
+    (evidence / 'desktop-layout.json').write_text(json.dumps(results, indent=2) + '\n')
+    print('PASS: 1600/1920/2560px desktop width, aligned controls, mint light mode and dark mode through Umbrel.', flush=True)
+
+
 def mobile_search(page):
     """Exercise the new navigation through the signed-in Umbrel gateway."""
     page.set_viewport_size({'width': 390, 'height': 844})
@@ -133,6 +177,11 @@ def mobile_search(page):
     actual_tools = page.locator('.chooser-tool').evaluate_all(
         '(buttons) => buttons.map(button => button.dataset.toolId)')
     assert len(set(actual_tools)) == 118 and sorted(actual_tools) == sorted(expected_tools), 'Deployed tool catalog differs from the released source'
+    (evidence / 'tool-catalog.json').write_text(json.dumps({
+        'source': json.loads((Path(__file__).parent / 'asset-checksums.json').read_text())['source'],
+        'version': version, 'count': len(actual_tools), 'toolIds': sorted(actual_tools),
+        'matchesRelease': True,
+    }, indent=2) + '\n')
     for tool_id in ('document-colors', 'large-document'):
         expect(page.locator(f'.chooser-tool[data-tool-id="{tool_id}"]')).to_be_visible()
     print('PASS: all 118 tool IDs match the released source, including document colors and large PDFs.', flush=True)
@@ -242,6 +291,7 @@ with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporar
     expect_home(page)
     page.screenshot(path=str(evidence / 'moinpdf-home.png'), full_page=True)
     print('PASS: protected gateway and signed-in HTTP app page.', flush=True)
+    desktop_layout(page)
 
     # Open a real synthetic PDF in the browser before testing server jobs.
     pdf_path = Path(temporary) / 'umbrel-test.pdf'

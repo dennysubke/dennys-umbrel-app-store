@@ -22,6 +22,8 @@ docker exec "$test_container" docker exec denny-moinpdf_documents_1 \
     python -c 'import hashlib,os; print(hashlib.sha256(os.environ["MOINPDF_API_KEY"].encode()).hexdigest())' \
     > /tmp/moinpdf-key-before.sha256
 
+python .github/tests/moinpdf/upgrade-job.py before
+
 cp -R denny-moinpdf/. "$repository/denny-moinpdf/"
 git -C "$repository" add denny-moinpdf
 git -C "$repository" -c user.name=MoinPDF-CI -c user.email=ci@example.invalid \
@@ -69,4 +71,5 @@ docker exec "$test_container" docker exec denny-moinpdf_documents_1 \
     python -c 'import hashlib,os; print(hashlib.sha256(os.environ["MOINPDF_API_KEY"].encode()).hexdigest())' \
     > /tmp/moinpdf-key-after.sha256
 cmp /tmp/moinpdf-key-before.sha256 /tmp/moinpdf-key-after.sha256
+python .github/tests/moinpdf/upgrade-job.py after
 echo 'PASS: native Umbrel update from 0.23.0; existing data and internal credential preserved.'
