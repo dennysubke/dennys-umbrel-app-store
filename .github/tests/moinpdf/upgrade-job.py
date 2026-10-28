@@ -31,17 +31,26 @@ if mode == 'before':
         document.writestr('[Content_Types].xml', '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>')
         document.writestr('_rels/.rels', '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>')
         document.writestr('word/document.xml', '<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body><w:p><w:r><w:t>Synthetic MoinPDF job created before the Umbrel update.</w:t></w:r></w:p><w:sectPr/></w:body></w:document>')
-    # The old app must be serving its document API before creating the fixture.
-    for attempt in range(120):
+    # Start from a fully operational published installation, including the
+    # persistent language models. Umbrel's app state becomes ready while their
+    # first installation can still be running in the background.
+    for attempt in range(180):
         try:
             ready = session.get(origin + '/api/documents/v1/capabilities', headers=headers, timeout=10)
-            if ready.ok and ready.json().get('capabilities', {}).get('office'):
+            features = ready.json().get('capabilities', {}) if ready.ok else {}
+            if features and all(features.values()):
                 break
+            if attempt % 6 == 0:
+                print('Waiting for the complete 0.23.0 baseline; pending capabilities:',
+                      sorted(name for name, value in features.items() if not value) or ['document API'],
+                      flush=True)
         except (requests.RequestException, ValueError):
-            pass
-        time.sleep(2)
+            if attempt % 6 == 0:
+                print('Waiting for the complete 0.23.0 baseline document API.', flush=True)
+        time.sleep(10)
     else:
-        raise AssertionError('The old document service did not become ready')
+        raise AssertionError('The complete published 0.23.0 baseline did not become ready')
+    print('PASS: all 0.23.0 document capabilities and persisted language models ready before update.', flush=True)
     submitted = session.post(api, headers=headers, data={'operation': '/v1/office'},
                              files={'file': ('upgrade.docx', office.getvalue(),
                                     'application/vnd.openxmlformats-officedocument.wordprocessingml.document')},

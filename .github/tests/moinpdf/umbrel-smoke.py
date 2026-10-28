@@ -344,6 +344,10 @@ with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporar
         if response.ok and all(response.json().get('capabilities', {}).values()):
             assert response.json()['capabilities']
             break
+        if attempt % 6 == 0:
+            pending = sorted(name for name, ready in response.json().get('capabilities', {}).items()
+                             if not ready) if response.ok else [f'HTTP {response.status}']
+            print('Waiting for candidate capabilities:', pending or ['document API'], flush=True)
         time.sleep(10)
     else:
         raise AssertionError('Document and translation services did not become ready')
