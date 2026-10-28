@@ -4,7 +4,7 @@ name: MoinPDF
 tagline: A complete PDF workspace with local document processing
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/logo.png
 category: files & productivity
-version: "0.25.0"
+version: "0.25.1"
 port: 8785
 description: >-
   ⚓ MoinPDF brings PDF editing, conversion, OCR, and document checks together in one workspace. Merge files, make scans searchable, edit pages, and prepare documents for everyday tasks through a German or English interface. Drag your files into the app, search for what you want to do, and choose the matching tool.
@@ -67,7 +67,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/2.webp
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/3.webp
 releaseNotes: >-
-  Updates MoinPDF from 0.23.0 directly to 0.25.0 with all 118 tools. Large desktop views now use up to 1,760 px of content width, with larger navigation, search, upload, categories, and quick-access cards. Desktop light mode has a richer mint-green background; mobile/tablet layouts and PDF rendering are unchanged. Includes the complete 0.24.0 workspace: Adds Change colors & background and Process large PDFs (up to 1,000 pages / 256 MB for rotation, lossless optimization, and OCR, with resumable local checkpoints and complete output checks). Adds supported text-preserving redaction, reusable local Clear Deck recognition rules, reviewed batch confirmation, selective form-field unlocking, text-preserving cropping, and duplex collation within one PDF. Includes form-profile and local Office shutdown fixes. All four services use the published 0.25.0 images pinned by digest for amd64 and arm64. Existing data, credentials, persistent jobs, and port 8785 are preserved. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.25.0/CHANGELOG.en.md
+  Updates MoinPDF from 0.25.0 to 0.25.1 with all 118 tools. Scan compression now reduces supported grayscale, Flate and other image resources while preserving text, links, form values and page geometry; unsupported images are left unchanged. Target-size compression uses local image reduction and shows percentage progress, compression level, image count and cancellation, with every output checked against the requested size. Wide desktop views keep a normally sized compression workspace, and opaque light navigation surfaces remove gray blur artifacts. All four services use the published 0.25.1 images pinned by digest for amd64 and arm64. Existing data, credentials, persistent jobs and port 8785 are preserved. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.25.1/CHANGELOG.en.md
 dependencies: []
 path: ""
 defaultUsername: ""
