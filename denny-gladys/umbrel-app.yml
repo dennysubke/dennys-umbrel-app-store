@@ -4,7 +4,7 @@ name: Gladys Assistant
 tagline: An intelligent, privacy-first solution for seamless smart home automation
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gladys/logo.png
 category: Home & Automation
-version: "4.48.0"
+version: "5.1.3"
 port: 9212
 description: >-
   🏠 Gladys Assistant is a feature-rich, open-source home automation platform designed to make managing and controlling smart home devices simple, secure, and highly customizable. Whether you're new to home automation or an advanced user, Gladys offers a comprehensive solution that centralizes the control of various IoT devices, allowing you to create a fully automated and personalized smart home experience.
@@ -37,7 +37,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gladys/4.jpg
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gladys/5.jpg
 releaseNotes: >-
-  The new version v4.48.0 of Gladys Assistant brings several improvements, including cleaning the DuckDB schema during restoration and properly closing all connections on database shutdown. New features include AI interaction within scenes and support for TCP transport for RTSP camera streams.
+  Gladys Assistant v5.1.3 raises the verbose device threshold and restyles the associated banner button.
 dependencies:
 path: ""
 defaultUsername: ""
