@@ -11,7 +11,7 @@ docker exec "$test_container" sh -ec \
 python - <<'PY'
 import json
 apps = json.load(open('/tmp/moinpdf-installed.json'))
-assert next(app for app in apps if app['id'] == 'denny-moinpdf')['version'] == '0.25.0', apps
+assert next(app for app in apps if app['id'] == 'denny-moinpdf')['version'] == '0.25.1', apps
 PY
 
 # Synthetic existing data must survive the native update. Keep credentials out
@@ -23,6 +23,7 @@ docker exec "$test_container" docker exec denny-moinpdf_documents_1 \
     > /tmp/moinpdf-key-before.sha256
 
 python .github/tests/moinpdf/upgrade-job.py before
+python .github/tests/moinpdf/upgrade-storage.py before
 
 cp -R denny-moinpdf/. "$repository/denny-moinpdf/"
 git -C "$repository" add denny-moinpdf
@@ -63,7 +64,7 @@ from pathlib import Path
 version = re.search(r'^version: "([^"]+)"$', Path('denny-moinpdf/umbrel-app.yml').read_text(), re.M).group(1)
 apps = json.load(open('/tmp/moinpdf-installed.json'))
 assert next(app for app in apps if app['id'] == 'denny-moinpdf')['version'] == version, apps
-Path('umbrel-evidence/upgrade.json').write_text(json.dumps({'from': '0.25.0', 'to': version, 'nativeUpdate': True}, indent=2) + '\n')
+Path('umbrel-evidence/upgrade.json').write_text(json.dumps({'from': '0.25.1', 'to': version, 'nativeUpdate': True}, indent=2) + '\n')
 PY
 docker exec "$test_container" sh -ec \
     'test "$(cat /home/umbrel/umbrel/app-data/denny-moinpdf/data/trust/upgrade-marker.txt)" = "synthetic pre-upgrade data"'
@@ -72,4 +73,5 @@ docker exec "$test_container" docker exec denny-moinpdf_documents_1 \
     > /tmp/moinpdf-key-after.sha256
 cmp /tmp/moinpdf-key-before.sha256 /tmp/moinpdf-key-after.sha256
 python .github/tests/moinpdf/upgrade-job.py after
-echo 'PASS: native Umbrel update from 0.25.0; existing data and internal credential preserved.'
+python .github/tests/moinpdf/upgrade-storage.py after
+echo 'PASS: native Umbrel update from 0.25.1; existing data and internal credential preserved.'
