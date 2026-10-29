@@ -33,7 +33,7 @@ if mode == 'before':
 else:
     assert metadata == json.loads(snapshot.read_text()), 'Persistent contents, owners or permissions changed'
     output = Path('umbrel-evidence/upgrade-storage.json')
-    output.write_text(json.dumps({'from': '0.25.1', 'status': 'passed',
+    output.write_text(json.dumps({'from': '0.25.2', 'status': 'passed',
                                  'checks': ['file-bytes', 'file-owner-mode', 'directory-owner-mode'],
                                  'directories': list(directories)}, indent=2) + '\n')
     subprocess.run(['docker', 'exec', 'moinpdf-umbrel-test', 'rm', '--',
