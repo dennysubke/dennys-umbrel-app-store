@@ -172,19 +172,19 @@ def mobile_search(page):
     page.locator('.harbor-desktop-nav').get_by_role('button', name='Start', exact=True).click()
     expect(page.locator('.mosaic-all-tools')).to_be_visible()
     page.locator('.mosaic-all-tools').click()
-    expect(page.locator('.chooser-tool')).to_have_count(118)
+    expect(page.locator('.chooser-tool')).to_have_count(120)
     expected_tools = json.loads((Path(__file__).parent / 'asset-checksums.json').read_text())['toolIds']
     actual_tools = page.locator('.chooser-tool').evaluate_all(
         '(buttons) => buttons.map(button => button.dataset.toolId)')
-    assert len(set(actual_tools)) == 118 and sorted(actual_tools) == sorted(expected_tools), 'Deployed tool catalog differs from the released source'
+    assert len(set(actual_tools)) == 120 and sorted(actual_tools) == sorted(expected_tools), 'Deployed tool catalog differs from the released source'
     (evidence / 'tool-catalog.json').write_text(json.dumps({
         'source': json.loads((Path(__file__).parent / 'asset-checksums.json').read_text())['source'],
         'version': version, 'count': len(actual_tools), 'toolIds': sorted(actual_tools),
         'matchesRelease': True,
     }, indent=2) + '\n')
-    for tool_id in ('document-colors', 'large-document'):
+    for tool_id in ('document-checklist', 'document-dates', 'document-colors', 'large-document', 'scan-split'):
         expect(page.locator(f'.chooser-tool[data-tool-id="{tool_id}"]')).to_be_visible()
-    print('PASS: all 118 tool IDs match the released source, including document colors and large PDFs.', flush=True)
+    print('PASS: all 120 tool IDs match the released source, including checklists, calendar dates, scan photos, document colors and large PDFs.', flush=True)
     expect(page.locator('.chooser-file')).to_contain_text('umbrel-test.pdf')
     page.locator('.harbor-desktop-nav').get_by_role('button', name='Start', exact=True).click()
     print('PASS: DE/EN mobile search, projects, focus and PDF retention through Umbrel.', flush=True)

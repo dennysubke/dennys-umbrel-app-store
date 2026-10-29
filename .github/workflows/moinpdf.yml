@@ -25,7 +25,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        installation: [fresh, upgrade-from-0.25.1]
+        installation: [fresh, upgrade-from-0.25.2]
         architecture: [amd64, arm64]
         include:
           - architecture: amd64
@@ -35,10 +35,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Check out the previously published store package
-        if: matrix.installation == 'upgrade-from-0.25.1'
+        if: matrix.installation == 'upgrade-from-0.25.2'
         uses: actions/checkout@v4
         with:
-          ref: 151504266c6595b29773de13d18d3b72503b7746
+          ref: 474a73b6fea395a72ffe131743ba2f034eb80ead
           path: upgrade-baseline
           sparse-checkout: denny-moinpdf
       - uses: docker/setup-buildx-action@v3
@@ -81,7 +81,7 @@ jobs:
             ghcr.io/getumbrel/umbrelos:2.0.0 /sbin/init
       - name: Install through Umbrel
         env:
-          MOINPDF_UPGRADE_FROM: ${{ matrix.installation == 'upgrade-from-0.25.1' && 'upgrade-baseline/denny-moinpdf' || '' }}
+          MOINPDF_UPGRADE_FROM: ${{ matrix.installation == 'upgrade-from-0.25.2' && 'upgrade-baseline/denny-moinpdf' || '' }}
         run: bash .github/tests/moinpdf/umbrel-install.sh
       - name: Trust the disposable Umbrel host certificate
         run: |

@@ -4,7 +4,7 @@ name: MoinPDF
 tagline: A complete PDF workspace with local document processing
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/logo.png
 category: files & productivity
-version: "0.25.2"
+version: "0.26.0"
 port: 8785
 description: >-
   ⚓ MoinPDF brings PDF editing, conversion, OCR, and document checks together in one workspace. Merge files, make scans searchable, edit pages, and prepare documents for everyday tasks through a German or English interface. Drag your files into the app, search for what you want to do, and choose the matching tool.
@@ -22,13 +22,13 @@ description: >-
   ✏️ PDF Editing – Edit original text in place, compare fonts and the saved result, work with supported images and vector tables, and correct OCR text. Add annotations, highlight passages, change document colors and backgrounds, and work with forms. Supported complete digital text objects can be redacted while retaining remaining text and vectors; unsupported structures receive explicit notices. Scan fonts are approximations.
 
 
-  🔍 OCR & Scans – Recognize text in multiple languages, create searchable PDFs, improve scans, compress documents, and import images from your camera.
+  🔍 OCR & Scans – Recognize text in multiple languages, create searchable PDFs, improve scans, compress documents, and import images from your camera. Automatically separate photos from a shared scan, correct detected corners or rotation, and export reviewed crops as images or PDFs.
 
 
   🔄 File Conversion – Convert supported Office documents locally in your browser or with the included document server. Export PDFs to Word with page sizes, images, and editable text boxes; scans use local OCR, with notices for graphical fallbacks. Convert emails, export images, text, and tables, and create PDF/A files with the document server. Save public website links as PDFs with images, fonts, CSS, and page-layout options using the included website converter.
 
 
-  🧮 Document Checks – Compare text, images, numbers, and invoice details, check calculations, and review matching passages in the original document.
+  🧮 Document Checks – Compare text, images, numbers, and invoice details, check calculations, and review matching passages in the original document. Check expected documents against a reviewable checklist, inspect scan-quality hints, and compare an original with two edited versions while keeping ambiguous text matches visible.
 
 
   🧾 E-Invoices – Read UBL/CII invoice data, compare invoice PDFs with embedded XML, validate XRechnung files, and use the ZUGFeRD assistant.
@@ -37,7 +37,7 @@ description: >-
   📦 Batch Workflows – Process multiple documents, resume saved workflows, collect receipt fields, and evaluate returned forms. Clear Deck recognizes and groups mixed document piles locally; review assignments, duplicates, and missing pages before exporting individual PDFs or a linked bundle. Save reviewed local recognition rules for recurring layouts and confirm checked, unambiguous suggestions together.
 
 
-  🧰 Everyday Documents – Remove recurring headers and footers with reviewable matches, fill forms using explicitly saved local profiles, and arrange cropped receipts on A4 sheets for printing.
+  🧰 Everyday Documents – Remove recurring headers and footers with reviewable matches, fill forms using explicitly saved local profiles, and arrange cropped receipts on A4 sheets for printing. Collect printed dates for a confirmed calendar-file export and replace selected occurrences of identical raster logos. Calendar dates require review; legal deadlines are not calculated.
 
 
   📚 Large PDFs – Use the dedicated workspace for rotation, lossless optimization, and OCR with up to 1,000 pages and a maximum file size of 256 MB. Processing runs in verified sections with local checkpoints, cancellation, and resume; every final page is checked before download. Complex document structures are rejected upfront.
@@ -67,7 +67,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/2.webp
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/3.webp
 releaseNotes: >-
-  Updates MoinPDF from 0.25.1 to 0.25.2 with all 118 tools. WebKit now uses a compatible PDF image-data path to prevent blank large-scan previews and missing OCR while retaining original image dimensions and PDF contents. Upstream regression tests simulate a broken bitmap transfer and check scan pixels, OCR and exported PDFs. All four published 0.25.2 images are pinned by digest for amd64 and arm64. Existing data, settings, credentials, permissions, persistent jobs and port 8785 are preserved. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.25.2/CHANGELOG.en.md
+  Updates MoinPDF from 0.25.2 to 0.26.0 with 120 tools. New document checklists and confirmed calendar-file exports accompany scan-quality hints, three-version text comparison, selected recurring-logo replacement and automatic scan-photo separation. All processing for these tools runs locally without external AI services; ambiguous results require review. German and English documentation is updated. All four published images are pinned by digest for amd64 and arm64. Existing data, settings, credentials, permissions, persistent jobs and port 8785 are preserved. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.26.0/CHANGELOG.en.md
 dependencies: []
 path: ""
 defaultUsername: ""

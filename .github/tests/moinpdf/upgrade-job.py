@@ -41,16 +41,16 @@ if mode == 'before':
             if features and all(features.values()):
                 break
             if attempt % 6 == 0:
-                print('Waiting for the complete 0.25.1 baseline; pending capabilities:',
+                print('Waiting for the complete 0.25.2 baseline; pending capabilities:',
                       sorted(name for name, value in features.items() if not value) or ['document API'],
                       flush=True)
         except (requests.RequestException, ValueError):
             if attempt % 6 == 0:
-                print('Waiting for the complete 0.25.1 baseline document API.', flush=True)
+                print('Waiting for the complete 0.25.2 baseline document API.', flush=True)
         time.sleep(10)
     else:
-        raise AssertionError('The complete published 0.25.1 baseline did not become ready')
-    print('PASS: all 0.25.1 document capabilities and persisted language models ready before update.', flush=True)
+        raise AssertionError('The complete published 0.25.2 baseline did not become ready')
+    print('PASS: all 0.25.2 document capabilities and persisted language models ready before update.', flush=True)
     submitted = session.post(api, headers=headers, data={'operation': '/v1/office'},
                              files={'file': ('upgrade.docx', office.getvalue(),
                                     'application/vnd.openxmlformats-officedocument.wordprocessingml.document')},
@@ -85,13 +85,13 @@ if mode == 'before':
     fd = os.open(state_file, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
     with os.fdopen(fd, 'w') as handle:
         json.dump({'id': job_id, 'ticket': ticket, 'sha256': digest}, handle)
-    print('PASS: real persistent conversion completed on 0.25.1 before the native update.', flush=True)
+    print('PASS: real persistent conversion completed on 0.25.2 before the native update.', flush=True)
 else:
     assert digest == saved['sha256'], 'Existing conversion result changed during the update'
     wrong = {**headers, 'X-MoinPDF-Job-Ticket': secrets.token_hex(32)}
     assert session.get(url, headers=wrong, timeout=30).status_code == 404
     output = Path('umbrel-evidence/upgrade-background-job.json')
-    output.write_text(json.dumps({'status': 'passed', 'from': '0.25.1', 'resultSha256': digest,
+    output.write_text(json.dumps({'status': 'passed', 'from': '0.25.2', 'resultSha256': digest,
                                  'byteIdenticalAfterNativeUpdate': True, 'ticketIsolation': True}, indent=2) + '\n')
     session.post(url + '/delete', headers=headers, timeout=30).raise_for_status()
     state_file.unlink()
