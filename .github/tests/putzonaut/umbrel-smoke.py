@@ -98,7 +98,11 @@ with sync_playwright() as p:
     assert state['user']['name']=='Alex'
     crew_id=state['household']['id']
     page.goto(origin+'/')
-    expect(page.locator('body')).to_contain_text('Putzonaut')
+    expect(page.get_by_role('heading',name='Hey, Alex!',exact=True)).to_be_visible(timeout=20000)
+    expect(page.locator('.launch-screen')).to_have_count(0,timeout=20000)
+    expect(page.get_by_role('navigation',name='Hauptnavigation')).to_be_visible()
+    expect(page.locator('main')).to_contain_text('CI Sternencrew')
+    assert not page.evaluate('document.documentElement.scrollWidth > innerWidth+1'), 'Signed-in app overflows a phone viewport'
     page.screenshot(path=str(evidence/'signed-in.png'),full_page=True)
 
     # Exercise an image update through Umbrel as well as a normal restart.
