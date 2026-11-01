@@ -360,6 +360,7 @@ This repository contains my custom Umbrel App Store. Unlike the official store, 
 | 323 | <img height="30" src="https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zennotes/logo.png" /> | [ZenNotes](https://github.com/ZenNotes/zennotes) | A keyboard-first Markdown workspace for notes | 7878 |
 | 324 | <img height="30" src="https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zipline/logo.png" /> | [Zipline](https://github.com/diced/zipline) | An advanced solution for seamless and secure file sharing | 3472 |
 | 325 | <img height="30" src="https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-zoraxy/logo.png" /> | [Zoraxy Proxy Server](https://github.com/tobychui/zoraxy) | An efficient reverse proxy server with automated SSL management | 8400 |
+| 326 | <img height="30" src="https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-putzonaut/logo.png" /> | [Putzonaut](https://putzonaut.de) | Turn household chores into shared missions | 8876 |
 
 🔄 All Apps are continually updated and new Apps are added over time.
 
