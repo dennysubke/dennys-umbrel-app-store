@@ -1,0 +1,108 @@
+name: Verify Putzonaut installation
+on:
+  push:
+    branches: [master]
+    paths: ['denny-putzonaut/**', '.github/tests/putzonaut/**', '.github/workflows/putzonaut.yml']
+  pull_request:
+    paths: ['denny-putzonaut/**', '.github/tests/putzonaut/**', '.github/workflows/putzonaut.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: putzonaut-install-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  static:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: python -m pip install PyYAML==6.0.3
+      - run: python .github/tests/putzonaut/validate.py
+      - run: node --test .github/tests/putzonaut/entrypoint.test.mjs
+      - run: bash -n .github/tests/putzonaut/umbrel-install.sh
+      - run: python -m py_compile .github/tests/putzonaut/umbrel-smoke.py
+  installation:
+    name: Umbrel fresh install (${{ matrix.architecture }})
+    needs: static
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - architecture: amd64
+            runner: ubuntu-24.04
+          - architecture: arm64
+            runner: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - name: Require a public image with both architectures
+        run: |
+          image="$(sed -n 's/^    image: //p' denny-putzonaut/docker-compose.yml)"
+          # Deliberately no registry login: App Store installations must work anonymously.
+          docker buildx imagetools inspect --raw "$image" > "$RUNNER_TEMP/putzonaut-manifest.json"
+          jq -e '[.manifests[].platform | .os + "/" + .architecture] | sort == ["linux/amd64", "linux/arm64"]' "$RUNNER_TEMP/putzonaut-manifest.json"
+      - name: Install browser test dependencies
+        run: |
+          python -m pip install playwright==1.55.0
+          python -m playwright install --with-deps chromium
+          sudo apt-get install --yes --no-install-recommends libnss3-tools
+      - name: Boot disposable Umbrel host
+        run: |
+          # Host privileges belong solely to this disposable OS test harness.
+          # The Putzonaut application itself is unprivileged and has no socket mount.
+          docker run -d --name putzonaut-umbrel-test --privileged --network host \
+            --cgroupns host --tmpfs /run --tmpfs /run/lock \
+            --volume /sys/fs/cgroup:/sys/fs/cgroup:rw \
+            --volume putzonaut-umbrel-test:/home/umbrel/umbrel \
+            --volume putzonaut-umbrel-docker:/var/lib/docker \
+            --volume putzonaut-umbrel-containerd:/var/lib/containerd \
+            ghcr.io/getumbrel/umbrelos:2.0.0 /sbin/init
+      - name: Install through the native Umbrel community store
+        run: bash .github/tests/putzonaut/umbrel-install.sh
+      - name: Trust only the disposable Umbrel host certificate
+        run: |
+          docker exec putzonaut-umbrel-test sh -ec \
+            'umbreld client lanIngress.getCertificateStatus.query > /tmp/putzonaut-ci-ca.json; cat /tmp/putzonaut-ci-ca.json' \
+            > "$RUNNER_TEMP/putzonaut-umbrel-ca.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          temporary=Path(os.environ['RUNNER_TEMP'])
+          certificate=json.loads((temporary/'putzonaut-umbrel-ca.json').read_text())['caCertificate']
+          assert certificate.startswith('-----BEGIN CERTIFICATE-----')
+          (temporary/'putzonaut-umbrel-ca.pem').write_text(certificate)
+          PY
+          mkdir -p "$HOME/.pki/nssdb"
+          if [ ! -f "$HOME/.pki/nssdb/cert9.db" ]; then certutil -N -d "sql:$HOME/.pki/nssdb" --empty-password; fi
+          certutil -A -d "sql:$HOME/.pki/nssdb" -n putzonaut-disposable-umbrel -t 'C,,' -i "$RUNNER_TEMP/putzonaut-umbrel-ca.pem"
+          printf 'NODE_EXTRA_CA_CERTS=%s\n' "$RUNNER_TEMP/putzonaut-umbrel-ca.pem" >> "$GITHUB_ENV"
+      - name: Browser setup, native settings, accounts and restart persistence
+        env:
+          PUTZONAUT_TEST_ARCHITECTURE: ${{ matrix.architecture }}
+        run: python .github/tests/putzonaut/umbrel-smoke.py
+      - name: Evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: putzonaut-umbrel-${{ matrix.architecture }}
+          path: umbrel-evidence/
+          if-no-files-found: ignore
+          retention-days: 14
+      - name: Diagnostics
+        if: failure()
+        run: |
+          docker logs --tail 60 putzonaut-umbrel-test || true
+          docker exec putzonaut-umbrel-test docker ps -a || true
+          docker exec putzonaut-umbrel-test docker logs --tail 60 denny-putzonaut_web_1 || true
+      - name: Remove disposable test host
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/putzonaut-umbrel-ci-store/server.pid" ]; then kill "$(cat "$RUNNER_TEMP/putzonaut-umbrel-ci-store/server.pid")" || true; fi
+          docker rm -f putzonaut-umbrel-test || true
+          docker volume rm putzonaut-umbrel-test putzonaut-umbrel-docker putzonaut-umbrel-containerd || true

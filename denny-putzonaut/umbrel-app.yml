@@ -1,0 +1,58 @@
+manifestVersion: "2.0"
+id: denny-putzonaut
+storage:
+  dataRoot: data
+environment:
+  - name: APP_ORIGIN
+    services: [web]
+    note: "HTTPS address used to open Putzonaut and in account emails. For a tunnel, enter its public URL without a trailing slash."
+  - name: MAIL_FROM
+    services: [web]
+    default: ""
+    note: "Verified sender, for example Putzonaut <info@example.com>."
+  - name: SMTP_HOST
+    services: [web]
+    default: ""
+    note: "Mail server; for Brevo use smtp-relay.brevo.com. Add SMTP_PASSWORD as a custom variable for web."
+  - name: SMTP_PORT
+    services: [web]
+    default: "587"
+    options: ["587", "465", "2525"]
+    note: "587 uses STARTTLS; 465 uses TLS from the start."
+  - name: SMTP_USER
+    services: [web]
+    default: ""
+    note: "SMTP login supplied by your mail provider."
+category: files & productivity
+name: Putzonaut
+version: "0.21.0"
+tagline: Turn household chores into shared missions
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-putzonaut/logo.png
+description: >-
+  Make everyday chores a shared mission. Putzonaut helps families, couples, flatmates, and people living alone plan their household, collect stars, and work towards personal or shared rewards. The app interface is in German.
+
+
+  First start: open Putzonaut for setup instructions. In Umbrel App Settings, add your verified email sender and SMTP connection. Add the SMTP password as a custom variable for the web service, then apply and restart. An SMTP service is required for account verification and password recovery; no account is created until configuration is complete.
+
+
+  Use the local HTTPS address or set your own HTTPS domain. For Cloudflare Tunnel, route the domain to http://denny-putzonaut_web_1:3080 and set APP_ORIGIN to the matching public HTTPS address. Users sign in with their own Putzonaut account.
+
+
+  Plan recurring chores, use checklists, swap assignments, and complete short cleaning sessions. Collect stars, unlock badges and outfits, track weekly progress, and save wishes as rewards. Adults manage child profiles. Offline completions receive stars after they have synchronized successfully.
+
+
+  Add Putzonaut to your Android or iPhone home screen as a web app. Accounts, household data, photos, and the encrypted email queue stay in this app's own storage. Internet access is used for your configured SMTP service. Push notifications for self-hosted installations are not yet configured.
+releaseNotes: ""
+developer: Putzonaut
+website: https://putzonaut.de
+dependencies: []
+repo: https://github.com/putzonaut/putzonaut
+support: https://github.com/dennysubke/dennys-umbrel-app-store/issues
+port: 8876
+requiresHttps: true
+gallery: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+submitter: dennysubke
+submission: https://github.com/dennysubke/dennys-umbrel-app-store/pull/100

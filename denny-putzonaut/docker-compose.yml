@@ -1,0 +1,41 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: denny-putzonaut_web_1
+      APP_PORT: 3080
+
+  web:
+    image: ghcr.io/putzonaut/putzonaut:0.21.0-7b3ee2910c06@sha256:e4842e0e5166c2c8729daeb94104a2711ce44dc43b5e6e53f725419ed8b599ef
+    user: "1000:1000"
+    restart: on-failure
+    init: true
+    entrypoint: [node, /umbrel/entrypoint.mjs]
+    environment:
+      APP_ORIGIN: "https://${DEVICE_DOMAIN_NAME}:${APP_PROXY_PORT}"
+      BETTER_AUTH_SECRET: "${APP_SEED}"
+      DATA_DIR: /data
+      HOST: 0.0.0.0
+      PORT: "3080"
+      SMTP_HOST: ""
+      SMTP_PORT: "587"
+      SMTP_USER: ""
+      SMTP_PASSWORD: ""
+      MAIL_FROM: ""
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+      - ${APP_DATA_DIR}/hooks/entrypoint.mjs:/umbrel/entrypoint.mjs:ro
+    read_only: true
+    tmpfs:
+      - /tmp:mode=1777,size=64m
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    stop_grace_period: 30s
+    mem_limit: 768m
+    pids_limit: 128
+    logging:
+      driver: local
+      options:
+        max-size: "10m"
+        max-file: "3"
