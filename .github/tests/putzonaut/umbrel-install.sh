@@ -98,4 +98,3 @@ for attempt in $(seq 1 240); do
 done
 echo 'Umbrel did not finish installing Putzonaut within 20 minutes.' >&2
 exit 1
-

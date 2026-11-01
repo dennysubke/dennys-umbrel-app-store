@@ -24,4 +24,3 @@ server.listen(0, '127.0.0.1', () => {
   fs.writeFileSync(path.join(root, 'url'), url + '\n');
   console.log('CI community repository ready on loopback.');
 });
-

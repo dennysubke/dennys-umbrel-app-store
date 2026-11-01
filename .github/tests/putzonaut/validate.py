@@ -11,6 +11,7 @@ assert str(manifest['manifestVersion'])=='2.0' and manifest['requiresHttps']
 assert manifest['storage']=={'dataRoot':'data'}
 assert manifest['version']=='0.21.0'
 assert manifest['port']==8876
+assert manifest['submission']=='https://github.com/dennysubke/dennys-umbrel-app-store/pull/100'
 assert not manifest.get('permissions') and not manifest.get('dependencies')
 names=[v['name'] for v in manifest['environment']]
 assert len(names)==len(set(names)) and 'SMTP_PASSWORD' not in names and 'BETTER_AUTH_SECRET' not in names
