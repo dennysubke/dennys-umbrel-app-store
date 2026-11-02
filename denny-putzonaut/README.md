@@ -15,7 +15,7 @@ Installiere **Putzonaut** aus **Denny´s Umbrel**. Benötigt wird umbrelOS 2.0 o
 | `SMTP_PORT` | Bei Brevo: `587` |
 | `SMTP_USER` | SMTP-Anmeldename aus Brevo |
 
-Unter **Eigene Variablen** für Dienst **web** ergänzen: **Name** `SMTP_PASSWORD`, **Wert** dein SMTP-Schlüssel. Danach **Übernehmen und neu starten**. Zugangsdaten gehören ausschließlich in die privaten Umbrel-Einstellungen.
+Unter **Eigene Variablen** ergänzen: **Name** `SMTP_PASSWORD`, **Wert** dein SMTP-Schlüssel. Der Dienst **web** wird bei dieser App automatisch gewählt; deshalb zeigt Umbrel nur die beiden Felder **Name** und **Wert**. Auf **Variable hinzufügen** klicken, danach **Übernehmen und neu starten**. Zugangsdaten gehören ausschließlich in die privaten Umbrel-Einstellungen.
 
 Diese Paketierung erwartet SMTP mit Benutzername und Passwort. Die Verbindung nutzt STARTTLS oder, auf Port 465, direkt TLS. Zertifikatsprüfung bleibt aktiv. Ein unvollständiger Start zeigt die Einrichtung statt eines fehlerhaften Anmeldeformulars.
 
@@ -41,6 +41,6 @@ Umbrel verwaltet Installation, Start, Stopp und Updates. Alle veränderlichen Ap
 
 Das Konto- und Mailgeheimnis stammt aus dem stabilen Umbrel-App-Seed. Bei einem Umzug müssen die App-Daten, privaten App-Einstellungen und der zugehörige Umbrel-Seed erhalten bleiben. Eine vollständige Umbrel-Sicherung verwenden; das Kopieren einer einzelnen SQLite-Datei reicht nicht aus. Nicht deinstallieren, um zu aktualisieren: Eine Deinstallation löscht App-Daten.
 
-Das Image für Version `0.22.0` ist für amd64 und arm64 per Manifest-Digest festgelegt. Die Startdatei liegt unter `hooks/`, damit Umbrel sie bei Paket-Updates ebenfalls kopiert; sie ist kein Lifecycle-Hook. Es werden keine realen SMTP-Schlüssel im Store gespeichert.
+Das Image für Version `0.22.1` ist für amd64 und arm64 per Manifest-Digest festgelegt. Dieses Update liefert die überarbeitete dunkle Website mit Raketenfigur, animierten Funktionskarten und Hilfe-Bereich aus. Die Startdatei liegt unter `hooks/`, damit Umbrel sie bei Paket-Updates ebenfalls kopiert; sie ist kein Lifecycle-Hook. Es werden keine realen SMTP-Schlüssel im Store gespeichert.
 
-Die eigentliche App verwendet bestätigte E-Mail-Konten. Eigenes Web Push, Änderung der Login-E-Mail und Kontolöschung per Selbstbedienung sind in 0.22.0 noch nicht verfügbar. Bestehende Daten der privaten Testseite werden nicht automatisch importiert.
+Die eigentliche App verwendet bestätigte E-Mail-Konten. Eigenes Web Push, Änderung der Login-E-Mail und Kontolöschung per Selbstbedienung sind in 0.22.1 noch nicht verfügbar. Bestehende Daten der privaten Testseite werden nicht automatisch importiert.

@@ -31,11 +31,12 @@ def check_website(expected_origin):
       import {request} from 'node:http';
       const base='http://127.0.0.1:3081';
       const page=await fetch(base);assert.equal(page.status,200);
-      const html=await page.text();assert.ok(html.includes('Mehr Abheben'));
+      const html=await page.text();assert.ok(html.includes('Hochglanzkurs.'));
+      assert.ok(html.includes('sos@putzonaut.de'));
       assert.ok(html.includes(process.env.APP_ORIGIN));assert.ok(!html.includes('__APP_ORIGIN__'));
       assert.equal(page.headers.get('set-cookie'),null);
       assert.equal((await fetch(base+'/healthz')).status,200);
-      for(const path of ['/app-qr.svg','/website-assets/screens/home.jpg','/impressum','/datenschutz'])assert.equal((await fetch(base+path)).status,200,path);
+      for(const path of ['/app-qr.svg','/website-assets/screens/home.svg','/website-assets/putzonaut-rocket.webp','/website-assets/site.js','/website-assets/glass.css','/website-assets/features.css','/website-assets/mascot.css','/website-assets/fonts/nunito-900.woff2','/impressum','/datenschutz'])assert.equal((await fetch(base+path)).status,200,path);
       for(const path of ['/api/state','/api/account/get-session','/sw.js','/.env'])assert.equal((await fetch(base+path)).status,404,path);
       assert.equal((await fetch(base+'/api/auth/setup',{method:'POST'})).status,405);
       const redirect=await new Promise((resolve,reject)=>{const req=request(base+'/datenschutz',{headers:{host:'www.'+new URL(process.env.WEBSITE_ORIGIN).host}},res=>{res.resume();res.on('end',()=>resolve({status:res.statusCode,location:res.headers.location}));});req.on('error',reject);req.end();});
@@ -151,5 +152,5 @@ with sync_playwright() as p:
     assert forged.status==401
     fresh.close();context.close();browser.close()
 
-(evidence/'result.json').write_text(json.dumps({'app':app_id,'version':'0.22.0','umbrel':'2.0.0','architecture':architecture,'freshInstall':True,'browserSetup':True,'nativeSettings':True,'websiteDuringSetup':True,'websiteIsolation':True,'websiteAfterRestart':True,'emailVerification':'synthetic local outbox; no SMTP delivery','crewCreation':True,'sameVersionUpdate':True,'restartPersistence':True,'forgedIdentityRejected':True},indent=2)+'\n')
+(evidence/'result.json').write_text(json.dumps({'app':app_id,'version':'0.22.1','umbrel':'2.0.0','architecture':architecture,'freshInstall':True,'browserSetup':True,'nativeSettings':True,'websiteDuringSetup':True,'websiteIsolation':True,'websiteAfterRestart':True,'emailVerification':'synthetic local outbox; no SMTP delivery','crewCreation':True,'sameVersionUpdate':True,'restartPersistence':True,'forgedIdentityRejected':True},indent=2)+'\n')
 print('PASS: native Umbrel install, browser setup, account verification, crew creation, update and restart persistence.')
