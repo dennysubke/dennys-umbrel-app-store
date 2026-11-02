@@ -30,7 +30,7 @@ environment:
 category: files & productivity
 name: Putzonaut
 version: "0.22.2"
-tagline: Turn household chores into shared missions
+tagline: A gamified chore planner for your household
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-putzonaut/logo.png
 description: >-
   Make everyday chores a shared mission. Putzonaut helps families, couples, flatmates, and people living alone plan their household, collect stars, and work towards personal or shared rewards. The app interface is in German.
