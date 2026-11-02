@@ -20,7 +20,10 @@ test('configuration rejects insecure and ambiguous origins and incomplete SMTP c
 
 test('setup is available without starting accounts and never echoes configured credentials',async t=>{
   const env={...complete,SMTP_HOST:''};
-  const runtime=await start({env,host:'127.0.0.1',port:0}); t.after(()=>runtime.close());
+  const runtime=await start({env,host:'127.0.0.1',port:0,websitePort:0,websiteFactory:async options=>{
+    assert.equal(options.appOrigin,complete.APP_ORIGIN);
+    return createServer((_req,res)=>res.end('public website'));
+  }}); t.after(()=>runtime.close());
   const port=runtime.server.address().port;
   const page=await fetchRaw(port,'/'); assert.equal(page.status,200); assert.match(page.body,/App-Einstellungen/);
   for(const value of [complete.BETTER_AUTH_SECRET,complete.SMTP_PASSWORD,complete.SMTP_USER]) assert.ok(!page.body.includes(value));
@@ -29,6 +32,15 @@ test('setup is available without starting accounts and never echoes configured c
   assert.equal((await fetchRaw(port,'/api/state')).status,503);
   assert.deepEqual(JSON.parse((await fetchRaw(port,'/api/health')).body),{status:'setup'});
   assert.equal((await fetchRaw(port,'/',{},'HEAD')).body,'');
+  assert.equal((await fetchRaw(runtime.website.address().port,'/')).body,'public website');
+});
+
+test('invalid website settings preserve the setup screen and return an unavailable public surface',async t=>{
+  const runtime=await start({env:{...complete,SMTP_HOST:'',WEBSITE_ORIGIN:'broken'},host:'127.0.0.1',port:0,websitePort:0,websiteFactory:async()=>{throw new Error('bad origin');}});
+  t.after(()=>runtime.close());
+  assert.equal(runtime.configured,false);
+  assert.equal((await fetchRaw(runtime.website.address().port,'/')).status,503);
+  assert.match((await fetchRaw(runtime.server.address().port,'/')).body,/Website-Konfiguration/);
 });
 
 test('canonical routing preserves the original socket, rejects unsafe targets, and does not trust forwarded hosts',async t=>{

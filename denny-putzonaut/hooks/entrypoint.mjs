@@ -27,7 +27,7 @@ export function configurationProblems(env) {
 export function setupPage(problems) {
   return `<!doctype html><html lang="de"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Putzonaut einrichten</title><style>
     :root{color-scheme:light dark;font:16px/1.6 system-ui,sans-serif;background:#f6f2e9;color:#173f43}body{margin:0;padding:32px 20px}main{max-width:650px;margin:0 auto}img{width:88px;height:88px;border-radius:22px}h1{line-height:1.2;font-size:2rem}h2{font-size:1.1rem}section{padding:20px 24px;border:1px solid #cbd5cd;border-radius:20px;background:#fffdf7;margin:24px 0}li{margin:12px 0}code{overflow-wrap:anywhere;font-size:.93em}small{display:block;color:#4c6464}a{color:inherit}@media(prefers-color-scheme:dark){:root{background:#11282e;color:#f4efdc}section{background:#19363b;border-color:#355458}small{color:#b6c9c7}}
-    </style><main><img src="/setup-icon.png" alt="Putzonaut"><h1>Bereit für den ersten Start?</h1><p>Putzonaut ist installiert. Ergänze noch die E-Mail-Einstellungen für Bestätigung und Passwort-Wiederherstellung.</p><section><h2>So richtest du die App ein</h2><ol><li>Öffne in Umbrel <strong>Einstellungen → App-Einstellungen → Putzonaut → Erweitert</strong>.</li><li>Trage bei den vorgeschlagenen Variablen deinen bestätigten Absender, den SMTP-Server, Port und Benutzernamen ein. Bei Brevo: <code>smtp-relay.brevo.com</code>, Port <code>587</code>.</li><li>Ergänze unter <strong>Eigene Variablen</strong> für den Dienst <code>web</code> die Variable <code>SMTP_PASSWORD</code> mit deinem SMTP-Schlüssel.</li><li>Wenn du eine eigene Domain nutzt, setze <code>APP_ORIGIN</code> auf ihre vollständige HTTPS-Adresse. Leite den Tunnel an <code>http://denny-putzonaut_web_1:3080</code>.</li><li>Wähle <strong>Übernehmen und neu starten</strong>. Danach kannst du dein erstes Putzonaut-Konto anlegen.</li></ol></section><section><h2>Noch zu prüfen</h2><ul>${problems.map(p=>`<li>${escape(p)}</li>`).join('')}</ul></section><small>Zugangsdaten werden hier nicht angezeigt. Änderungen erfolgen ausschließlich in deinen Umbrel-App-Einstellungen.</small></main></html>`;
+    </style><main><img src="/setup-icon.png" alt="Putzonaut"><h1>Bereit für den ersten Start?</h1><p>Putzonaut ist installiert. Ergänze noch die E-Mail-Einstellungen für Bestätigung und Passwort-Wiederherstellung.</p><section><h2>So richtest du die App ein</h2><ol><li>Öffne in Umbrel <strong>Einstellungen → App-Einstellungen → Putzonaut → Erweitert</strong>.</li><li>Trage bei den vorgeschlagenen Variablen deinen bestätigten Absender, den SMTP-Server, Port und Benutzernamen ein. Bei Brevo: <code>smtp-relay.brevo.com</code>, Port <code>587</code>.</li><li>Ergänze unter <strong>Eigene Variablen</strong> für den Dienst <code>web</code> die Variable <code>SMTP_PASSWORD</code> mit deinem SMTP-Schlüssel.</li><li>Wenn du eine eigene Domain nutzt, setze <code>APP_ORIGIN</code> auf ihre vollständige HTTPS-Adresse. Leite die App-Domain an <code>http://denny-putzonaut_web_1:3080</code>. Für die Vorstellungsseite setze <code>WEBSITE_ORIGIN</code> und verwende Port <code>3081</code>.</li><li>Wähle <strong>Übernehmen und neu starten</strong>. Danach kannst du dein erstes Putzonaut-Konto anlegen.</li></ol></section><section><h2>Noch zu prüfen</h2><ul>${problems.map(p=>`<li>${escape(p)}</li>`).join('')}</ul></section><small>Zugangsdaten werden hier nicht angezeigt. Änderungen erfolgen ausschließlich in deinen Umbrel-App-Einstellungen.</small></main></html>`;
 }
 
 function securityHeaders(res) {
@@ -65,27 +65,36 @@ export function routeRequest({origin, problems, applicationServer, appRoot}, req
   applicationServer.emit('request', req, res);
 }
 
-export async function start({env = process.env, appRoot = '/app', port = Number(env.PORT ?? 3080), host = env.HOST ?? '0.0.0.0'} = {}) {
+export async function start({env = process.env, appRoot = '/app', port = Number(env.PORT ?? 3080), websitePort = Number(env.WEBSITE_PORT ?? 3081), host = env.HOST ?? '0.0.0.0', websiteFactory} = {}) {
   process.umask(0o077);
   const problems = configurationProblems(env);
+  const load = name => import(pathToFileURL(resolve(appRoot, 'standalone', name)).href);
+  const createWebsite = websiteFactory ?? (await load('website.mjs')).createWebsiteServer;
+  let website;
+  try {
+    website = await createWebsite({publicDirectory:resolve(appRoot,'dist/website'),appOrigin:env.APP_ORIGIN,siteOrigin:env.WEBSITE_ORIGIN??'https://putzonaut.de'});
+  } catch {
+    problems.push('Website-Konfiguration prüfen: APP_ORIGIN und WEBSITE_ORIGIN müssen vollständige HTTPS-Adressen ohne abschließenden Schrägstrich sein.');
+    website = createServer((_req,res)=>{securityHeaders(res);res.writeHead(503,{'Content-Type':'text/plain; charset=utf-8'});res.end('Die Website wird gerade eingerichtet.');});
+  }
   let app, applicationServer, mailTimer;
   if (!problems.length) {
-    const load = name => import(pathToFileURL(resolve(appRoot, 'standalone', name)).href);
     const [{createStandaloneApp}, {createHttpServer}, {smtpTransport}] = await Promise.all([load('app.ts'), load('http.ts'), load('mail.ts')]);
     app = await createStandaloneApp({directory:resolve(env.DATA_DIR ?? '/data'), origin:env.APP_ORIGIN, secret:env.BETTER_AUTH_SECRET, sendMail:smtpTransport(env)});
-    applicationServer = createHttpServer(app, {origin:env.APP_ORIGIN, publicDirectory:resolve(appRoot,'dist/standalone'), trustedProxies:(env.TRUSTED_PROXY_IPS ?? '').split(',').map(v=>v.trim()).filter(Boolean)});
+    applicationServer = createHttpServer(app, {origin:env.APP_ORIGIN, publicDirectory:resolve(appRoot,'dist/standalone'), websiteOrigin:env.WEBSITE_ORIGIN, trustedProxies:(env.TRUSTED_PROXY_IPS ?? '').split(',').map(v=>v.trim()).filter(Boolean)});
     mailTimer = setInterval(() => { void app.flushMail(); }, 5000); mailTimer.unref();
     void app.flushMail();
   }
   const state = {origin:problems.length ? null : env.APP_ORIGIN, problems, applicationServer, appRoot};
   const server = createServer({requestTimeout:30000,headersTimeout:15000,maxHeaderSize:16384}, (req,res) => routeRequest(state,req,res));
   await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(port,host,resolve);});
+  await new Promise((resolve,reject)=>{website.once('error',reject);website.listen(websitePort,host,resolve);});
   const close = async () => {
     clearInterval(mailTimer);
-    await new Promise((resolve,reject)=>server.close(error=>error?reject(error):resolve()));
+    await Promise.all([server,website].map(listener=>new Promise((resolve,reject)=>listener.close(error=>error?reject(error):resolve()))));
     if (app) await app.close();
   };
-  return {server, close, configured:!problems.length};
+  return {server, website, close, configured:!problems.length};
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {

@@ -9,6 +9,7 @@ Installiere **Putzonaut** aus **Denny´s Umbrel**. Benötigt wird umbrelOS 2.0 o
 | Variable | Eintrag |
 | --- | --- |
 | `APP_ORIGIN` | Vollständige HTTPS-Adresse ohne abschließenden `/`; lokal ist die Umbrel-Adresse voreingestellt. Für deinen Tunnel z. B. `https://app.putzonaut.de`. |
+| `WEBSITE_ORIGIN` | Adresse der öffentlichen Vorstellungsseite, z. B. `https://putzonaut.de`. |
 | `MAIL_FROM` | Bestätigter Absender, z. B. `Putzonaut <info@putzonaut.de>` |
 | `SMTP_HOST` | Bei Brevo: `smtp-relay.brevo.com` |
 | `SMTP_PORT` | Bei Brevo: `587` |
@@ -20,13 +21,17 @@ Diese Paketierung erwartet SMTP mit Benutzername und Passwort. Die Verbindung nu
 
 ## Cloudflare Tunnel
 
-Im bestehenden Tunnel eine Route für die öffentliche Domain anlegen:
+Im bestehenden Tunnel die gewünschten Hostnamen zuordnen:
 
-| Feld | Beispiel |
+| Öffentlicher Hostname | Service |
 | --- | --- |
-| Öffentlicher Hostname | `app.putzonaut.de` |
-| Service | `http://denny-putzonaut_web_1:3080` |
-| `APP_ORIGIN` in den App-Einstellungen | `https://app.putzonaut.de` |
+| `putzonaut.de` | `http://denny-putzonaut_web_1:3081` |
+| `www.putzonaut.de` | `http://denny-putzonaut_web_1:3081` (Weiterleitung zur Hauptadresse) |
+| `app.putzonaut.de` | `http://denny-putzonaut_web_1:3080` |
+
+In den App-Einstellungen `APP_ORIGIN=https://app.putzonaut.de` und `WEBSITE_ORIGIN=https://putzonaut.de` setzen. Die Website ist eine separate, nur lesbare Oberfläche: keine Kontorouten, Sitzungscookies oder Haushaltsdaten. Sie ist bereits während der SMTP-Einrichtung verfügbar. Links und QR-Code verwenden die eingestellte App-Adresse.
+
+Bei einer anderen öffentlich betriebenen Installation müssen Impressum und Datenschutzerklärung in einem eigenen Image zum tatsächlichen Betreiber passen. Die mitgelieferten Angaben beschreiben den Betrieb auf putzonaut.de.
 
 Der Cloudflare-Connector muss das von Umbrel verwaltete Docker-Netz erreichen. Die öffentliche Route geht direkt zur App mit eigener Kontoanmeldung; der lokale Umbrel-Zugang bleibt durch Umbrel geschützt. Nach der Konfiguration öffnet auch das App-Symbol die eingestellte öffentliche Adresse. Die lokale App-Adresse verwendet Port **8876**. HTTPS-Zertifikat und Domain müssen aktiv sein.
 
@@ -36,6 +41,6 @@ Umbrel verwaltet Installation, Start, Stopp und Updates. Alle veränderlichen Ap
 
 Das Konto- und Mailgeheimnis stammt aus dem stabilen Umbrel-App-Seed. Bei einem Umzug müssen die App-Daten, privaten App-Einstellungen und der zugehörige Umbrel-Seed erhalten bleiben. Eine vollständige Umbrel-Sicherung verwenden; das Kopieren einer einzelnen SQLite-Datei reicht nicht aus. Nicht deinstallieren, um zu aktualisieren: Eine Deinstallation löscht App-Daten.
 
-Das Image `0.21.0-7b3ee2910c06` ist für amd64 und arm64 per Manifest-Digest festgelegt. Die Startdatei liegt unter `hooks/`, damit Umbrel sie bei Paket-Updates ebenfalls kopiert; sie ist kein Lifecycle-Hook. Es werden keine realen SMTP-Schlüssel im Store gespeichert.
+Das Image für Version `0.22.0` ist für amd64 und arm64 per Manifest-Digest festgelegt. Die Startdatei liegt unter `hooks/`, damit Umbrel sie bei Paket-Updates ebenfalls kopiert; sie ist kein Lifecycle-Hook. Es werden keine realen SMTP-Schlüssel im Store gespeichert.
 
-Die eigentliche App verwendet bestätigte E-Mail-Konten. Eigenes Web Push, Änderung der Login-E-Mail und Kontolöschung per Selbstbedienung sind in 0.21.0 noch nicht verfügbar. Bestehende Daten der privaten Testseite werden nicht automatisch importiert.
+Die eigentliche App verwendet bestätigte E-Mail-Konten. Eigenes Web Push, Änderung der Login-E-Mail und Kontolöschung per Selbstbedienung sind in 0.22.0 noch nicht verfügbar. Bestehende Daten der privaten Testseite werden nicht automatisch importiert.

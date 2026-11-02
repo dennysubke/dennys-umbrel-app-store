@@ -7,13 +7,15 @@ services:
       APP_PORT: 3080
 
   web:
-    image: ghcr.io/putzonaut/putzonaut:0.21.0-7b3ee2910c06@sha256:e4842e0e5166c2c8729daeb94104a2711ce44dc43b5e6e53f725419ed8b599ef
+    image: ghcr.io/putzonaut/putzonaut:0.22.0-2e02ffd4e844@sha256:980b9781dc3e5f0d382f2b8e27b8aa5dcff99aaed4361727df5a67856cd6e91b
     user: "1000:1000"
     restart: on-failure
     init: true
     entrypoint: [node, /umbrel/entrypoint.mjs]
     environment:
       APP_ORIGIN: "https://${DEVICE_DOMAIN_NAME}:${APP_PROXY_PORT}"
+      WEBSITE_ORIGIN: "https://putzonaut.de"
+      WEBSITE_PORT: "3081"
       BETTER_AUTH_SECRET: "${APP_SEED}"
       DATA_DIR: /data
       HOST: 0.0.0.0
