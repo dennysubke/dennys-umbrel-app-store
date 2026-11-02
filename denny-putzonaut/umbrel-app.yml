@@ -36,7 +36,7 @@ description: >-
   Make everyday chores a shared mission. Putzonaut helps families, couples, flatmates, and people living alone plan their household, collect stars, and work towards personal or shared rewards. The app interface is in German.
 
 
-  First start: open Putzonaut for setup instructions. In Umbrel App Settings, add your verified email sender and SMTP connection. Add the SMTP password as a custom variable for the web service, then apply and restart. An SMTP service is required for account verification and password recovery; no account is created until configuration is complete.
+  ⚙️ First start: Open Putzonaut for setup instructions. In Umbrel App Settings, add your verified email sender and SMTP connection. Add the SMTP password as a custom variable for the web service, then apply and restart. An SMTP service is required for account verification and password recovery; no account is created until configuration is complete.
 
 
   Use the local HTTPS address or set your own HTTPS domain. For Cloudflare Tunnel, route the domain to http://denny-putzonaut_web_1:3080 and set APP_ORIGIN to the matching public HTTPS address. Users sign in with their own Putzonaut account. The optional introduction page uses port 3081 and WEBSITE_ORIGIN. It remains available while SMTP is being configured.
