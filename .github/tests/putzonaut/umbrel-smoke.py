@@ -25,6 +25,28 @@ def umbrel(*args):
 def app_node(script):
     return subprocess.check_output(['docker','exec',host,'docker','exec',app_id+'_web_1','node','--input-type=module','-e',script],text=True).strip()
 
+def check_website(expected_origin):
+    result=app_node("""
+      import assert from 'node:assert/strict';
+      import {request} from 'node:http';
+      const base='http://127.0.0.1:3081';
+      const page=await fetch(base);assert.equal(page.status,200);
+      const html=await page.text();assert.ok(html.includes('Mehr Abheben'));
+      assert.ok(html.includes(process.env.APP_ORIGIN));assert.ok(!html.includes('__APP_ORIGIN__'));
+      assert.equal(page.headers.get('set-cookie'),null);
+      assert.equal((await fetch(base+'/healthz')).status,200);
+      for(const path of ['/app-qr.svg','/website-assets/screens/home.jpg','/impressum','/datenschutz'])assert.equal((await fetch(base+path)).status,200,path);
+      for(const path of ['/api/state','/api/account/get-session','/sw.js','/.env'])assert.equal((await fetch(base+path)).status,404,path);
+      assert.equal((await fetch(base+'/api/auth/setup',{method:'POST'})).status,405);
+      const redirect=await new Promise((resolve,reject)=>{const req=request(base+'/datenschutz',{headers:{host:'www.'+new URL(process.env.WEBSITE_ORIGIN).host}},res=>{res.resume();res.on('end',()=>resolve({status:res.statusCode,location:res.headers.location}));});req.on('error',reject);req.end();});
+      assert.equal(redirect.status,308);assert.equal(redirect.location,process.env.WEBSITE_ORIGIN+'/datenschutz');
+      console.log(JSON.stringify({appOrigin:process.env.APP_ORIGIN,website:true}));
+    """)
+    parsed=json.loads(result)
+    assert parsed['website'] is True and parsed['appOrigin'].startswith('https://')
+    if expected_origin is not None:
+        assert parsed['appOrigin']==expected_origin
+
 def settled(context, setup=False):
     for _ in range(60):
         try:
@@ -43,6 +65,7 @@ with sync_playwright() as p:
     assert anonymous.status in [301,302,303,307,308,401,403], 'Umbrel authentication was bypassed'
     assert context.request.post('https://localhost/trpc/user.login',data={'password':'synthetic-umbrel-ci-password'},headers={'Origin':'https://localhost'}).ok
     settled(context,setup=True)
+    check_website(None)
     page=context.new_page();page.goto(origin)
     expect(page.get_by_role('heading',name='Bereit für den ersten Start?')).to_be_visible()
     assert not page.evaluate('document.documentElement.scrollWidth > innerWidth+1'), 'Setup overflows a phone viewport'
@@ -52,13 +75,14 @@ with sync_playwright() as p:
     apps=json.loads(umbrel('apps.list.query'))
     installed=next(app for app in apps if app['id']==app_id)
     exposed={item['name'] for item in installed['environment']['exposed']}
-    assert {'APP_ORIGIN','MAIL_FROM','SMTP_HOST','SMTP_PORT','SMTP_USER'}<=exposed
+    assert {'APP_ORIGIN','WEBSITE_ORIGIN','MAIL_FROM','SMTP_HOST','SMTP_PORT','SMTP_USER'}<=exposed
     assert 'SMTP_PASSWORD' not in exposed and 'BETTER_AUTH_SECRET' not in exposed
-    values={'APP_ORIGIN':origin,'MAIL_FROM':'Putzonaut CI <sender@example.test>','SMTP_HOST':'mail.example.invalid','SMTP_PORT':'587','SMTP_USER':'synthetic-smtp-user'}
+    values={'APP_ORIGIN':origin,'WEBSITE_ORIGIN':'https://site.example.test','MAIL_FROM':'Putzonaut CI <sender@example.test>','SMTP_HOST':'mail.example.invalid','SMTP_PORT':'587','SMTP_USER':'synthetic-smtp-user'}
     umbrel('apps.setSettings.mutate','--appId',app_id,
            '--environment',json.dumps([{'name':k,'value':v} for k,v in values.items()]),
            '--customEnvironment',json.dumps([{'serviceName':'web','name':'SMTP_PASSWORD','value':'synthetic-smtp-password'}]))
     settled(context)
+    check_website(origin)
     page.goto(origin+'/konto/anmelden')
     expect(page.get_by_role('heading',name='Willkommen zurück')).to_be_visible()
     page.screenshot(path=str(evidence/'login.png'),full_page=True)
@@ -115,6 +139,7 @@ with sync_playwright() as p:
     state=context.request.get(origin+'/api/state').json()
     assert state['household']['id']==crew_id and state['user']['name']=='Alex'
     assert json.loads(umbrel('apps.state.query','--appId',app_id))['state']=='ready'
+    check_website(origin)
     mounts=json.loads(subprocess.check_output(['docker','exec',host,'docker','inspect',app_id+'_web_1','--format','{{json .Mounts}}'],text=True))
     assert {(m['Destination'],m['RW']) for m in mounts if m['Type']!='tmpfs'}=={('/data',True),('/umbrel/entrypoint.mjs',False)}
     tmpfs=json.loads(subprocess.check_output(['docker','exec',host,'docker','inspect',app_id+'_web_1','--format','{{json .HostConfig.Tmpfs}}'],text=True))
@@ -126,5 +151,5 @@ with sync_playwright() as p:
     assert forged.status==401
     fresh.close();context.close();browser.close()
 
-(evidence/'result.json').write_text(json.dumps({'app':app_id,'version':'0.21.0','umbrel':'2.0.0','architecture':architecture,'freshInstall':True,'browserSetup':True,'nativeSettings':True,'emailVerification':'synthetic local outbox; no SMTP delivery','crewCreation':True,'sameVersionUpdate':True,'restartPersistence':True,'forgedIdentityRejected':True},indent=2)+'\n')
+(evidence/'result.json').write_text(json.dumps({'app':app_id,'version':'0.22.0','umbrel':'2.0.0','architecture':architecture,'freshInstall':True,'browserSetup':True,'nativeSettings':True,'websiteDuringSetup':True,'websiteIsolation':True,'websiteAfterRestart':True,'emailVerification':'synthetic local outbox; no SMTP delivery','crewCreation':True,'sameVersionUpdate':True,'restartPersistence':True,'forgedIdentityRejected':True},indent=2)+'\n')
 print('PASS: native Umbrel install, browser setup, account verification, crew creation, update and restart persistence.')

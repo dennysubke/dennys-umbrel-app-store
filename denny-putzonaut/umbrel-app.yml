@@ -6,6 +6,10 @@ environment:
   - name: APP_ORIGIN
     services: [web]
     note: "HTTPS address used to open Putzonaut and in account emails. For a tunnel, enter its public URL without a trailing slash."
+  - name: WEBSITE_ORIGIN
+    services: [web]
+    default: "https://putzonaut.de"
+    note: "Public introduction page on port 3081; canonical HTTPS address without a trailing slash."
   - name: MAIL_FROM
     services: [web]
     default: ""
@@ -25,7 +29,7 @@ environment:
     note: "SMTP login supplied by your mail provider."
 category: files & productivity
 name: Putzonaut
-version: "0.21.0"
+version: "0.22.0"
 tagline: Turn household chores into shared missions
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-putzonaut/logo.png
 description: >-
@@ -35,14 +39,15 @@ description: >-
   First start: open Putzonaut for setup instructions. In Umbrel App Settings, add your verified email sender and SMTP connection. Add the SMTP password as a custom variable for the web service, then apply and restart. An SMTP service is required for account verification and password recovery; no account is created until configuration is complete.
 
 
-  Use the local HTTPS address or set your own HTTPS domain. For Cloudflare Tunnel, route the domain to http://denny-putzonaut_web_1:3080 and set APP_ORIGIN to the matching public HTTPS address. Users sign in with their own Putzonaut account.
+  Use the local HTTPS address or set your own HTTPS domain. For Cloudflare Tunnel, route the domain to http://denny-putzonaut_web_1:3080 and set APP_ORIGIN to the matching public HTTPS address. Users sign in with their own Putzonaut account. The optional introduction page uses port 3081 and WEBSITE_ORIGIN. It remains available while SMTP is being configured.
 
 
   Plan recurring chores, use checklists, swap assignments, and complete short cleaning sessions. Collect stars, unlock badges and outfits, track weekly progress, and save wishes as rewards. Adults manage child profiles. Offline completions receive stars after they have synchronized successfully.
 
 
   Add Putzonaut to your Android or iPhone home screen as a web app. Accounts, household data, photos, and the encrypted email queue stay in this app's own storage. Internet access is used for your configured SMTP service. Push notifications for self-hosted installations are not yet configured.
-releaseNotes: ""
+releaseNotes: >-
+  Adds a public introduction page alongside the mobile app, with local artwork and fonts, an app QR code, phone installation instructions, and legal pages. The website uses internal port 3081; the app keeps port 3080. Website links and QR code follow APP_ORIGIN. Existing account and household data remain in the same persistent storage.
 developer: Putzonaut
 website: https://putzonaut.de
 dependencies: []
