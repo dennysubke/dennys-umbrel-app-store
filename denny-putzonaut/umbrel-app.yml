@@ -29,7 +29,7 @@ environment:
     note: "SMTP login supplied by your mail provider."
 category: files & productivity
 name: Putzonaut
-version: "0.22.1"
+version: "0.22.2"
 tagline: Turn household chores into shared missions
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-putzonaut/logo.png
 description: >-
@@ -47,7 +47,7 @@ description: >-
 
   Add Putzonaut to your Android or iPhone home screen as a web app. Accounts, household data, photos, and the encrypted email queue stay in this app's own storage. Internet access is used for your configured SMTP service. Push notifications for self-hosted installations are not yet configured.
 releaseNotes: >-
-  Updates the public website with the new dark glass design, a sharper app preview, animated feature cards, and a compact astronaut riding a cleaning rocket. Adds eight frequently asked questions and help via sos@putzonaut.de or GitHub Issues. Animations respect reduced-motion preferences. Website links and the QR code continue to follow APP_ORIGIN. Existing accounts, household data, and private app settings are preserved when updating through Umbrel.
+  Fixes incorrect website layouts after an update when a browser still has older CSS or JavaScript cached. Website assets now use content-based versions, so the current design loads without clearing browser data. Existing accounts, household data, and private app settings are preserved when updating through Umbrel.
 developer: Putzonaut
 website: https://putzonaut.de
 dependencies: []
