@@ -25,6 +25,25 @@ def umbrel(*args):
 def app_node(script):
     return subprocess.check_output(['docker','exec',host,'docker','exec',app_id+'_web_1','node','--input-type=module','-e',script],text=True).strip()
 
+def mail_link_for(recipient, subject):
+    # Only the disposable installation's synthetic outbox; never log the link.
+    return app_node("""
+      import {DatabaseSync} from 'node:sqlite';
+      import {createHash,createDecipheriv} from 'node:crypto';
+      const db=new DatabaseSync('/data/accounts.sqlite');
+      const key=createHash('sha256').update('putzonaut-mail-v1\\0'+process.env.BETTER_AUTH_SECRET).digest();
+      const target="""+json.dumps({'to':recipient,'subject':subject})+""";
+      for(const row of db.prepare('SELECT payload FROM putzonaut_mail ORDER BY rowid DESC').all()){
+        const payload=Buffer.from(row.payload,'base64');
+        const cipher=createDecipheriv('aes-256-gcm',key,payload.subarray(0,12));cipher.setAuthTag(payload.subarray(12,28));
+        const message=JSON.parse(Buffer.concat([cipher.update(payload.subarray(28)),cipher.final()]).toString('utf8'));
+        if(message.to===target.to&&message.subject===target.subject){
+          process.stdout.write(message.text.match(/https:\\/\\/\\S+/)[0]);db.close();process.exit(0);
+        }
+      }
+      db.close();process.exit(2);
+    """)
+
 def check_website(expected_origin):
     result=app_node("""
       import assert from 'node:assert/strict';
@@ -97,19 +116,7 @@ with sync_playwright() as p:
     assert post('/api/account/sign-in/email',{'email':email,'password':password}).status==403
     assert post('/api/auth/setup',{'name':'Alex','householdName':'CI Sternencrew'}).status==401
 
-    # Inspect only this disposable app's synthetic outbox; no real email is sent.
-    verification=app_node("""
-      import {DatabaseSync} from 'node:sqlite';
-      import {createHash,createDecipheriv} from 'node:crypto';
-      const db=new DatabaseSync('/data/accounts.sqlite');
-      const row=db.prepare('SELECT payload FROM putzonaut_mail LIMIT 1').get();
-      if(!row)process.exit(2);
-      const payload=Buffer.from(row.payload,'base64');
-      const key=createHash('sha256').update('putzonaut-mail-v1\\0'+process.env.BETTER_AUTH_SECRET).digest();
-      const cipher=createDecipheriv('aes-256-gcm',key,payload.subarray(0,12));cipher.setAuthTag(payload.subarray(12,28));
-      const message=JSON.parse(Buffer.concat([cipher.update(payload.subarray(28)),cipher.final()]).toString('utf8'));
-      process.stdout.write(message.text.match(/https:\\/\\/\\S+/)[0]);db.close();
-    """)
+    verification=mail_link_for(email,'Bestätige deine E-Mail für Putzonaut')
     try:
         verified=context.request.get(verification,max_redirects=0)
         assert verified.status in [200,302]
@@ -130,6 +137,50 @@ with sync_playwright() as p:
     assert not page.evaluate('document.documentElement.scrollWidth > innerWidth+1'), 'Signed-in app overflows a phone viewport'
     page.screenshot(path=str(evidence/'signed-in.png'),full_page=True)
 
+    push=context.request.get(origin+'/api/push').json()
+    assert push['configured'] is True and push['publicKey'] and 'privateJwk' not in push
+    push_key=push['publicKey']
+    assert post('/api/push/dispatch',{}).status==404
+
+    # Exercise the new account screen through the actual installed production app.
+    page.goto(origin+'/konto/verwalten')
+    expect(page.get_by_role('heading',name='Dein Konto',exact=True)).to_be_visible()
+    expect(page.get_by_text(email,exact=True)).to_be_visible()
+    page.locator('summary',has_text='Login-E-Mail ändern').click()
+    page.locator('summary',has_text='Konto löschen').click()
+    expect(page.get_by_role('link',name='Zur Crew-Verwaltung')).to_be_visible()
+    expect(page.get_by_role('button',name='Konto endgültig löschen')).to_have_count(0)
+    assert not page.evaluate('document.documentElement.scrollWidth > innerWidth+1'), 'Account settings overflow a phone viewport'
+    page.screenshot(path=str(evidence/'account-mobile.png'),full_page=True)
+    page.set_viewport_size({'width':1280,'height':900})
+    assert not page.evaluate('document.documentElement.scrollWidth > innerWidth+1'), 'Account settings overflow a desktop viewport'
+    page.screenshot(path=str(evidence/'account-desktop.png'),full_page=True)
+    page.set_viewport_size({'width':390,'height':844})
+    new_email='ci-new-login@example.test'
+    page.get_by_label('Neue E-Mail-Adresse',exact=True).fill(new_email)
+    page.get_by_label('Aktuelles Passwort',exact=True).fill('incorrect')
+    page.get_by_role('button',name='Bestätigungslink senden').click()
+    expect(page.get_by_role('alert')).to_have_text('Das aktuelle Passwort stimmt nicht.')
+    page.get_by_label('Aktuelles Passwort',exact=True).fill(password)
+    page.get_by_role('button',name='Bestätigungslink senden').click()
+    expect(page.get_by_role('status')).to_contain_text('Bis zur Bestätigung bleibt die bisherige Adresse gültig.')
+    assert context.request.get(origin+'/api/account/manage').json()['email']==email
+    verification=mail_link_for(new_email,'Bestätige deine neue Putzonaut-Adresse')
+    try:
+        page.goto(verification)
+        expect(page.get_by_role('heading',name='Neue Adresse bestätigt.',exact=True)).to_be_visible()
+    except Exception:
+        raise AssertionError('Synthetic new-email confirmation failed') from None
+    finally:
+        del verification
+    assert context.request.get(origin+'/api/state').status==401
+    page.get_by_role('link',name='Zur Anmeldung').click()
+    page.get_by_label('E-Mail-Adresse',exact=True).fill(new_email)
+    page.get_by_label('Passwort',exact=True).fill(password)
+    page.get_by_role('button',name='Anmelden',exact=True).click()
+    expect(page.get_by_role('heading',name='Hey, Alex!',exact=True)).to_be_visible(timeout=20000)
+    assert context.request.get(origin+'/api/state').json()['household']['id']==crew_id
+
     # Exercise an image update through Umbrel as well as a normal restart.
     # This is an idempotent update of the first package, not an older-version migration.
     umbrel('apps.update.mutate','--appId',app_id)
@@ -139,6 +190,7 @@ with sync_playwright() as p:
     settled(context)
     state=context.request.get(origin+'/api/state').json()
     assert state['household']['id']==crew_id and state['user']['name']=='Alex'
+    assert context.request.get(origin+'/api/push').json()['publicKey']==push_key
     assert json.loads(umbrel('apps.state.query','--appId',app_id))['state']=='ready'
     check_website(origin)
     mounts=json.loads(subprocess.check_output(['docker','exec',host,'docker','inspect',app_id+'_web_1','--format','{{json .Mounts}}'],text=True))
@@ -150,7 +202,20 @@ with sync_playwright() as p:
     assert fresh.request.post('https://localhost/trpc/user.login',data={'password':'synthetic-umbrel-ci-password'},headers={'Origin':'https://localhost'}).ok
     forged=fresh.request.get(origin+'/api/state',headers={'oai-authenticated-user-id':'forged','oai-authenticated-user-email':'forged@example.test'})
     assert forged.status==401
+
+    assert post('/api/household/close',{'confirmation':'CI Sternencrew'}).status==200
+    page.goto(origin+'/konto/verwalten')
+    page.locator('summary',has_text='Konto löschen').click()
+    page.locator('input[name="delete-password"]').fill(password)
+    page.get_by_label('Zur Bestätigung: KONTO LÖSCHEN',exact=True).fill('KONTO LÖSCHEN')
+    page.get_by_role('checkbox').check()
+    assert not page.evaluate('document.documentElement.scrollWidth > innerWidth+1'), 'Account deletion overflows a phone viewport'
+    page.screenshot(path=str(evidence/'account-delete.png'),full_page=True)
+    page.get_by_role('button',name='Konto endgültig löschen',exact=True).click()
+    expect(page.get_by_role('heading',name='Dein Konto ist gelöscht.',exact=True)).to_be_visible()
+    assert context.request.get(origin+'/api/account/manage').status==401
+    assert post('/api/account/sign-in/email',{'email':new_email,'password':password}).status==401
     fresh.close();context.close();browser.close()
 
-(evidence/'result.json').write_text(json.dumps({'app':app_id,'version':'0.22.1','umbrel':'2.0.0','architecture':architecture,'freshInstall':True,'browserSetup':True,'nativeSettings':True,'websiteDuringSetup':True,'websiteIsolation':True,'websiteAfterRestart':True,'emailVerification':'synthetic local outbox; no SMTP delivery','crewCreation':True,'sameVersionUpdate':True,'restartPersistence':True,'forgedIdentityRejected':True},indent=2)+'\n')
-print('PASS: native Umbrel install, browser setup, account verification, crew creation, update and restart persistence.')
+(evidence/'result.json').write_text(json.dumps({'app':app_id,'version':'0.23.0','umbrel':'2.0.0','architecture':architecture,'freshInstall':True,'browserSetup':True,'nativeSettings':True,'websiteDuringSetup':True,'websiteIsolation':True,'websiteAfterRestart':True,'emailVerification':'synthetic local outbox; no SMTP delivery','crewCreation':True,'sameVersionUpdate':True,'restartPersistence':True,'forgedIdentityRejected':True,'accountMobileAndDesktop':True,'emailChangePreservesCrew':True,'accountDeletion':True,'persistentPushConfiguration':True},indent=2)+'\n')
+print('PASS: native Umbrel install, browser setup, email change, account deletion, push configuration, update and restart persistence.')
