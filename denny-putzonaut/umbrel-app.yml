@@ -29,7 +29,7 @@ environment:
     note: "SMTP login supplied by your mail provider."
 category: files & productivity
 name: Putzonaut
-version: "0.25.0"
+version: "0.25.1"
 tagline: A gamified chore planner for your household
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-putzonaut/logo.png
 description: >-
@@ -47,7 +47,7 @@ description: >-
 
   Add Putzonaut to your Android or iPhone home screen as a web app. Enable device reminders to receive a notification at your chosen time, even when the app is closed. Change your login email after confirming the new address, or delete your account after leaving or closing your crew. Accounts, household data, photos, and the encrypted email queue stay in this app's own storage. Internet access is used for your configured SMTP service and, when enabled, your device's push service.
 releaseNotes: >-
-  Adds optional active months for seasonal chores, with no off-season backlog. "Heute nicht nötig" skips a recurring occurrence without awarding points and keeps its next regular date; completion-based intervals restart from the skip date. Automatic cleaning rounds group selected tasks by room while personal routines keep their chosen order. Small watering-can, sock, and sparkle reactions accompany confirmed completions and respect reduced motion. These additions fit the existing screens and four main sections. Existing accounts, household data, and settings remain in the app's persistent storage.
+  Refines the mission filters: "Meine Aufgaben" and "Bereiche" now sit directly next to each other as equally wide buttons. A small consistent gap replaces the large empty space, and longer area names wrap inside the button. Task filtering and saved preferences retain their existing behavior.
 developer: Putzonaut
 website: https://putzonaut.de
 dependencies: []
