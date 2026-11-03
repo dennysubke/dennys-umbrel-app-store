@@ -184,6 +184,9 @@ with sync_playwright() as p:
     page.get_by_label('E-Mail-Adresse',exact=True).fill(new_email)
     page.get_by_label('Passwort',exact=True).fill(password)
     page.get_by_role('button',name='Anmelden',exact=True).click()
+    # Returning users keep their last app section (the recurrence test used Missions).
+    expect(page.get_by_role('navigation',name='Hauptnavigation')).to_be_visible(timeout=20000)
+    page.get_by_role('navigation',name='Hauptnavigation').get_by_role('button',name='Basis',exact=True).click()
     expect(page.get_by_role('heading',name='Hey, Alex!',exact=True)).to_be_visible(timeout=20000)
     assert context.request.get(origin+'/api/state').json()['household']['id']==crew_id
 
