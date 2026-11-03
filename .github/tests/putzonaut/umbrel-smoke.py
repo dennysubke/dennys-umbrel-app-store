@@ -11,6 +11,7 @@ import subprocess
 import time
 from playwright.sync_api import expect, sync_playwright
 from recurrence_browser import check_recurrences, assert_recurrences
+from everyday_browser import check_everyday
 
 host='putzonaut-umbrel-test'
 app_id='denny-putzonaut'
@@ -139,6 +140,7 @@ with sync_playwright() as p:
     page.screenshot(path=str(evidence/'signed-in.png'),full_page=True)
     try:
         calendar_rules=check_recurrences(page,context,origin,evidence)
+        calendar_rules.update(check_everyday(page,context,origin,evidence))
     except Exception:
         page.screenshot(path=str(evidence/'recurrence-failure.png'),full_page=True)
         raise
@@ -227,5 +229,5 @@ with sync_playwright() as p:
     assert post('/api/account/sign-in/email',{'email':new_email,'password':password}).status==401
     fresh.close();context.close();browser.close()
 
-(evidence/'result.json').write_text(json.dumps({'app':app_id,'version':'0.24.0','umbrel':'2.0.0','architecture':architecture,'freshInstall':True,'browserSetup':True,'nativeSettings':True,'websiteDuringSetup':True,'websiteIsolation':True,'websiteAfterRestart':True,'emailVerification':'synthetic local outbox; no SMTP delivery','crewCreation':True,'sameVersionUpdate':True,'restartPersistence':True,'forgedIdentityRejected':True,'accountMobileAndDesktop':True,'emailChangePreservesCrew':True,'accountDeletion':True,'persistentPushConfiguration':True,'calendarRecurrenceEditor':True,'recurrenceDraftAndDuplicate':True,'recurrenceAfterRestart':True},indent=2)+'\n')
+(evidence/'result.json').write_text(json.dumps({'app':app_id,'version':'0.25.0','umbrel':'2.0.0','architecture':architecture,'freshInstall':True,'browserSetup':True,'nativeSettings':True,'websiteDuringSetup':True,'websiteIsolation':True,'websiteAfterRestart':True,'emailVerification':'synthetic local outbox; no SMTP delivery','crewCreation':True,'sameVersionUpdate':True,'restartPersistence':True,'forgedIdentityRejected':True,'accountMobileAndDesktop':True,'emailChangePreservesCrew':True,'accountDeletion':True,'persistentPushConfiguration':True,'calendarRecurrenceEditor':True,'recurrenceDraftAndDuplicate':True,'recurrenceAfterRestart':True,'seasonDraftCopyAndBackup':True,'omitWithoutPoints':True,'roomOrder':True,'missionReactions':True,'reducedMotion':True},indent=2)+'\n')
 print('PASS: native Umbrel install, browser setup, email change, account deletion, push configuration, update and restart persistence.')
