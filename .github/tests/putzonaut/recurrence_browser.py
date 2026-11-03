@@ -30,9 +30,9 @@ def check_recurrences(page, context, origin, evidence):
     def open_new(title):
         page.get_by_role('button',name='Eigene Mission erstellen',exact=True).click()
         expect(page.get_by_role('heading',name='Neue Mission',exact=True)).to_be_visible()
-        expect(page.get_by_label('Weitere Wiederholungen',exact=True)).to_have_count(0)
+        expect(page.get_by_label(re.compile(r'^Weitere Wiederholungen'))).to_have_count(0)
         page.get_by_label('Was gibt es zu tun?',exact=True).fill(title)
-        page.get_by_label('Wie oft?',exact=True).select_option('more')
+        page.get_by_label(re.compile(r'^Wie oft\?')).select_option('more')
 
     def save(label='Mission hinzufügen', method='POST'):
         with page.expect_response(lambda r: '/api/tasks' in r.url and r.request.method==method) as response:
@@ -49,7 +49,7 @@ def check_recurrences(page, context, origin, evidence):
 
     open_new('CI Monatsrhythmus')
     page.get_by_label('Erster Termin',exact=True).fill(first)
-    page.get_by_label('Abstand in Monaten',exact=True).select_option('3')
+    page.get_by_label(re.compile(r'^Abstand in Monaten')).select_option('3')
     expect(page.locator('.recurrence-preview')).to_contain_text('Alle 3 Monate am 31.')
     expect(page.locator('.recurrence-preview')).to_contain_text(f'Nächster Termin: 31.01.{year}')
     page.set_viewport_size({'width':360,'height':800})
@@ -63,24 +63,24 @@ def check_recurrences(page, context, origin, evidence):
     page.get_by_role('button',name='Eigene Mission erstellen',exact=True).click()
     expect(page.get_by_role('heading',name='Entwurf fortsetzen?',exact=True)).to_be_visible()
     page.get_by_role('button',name='Entwurf fortsetzen',exact=True).click()
-    expect(page.get_by_label('Weitere Wiederholungen',exact=True)).to_have_value('monthly-interval')
+    expect(page.get_by_label(re.compile(r'^Weitere Wiederholungen'))).to_have_value('monthly-interval')
     expect(page.get_by_label('Erster Termin',exact=True)).to_have_value(first)
-    expect(page.get_by_label('Abstand in Monaten',exact=True)).to_have_value('3')
+    expect(page.get_by_label(re.compile(r'^Abstand in Monaten'))).to_have_value('3')
     monthly_id=save()['id']
 
     page.get_by_role('button',name=re.compile(r'^Demnächst')).click()
     page.get_by_role('button',name='CI Monatsrhythmus · Details',exact=True).click()
     page.get_by_role('button',name='Mission bearbeiten',exact=True).click()
-    expect(page.get_by_label('Weitere Wiederholungen',exact=True)).to_have_value('monthly-interval')
+    expect(page.get_by_label(re.compile(r'^Weitere Wiederholungen'))).to_have_value('monthly-interval')
     expect(page.get_by_label('Erster Termin',exact=True)).to_have_value(first)
-    page.get_by_label('Abstand in Monaten',exact=True).select_option('6')
+    page.get_by_label(re.compile(r'^Abstand in Monaten')).select_option('6')
     save('Änderungen speichern','PATCH')
     expected[monthly_id]={'cadence':'monthly-interval','schedule':{'startDate':first,'intervalMonths':6},'nextDueDate':first}
 
     open_new('CI Letzter Sonntag')
-    page.get_by_label('Weitere Wiederholungen',exact=True).select_option('monthly-weekday')
-    page.get_by_label('Im Monat',exact=True).select_option('-1')
-    page.get_by_label('Wochentag',exact=True).select_option('7')
+    page.get_by_label(re.compile(r'^Weitere Wiederholungen')).select_option('monthly-weekday')
+    page.get_by_label(re.compile(r'^Im Monat')).select_option('-1')
+    page.get_by_label(re.compile(r'^Wochentag')).select_option('7')
     page.get_by_label('Startdatum',exact=True).fill(f'{year}-01-01')
     last=31
     while date(year,1,last).weekday()!=6:
@@ -92,7 +92,7 @@ def check_recurrences(page, context, origin, evidence):
     expected[ordinal_id]={'cadence':'monthly-weekday','schedule':{'startDate':f'{year}-01-01','monthWeek':-1,'monthWeekday':7},'nextDueDate':f'{year}-01-{last:02d}'}
 
     open_new('CI Jährlicher Termin')
-    page.get_by_label('Weitere Wiederholungen',exact=True).select_option('yearly')
+    page.get_by_label(re.compile(r'^Weitere Wiederholungen')).select_option('yearly')
     page.get_by_label('Erster Termin',exact=True).fill(annual)
     expect(page.locator('.recurrence-preview')).to_contain_text('Jährlich am 29. Februar')
     expect(page.locator('.recurrence-preview')).to_contain_text(f'Nächster Termin: 29.02.{leap}')

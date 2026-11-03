@@ -137,7 +137,11 @@ with sync_playwright() as p:
     expect(page.locator('main')).to_contain_text('CI Sternencrew')
     assert not page.evaluate('document.documentElement.scrollWidth > innerWidth+1'), 'Signed-in app overflows a phone viewport'
     page.screenshot(path=str(evidence/'signed-in.png'),full_page=True)
-    calendar_rules=check_recurrences(page,context,origin,evidence)
+    try:
+        calendar_rules=check_recurrences(page,context,origin,evidence)
+    except Exception:
+        page.screenshot(path=str(evidence/'recurrence-failure.png'),full_page=True)
+        raise
 
     push=context.request.get(origin+'/api/push').json()
     assert push['configured'] is True and push['publicKey'] and 'privateJwk' not in push
