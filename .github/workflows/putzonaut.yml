@@ -24,7 +24,7 @@ jobs:
       - run: python .github/tests/putzonaut/validate.py
       - run: node --test .github/tests/putzonaut/entrypoint.test.mjs
       - run: bash -n .github/tests/putzonaut/umbrel-install.sh
-      - run: python -m py_compile .github/tests/putzonaut/umbrel-smoke.py .github/tests/putzonaut/recurrence_browser.py .github/tests/putzonaut/everyday_browser.py
+      - run: python -m py_compile .github/tests/putzonaut/umbrel-smoke.py .github/tests/putzonaut/recurrence_browser.py .github/tests/putzonaut/everyday_browser.py .github/tests/putzonaut/messages_browser.py
   installation:
     name: Umbrel fresh install (${{ matrix.architecture }})
     needs: static
