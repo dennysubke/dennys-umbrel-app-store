@@ -10,6 +10,7 @@ from pathlib import Path
 import subprocess
 import time
 from playwright.sync_api import expect, sync_playwright
+from recurrence_browser import check_recurrences, assert_recurrences
 
 host='putzonaut-umbrel-test'
 app_id='denny-putzonaut'
@@ -136,6 +137,7 @@ with sync_playwright() as p:
     expect(page.locator('main')).to_contain_text('CI Sternencrew')
     assert not page.evaluate('document.documentElement.scrollWidth > innerWidth+1'), 'Signed-in app overflows a phone viewport'
     page.screenshot(path=str(evidence/'signed-in.png'),full_page=True)
+    calendar_rules=check_recurrences(page,context,origin,evidence)
 
     push=context.request.get(origin+'/api/push').json()
     assert push['configured'] is True and push['publicKey'] and 'privateJwk' not in push
@@ -190,6 +192,7 @@ with sync_playwright() as p:
     settled(context)
     state=context.request.get(origin+'/api/state').json()
     assert state['household']['id']==crew_id and state['user']['name']=='Alex'
+    assert_recurrences(context,origin,calendar_rules)
     assert context.request.get(origin+'/api/push').json()['publicKey']==push_key
     assert json.loads(umbrel('apps.state.query','--appId',app_id))['state']=='ready'
     check_website(origin)
@@ -217,5 +220,5 @@ with sync_playwright() as p:
     assert post('/api/account/sign-in/email',{'email':new_email,'password':password}).status==401
     fresh.close();context.close();browser.close()
 
-(evidence/'result.json').write_text(json.dumps({'app':app_id,'version':'0.23.0','umbrel':'2.0.0','architecture':architecture,'freshInstall':True,'browserSetup':True,'nativeSettings':True,'websiteDuringSetup':True,'websiteIsolation':True,'websiteAfterRestart':True,'emailVerification':'synthetic local outbox; no SMTP delivery','crewCreation':True,'sameVersionUpdate':True,'restartPersistence':True,'forgedIdentityRejected':True,'accountMobileAndDesktop':True,'emailChangePreservesCrew':True,'accountDeletion':True,'persistentPushConfiguration':True},indent=2)+'\n')
+(evidence/'result.json').write_text(json.dumps({'app':app_id,'version':'0.24.0','umbrel':'2.0.0','architecture':architecture,'freshInstall':True,'browserSetup':True,'nativeSettings':True,'websiteDuringSetup':True,'websiteIsolation':True,'websiteAfterRestart':True,'emailVerification':'synthetic local outbox; no SMTP delivery','crewCreation':True,'sameVersionUpdate':True,'restartPersistence':True,'forgedIdentityRejected':True,'accountMobileAndDesktop':True,'emailChangePreservesCrew':True,'accountDeletion':True,'persistentPushConfiguration':True,'calendarRecurrenceEditor':True,'recurrenceDraftAndDuplicate':True,'recurrenceAfterRestart':True},indent=2)+'\n')
 print('PASS: native Umbrel install, browser setup, email change, account deletion, push configuration, update and restart persistence.')
