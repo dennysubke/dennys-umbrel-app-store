@@ -29,7 +29,7 @@ environment:
     note: "SMTP login supplied by your mail provider."
 category: files & productivity
 name: Putzonaut
-version: "0.23.0"
+version: "0.24.0"
 tagline: A gamified chore planner for your household
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-putzonaut/logo.png
 description: >-
@@ -47,7 +47,7 @@ description: >-
 
   Add Putzonaut to your Android or iPhone home screen as a web app. Enable device reminders to receive a notification at your chosen time, even when the app is closed. Change your login email after confirming the new address, or delete your account after leaving or closing your crew. Accounts, household data, photos, and the encrypted email queue stay in this app's own storage. Internet access is used for your configured SMTP service and, when enabled, your device's push service.
 releaseNotes: >-
-  Adds reminders while the app is closed, with automatic setup on your server. Under "Konto & Anmeldung", change your login email with your current password and confirmation of the new address, or permanently delete your account after leaving or closing your crew. An email change preserves your crew and progress and signs out existing sessions. Also improves offline startup after installation. Existing accounts, household data, and private app settings are preserved when updating through Umbrel. Open the updated app and enable device reminders on each device where you want notifications.
+  Adds precise calendar repeats under "Weitere Wiederholungen" in the existing task editor: every two, three, or six months, annually, or on a chosen weekday's first, second, third, fourth, or last occurrence in the month. A compact preview shows the rule and next date. Short months and leap years keep the original schedule. Drafts, copies, and backups preserve the new rules. The four main app sections and existing task schedules are retained.
 developer: Putzonaut
 website: https://putzonaut.de
 dependencies: []
