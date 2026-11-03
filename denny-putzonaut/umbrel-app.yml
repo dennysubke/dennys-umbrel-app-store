@@ -29,7 +29,7 @@ environment:
     note: "SMTP login supplied by your mail provider."
 category: files & productivity
 name: Putzonaut
-version: "0.22.2"
+version: "0.23.0"
 tagline: A gamified chore planner for your household
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-putzonaut/logo.png
 description: >-
@@ -45,9 +45,9 @@ description: >-
   Plan recurring chores, use checklists, swap assignments, and complete short cleaning sessions. Collect stars, unlock badges and outfits, track weekly progress, and save wishes as rewards. Adults manage child profiles. Offline completions receive stars after they have synchronized successfully.
 
 
-  Add Putzonaut to your Android or iPhone home screen as a web app. Accounts, household data, photos, and the encrypted email queue stay in this app's own storage. Internet access is used for your configured SMTP service. Push notifications for self-hosted installations are not yet configured.
+  Add Putzonaut to your Android or iPhone home screen as a web app. Enable device reminders to receive a notification at your chosen time, even when the app is closed. Change your login email after confirming the new address, or delete your account after leaving or closing your crew. Accounts, household data, photos, and the encrypted email queue stay in this app's own storage. Internet access is used for your configured SMTP service and, when enabled, your device's push service.
 releaseNotes: >-
-  Fixes incorrect website layouts after an update when a browser still has older CSS or JavaScript cached. Website assets now use content-based versions, so the current design loads without clearing browser data. Existing accounts, household data, and private app settings are preserved when updating through Umbrel.
+  Adds reminders while the app is closed, with automatic setup on your server. Under "Konto & Anmeldung", change your login email with your current password and confirmation of the new address, or permanently delete your account after leaving or closing your crew. An email change preserves your crew and progress and signs out existing sessions. Also improves offline startup after installation. Existing accounts, household data, and private app settings are preserved when updating through Umbrel. Open the updated app and enable device reminders on each device where you want notifications.
 developer: Putzonaut
 website: https://putzonaut.de
 dependencies: []

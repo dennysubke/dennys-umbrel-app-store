@@ -7,7 +7,7 @@ services:
       APP_PORT: 3080
 
   web:
-    image: ghcr.io/putzonaut/putzonaut:0.22.2-0fccad91e9ea@sha256:c0df451ec1d361988e91e5316c907e26d5da2142fd4e4d7781d21c230b52f474
+    image: ghcr.io/putzonaut/putzonaut:0.23.0-0488b9ec682d@sha256:bcf8b5a8f536648d853449d747f18bacfc487f39662d8ea3660828bc5fd82587
     user: "1000:1000"
     restart: on-failure
     init: true
