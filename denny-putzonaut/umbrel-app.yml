@@ -29,7 +29,7 @@ environment:
     note: "SMTP login supplied by your mail provider."
 category: files & productivity
 name: Putzonaut
-version: "0.25.1"
+version: "0.26.0"
 tagline: A gamified chore planner for your household
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-putzonaut/logo.png
 description: >-
@@ -47,7 +47,7 @@ description: >-
 
   Add Putzonaut to your Android or iPhone home screen as a web app. Enable device reminders to receive a notification at your chosen time, even when the app is closed. Change your login email after confirming the new address, or delete your account after leaving or closing your crew. Accounts, household data, photos, and the encrypted email queue stay in this app's own storage. Internet access is used for your configured SMTP service and, when enabled, your device's push service.
 releaseNotes: >-
-  Refines the mission filters: "Meine Aufgaben" and "Bereiche" now sit directly next to each other as equally wide buttons. A small consistent gap replaces the large empty space, and longer area names wrap inside the button. Task filtering and saved preferences retain their existing behavior.
+  Adds personal text messages between crew members with their own accounts. Open Crew > Nachrichten to write to someone and see unread messages in the existing Crew navigation. Conversations update automatically while open. Sending safely retries interrupted requests without duplicate messages, and text stays in the open conversation during a short offline interruption. Messages are separate from shared crew data and JSON backups. Leaving a crew or removing a member deletes the affected conversations for both participants. Existing installations receive an additive database migration.
 developer: Putzonaut
 website: https://putzonaut.de
 dependencies: []
