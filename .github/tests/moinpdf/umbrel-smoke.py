@@ -1,4 +1,5 @@
 """Real Umbrel gateway, browser, documents and persistence on native runners."""
+import csv
 import json
 import hashlib
 import io
@@ -83,6 +84,51 @@ def expect_home(page):
                 '(links) => links.map(link => ({url: link.href, rules: link.sheet?.cssRules.length ?? 0}))'),
         }, indent=2) + '\n')
         raise
+
+
+def bank_statement_export(page, temporary):
+    statement = Path(temporary) / 'synthetic-volksbank.pdf'
+    lines = [
+        'Volksbank Muster eG', 'EUR-Konto   Kontonummer 111', 'Kontoauszug Nr. 5/2026',
+        'erstellt am 31.05.2026   Blatt 1 von 1', 'Bu-Tag Wert Vorgang',
+        'alter Kontostand vom 30.04.2026 100,00 H', '04.05. 04.05. Gutschrift 10,00 H',
+        '05.05. 05.05. Einkauf 5,50 S', 'neuer Kontostand vom 31.05.2026 104,50 H',
+    ]
+    with pymupdf.open() as pdf:
+        pdf.new_page().insert_text((50, 55), '\n'.join(lines), fontsize=13, lineheight=1.5)
+        pdf.save(statement, encryption=pymupdf.PDF_ENCRYPT_AES_128,
+                 owner_pw='fictional-owner', user_pw='', permissions=-1036)
+
+    page.locator('input[type=file]').first.set_input_files(statement)
+    page.locator('.chooser-tool[data-tool-id=bank-datev]').click()
+    form = page.locator('.bank-datev')
+    expect(form.locator('.bank-row')).to_have_count(2, timeout=30000)
+    expect(form.locator('.bank-row').first).to_be_hidden()
+    for label, value in [('Konto (Bankkonto)', '24680'), ('Gegenkonto für leere Zeilen (optional)', '54321'),
+                         ('Beraternummer', '39821'), ('Mandantennummer', '643')]:
+        form.get_by_label(label, exact=True).fill(value)
+    form.get_by_role('checkbox').check()
+    with page.expect_download() as download:
+        form.get_by_role('button', name='DATEV-Datei herunterladen').click()
+    with open(download.value.path(), encoding='cp1252', newline='') as handle:
+        header, columns, credit, debit = csv.reader(handle, delimiter=';')
+    assert header[10:12] == ['39821', '643'] and columns[10] == 'Belegfeld 1'
+    assert len(columns) == len(credit) == len(debit) == 125
+    assert credit[0:2] == ['10,00', 'S'] and debit[0:2] == ['5,50', 'H']
+    assert credit[6:8] == debit[6:8] == ['24680', '54321']
+    assert credit[9:11] == ['0405', ''] and debit[9:11] == ['0505', '']
+
+    with page.expect_response(lambda response: response.url.endswith('/api/datev/status')) as status:
+        form.get_by_text('KI-Kontierung · optional', exact=True).click()
+    assert status.value.ok and status.value.json() == {'enabled': False, 'personal': True}
+    expect(form.get_by_label('Eigener OpenAI-API-Schlüssel')).to_have_attribute('type', 'password')
+    # A malformed key must be rejected locally, before any provider request.
+    rejected = page.evaluate('''async () => (await fetch('/api/datev/personal', {
+        method: 'POST', headers: {'Content-Type': 'application/json', 'X-MoinPDF-Client': 'web'},
+        body: JSON.stringify({key: 'invalid', batch: {}})
+    })).status''')
+    assert rejected == 401, f'Personal key gateway returned HTTP {rejected}'
+    print('PASS: protected Volksbank PDF, two verified DATEV rows and personal-key gateway.', flush=True)
 
 
 def desktop_layout(page):
@@ -172,19 +218,19 @@ def mobile_search(page):
     page.locator('.harbor-desktop-nav').get_by_role('button', name='Start', exact=True).click()
     expect(page.locator('.mosaic-all-tools')).to_be_visible()
     page.locator('.mosaic-all-tools').click()
-    expect(page.locator('.chooser-tool')).to_have_count(120)
     expected_tools = json.loads((Path(__file__).parent / 'asset-checksums.json').read_text())['toolIds']
+    expect(page.locator('.chooser-tool')).to_have_count(len(expected_tools))
     actual_tools = page.locator('.chooser-tool').evaluate_all(
         '(buttons) => buttons.map(button => button.dataset.toolId)')
-    assert len(set(actual_tools)) == 120 and sorted(actual_tools) == sorted(expected_tools), 'Deployed tool catalog differs from the released source'
+    assert len(set(actual_tools)) == len(expected_tools) and sorted(actual_tools) == sorted(expected_tools), 'Deployed tool catalog differs from the released source'
     (evidence / 'tool-catalog.json').write_text(json.dumps({
         'source': json.loads((Path(__file__).parent / 'asset-checksums.json').read_text())['source'],
         'version': version, 'count': len(actual_tools), 'toolIds': sorted(actual_tools),
         'matchesRelease': True,
     }, indent=2) + '\n')
-    for tool_id in ('document-checklist', 'document-dates', 'document-colors', 'large-document', 'scan-split'):
+    for tool_id in ('bank-datev', 'document-checklist', 'document-dates', 'document-colors', 'large-document', 'scan-split'):
         expect(page.locator(f'.chooser-tool[data-tool-id="{tool_id}"]')).to_be_visible()
-    print('PASS: all 120 tool IDs match the released source, including checklists, calendar dates, scan photos, document colors and large PDFs.', flush=True)
+    print(f'PASS: all {len(expected_tools)} tool IDs match the released source.', flush=True)
     expect(page.locator('.chooser-file')).to_contain_text('umbrel-test.pdf')
     page.locator('.harbor-desktop-nav').get_by_role('button', name='Start', exact=True).click()
     print('PASS: DE/EN mobile search, projects, focus and PDF retention through Umbrel.', flush=True)
@@ -391,6 +437,7 @@ with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporar
     # Validate the HTTPS app route with the explicitly trusted OS-generated CA.
     page.goto('https://localhost:8785')
     expect_home(page)
+    bank_statement_export(page, temporary)
     print('PASS: signed-in HTTPS app page; checking restart persistence.', flush=True)
 
     persistent_job = create_persistent_job(context)

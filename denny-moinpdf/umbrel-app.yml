@@ -4,7 +4,7 @@ name: MoinPDF
 tagline: A complete PDF workspace with local document processing
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/logo.png
 category: files & productivity
-version: "0.26.0"
+version: "0.27.2"
 port: 8785
 description: >-
   ⚓ MoinPDF brings PDF editing, conversion, OCR, and document checks together in one workspace. Merge files, make scans searchable, edit pages, and prepare documents for everyday tasks through a German or English interface. Drag your files into the app, search for what you want to do, and choose the matching tool.
@@ -29,6 +29,9 @@ description: >-
 
 
   🧮 Document Checks – Compare text, images, numbers, and invoice details, check calculations, and review matching passages in the original document. Check expected documents against a reviewable checklist, inspect scan-quality hints, and compare an original with two edited versions while keeping ambiguous text matches visible.
+
+
+  🏦 Bank statements to DATEV – Read supported euro statements from Sparkasse, Commerzbank and Volksbank/Raiffeisenbank, including image pages using local OCR. Check balances and postings, choose SKR03 or SKR04, and export a DATEV booking batch. Optional AI account suggestions use a personal OpenAI API key after reviewing the data to send.
 
 
   🧾 E-Invoices – Read UBL/CII invoice data, compare invoice PDFs with embedded XML, validate XRechnung files, and use the ZUGFeRD assistant.
@@ -67,7 +70,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/2.webp
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/3.webp
 releaseNotes: >-
-  Updates MoinPDF from 0.25.2 to 0.26.0 with 120 tools. New document checklists and confirmed calendar-file exports accompany scan-quality hints, three-version text comparison, selected recurring-logo replacement and automatic scan-photo separation. All processing for these tools runs locally without external AI services; ambiguous results require review. German and English documentation is updated. All four published images are pinned by digest for amd64 and arm64. Existing data, settings, credentials, permissions, persistent jobs and port 8785 are preserved. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.26.0/CHANGELOG.en.md
+  Updates MoinPDF from 0.26.0 to 0.27.2 with 121 tools. Bank statement to DATEV detects statement details and balances, checks postings and leaves document field 1 empty. Volksbank statements that open without a password despite permissions protection now work from the home page and tools. Scanned pages use local OCR. Optional AI posting suggestions support personal OpenAI API keys over HTTPS. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.27.2/CHANGELOG.en.md
 dependencies: []
 path: ""
 defaultUsername: ""
