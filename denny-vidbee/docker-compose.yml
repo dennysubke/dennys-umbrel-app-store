@@ -8,12 +8,14 @@ services:
       PROXY_AUTH_ADD: "false"
 
   web:
-    image: ghcr.io/nexmoe/vidbee-web:sha-8c7bb64@sha256:4a47950118baea92507524b161704b3d9d3349645586c4ddb1cd70a021d7963c
+    depends_on:
+      api:
+        condition: service_healthy
+    image: ghcr.io/nexmoe/vidbee-web:sha-14dcdae@sha256:a13881f5b2cd982a5a2e238a4e675dafd7cd602496309b0ea04bf844e659db54
     restart: on-failure
     environment:
-      VITE_API_URL: ""
+      VIDBEE_API_URL_INTERNAL: http://api:3100
       VIDBEE_ALLOWED_HOSTS: "${DEVICE_DOMAIN_NAME},denny-vidbee_web_1"
-      __VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS: "${DEVICE_DOMAIN_NAME},denny-vidbee_web_1"
     healthcheck:
       test:
         [
@@ -26,11 +28,7 @@ services:
       start_period: 20s
 
   api:
-    image: ghcr.io/nexmoe/vidbee-api:sha-8c7bb64@sha256:6e8f5ac3070aff35319164535ff3c5a404631c7a0495ec3093c72edf56d9084e
-    network_mode: "service:web"
-    depends_on:
-      web:
-        condition: service_healthy
+    image: ghcr.io/nexmoe/vidbee-api:sha-14dcdae@sha256:429a9217c3b9cc78c31bc220b176f84738c2fb3a8a392fecdc38fee2176b709e
     restart: on-failure
     environment:
       VIDBEE_API_HOST: 0.0.0.0
@@ -41,6 +39,7 @@ services:
     volumes:
       - ${UMBREL_ROOT}/data/storage/downloads/vidbee:/data/downloads
       - ${APP_DATA_DIR}/data:/data/vidbee
+      - ${APP_DATA_DIR}/data:/app/.data
     healthcheck:
       test:
         [
