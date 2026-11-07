@@ -4,7 +4,7 @@ name: MoinPDF
 tagline: A complete PDF workspace with local document processing
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/logo.png
 category: files & productivity
-version: "0.27.3"
+version: "0.27.4"
 port: 8785
 description: >-
   ⚓ MoinPDF brings PDF editing, conversion, OCR, and document checks together in one workspace. Merge files, make scans searchable, edit pages, and prepare documents for everyday tasks through a German or English interface. Drag your files into the app, search for what you want to do, and choose the matching tool.
@@ -70,7 +70,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/2.webp
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/3.webp
 releaseNotes: >-
-  Updates MoinPDF to 0.27.3. The DATEV sample button now opens a fictional bank statement with four postings and matching opening and closing balances. The sample uses the selected German or English language and supports DATEV export after entering accounting details. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.27.3/CHANGELOG.en.md
+  Updates MoinPDF to 0.27.4. DATEV AI errors now distinguish exhausted API credits and quotas from temporary request limits and installation limits. Known waiting times are shown without automatically resending data. Balance checks identify missing statement values and invalid postings, with direct navigation to the affected row. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.27.4/CHANGELOG.en.md
 dependencies: []
 path: ""
 defaultUsername: ""
