@@ -407,6 +407,7 @@ with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporar
 
     # Exercise the released editor and Word exports through Umbrel's authenticated app route.
     subprocess.run(['python', '.github/tests/moinpdf/core-export-smoke.py'], env=environment, check=True)
+    subprocess.run(['python', '.github/tests/moinpdf/workspace-controls.py'], env=environment, check=True)
 
     # Umbrel deliberately uses distinct HTTP and __Host- HTTPS session cookies.
     # Authenticate the HTTPS session through the real login endpoint as well.
