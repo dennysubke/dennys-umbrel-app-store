@@ -140,7 +140,7 @@ def desktop_layout(page):
             dark = page.locator('html').evaluate('(el) => el.classList.contains("dark")')
             if dark != (theme == 'dark'):
                 page.locator('.theme-toggle').click()
-            expected_color = 'rgb(200, 234, 217)' if theme == 'light' else 'rgb(25, 31, 34)'
+            expected_color = 'rgb(179, 212, 196)' if theme == 'light' else 'rgb(25, 31, 34)'
             expect(page.locator('.moinpdf-shell')).to_have_css('background-color', expected_color)
             for width in (1600, 1920, 2560):
                 page.set_viewport_size({'width': width, 'height': 1000})
