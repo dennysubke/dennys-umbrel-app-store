@@ -50,3 +50,9 @@ for name in ['converted.epub', 'book.epub', 'output.pdf']:
                     print(member, archive.read(member).decode()[:20000])
 (out / 'report.json').write_text(json.dumps(report, indent=2))
 print(json.dumps(report, indent=2))
+
+for page in report['output.pdf']:
+    assert page['nonwhite'] > 100, page
+assert 'Fictional MoinPDF' in ''.join(p['text'] for p in report['output.pdf'])
+assert 'Second page' in ''.join(p['text'] for p in report['output.pdf'])
+print('Every restored page retains visible content, including the cover.')
