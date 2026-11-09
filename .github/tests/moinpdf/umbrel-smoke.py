@@ -405,6 +405,9 @@ with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporar
                        MOINPDF_TEST_REPO=str(Path.cwd()))
     subprocess.run(['python', '.github/tests/moinpdf/selfhost-smoke.py'], env=environment, check=True)
 
+    # Check new native server engines through the same authenticated gateway.
+    subprocess.run(['python', '.github/tests/moinpdf/growth-export-smoke.py'], env=environment, check=True)
+
     # Exercise the released editor and Word exports through Umbrel's authenticated app route.
     subprocess.run(['python', '.github/tests/moinpdf/core-export-smoke.py'], env=environment, check=True)
     subprocess.run(['python', '.github/tests/moinpdf/workspace-controls.py'], env=environment, check=True)
@@ -469,3 +472,4 @@ with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporar
 
 (evidence / 'result.txt').write_text(f'PASS: umbrelOS 2.0.0 on native {architecture}; installation path: {installation}; native Umbrel installation, protected app gateway, signed-in browser, PDF upload and DE/EN switching, mobile search/projects/document retention, document creation/drafts/PDF export, HTTP and HTTPS app routes, real Office, website conversion, DE/EN translation and speech, restart, persisted models and byte-identical background-job results with ticket isolation and deletion. Physical NAS devices and camera/printer hardware were not tested.\n')
 print((evidence / 'result.txt').read_text())
+

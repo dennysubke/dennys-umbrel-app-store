@@ -1,0 +1,12 @@
+[
+  {
+    "row": 2,
+    "file": "fixture-2.jpg",
+    "bytes": 59400,
+    "sha256": "bb6be2eec6437c79de7f3c1bc79047b282bf73e5d44da13bf4c99af51d17f2ab",
+    "expected": "Handschrift",
+    "license": "AFL-3.0",
+    "source": "https://huggingface.co/datasets/fhswf/german_handwriting/viewer/default/train?row=2",
+    "possible_training_data": true
+  }
+]

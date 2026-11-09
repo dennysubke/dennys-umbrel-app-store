@@ -4,7 +4,7 @@ name: MoinPDF
 tagline: A complete PDF workspace with local document processing
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/logo.png
 category: files & productivity
-version: "0.29.0"
+version: "0.30.0"
 port: 8785
 description: >-
   ⚓ MoinPDF brings PDF editing, conversion, OCR, and document checks together in one workspace. Merge files, make scans searchable, edit pages, and prepare documents for everyday tasks through a German or English interface. Drag your files into the app, search for what you want to do, and choose the matching tool.
@@ -34,7 +34,22 @@ description: >-
   🏦 Bank statements to DATEV – Read supported euro statements from Sparkasse, Commerzbank and Volksbank/Raiffeisenbank, including image pages using local OCR. Check balances and postings, choose SKR03 or SKR04, and export a DATEV booking batch. Optional AI account suggestions use a personal OpenAI API key after reviewing the data to send.
 
 
-  🧾 E-Invoices – Read UBL/CII invoice data, compare invoice PDFs with embedded XML, validate XRechnung files, and use the ZUGFeRD assistant.
+  🧾 E-Invoices – Create supported EUR invoices as XRechnung or ZUGFeRD, review the data, and export independently checked invoices with their validation reports. Import supported XML drafts and compare invoice PDFs with embedded XML.
+
+
+  🏷️ Payment Matching – Review bank postings and receipts, confirm allocations and partial payments, identify missing receipts or overpayments, and export a traceable Excel reconciliation.
+
+
+  🗂️ PDF Portfolios & Layers – Bundle original PDFs, spreadsheets, emails and images as individually extractable attachments with a contents page and checksums. Create PDF layers and assign supported native objects to them.
+
+
+  🛡️ Personal Data – Review local suggestions for labeled personal data, email addresses, bank details and tax identifiers, then replace confirmed occurrences with consistent placeholders.
+
+
+  🖊️ Handwriting – Recognize selected lines of modern German handwriting on the included document server. Correct and confirm each line before exporting text or a searchable PDF. Historical scripts and whole-page recognition are not supported.
+
+
+  🖨️ Print Preparation – Create PDF/X-3 output with a CMYK profile, trim settings and an independent technical partial-check report. Full ISO conformance is not certified.
 
 
   📦 Batch Workflows – Process multiple documents, resume saved workflows, collect receipt fields, and evaluate returned forms. Clear Deck recognizes and groups mixed document piles locally; review assignments, duplicates, and missing pages before exporting individual PDFs or a linked bundle. Save reviewed local recognition rules for recurring layouts and confirm checked, unambiguous suggestions together.
@@ -70,7 +85,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/2.webp
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/3.webp
 releaseNotes: >-
-  Updates MoinPDF to 0.29.0. Arrange up to 16 PDF pages per sheet while retaining text and vectors. Transfer bookmark outlines with CSV or JSON, review imported entries, and append or replace existing outlines with undo support. The included document server adds FB2, CBZ, XPS, and OXPS conversion. Administrators can optionally configure watched folders for seven supported PDF operations; this requires explicit folder and workflow configuration and is disabled by default. Existing documents, credentials and cached language models are preserved. German and English documentation includes the new options. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.29.0/CHANGELOG.en.md
+  Updates MoinPDF to 0.30.0 with 127 tools. Adds reviewed payment-to-receipt reconciliation, independently checked XRechnung/ZUGFeRD creation, PDF portfolios with unchanged attachments, assisted personal-data replacement, local German handwriting recognition by line, and PDF/X-3 preparation with a technical partial report. Existing layer tools now create layers and assign native objects. Optional watched folders add OCR, blank-page removal, conditions, splitting, routing and configurable filenames while preserving originals; administrators must explicitly configure them. German and English guidance explains supported formats and limits. Existing documents, credentials and cached language models are preserved. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.30.0/CHANGELOG.en.md
 dependencies: []
 path: ""
 defaultUsername: ""
