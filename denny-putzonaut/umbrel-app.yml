@@ -29,7 +29,7 @@ environment:
     note: "SMTP login supplied by your mail provider."
 category: files & productivity
 name: Putzonaut
-version: "0.26.2"
+version: "0.26.3"
 tagline: A gamified chore planner for your household
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-putzonaut/logo.png
 description: >-
@@ -47,7 +47,7 @@ description: >-
 
   Add Putzonaut to your Android or iPhone home screen as a web app. Enable device reminders to receive a notification at your chosen time, even when the app is closed. Change your login email after confirming the new address, or delete your account after leaving or closing your crew. Accounts, household data, photos, and the encrypted email queue stay in this app's own storage. Internet access is used for your configured SMTP service and, when enabled, your device's push service.
 releaseNotes: >-
-  Corrects the website footer so the copyright year is aligned to the far right of the same row as the navigation links. On smartphones, the Putzonaut logo remains above this row. The layout is also updated on the legal pages.
+  Simplifies the website support section to just "Probleme mit Putzonaut?" above the email and GitHub links. The extra explanatory sentence is removed on the home page and legal pages.
 developer: Putzonaut
 website: https://putzonaut.de
 dependencies: []
