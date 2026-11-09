@@ -1,0 +1,28 @@
+name: Diagnose released Kindle roundtrip
+on:
+  push:
+    branches: ['diagnose/moinpdf-kindle031']
+permissions:
+  contents: read
+jobs:
+  reproduce:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run the exact released converter offline
+        run: |
+          mkdir -p kindle-evidence
+          chmod 777 kindle-evidence
+          docker run --rm --network none --cap-drop ALL --security-opt no-new-privileges \
+            --read-only --tmpfs /tmp:rw,size=1g \
+            --volume "$PWD/.github/tests/moinpdf/kindle-diagnose.py:/diagnose.py:ro" \
+            --volume "$PWD/kindle-evidence:/evidence:rw" \
+            --entrypoint python ghcr.io/moinpdf/moinpdf-documents:0.31.0-e43f97d53210@sha256:1f694b5a3659f7dba9b46426569ccc97080690ccf0d2b764a1ea68b8a679153e /diagnose.py
+      - name: Retain fictional roundtrip stages
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kindle-roundtrip-diagnosis
+          path: kindle-evidence/
+          retention-days: 7
