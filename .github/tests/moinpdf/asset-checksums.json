@@ -1,5 +1,5 @@
 {
-  "source": "ac7310b2d7e662390f33080e198171131193d455",
+  "source": "1cace4a52e31f639382bbe2be3663fb58e3d9aa7",
   "sha256": {
     "/favicon.png": "43c33290ac2f1a4ffdf27f4bc568116115c0b776f7dd0b0ecec3e4a5005bae96",
     "/favicon.ico": "63515bc4e234df574b593d0f85b4985497d5900eee01e4752bf0cf900994f565",
@@ -7,6 +7,12 @@
     "/media/videos/moinpdf-drucker-ueber-bord.mp4": "4af74ef15a1927c646817334c296391fa04d53d5604a6d0760c335443edb2cd6"
   },
   "toolIds": [
+    "text-pdf",
+    "pdf-json",
+    "scan-effect",
+    "pdf-comic",
+    "pdf-ai",
+    "pdf-javascript",
     "payment-match",
     "invoice-create",
     "pdf-portfolio",

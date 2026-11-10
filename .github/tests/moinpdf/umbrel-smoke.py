@@ -387,12 +387,15 @@ with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporar
     for attempt in range(180):
         response = context.request.get(origin + '/api/documents/v1/capabilities',
                                        headers={'X-MoinPDF-Client': 'web'})
-        if response.ok and all(response.json().get('capabilities', {}).values()):
-            assert response.json()['capabilities']
+        capabilities = response.json().get('capabilities', {}) if response.ok else {}
+        # RAR creation needs an operator-supplied licensed executable. The store
+        # intentionally does not bundle it; every other service remains required.
+        if capabilities and all(ready for name, ready in capabilities.items() if name != 'formatCbr'):
+            assert capabilities.get('formatCbr') is False, capabilities
             break
         if attempt % 6 == 0:
-            pending = sorted(name for name, ready in response.json().get('capabilities', {}).items()
-                             if not ready) if response.ok else [f'HTTP {response.status}']
+            pending = sorted(name for name, ready in capabilities.items()
+                             if not ready and name != 'formatCbr') if response.ok else [f'HTTP {response.status}']
             print('Waiting for candidate capabilities:', pending or ['document API'], flush=True)
         time.sleep(10)
     else:
@@ -407,6 +410,7 @@ with sync_playwright() as browser_api, tempfile.TemporaryDirectory() as temporar
 
     # Check new native server engines through the same authenticated gateway.
     subprocess.run(['python', '.github/tests/moinpdf/growth-export-smoke.py'], env=environment, check=True)
+    subprocess.run(['python', '.github/tests/moinpdf/formats031-smoke.py'], env=environment, check=True)
 
     # Exercise the released editor and Word exports through Umbrel's authenticated app route.
     subprocess.run(['python', '.github/tests/moinpdf/core-export-smoke.py'], env=environment, check=True)

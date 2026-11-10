@@ -61,7 +61,8 @@ session.headers['X-MoinPDF-Client'] = 'web'
 capabilities = session.get(api + '/v1/capabilities', timeout=10)
 capabilities.raise_for_status()
 features = capabilities.json()['capabilities']
-assert features and all(features.values()), features
+assert features.get('formatCbr') is False, features
+assert features and all(ready for name, ready in features.items() if name != 'formatCbr'), features
 assert session.get(api + '/v1/capabilities', headers={'Sec-Fetch-Site': 'cross-site'}, timeout=10).status_code == 403
 # A supplied credential never replaces the internal proxy credential.
 assert session.get(api + '/v1/capabilities', headers={'Authorization': 'Bearer invalid'}, timeout=10).status_code == 200

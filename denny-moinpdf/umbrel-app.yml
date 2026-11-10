@@ -4,7 +4,7 @@ name: MoinPDF
 tagline: A complete PDF workspace with local document processing
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/logo.png
 category: files & productivity
-version: "0.30.0"
+version: "0.31.1"
 port: 8785
 description: >-
   ⚓ MoinPDF brings PDF editing, conversion, OCR, and document checks together in one workspace. Merge files, make scans searchable, edit pages, and prepare documents for everyday tasks through a German or English interface. Drag your files into the app, search for what you want to do, and choose the matching tool.
@@ -25,7 +25,10 @@ description: >-
   🔍 OCR & Scans – Recognize text in multiple languages, create searchable PDFs, improve scans, compress documents, and import images from your camera. Automatically separate photos from a shared scan, correct detected corners or rotation, and export reviewed crops as images or PDFs.
 
 
-  🔄 File Conversion – Convert supported Office documents locally in your browser or with the included document server. Export PDFs to Word with page sizes, images, and editable text boxes; scans use local OCR, with notices for graphical fallbacks. Convert emails, export images, text, and tables, and create PDF/A files with the document server. The document server also converts EPUB, FB2, CBZ, XPS, and OXPS files to PDF. Save public website links as PDFs with images, fonts, CSS, and page-layout options using the included website converter.
+  🔄 File Conversion – Convert supported Office documents locally in your browser or with the included document server. Export PDFs to Word with page sizes, images, and editable text boxes; scans use local OCR, with notices for graphical fallbacks. Convert emails, export images, text, and tables, and create PDF/A files with the document server. Create PDFs locally from Markdown, plain text, CSV, and generic XML. The document server also imports WordPerfect WPD, Works WPS, ODG, DRM-free MOBI/AZW3, EPUB, FB2, CBZ/CBR, XPS, and OXPS, and exports PDFs to RTF, ODT, ODP, and AZW3. Save public website links as PDFs with images, fonts, CSS, and page-layout options using the included website converter.
+
+
+  🗃️ Data & Comics – Import and export complete QPDF JSON documents, create CBZ comics, export per-page LlamaIndex JSON and structured XML text, inspect embedded PDF JavaScript without running it, and add adjustable scanner effects. Optional CBR creation requires an administrator-provided licensed RAR executable; CBR import and CBZ export work in the standard installation.
 
 
   🧮 Document Checks – Compare text, images, numbers, and invoice details, check calculations, and review matching passages in the original document. Check expected documents against a reviewable checklist, inspect scan-quality hints, and compare an original with two edited versions while keeping ambiguous text matches visible.
@@ -85,7 +88,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/2.webp
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/3.webp
 releaseNotes: >-
-  Updates MoinPDF to 0.30.0 with 127 tools. Adds reviewed payment-to-receipt reconciliation, independently checked XRechnung/ZUGFeRD creation, PDF portfolios with unchanged attachments, assisted personal-data replacement, local German handwriting recognition by line, and PDF/X-3 preparation with a technical partial report. Existing layer tools now create layers and assign native objects. Optional watched folders add OCR, blank-page removal, conditions, splitting, routing and configurable filenames while preserving originals; administrators must explicitly configure them. German and English guidance explains supported formats and limits. Existing documents, credentials and cached language models are preserved. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.30.0/CHANGELOG.en.md
+  Updates MoinPDF to 0.31.1 with 133 tools. Adds local Markdown, text, CSV and generic XML to PDF, complete QPDF JSON import/export, adjustable scanner effects, PDF to CBZ, per-page LlamaIndex JSON, and read-only inspection of embedded PDF JavaScript. Existing converters gain WPD, Works WPS, ODG, DRM-free MOBI/AZW3 and CBR import, RTF/ODT/ODP/AZW3 export, and structured XML text export. Optional CBR creation requires a separately licensed RAR executable supplied by the administrator. Preserves SVG cover images during EPUB, MOBI and AZW3 import. Fixes cancellation during browser Office startup so delayed initialization cannot leave background workers running. German and English guidance covers supported formats and limits. Existing documents, credentials and cached language models are preserved. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.31.1/CHANGELOG.en.md
 dependencies: []
 path: ""
 defaultUsername: ""
