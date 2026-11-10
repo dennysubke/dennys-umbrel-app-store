@@ -4,7 +4,7 @@ name: MoinPDF
 tagline: A complete PDF workspace with local document processing
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/logo.png
 category: files & productivity
-version: "0.31.0"
+version: "0.31.1"
 port: 8785
 description: >-
   ⚓ MoinPDF brings PDF editing, conversion, OCR, and document checks together in one workspace. Merge files, make scans searchable, edit pages, and prepare documents for everyday tasks through a German or English interface. Drag your files into the app, search for what you want to do, and choose the matching tool.
@@ -88,7 +88,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/2.webp
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/3.webp
 releaseNotes: >-
-  Updates MoinPDF to 0.31.0 with 133 tools. Adds local Markdown, text, CSV and generic XML to PDF, complete QPDF JSON import/export, adjustable scanner effects, PDF to CBZ, per-page LlamaIndex JSON, and read-only inspection of embedded PDF JavaScript. Existing converters gain WPD, Works WPS, ODG, DRM-free MOBI/AZW3 and CBR import, RTF/ODT/ODP/AZW3 export, and structured XML text export. Optional CBR creation requires a separately licensed RAR executable supplied by the administrator. Fixes cancellation during browser Office startup so delayed initialization cannot leave background workers running. German and English guidance covers supported formats and limits. Existing documents, credentials and cached language models are preserved. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.31.0/CHANGELOG.en.md
+  Updates MoinPDF to 0.31.1 with 133 tools. Adds local Markdown, text, CSV and generic XML to PDF, complete QPDF JSON import/export, adjustable scanner effects, PDF to CBZ, per-page LlamaIndex JSON, and read-only inspection of embedded PDF JavaScript. Existing converters gain WPD, Works WPS, ODG, DRM-free MOBI/AZW3 and CBR import, RTF/ODT/ODP/AZW3 export, and structured XML text export. Optional CBR creation requires a separately licensed RAR executable supplied by the administrator. Preserves SVG cover images during EPUB, MOBI and AZW3 import. Fixes cancellation during browser Office startup so delayed initialization cannot leave background workers running. German and English guidance covers supported formats and limits. Existing documents, credentials and cached language models are preserved. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.31.1/CHANGELOG.en.md
 dependencies: []
 path: ""
 defaultUsername: ""

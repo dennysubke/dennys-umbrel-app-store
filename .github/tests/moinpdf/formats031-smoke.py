@@ -46,7 +46,7 @@ def check_pdf(content, pages=None, text=None):
         if text is not None:
             assert text in ''.join(page.get_text() for page in document)
         for page in document:
-            assert sum(value < 245 for value in page.get_pixmap().samples) > 100
+            assert sum(value < 245 for value in page.get_pixmap().samples) > 100, f'Blank PDF page {page.number + 1}'
 
 
 def rar5_stored(members):
@@ -105,11 +105,12 @@ for fmt in ['rtf', 'odt', 'odp']:
 kindle = post('/v1/formats/azw3', 'fictional.pdf', pdf, {'title': 'Fictional book', 'language': 'en'})
 assert kindle[60:68] == b'BOOKMOBI'
 restored = post('/v1/documents/ebook', 'fictional.azw3', kindle, {'paper': 'a5', 'fontSize': 14})
-check_pdf(restored, text='Fictional MoinPDF')
-with pymupdf.open(stream=restored, filetype='pdf') as document:
-    assert round(document[0].rect.width) == 420
 (out / 'fictional.azw3').write_bytes(kindle)
 (out / 'restored-kindle.pdf').write_bytes(restored)
+check_pdf(restored, text='Fictional MoinPDF')
+with pymupdf.open(stream=restored, filetype='pdf') as document:
+    assert 'Second page' in ''.join(page.get_text() for page in document)
+    assert round(document[0].rect.width) == 420
 
 images = []
 for color in [(1, 0, 0), (0, 0, 1)]:
