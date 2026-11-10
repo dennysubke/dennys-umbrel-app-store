@@ -13,7 +13,7 @@ services:
       APP_PORT: 8080
 
   web:
-    image: ghcr.io/moinpdf/moinpdf-web:0.31.1-1cace4a52e31@sha256:29170c653edc244130d9a3fe432bb5c6a9f2454d7772d824e6321cf854b583b8
+    image: ghcr.io/moinpdf/moinpdf-web:0.31.2-04df029d015c@sha256:ccd77dc73ca99a7aec9b58a17f900431b3c63c277bf57eb505380e989634c441
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 1m
@@ -34,7 +34,7 @@ services:
     logging: *logging
 
   documents:
-    image: ghcr.io/moinpdf/moinpdf-documents:0.31.1-1cace4a52e31@sha256:a2a6d2d73d141fbe7b33dcb0a1d7354554ba582aa1bb96f474a2d9afc90f4073
+    image: ghcr.io/moinpdf/moinpdf-documents:0.31.2-04df029d015c@sha256:eaf0e3fa42e73b227a724d46a6b074f0822b33b6dbda63ff5dc42d9d5494d244
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 1m
@@ -59,7 +59,7 @@ services:
     logging: *logging
 
   website:
-    image: ghcr.io/moinpdf/moinpdf-website:0.31.1-1cace4a52e31@sha256:a1b36bf400ccbea6151424c404509b5ad58f4969c87497ae19849eed7e6df0e1
+    image: ghcr.io/moinpdf/moinpdf-website:0.31.2-04df029d015c@sha256:f5b718284dee2d87b9cc1fc931dc6cd591c41b4ab2f977021ee79b15af2cc8fb
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 1m
@@ -78,7 +78,7 @@ services:
     logging: *logging
 
   translation-models:
-    image: ghcr.io/moinpdf/moinpdf-translation:0.31.1-1cace4a52e31@sha256:887433c2b7b2c9b4993b352ca696ae2370bd5a2a737988da3d57d5c3fdd12b3e
+    image: ghcr.io/moinpdf/moinpdf-translation:0.31.2-04df029d015c@sha256:bf5ceda6b2cd541afc24b8cd9a565d063bdb0345e0bfc5980843ff9cfea933bb
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 1m
@@ -99,7 +99,7 @@ services:
     logging: *logging
 
   translation:
-    image: ghcr.io/moinpdf/moinpdf-translation:0.31.1-1cace4a52e31@sha256:887433c2b7b2c9b4993b352ca696ae2370bd5a2a737988da3d57d5c3fdd12b3e
+    image: ghcr.io/moinpdf/moinpdf-translation:0.31.2-04df029d015c@sha256:bf5ceda6b2cd541afc24b8cd9a565d063bdb0345e0bfc5980843ff9cfea933bb
     user: "1000:1000"
     restart: on-failure
     stop_grace_period: 1m
