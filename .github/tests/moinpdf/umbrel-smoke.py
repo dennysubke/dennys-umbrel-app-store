@@ -140,7 +140,7 @@ def desktop_layout(page):
             dark = page.locator('html').evaluate('(el) => el.classList.contains("dark")')
             if dark != (theme == 'dark'):
                 page.locator('.theme-toggle').click()
-            expected_color = 'rgb(179, 212, 196)' if theme == 'light' else 'rgb(25, 31, 34)'
+            expected_color = 'rgb(128, 195, 184)' if theme == 'light' else 'rgb(25, 31, 34)'
             expect(page.locator('.moinpdf-shell')).to_have_css('background-color', expected_color)
             for width in (1600, 1920, 2560):
                 page.set_viewport_size({'width': width, 'height': 1000})
@@ -172,7 +172,7 @@ def desktop_layout(page):
             page.locator('.theme-toggle').click()
         page.set_viewport_size({'width': 1440, 'height': 1000})
     (evidence / 'desktop-layout.json').write_text(json.dumps(results, indent=2) + '\n')
-    print('PASS: 1600/1920/2560px desktop width, aligned controls, mint light mode and dark mode through Umbrel.', flush=True)
+    print('PASS: 1600/1920/2560px desktop width, aligned controls, green-turquoise-blue light mode and dark mode through Umbrel.', flush=True)
 
 
 def mobile_search(page):
