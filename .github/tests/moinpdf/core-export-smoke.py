@@ -73,11 +73,16 @@ with sync_playwright() as api:
                 print('PASS: Umbrel original-text edit, undo/redo, real PDF download, removed old text and unchanged image.', flush=True)
             else:
                 expect(page.get_by_role('heading', name='PDF zu Word', exact=True)).to_be_visible()
-                # Version 0.23.0 starts Word export locally, even with a server.
+                # Automatic processing preserves the two Word output goals.
                 expect(page.get_by_role('radio', name='Aussehen möglichst erhalten', exact=True)).to_be_checked()
                 expect(page.get_by_role('radio', name='Text und Tabellen bearbeiten', exact=True)).to_be_visible()
-                expect(page.locator('.word-export-options')).to_contain_text('Die Word-Datei wird auf deinem Gerät erstellt.')
+                expect(page.locator('.word-export-options')).to_contain_text('Scan-Seiten werden automatisch per OCR erkannt.')
                 expect(page.locator('.word-export-options details')).not_to_have_attribute('open', '')
+                page.get_by_text('Weitere Optionen', exact=True).click()
+                expect(page.get_by_label('Nur Text als Absätze', exact=True)).to_be_visible()
+                expect(page.get_by_label('Verarbeitung', exact=True)).to_have_count(0)
+                expect(page.get_by_label('Serveradresse', exact=True)).to_have_count(0)
+                expect(page.get_by_text('Eigener Dokumentenserver', exact=True)).to_have_count(0)
                 page.get_by_role('button', name='Word-Datei erstellen', exact=True).click()
                 link = page.get_by_role('link', name='Word herunterladen', exact=True)
                 expect(link).to_be_visible(timeout=180000)
