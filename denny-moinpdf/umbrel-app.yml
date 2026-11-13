@@ -4,7 +4,7 @@ name: MoinPDF
 tagline: A complete PDF workspace with local document processing
 icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/logo.png
 category: files & productivity
-version: "0.34.0"
+version: "0.35.0"
 port: 8785
 description: >-
   ⚓ MoinPDF brings PDF editing, conversion, OCR, and document checks together in one workspace. Merge files, make scans searchable, edit pages, and prepare documents for everyday tasks through a German or English interface. Drag your files into the app, search for what you want to do, and choose the matching tool.
@@ -88,7 +88,7 @@ gallery:
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/2.webp
   - https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-moinpdf/3.webp
 releaseNotes: >-
-  Updates MoinPDF to 0.34.0. Direct PDF editing now has a compact formatting toolbar with advanced text actions and font details available on demand. Original fonts, substitute fonts and scan approximations are clearly distinguished. Paragraph detection preserves indents, baseline spacing, character spacing and horizontal scaling; overlapping text is selected more accurately. Typing, deleting and replacing repeated characters preserves mixed formatting at the cursor, and cancelled input retains existing styles. Mobile notifications no longer block downloads. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.34.0/CHANGELOG.en.md
+  Updates MoinPDF to 0.35.0. Compare replacement fonts directly on the PDF page before applying them, while preserving character spacing and horizontal scaling. Numeric scan fields require matching nearby references before automatic font adjustment. Short concluding lines stay in their established text columns. Fit supported table rows to multiline content with a preview, unchanged font sizes and column widths, and checks for neighbouring content. Paragraph-flow previews show the original page context. Cursor scrolling follows the visible document area above the mobile keyboard. Full changelog: https://github.com/MoinPDF/moinpdf/blob/v0.35.0/CHANGELOG.en.md
 dependencies: []
 path: ""
 defaultUsername: ""
